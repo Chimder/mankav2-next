@@ -1,12 +1,12 @@
 import Axios, { AxiosError, AxiosRequestConfig } from 'axios'
 
+// baseURL: 'https://api.mangadex.org',
 export const AXIOS_INSTANCE = Axios.create({
-  // baseURL: 'https://api.mangadex.org',
   baseURL: '/proxy-api',
   headers: {
     'Content-Type': 'application/json',
     'Accept': '*/*',
-    'User-Agent': 'Manka/1.0',
+    'User-Agent': 'MangaApp/1.0', // Убедитесь, что это корректный User-Agent
   },
 })
 
