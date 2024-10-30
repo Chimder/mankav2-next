@@ -2,7 +2,7 @@ import { getStatisticsMangaUuid } from '@/shared/api/swagger/generated'
 import { useQuery } from '@tanstack/react-query'
 
 export const statisticsApi = {
-  baseKey: 'tasks',
+  baseKey: 'statistics',
   useMangaStatistics: (id: string) => {
     return useQuery({
       queryKey: [statisticsApi.baseKey, id],

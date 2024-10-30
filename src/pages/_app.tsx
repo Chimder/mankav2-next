@@ -5,6 +5,7 @@ import { NextPage } from 'next'
 import type { AppProps } from 'next/app'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
+import MainLayout from '@/components/layouts/main-layouts'
 
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
   getLayout?: (page: ReactElement) => ReactNode
@@ -17,7 +18,7 @@ type AppPropsWithLayout = AppProps & {
 export const queryClient = new QueryClient()
 
 const App = ({ Component, pageProps }: AppPropsWithLayout) => {
-  const getLayout = Component.getLayout ?? (page => <nav>{page}</nav>)
+  const getLayout = Component.getLayout ?? (page => <MainLayout>{page}</MainLayout>)
 
   return (
     <QueryClientProvider client={queryClient}>

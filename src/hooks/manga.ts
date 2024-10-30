@@ -1,5 +1,19 @@
-import { getMangaId } from '@/shared/api/swagger/generated'
+import { getMangaId, getSearchManga } from '@/shared/api/swagger/generated'
 import { useQuery } from '@tanstack/react-query'
+
+type Order = 'asc' | 'desc'
+
+type mangaSearchOps = {
+  tags?: string[]
+  name?: string
+  offset?: number
+  created?: Order
+  rating?: Order
+  updatedAt?: Order
+  year?: Order
+  title?: Order
+  latestUploaded?: Order
+}
 
 export const mangaApi = {
   baseKey: 'manga',
@@ -20,6 +34,63 @@ export const mangaApi = {
     })
   },
 
+  useMangaSearch: ({
+    tags,
+    name,
+    offset,
+    created,
+    rating,
+    updatedAt,
+    year,
+    title,
+    latestUploaded,
+  }: Partial<mangaSearchOps>) => {
+    return useQuery({
+      queryKey: [
+        mangaApi.baseKey,
+        name,
+        tags,
+        offset,
+        created,
+        rating,
+        updatedAt,
+        year,
+        title,
+        latestUploaded,
+      ],
+      queryFn: ({ signal }) =>
+        getSearchManga(
+          {
+            'includedTagsMode': 'AND',
+            'includedTags[]': tags,
+            'title': name,
+            'includes[]': ['cover_art'],
+            'order': {
+              createdAt: created,
+              rating: rating,
+              updatedAt: updatedAt,
+              year: year,
+              title: title,
+              latestUploadedChapter: latestUploaded,
+            },
+            'contentRating[]': [
+              'erotica',
+              'pornographic',
+              'safe',
+              'suggestive',
+            ],
+            'limit': 32,
+            'offset': offset,
+          },
+          { signal },
+        ),
+      refetchOnMount: false,
+      refetchOnWindowFocus: false,
+      staleTime: 100000,
+      retry: 0,
+    })
+  },
+
   // getTodoListInfinityQueryOptions: () => {
   //   return infiniteQueryOptions({
   //     queryKey: [todoListApi.baseKey, 'list'],
@@ -33,13 +104,6 @@ export const mangaApi = {
   //     initialPageParam: 1,
   //     getNextPageParam: result => result.next,
   //     select: result => result.pages.flatMap(page => page.data),
-  //   })
-  // },
-
-  // createTodo: (data: TodoDto) => {
-  //   return jsonApiInstance<TodoDto>(`/tasks`, {
-  //     method: 'POST',
-  //     json: data,
   //   })
   // },
 }

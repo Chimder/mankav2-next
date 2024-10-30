@@ -5,7 +5,7 @@ export const tagsApi = {
   baseKey: 'tags',
   useMangaTags: () => {
     return useQuery({
-      queryKey: [tagsApi.baseKey, ],
+      queryKey: [tagsApi.baseKey],
       queryFn: ({ signal }) => getMangaTag({ signal }),
       refetchOnMount: false,
       refetchOnWindowFocus: false,
