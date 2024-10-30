@@ -21,14 +21,14 @@ const nextConfig: NextConfig = {
   //     },
   //   ]
   // },
-  async rewrites() {
-    return [
-      {
-        source: '/proxy-api/:path*',
-        destination: 'https://api.mangadex.org/:path*',
-      },
-    ]
-  },
+  // async rewrites() {
+  //   return [
+  //     {
+  //       source: '/proxy-api/:path*',
+  //       destination: 'https://api.mangadex.org/:path*',
+  //     },
+  //   ]
+  // },
 }
 
 export default nextConfig
