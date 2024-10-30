@@ -4,9 +4,9 @@ import Axios, { AxiosError, AxiosRequestConfig } from 'axios'
 export const AXIOS_INSTANCE = Axios.create({
   baseURL: '/proxy-api',
   headers: {
-    'Content-Type': 'application/json',
+    // 'Content-Type': 'application/json',
     'Accept': '*/*',
-    'User-Agent': 'MangaApp/1.0', // Убедитесь, что это корректный User-Agent
+    'User-Agent': 'MangaApp/1.0',
   },
 })
 
