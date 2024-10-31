@@ -1,8 +1,7 @@
 import Axios, { AxiosError, AxiosRequestConfig } from 'axios'
 
 export const AXIOS_INSTANCE = Axios.create({
-  // baseURL: 'https://api.mangadex.org',
-  baseURL: '/api/proxyApi/',
+  baseURL: '/api/proxyApi?url=',
   headers: {
     'Content-Type': 'application/json',
     'Accept': '*/*',
@@ -35,5 +34,4 @@ export const customInstance = <T>(
 }
 
 export type ErrorType<Error> = AxiosError<Error>
-
 export type BodyData<BodyData> = BodyData

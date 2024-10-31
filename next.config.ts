@@ -1,5 +1,5 @@
 /** @type {import('next').NextConfig} */
-const isProd = process.env.NODE_ENV === 'production'
+// const isProd = process.env.NODE_ENV === 'production'
 const nextConfig = {
   experimental: {
     reactCompiler: true,
@@ -15,14 +15,7 @@ const nextConfig = {
   //   }
   //   return []
   // },
-  async rewrites() {
-    return [
-      {
-        source: '/api/proxyApi/:path*', // Путь, который будет перезаписан
-        destination: 'https://api.mangadex.org/:path*', // Целевой URL
-      },
-    ]
-  },
+
 }
 
 module.exports = nextConfig

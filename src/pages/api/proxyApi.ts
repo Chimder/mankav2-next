@@ -1,24 +1,35 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { createProxyMiddleware } from 'http-proxy-middleware'
+import axios from 'axios'
 
-export const config = {
-  api: {
-    bodyParser: false,
-  },
-}
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse,
+) {
+  const { url, ...query } = req.query
 
-const proxy = createProxyMiddleware({
-  target: 'https://api.mangadex.org',
-  changeOrigin: true,
-  pathRewrite: {
-    '^/api/proxyApi': '',
-  },
-})
+  // Проверяем наличие URL параметра
+  if (!url || typeof url !== 'string') {
+    return res.status(400).json({ error: 'URL is required' })
+  }
 
-export default function handler(req: NextApiRequest, res: NextApiResponse) {
-  return proxy(req, res, err => {
-    if (err) {
-      res.status(500).send('Proxy error')
+  try {
+    const response = await axios({
+      url: `https://api.mangadex.org${url}`,
+      method: req.method,
+      headers: { ...req.headers, host: undefined },
+      params: query,
+      data: req.body,
+    })
+
+    Object.entries(response.headers).forEach(([key, value]) => {
+      res.setHeader(key, String(value))
+    })
+    res.status(response.status).send(response.data)
+  } catch (error) {
+    if (axios.isAxiosError(error) && error.response) {
+      res.status(error.response.status).json({ error: error.response.data })
+    } else {
+      res.status(500).json({ error: 'Failed to fetch data' })
     }
-  })
+  }
 }

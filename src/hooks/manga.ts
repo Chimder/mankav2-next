@@ -63,7 +63,7 @@ export const mangaApi = {
           {
             'includedTagsMode': 'AND',
             'includedTags[]': tags,
-            'title': 'Holo',
+            'title': name,
             'includes[]': ['cover_art'],
             'order': {
               createdAt: created,
@@ -73,7 +73,7 @@ export const mangaApi = {
               title: title,
               latestUploadedChapter: latestUploaded,
             },
-            'contentRating[]': ['pornographic'],
+            'contentRating[]': ['safe'],
             'limit': 32,
             'offset': offset,
           },
