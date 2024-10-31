@@ -10,11 +10,13 @@ export const config = {
 const proxy = createProxyMiddleware({
   target: 'https://api.mangadex.org',
   changeOrigin: true,
-  pathRewrite: { '^/api/proxyApi': '' },
+  pathRewrite: {
+    '^/api/proxyApi': '',
+  },
 })
 
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
-  proxy(req, res, err => {
+  return proxy(req, res, err => {
     if (err) {
       res.status(500).send('Proxy error')
     }
