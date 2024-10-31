@@ -73,12 +73,7 @@ export const mangaApi = {
               title: title,
               latestUploadedChapter: latestUploaded,
             },
-            'contentRating[]': [
-              'erotica',
-              'pornographic',
-              'safe',
-              'suggestive',
-            ],
+            'contentRating[]': ['suggestive', 'safe'],
             'limit': 32,
             'offset': offset,
           },

@@ -8,7 +8,7 @@ const nextConfig = {
     if (!isProd) {
       return [
         {
-          source: '/proxy-api/:path*',
+          source: '/api/proxyApi/:path*',
           destination: 'https://api.mangadex.org/:path*',
         },
       ]
