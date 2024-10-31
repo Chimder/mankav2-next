@@ -4,9 +4,9 @@ export const AXIOS_INSTANCE = Axios.create({
   // baseURL: 'https://api.mangadex.org',
   baseURL: '/proxy-api',
   headers: {
-    'Content-Type': 'application/json',
+    // 'Content-Type': 'application/json',
     'Accept': '*/*',
-    'User-Agent': 'ChimasManka/1.0',
+    'User-Agent': 'Thunder Client (https://www.thunderclient.com)',
   },
 })
 
