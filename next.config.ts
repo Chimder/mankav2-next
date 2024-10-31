@@ -18,7 +18,7 @@ module.exports = {
           },
           {
             key: 'Access-Control-Allow-Headers',
-            value: '*',
+            value: 'Authorization, Content-Type, Accept',
           },
         ],
       },
@@ -26,14 +26,7 @@ module.exports = {
   },
   async rewrites() {
     return {
-      // beforeFiles: [
-      //   {
-      //     source: '/some-page',
-      //     destination: '/somewhere-else',
-      //     has: [{ type: 'query', key: 'overrideMe' }],
-      //   },
-      // ],
-      fallback: [
+      beforeFiles: [
         {
           source: '/proxy-api/:path*',
           destination: 'https://api.mangadex.org/:path*',
