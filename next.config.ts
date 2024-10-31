@@ -8,7 +8,7 @@ const nextConfig: NextConfig = {
   async headers() {
     return [
       {
-        source: '/api/:path*',
+        source: '/proxy-api/:path*',
         headers: [
           { key: 'Access-Control-Allow-Credentials', value: 'true' },
           { key: 'Access-Control-Allow-Origin', value: '*' },
@@ -21,14 +21,14 @@ const nextConfig: NextConfig = {
       },
     ]
   },
-  // async rewrites() {
-  //   return [
-  //     {
-  //       source: '/proxy-api/:path*',
-  //       destination: 'https://api.mangadex.org/:path*',
-  //     },
-  //   ]
-  // },
+  async rewrites() {
+    return [
+      {
+        source: '/proxy-api/:path*',
+        destination: 'https://api.mangadex.org/:path*',
+      },
+    ]
+  },
 }
 
 export default nextConfig
