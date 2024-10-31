@@ -16,7 +16,10 @@ function Chapter() {
       {chapters?.chapter?.data?.map(chapter => (
         <div key={chapter}>
           <img
-            src={`/api/proxy?url=${encodeURIComponent(`${chapters.baseUrl}/data/${chapters.chapter?.hash}/${chapter}`)}`}
+            src={`http://localhost:8080/img/${chapters.baseUrl}/data/${chapters.chapter?.hash}/${chapter}`}
+            width={1200}
+            height={800}
+            loading="lazy"
             alt="Manga page"
           />
 

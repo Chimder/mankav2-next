@@ -1,13 +1,13 @@
 import Axios, { AxiosError, AxiosRequestConfig } from 'axios'
 
 export const AXIOS_INSTANCE = Axios.create({
-  baseURL: '/api/proxyApi?url=',
-  headers: {
-    'Content-Type': 'application/json',
-    'Accept': '*/*',
-    'Cache-Control': 'no-store',
-    'User-Agent': 'ChimderManka',
-  },
+  baseURL: 'http://localhost:8080',
+  // headers: {
+  //   'Content-Type': 'application/json',
+  //   'Accept': '*/*',
+  //   'Cache-Control': 'no-store',
+  //   'User-Agent': 'ChimderManka',
+  // },
 })
 
 interface CancellablePromise<T> extends Promise<T> {
