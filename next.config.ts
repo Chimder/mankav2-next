@@ -1,7 +1,5 @@
-import type { NextConfig } from 'next'
-
-// const nextConfig: NextConfig = {
-module.exports = {
+/** @type {import('next').NextConfig} */
+const nextConfig = {
   experimental: {
     reactCompiler: true,
   },
@@ -11,7 +9,10 @@ module.exports = {
         source: '/(.*)',
         headers: [
           { key: 'Access-Control-Allow-Credentials', value: 'true' },
-          { key: 'Access-Control-Allow-Origin', value: '*' },
+          {
+            key: 'Access-Control-Allow-Origin',
+            value: 'https://api.mangadex.org',
+          },
           {
             key: 'Access-Control-Allow-Methods',
             value: 'GET,OPTIONS,PATCH,DELETE,POST,PUT',
@@ -36,4 +37,4 @@ module.exports = {
   },
 }
 
-// export default nextConfig
+module.exports = nextConfig
