@@ -6,7 +6,7 @@ export const AXIOS_INSTANCE = Axios.create({
   headers: {
     // 'Content-Type': 'application/json',
     'Accept': '*/*',
-    'User-Agent': 'Thunder Client (https://www.thunderclient.com)',
+    'User-Agent': 'ChimderManka',
   },
 })
 
