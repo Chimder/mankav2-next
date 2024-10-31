@@ -1,6 +1,7 @@
 import type { NextConfig } from 'next'
 
-const nextConfig: NextConfig = {
+// const nextConfig: NextConfig = {
+module.exports = {
   experimental: {
     reactCompiler: true,
   },
@@ -24,13 +25,22 @@ const nextConfig: NextConfig = {
     ]
   },
   async rewrites() {
-    return [
-      {
-        source: '/proxy-api/:path*',
-        destination: 'https://api.mangadex.org/:path*',
-      },
-    ]
+    return {
+      // beforeFiles: [
+      //   {
+      //     source: '/some-page',
+      //     destination: '/somewhere-else',
+      //     has: [{ type: 'query', key: 'overrideMe' }],
+      //   },
+      // ],
+      fallback: [
+        {
+          source: '/proxy-api/:path*',
+          destination: 'https://api.mangadex.org/:path*',
+        },
+      ],
+    }
   },
 }
 
-export default nextConfig
+// export default nextConfig
