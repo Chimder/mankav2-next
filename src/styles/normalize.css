@@ -81,23 +81,23 @@ textarea:not([rows]) {
   min-height: 10em;
 }
 
-:target {
+/* :target {
   scroll-margin-block: 5ex;
 }
 
 ::-webkit-scrollbar {
   width: 4px;
-}
+} */
 
-::-webkit-scrollbar-track {
+/* ::-webkit-scrollbar-track {
   background: rgb(223 221 221 / 30%);
-}
+} */
 
-::-webkit-scrollbar-thumb {
+/* ::-webkit-scrollbar-thumb {
   background-color: var(--border-mess);
   border-radius: 300px;
-}
+} */
 
-::-webkit-scrollbar-thumb:hover {
+/* ::-webkit-scrollbar-thumb:hover {
   background: rgb(112 111 111 / 50%);
-}
+} */

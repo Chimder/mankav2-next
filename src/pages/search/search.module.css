@@ -1,0 +1,26 @@
+.searchContainer {
+  display: flex;
+
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 30px;
+  width: 100%;
+  height: auto;
+}
+
+.list {
+  display: flex;
+
+  /* flex-direction: column; */
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+  padding: 0 auto;
+
+  img {
+    width: 280px;
+    height: 310px;
+  }
+}

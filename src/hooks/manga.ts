@@ -1,5 +1,14 @@
-import { getMangaId, getSearchManga } from '@/shared/api/swagger/generated'
-import { useQuery } from '@tanstack/react-query'
+import {
+  getMangaId,
+  getSearchManga,
+  GetSearchMangaStatusItem,
+} from '@/shared/api/swagger/generated'
+import {
+  infiniteQueryOptions,
+  keepPreviousData,
+  useInfiniteQuery,
+  useQuery,
+} from '@tanstack/react-query'
 
 type Order = 'asc' | 'desc'
 
@@ -10,6 +19,8 @@ type mangaSearchOps = {
   created?: Order
   rating?: Order
   updatedAt?: Order
+  status: GetSearchMangaStatusItem
+  // sortBy:
   year?: Order
   title?: Order
   latestUploaded?: Order
@@ -41,6 +52,8 @@ export const mangaApi = {
     created,
     rating,
     updatedAt,
+    status,
+    sortBy,
     year,
     title,
     latestUploaded,
@@ -50,11 +63,13 @@ export const mangaApi = {
         mangaApi.baseKey,
         name,
         tags,
-        offset,
         created,
+        sortBy,
         rating,
+        offset,
         updatedAt,
         year,
+        status,
         title,
         latestUploaded,
       ],
@@ -65,24 +80,28 @@ export const mangaApi = {
             'includedTags[]': tags,
             'title': name,
             'includes[]': ['cover_art'],
+            'status[]': [status!],
             'order': {
               createdAt: created,
+              relevance:sortBy,
               rating: rating,
               updatedAt: updatedAt,
               year: year,
               title: title,
               latestUploadedChapter: latestUploaded,
             },
-            'contentRating[]': ['safe'],
-            'limit': 32,
+            // 'originalLanguage[]': [''],
+            'contentRating[]': ['safe', 'suggestive'],
+            'limit': 8,
             'offset': offset,
           },
           { signal },
         ),
-      refetchOnMount: false,
-      refetchOnWindowFocus: false,
+      placeholderData: keepPreviousData,
       staleTime: 100000,
       retry: 0,
+      refetchOnWindowFocus: false,
+      refetchOnMount: false,
     })
   },
 

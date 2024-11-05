@@ -2,10 +2,11 @@ import { useEffect } from 'react'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 
+import Button from '@/components/ui/button'
+
 export default function Home() {
   const route = useRouter()
   const query = route.query
-
 
   const id = 'c9c13bf0-abd8-46a8-9b82-18c248b1db89'
   // const { data: manga, isFetching } = mangaApi.useMangaByID(id)
@@ -26,6 +27,7 @@ export default function Home() {
       </Head>
       <div>
         {/* <div>{manga?.data?.attributes?.title?.en}</div> */}
+        {/* <Button size={'small'} intent={'secondary'}>test2</Button> */}
         <footer></footer>
       </div>
     </>
