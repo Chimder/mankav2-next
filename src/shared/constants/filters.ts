@@ -1,6 +1,7 @@
 export const filterConstants = {
   // content: ['safe', 'suggestive'],
   status: ['ongoing', 'completed', 'hiatus', 'cancelled'],
+
   sortBy: [
     {
       name: 'Best Match',
