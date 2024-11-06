@@ -10,7 +10,6 @@ export type Filter = {
   input: string
   sortBy: string
   tags: string[]
-  content: string
   languages: string
   status: string
 }
@@ -22,7 +21,6 @@ export type FilterAction = Filter & {
 
 export const filterStore = create<FilterAction>()(
   immer((set, get) => ({
-    content: '',
     languages: '',
     sortBy: '',
     status: '',

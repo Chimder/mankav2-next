@@ -1,7 +1,8 @@
+import { filterConstants } from '@/shared/constants/filters'
+
 import { tagsApi } from '@/hooks/tag'
 
 import AccordionSection from './accordion'
-import { filterConstants } from '@/shared/constants/filters'
 
 export const FilterManga = () => {
   const { data: tags } = tagsApi.useMangaTags()
@@ -15,22 +16,19 @@ export const FilterManga = () => {
   return (
     <div>
       <div>
-        <h2>Фильтры</h2>
-        <AccordionSection
-          title="Content"
-          options={filterConstants.content}
-          singleSelect
-          filterKey="content"
-        />
-        {/* <AccordionSection
-          title="Languages"
-          options={['English', 'Japanese']}
-          singleSelect
-          filterKey="languages"
-        /> */}
+        {/* <h2>Фильтры</h2> */}
+        <div>
+          <h2>Tags</h2>
+          <AccordionSection
+            title="Tags"
+            options={tags}
+            singleSelect={false}
+            filterKey="tags"
+          />
+        </div>
         <AccordionSection
           title="Sort By"
-          options={['Rating', 'Date']}
+          options={filterConstants.sortBy}
           singleSelect
           filterKey="sortBy"
         />
@@ -39,16 +37,6 @@ export const FilterManga = () => {
           options={filterConstants.status}
           singleSelect
           filterKey="status"
-        />
-      </div>
-
-      <div>
-        <h2>Теги</h2>
-        <AccordionSection
-          title="Tags"
-          options={tags}
-          singleSelect={false}
-          filterKey="tags"
         />
       </div>
     </div>

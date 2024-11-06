@@ -35,6 +35,8 @@ const AccordionSection = ({
   )
 
   const handleOptionClick = (optionValue: string) => {
+    console.log('FILTERKEYT', filterKey)
+    console.log('OPVAL', optionValue)
     setFilter(filterKey, optionValue)
   }
 

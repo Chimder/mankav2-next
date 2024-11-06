@@ -1,14 +1,11 @@
 import {
   getMangaId,
   getSearchManga,
+  GetSearchMangaIncludedTagsMode,
+  GetSearchMangaParams,
   GetSearchMangaStatusItem,
 } from '@/shared/api/swagger/generated'
-import {
-  infiniteQueryOptions,
-  keepPreviousData,
-  useInfiniteQuery,
-  useQuery,
-} from '@tanstack/react-query'
+import { keepPreviousData, useQuery } from '@tanstack/react-query'
 
 type Order = 'asc' | 'desc'
 
@@ -19,8 +16,8 @@ type mangaSearchOps = {
   created?: Order
   rating?: Order
   updatedAt?: Order
-  status: GetSearchMangaStatusItem
-  // sortBy:
+  status: string
+  sortBy?: Order
   year?: Order
   title?: Order
   latestUploaded?: Order
@@ -54,50 +51,32 @@ export const mangaApi = {
     updatedAt,
     status,
     sortBy,
-    year,
     title,
+    year,
     latestUploaded,
   }: Partial<mangaSearchOps>) => {
+    const queryParams: GetSearchMangaParams = {
+      'includedTagsMode': 'AND' as GetSearchMangaIncludedTagsMode,
+      'includedTags[]': tags,
+      ...(name && { title: name }),
+      'includes[]': ['cover_art'],
+      ...(status && { 'status[]': [status as GetSearchMangaStatusItem] }),
+      'contentRating[]': ['safe', 'suggestive'],
+      'limit': 8,
+      'offset': offset,
+      'order': {
+        ...(created && { createdAt: created }),
+        ...(sortBy && { relevance: sortBy }),
+        ...(rating && { rating: rating }),
+        ...(updatedAt && { updatedAt: updatedAt }),
+        ...(title && { title: title }),
+      },
+    }
+
     return useQuery({
-      queryKey: [
-        mangaApi.baseKey,
-        name,
-        tags,
-        created,
-        sortBy,
-        rating,
-        offset,
-        updatedAt,
-        year,
-        status,
-        title,
-        latestUploaded,
-      ],
-      queryFn: ({ signal }) =>
-        getSearchManga(
-          {
-            'includedTagsMode': 'AND',
-            'includedTags[]': tags,
-            'title': name,
-            'includes[]': ['cover_art'],
-            'status[]': [status!],
-            'order': {
-              createdAt: created,
-              relevance:sortBy,
-              rating: rating,
-              updatedAt: updatedAt,
-              year: year,
-              title: title,
-              latestUploadedChapter: latestUploaded,
-            },
-            // 'originalLanguage[]': [''],
-            'contentRating[]': ['safe', 'suggestive'],
-            'limit': 8,
-            'offset': offset,
-          },
-          { signal },
-        ),
-      placeholderData: keepPreviousData,
+      // eslint-disable-next-line @tanstack/query/exhaustive-deps
+      queryKey: [mangaApi.baseKey, offset],
+      queryFn: ({ signal }) => getSearchManga(queryParams, { signal }),
       staleTime: 100000,
       retry: 0,
       refetchOnWindowFocus: false,

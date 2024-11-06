@@ -1,22 +1,36 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
+import { useFilterStore } from '@/store/filter-slice'
 
 import { mangaApi } from '@/hooks/manga'
+import Button from '@/components/ui/button'
+import { FilterManga } from '@/components/filter-manga/filter'
 import { PaginationButtons } from '@/components/pagination-button'
 
+import { queryClient } from '../_app'
 import s from './search.module.css'
-import { FilterManga } from '@/components/filter-manga/filter'
 
 function SearchManga() {
   const router = useRouter()
   const currentPage = Number(router.query.page) || 1
 
+  const input = useFilterStore().input
+  const languages = useFilterStore().languages
+  const tags = useFilterStore().tags
+  const status = useFilterStore().status
+
   const { data: mangas } = mangaApi.useMangaSearch({
+    status,
+    tags,
+    name: input,
     offset: (currentPage - 1) * 8,
   })
 
-  console.log(mangas)
-  // const mangas2 = mangas?.pages.flatMap(page => page.data)
+  const Search = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault()
+    queryClient.refetchQueries({ queryKey: [mangaApi.baseKey] })
+  }
+
   return (
     <div className={s.searchContainer}>
       <ul className={s.list}>
@@ -32,6 +46,7 @@ function SearchManga() {
           </Link>
         ))}
       </ul>
+      <Button onClick={e => Search(e)}> Search</Button>
       <FilterManga />
       <PaginationButtons
         currentPage={currentPage}
