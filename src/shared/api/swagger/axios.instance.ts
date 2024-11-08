@@ -1,7 +1,8 @@
 import Axios, { AxiosError, AxiosRequestConfig } from 'axios'
 
 export const AXIOS_INSTANCE = Axios.create({
-  baseURL: 'http://localhost:8080',
+  // baseURL: 'http://localhost:8080',
+  baseURL: 'https://api.mangadex.org',
   // headers: {
   //   'Content-Type': 'application/json',
   //   'Accept': '*/*',

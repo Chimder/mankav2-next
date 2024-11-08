@@ -5,22 +5,19 @@ import {
   GetSearchMangaParams,
   GetSearchMangaStatusItem,
 } from '@/shared/api/swagger/generated'
-import { keepPreviousData, useQuery } from '@tanstack/react-query'
+import { GetSearchMangaOrderParams } from '@/store/filter-slice'
+import { useQuery } from '@tanstack/react-query'
 
-type Order = 'asc' | 'desc'
-
-type mangaSearchOps = {
+export type mangaSearchOps = {
   tags?: string[]
   name?: string
   offset?: number
-  created?: Order
-  rating?: Order
-  updatedAt?: Order
-  status: string
-  sortBy?: Order
-  year?: Order
-  title?: Order
-  latestUploaded?: Order
+  status?: string
+
+  sortBy?: any // sortBy?: {
+  //   type: keyof GetSearchMangaOrderParams
+  //   order: 'asc' | 'desc'
+  // }
 }
 
 export const mangaApi = {
@@ -46,14 +43,8 @@ export const mangaApi = {
     tags,
     name,
     offset,
-    created,
-    rating,
-    updatedAt,
     status,
     sortBy,
-    title,
-    year,
-    latestUploaded,
   }: Partial<mangaSearchOps>) => {
     const queryParams: GetSearchMangaParams = {
       'includedTagsMode': 'AND' as GetSearchMangaIncludedTagsMode,
@@ -64,13 +55,18 @@ export const mangaApi = {
       'contentRating[]': ['safe', 'suggestive'],
       'limit': 8,
       'offset': offset,
-      'order': {
-        ...(created && { createdAt: created }),
-        ...(sortBy && { relevance: sortBy }),
-        ...(rating && { rating: rating }),
-        ...(updatedAt && { updatedAt: updatedAt }),
-        ...(title && { title: title }),
-      },
+      'order': sortBy
+        ? {
+            [sortBy.type]: sortBy.order,
+          }
+        : undefined,
+      // 'order': {
+      //   ...(order?.createdAt && { createdAt: order?.createdAt }),
+      //   ...(order?.relevance && { relevance: order?.relevance }),
+      //   ...(order?.rating && { rating: order?.rating }),
+      //   ...(order?.updatedAt && { updatedAt: order?.updatedAt }),
+      //   ...(order?.title && { title: order?.title }),
+      // },
     }
 
     return useQuery({

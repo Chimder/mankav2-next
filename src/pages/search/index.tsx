@@ -13,22 +13,27 @@ import s from './search.module.css'
 function SearchManga() {
   const router = useRouter()
   const currentPage = Number(router.query.page) || 1
-
   const input = useFilterStore().input
-  const languages = useFilterStore().languages
   const tags = useFilterStore().tags
   const status = useFilterStore().status
+  const sortBy = useFilterStore().sortBy
+  const reset = useFilterStore().reset
 
   const { data: mangas } = mangaApi.useMangaSearch({
     status,
     tags,
     name: input,
     offset: (currentPage - 1) * 8,
+    sortBy: { type: sortBy?.type, order: sortBy?.order },
   })
 
   const Search = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault()
     queryClient.refetchQueries({ queryKey: [mangaApi.baseKey] })
+  }
+  const resetSearch = async () => {
+    await reset()
+    queryClient.invalidateQueries({ queryKey: [mangaApi.baseKey] })
   }
 
   return (
@@ -47,6 +52,7 @@ function SearchManga() {
         ))}
       </ul>
       <Button onClick={e => Search(e)}> Search</Button>
+      <Button onClick={() => resetSearch()}> reset</Button>
       <FilterManga />
       <PaginationButtons
         currentPage={currentPage}

@@ -1,6 +1,11 @@
 export const filterConstants = {
   // content: ['safe', 'suggestive'],
-  status: ['ongoing', 'completed', 'hiatus', 'cancelled'],
+  status: [
+    { id: 'ongoing', name: 'ongoing' },
+    { id: 'completed', name: 'completed' },
+    { id: 'hiatus', name: 'hiatus' },
+    { id: 'cancelled', name: 'cancelled' },
+  ],
 
   sortBy: [
     {

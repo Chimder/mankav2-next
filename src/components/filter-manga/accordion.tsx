@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { filterConstants } from '@/shared/constants/filters'
 import { Filter, useFilterStore } from '@/store/filter-slice'
 
 type TagOption = {
@@ -8,7 +9,7 @@ type TagOption = {
 
 type AccordionSectionProps = {
   title: string
-  options?: string[] | TagOption[]
+  options?: TagOption[]
   singleSelect: boolean
   filterKey: keyof Filter
 }
@@ -20,26 +21,17 @@ const AccordionSection = ({
   filterKey,
 }: AccordionSectionProps) => {
   const [isOpen, setIsOpen] = useState(false)
-  const setFilter = useFilterStore(state => state.setFilter)
+  const setFilter = useFilterStore().setFilter
   const currentFilter = useFilterStore(state => state[filterKey])
 
   const toggleAccordion = () => setIsOpen(prev => !prev)
 
-  const isTagOption = (option: any): option is TagOption => {
-    return typeof option === 'object' && 'id' in option && 'name' in option
-  }
-  const normalizedOptions = options?.map(option =>
-    isTagOption(option)
-      ? { id: option.id, name: option.name }
-      : { id: option, name: option },
-  )
-
-  const handleOptionClick = (optionValue: string) => {
-    console.log('FILTERKEYT', filterKey)
-    console.log('OPVAL', optionValue)
-    setFilter(filterKey, optionValue)
+  const handleOptionClick = (name: string) => {
+    console.log('IDD', name)
+    setFilter(filterKey, name)
   }
 
+  console.log('CURR', currentFilter)
   return (
     <div>
       <button
@@ -51,22 +43,26 @@ const AccordionSection = ({
       </button>
       {isOpen && (
         <div>
-          {normalizedOptions?.map(({ id, name }) => (
-            <div key={id}>
-              <label>
-                <input
-                  type={singleSelect ? 'radio' : 'checkbox'}
-                  checked={
-                    singleSelect
-                      ? currentFilter === id
-                      : (currentFilter as string[]).includes(id)
-                  }
-                  onChange={() => handleOptionClick(id)}
-                />
-                {name}
-              </label>
-            </div>
-          ))}
+          {options?.map(({ id, name }) => {
+            console.log((currentFilter as string[]).includes(id))
+
+            return (
+              <div key={id}>
+                <label>
+                  <input
+                    type={singleSelect ? 'radio' : 'checkbox'}
+                    checked={
+                      singleSelect
+                        ? currentFilter === id
+                        : (currentFilter as string[]).includes(id)
+                    }
+                    onChange={() => handleOptionClick(id)}
+                  />
+                  {name}
+                </label>
+              </div>
+            )
+          })}
         </div>
       )}
     </div>

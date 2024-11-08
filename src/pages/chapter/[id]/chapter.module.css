@@ -4,6 +4,16 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  padding: 0 auto;
+  /* padding: 0 auto; */
   overflow-y: scroll;
+  background-color: aquamarine;
+}
+.chapImg {
+  padding: 20px 0;
+}
+
+.current {
+  position: fixed;
+  top: 0;
+  display: flex;
 }
