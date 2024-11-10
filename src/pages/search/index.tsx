@@ -4,7 +4,8 @@ import { useFilterStore } from '@/store/filter-slice'
 
 import { mangaApi } from '@/hooks/manga'
 import Button from '@/components/ui/button'
-import { FilterManga } from '@/components/filter-manga/filter'
+import Skeleton from '@/components/ui/skeleton'
+import { FilterManga } from '@/components/filter-bar/filter'
 import { PaginationButtons } from '@/components/pagination-button'
 
 import { queryClient } from '../_app'
@@ -19,7 +20,7 @@ function SearchManga() {
   const sortBy = useFilterStore().sortBy
   const reset = useFilterStore().reset
 
-  const { data: mangas } = mangaApi.useMangaSearch({
+  const { data: mangas, isFetching } = mangaApi.useMangaSearch({
     status,
     tags,
     name: input,
@@ -27,33 +28,61 @@ function SearchManga() {
     sortBy: { type: sortBy?.type, order: sortBy?.order },
   })
 
-  const Search = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const Search = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault()
-    queryClient.refetchQueries({ queryKey: [mangaApi.baseKey] })
-  }
-  const resetSearch = async () => {
-    await reset()
-    queryClient.invalidateQueries({ queryKey: [mangaApi.baseKey] })
+    await queryClient.resetQueries({
+      queryKey: [mangaApi.baseKey],
+    })
   }
 
+  // const resetSearch = async () => {
+  //   reset()
+  //   await queryClient.resetQueries({
+  //     queryKey: [mangaApi.baseKey],
+  //   })
+  // }
+
   return (
-    <div className={s.searchContainer}>
-      <ul className={s.list}>
-        {mangas?.data?.map(manga => (
-          <Link className={s.item} href={`title/${manga?.id}`} key={manga?.id}>
-            <img
-              src={`http://localhost:8080/img/mangadex.org/covers/${manga?.id}/${manga?.relationships?.find(obj => obj.type === 'cover_art')?.attributes?.fileName}`}
-              width={280}
-              height={310}
-              loading="lazy"
-              alt=""
-            />
-          </Link>
-        ))}
-      </ul>
-      <Button onClick={e => Search(e)}> Search</Button>
-      <Button onClick={() => resetSearch()}> reset</Button>
-      <FilterManga />
+    <div className={s.container}>
+      <div className={s.content}>
+        <ul className={s.list}>
+          {isFetching
+            ? Array.from({ length: 10 }).map((_, index) => (
+                <Skeleton
+                  width={280}
+                  height={330}
+                  speed={'slow'}
+                  key={index}
+                ></Skeleton>
+              ))
+            : mangas?.data?.map(manga => (
+                <Link
+                  className={s.item}
+                  href={`title/${manga?.id}`}
+                  key={manga?.id}
+                >
+                  <img
+                    src={`api/proxy?url=https://mangadex.org/covers/${manga?.id}/${manga?.relationships?.find(obj => obj.type === 'cover_art')?.attributes?.fileName}`}
+                    width={280}
+                    height={310}
+                    loading="lazy"
+                    alt=""
+                  />
+                  <div className={s.title}>{manga.attributes?.title?.en}</div>
+                </Link>
+              ))}
+        </ul>
+
+        <div className={s.filterBar}>
+          <div className={s.wrap}>
+            <div className={s.searchBtn}>
+              <Button onClick={e => Search(e)}>Search</Button>
+            </div>
+            <FilterManga />
+          </div>
+        </div>
+      </div>
+
       <PaginationButtons
         currentPage={currentPage}
         totalPages={Math.ceil(Number(mangas?.total) / 8)}

@@ -17,7 +17,7 @@ export async function middleware(req: NextRequest) {
     )
     headers.set('Access-Control-Allow-Headers', 'Content-Type, Authorization')
 
-    // Проксируем запрос и возвращаем результат
+
     const response = await fetch(url.toString(), {
       headers,
       method: req.method,

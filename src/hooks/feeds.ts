@@ -14,7 +14,7 @@ export const feedApi = {
             'offset': 0,
             'order': { chapter: 'desc', volume: 'desc' },
             'includes[]': ['scanlation_group', 'user'],
-            // 'translatedLanguage[]': ['en'],
+            'translatedLanguage[]': ['en'],
             'contentRating[]': ['safe', 'suggestive'],
           },
           { signal },
