@@ -3,12 +3,13 @@ import Axios, { AxiosError, AxiosRequestConfig } from 'axios'
 export const AXIOS_INSTANCE = Axios.create({
   // baseURL: 'http://localhost:8080',
   baseURL: 'https://api.mangadex.org',
-  // headers: {
-  //   'Content-Type': 'application/json',
-  //   'Accept': '*/*',
-  //   'Cache-Control': 'no-store',
-  //   'User-Agent': 'ChimderManka',
-  // },
+  headers: {
+    'Content-Type': 'application/json',
+    'Accept': '*/*',
+    'User-Agent': 'ChimderManka',
+    // 'Accept-Encoding': 'gzip, deflate, br',
+    //   'Cache-Control': 'no-store',
+  },
 })
 
 interface CancellablePromise<T> extends Promise<T> {
