@@ -21,9 +21,9 @@ export default async function handler(
       data: req.body,
     })
 
-    Object.entries(response.headers).forEach(([key, value]) => {
-      res.setHeader(key, String(value))
-    })
+    // Object.entries(response.headers).forEach(([key, value]) => {
+    //   res.setHeader(key, String(value))
+    // })
     res.status(response.status).send(response.data)
   } catch (error) {
     if (axios.isAxiosError(error) && error.response) {
