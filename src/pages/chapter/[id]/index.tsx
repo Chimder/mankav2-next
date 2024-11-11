@@ -89,7 +89,8 @@ function Chapter() {
           )}
           <img
             // src={`${process.env.NEXT_PUBLIC_IMG_PROXY}/img/${chapters.baseUrl}/data/${chapters.chapter?.hash}/${chapter}`}
-            src={`${process.env.NEXT_PUBLIC_IMG_PROXY}?url=${encodeURIComponent(`${chapters.baseUrl}/data/${chapters.chapter?.hash}/${chapter}`)}`}
+            // src={`${process.env.NEXT_PUBLIC_IMG_PROXY}?url=${encodeURIComponent(`${chapters.baseUrl}/data/${chapters.chapter?.hash}/${chapter}`)}`}
+            src={`/api/proxy?url=${encodeURIComponent(`${chapters.baseUrl}/data/${chapters.chapter?.hash}/${chapter}`)}`}
             loading="lazy"
             alt="Manga page"
             onLoad={() => handleImageLoad(index)}
