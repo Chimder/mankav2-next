@@ -88,7 +88,8 @@ function Chapter() {
             <Skeleton width={1200} height={1100} speed={'slow'} />
           )}
           <img
-            src={`${process.env.NEXT_PUBLIC_IMG_PROXY}/img/${chapters.baseUrl}/data/${chapters.chapter?.hash}/${chapter}`}
+            // src={`${process.env.NEXT_PUBLIC_IMG_PROXY}/img/${chapters.baseUrl}/data/${chapters.chapter?.hash}/${chapter}`}
+            src={`${process.env.NEXT_PUBLIC_IMG_PROXY}?url=${encodeURIComponent(`${chapters.baseUrl}/data/${chapters.chapter?.hash}/${chapter}`)}`}
             loading="lazy"
             alt="Manga page"
             onLoad={() => handleImageLoad(index)}

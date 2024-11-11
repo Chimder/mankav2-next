@@ -3,8 +3,8 @@ import Axios, { AxiosError, AxiosRequestConfig } from 'axios'
 const URL = process.env.NEXT_PUBLIC_IMG_PROXY!
 
 export const AXIOS_INSTANCE = Axios.create({
-  baseURL: URL,
-  // baseURL: '/api/proxyApi?url=',
+  // baseURL: URL,
+  baseURL: '/api/proxyApi?url=',
   headers: {
     'Content-Type': 'application/json',
     'Accept': '*/*',
