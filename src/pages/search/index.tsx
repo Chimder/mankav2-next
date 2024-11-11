@@ -24,7 +24,7 @@ function SearchManga() {
     status,
     tags,
     name: input,
-    offset: (currentPage - 1) * 8,
+    offset: (currentPage - 1) * 34,
     sortBy: { type: sortBy?.type, order: sortBy?.order },
   })
 
@@ -62,8 +62,7 @@ function SearchManga() {
                   key={manga?.id}
                 >
                   <img
-                    src={`${process.env.NEXT_PUBLIC_IMG_PROXY}?url=https://mangadex.org/covers/${manga?.id}/${manga?.relationships?.find(obj => obj.type === 'cover_art')?.attributes?.fileName}`}
-                    // src={`api/proxy?url=https://mangadex.org/covers/${manga?.id}/${manga?.relationships?.find(obj => obj.type === 'cover_art')?.attributes?.fileName}`}
+                    src={`${process.env.NEXT_PUBLIC_IMG_PROXY}/img/mangadex.org/covers/${manga.id}/${manga.relationships?.find(obj => obj.type === 'cover_art')?.attributes?.fileName}`}
                     width={280}
                     height={310}
                     loading="lazy"

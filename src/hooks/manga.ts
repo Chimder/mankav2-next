@@ -53,7 +53,7 @@ export const mangaApi = {
       'includes[]': ['cover_art'],
       ...(status && { 'status[]': [status as GetSearchMangaStatusItem] }),
       'contentRating[]': ['safe', 'suggestive'],
-      'limit': 8,
+      'limit': 34,
       'offset': offset,
       'order': sortBy
         ? {
