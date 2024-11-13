@@ -5,7 +5,6 @@ import {
   GetSearchMangaParams,
   GetSearchMangaStatusItem,
 } from '@/shared/api/swagger/generated'
-import { GetSearchMangaOrderParams } from '@/store/filter-slice'
 import { useQuery } from '@tanstack/react-query'
 
 export type mangaSearchOps = {
@@ -13,11 +12,7 @@ export type mangaSearchOps = {
   name?: string
   offset?: number
   status?: string
-
-  sortBy?: any // sortBy?: {
-  //   type: keyof GetSearchMangaOrderParams
-  //   order: 'asc' | 'desc'
-  // }
+  sortBy?: any
 }
 
 export const mangaApi = {
@@ -68,10 +63,9 @@ export const mangaApi = {
       //   ...(order?.title && { title: order?.title }),
       // },
     }
-
     return useQuery({
       // eslint-disable-next-line @tanstack/query/exhaustive-deps
-      queryKey: [mangaApi.baseKey, offset],
+      queryKey: [mangaApi.baseKey, 'filter', offset],
       queryFn: ({ signal }) => getSearchManga(queryParams, { signal }),
       staleTime: 100000,
       retry: 0,

@@ -1,6 +1,5 @@
 import {
   getAtHomeServerChapterId,
-  getChapter,
   getChapterId,
   getMangaAggregate,
 } from '@/shared/api/swagger/generated'
@@ -10,18 +9,18 @@ export const chapterApi = {
   baseKey: 'feed',
   useMangaChapters: (id: string) => {
     return useQuery({
-      queryKey: [chapterApi.baseKey, id],
-      queryFn: ({ signal }) => getChapter({ title: '' }, { signal }),
-      refetchOnMount: false,
-      enabled: Boolean(id),
-      refetchOnWindowFocus: false,
-      staleTime: 100000,
+      queryKey: [chapterApi.baseKey, 'chapterID', id],
+      queryFn: ({ signal }) => getChapterId(id, {}, { signal }),
       retry: 0,
+      staleTime: 100000,
+      enabled: Boolean(id),
+      refetchOnMount: false,
+      refetchOnWindowFocus: false,
     })
   },
   useMangaChapterByID: (id: string) => {
     return useQuery({
-      queryKey: [chapterApi.baseKey, id],
+      queryKey: [chapterApi.baseKey, 'atHome', id],
       queryFn: ({ signal }) =>
         getAtHomeServerChapterId(id, { forcePort443: false }, { signal }),
       refetchOnMount: false,

@@ -25,6 +25,9 @@ const useAggregateChapter = () => {
       ? flatAggregate[currentChapterIndex + 1]
       : undefined
 
+  // console.log('CURChap', currentChapterIndex, 'andNEXT:', nextChapter)
+  // console.log('AGGREAG', flatAggregate)
+  // console.log('AGGREAG@@@', aggregate)
 
   return { aggregate, nextChapter }
 }

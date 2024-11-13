@@ -5,6 +5,7 @@ import { useRouter } from 'next/router'
 import { chapterApi } from '@/hooks/chapter'
 import useAggregateChapter from '@/hooks/use-aggregate-chapter'
 import Skeleton from '@/components/ui/skeleton'
+import ExternalChapter from '@/components/external-chapter'
 
 import s from './chapter.module.css'
 
@@ -12,21 +13,26 @@ function Chapter() {
   const router = useRouter()
   const lang = router.query?.lang as string
   const manga = router.query?.manga as string
+  const id = router.query?.id as string
   const { aggregate, nextChapter } = useAggregateChapter()
 
   const { data: chapters, isFetching } = chapterApi.useMangaChapterByID(
-    router?.query?.id as string,
+    router.query?.id as string,
   )
+
+  const { data: chapterData } = chapterApi.useMangaChapters(id)
+  const totalPages = chapters?.chapter?.data?.length || 0
+  const externalUrl = chapterData?.data?.attributes?.externalUrl
+  console.log('CHAPER>>>>>>>', chapterData)
+
   const [currentPage, setCurrentPage] = useState(() => ({
     page: 1,
     chapterId: router.query.id,
   }))
-  const totalPages = chapters?.chapter?.data?.length || 0
 
   const imageRefs = useRef<(HTMLDivElement | null)[]>([])
 
   const [imageLoaded, setImageLoaded] = useState<boolean[]>([])
-  console.log('ImGLOAd', imageLoaded)
 
   useEffect(() => {
     if (chapters?.chapter?.data) {
@@ -69,34 +75,39 @@ function Chapter() {
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [currentPage.chapterId, router.query.id, totalPages])
-  console.log('NEXT chap', nextChapter)
+  // console.log('NEXT chap', nextChapter)
 
   return (
     <div className={s.chap}>
       <p className={s.current}>
         Img {currentPage.page} / {totalPages}
       </p>
-      {chapters?.chapter?.data?.map((chapter, index) => (
-        <div
-          className={s.chapImg}
-          key={chapter}
-          ref={el => {
-            imageRefs.current[index] = el
-          }}
-        >
-          {!imageLoaded[index] && (
-            <Skeleton width={1200} height={1100} speed={'slow'} />
-          )}
-          <img
-            // src={`${process.env.NEXT_PUBLIC_IMG_PROXY}/img/${chapters.baseUrl}/data/${chapters.chapter?.hash}/${chapter}`}
-            // src={`${process.env.NEXT_PUBLIC_IMG_PROXY}?url=${encodeURIComponent(`${chapters.baseUrl}/data/${chapters.chapter?.hash}/${chapter}`)}`}
-            src={`/api/proxy?url=${encodeURIComponent(`${chapters.baseUrl}/data/${chapters.chapter?.hash}/${chapter}`)}`}
-            loading="lazy"
-            alt="Manga page"
-            onLoad={() => handleImageLoad(index)}
-          />
-        </div>
-      ))}
+
+      {!externalUrl ? (
+        chapters?.chapter?.data?.map((chapter, index) => (
+          <div
+            className={s.chapImg}
+            key={chapter}
+            ref={el => {
+              imageRefs.current[index] = el
+            }}
+          >
+            {!imageLoaded[index] && (
+              <Skeleton width={1200} height={1100} speed={'slow'} />
+            )}
+            <img
+              // src={`${process.env.NEXT_PUBLIC_IMG_PROXY}/img/${chapters.baseUrl}/data/${chapters.chapter?.hash}/${chapter}`}
+              // src={`${process.env.NEXT_PUBLIC_IMG_PROXY}?url=${encodeURIComponent(`${chapters.baseUrl}/data/${chapters.chapter?.hash}/${chapter}`)}`}
+              src={`/api/proxy?url=${encodeURIComponent(`${chapters.baseUrl}/data/${chapters.chapter?.hash}/${chapter}`)}`}
+              loading="lazy"
+              alt="Manga page"
+              onLoad={() => handleImageLoad(index)}
+            />
+          </div>
+        ))
+      ) : (
+        <ExternalChapter key={1} externalUrl={''} />
+      )}
       {!isFetching && nextChapter ? (
         <Link
           className={s.navigateChapterBtn}
@@ -113,7 +124,7 @@ function Chapter() {
           style={{
             display: imageLoaded.some(loaded => loaded) ? 'flex' : 'none',
           }}
-          href={`/title/${manga}`}
+          href={`/title/${router.query.id}`}
         >
           Return to Manga
         </Link>

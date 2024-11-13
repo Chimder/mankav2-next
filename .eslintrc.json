@@ -41,6 +41,7 @@
     "@typescript-eslint/no-explicit-any": "warn",
     "@tanstack/query/no-rest-destructuring": "warn",
     "@tanstack/query/stable-query-client": "error",
-    "@typescript-eslint/ban-types": "warn"
+    "@typescript-eslint/ban-types": "warn",
+    "jsx-a11y/no-static-element-interactions": "off"
   }
 }
