@@ -6,6 +6,7 @@ import { chapterApi } from '@/hooks/chapter'
 import useAggregateChapter from '@/hooks/use-aggregate-chapter'
 import Skeleton from '@/components/ui/skeleton'
 import ExternalChapter from '@/components/external-chapter'
+import ModalChapter from '@/components/modal-chapter'
 
 import s from './chapter.module.css'
 
@@ -14,7 +15,7 @@ function Chapter() {
   const lang = router.query?.lang as string
   const manga = router.query?.manga as string
   const id = router.query?.id as string
-  const { aggregate, nextChapter } = useAggregateChapter()
+  const { flatAggregate, nextChapter } = useAggregateChapter()
 
   const { data: chapters, isFetching } = chapterApi.useMangaChapterByID(
     router.query?.id as string,
@@ -23,7 +24,7 @@ function Chapter() {
   const { data: chapterData } = chapterApi.useMangaChapters(id)
   const totalPages = chapters?.chapter?.data?.length || 0
   const externalUrl = chapterData?.data?.attributes?.externalUrl
-  console.log('CHAPER>>>>>>>', chapterData)
+  // console.log('CHAPER>>>>>>>', chapterData)
 
   const [currentPage, setCurrentPage] = useState(() => ({
     page: 1,
@@ -85,25 +86,30 @@ function Chapter() {
 
       {!externalUrl ? (
         chapters?.chapter?.data?.map((chapter, index) => (
-          <div
-            className={s.chapImg}
+          <ModalChapter
+            chapters={flatAggregate}
+            chapterData={chapterData}
             key={chapter}
-            ref={el => {
-              imageRefs.current[index] = el
-            }}
           >
-            {!imageLoaded[index] && (
-              <Skeleton width={1200} height={1100} speed={'slow'} />
-            )}
-            <img
-              // src={`${process.env.NEXT_PUBLIC_IMG_PROXY}/img/${chapters.baseUrl}/data/${chapters.chapter?.hash}/${chapter}`}
-              // src={`${process.env.NEXT_PUBLIC_IMG_PROXY}?url=${encodeURIComponent(`${chapters.baseUrl}/data/${chapters.chapter?.hash}/${chapter}`)}`}
-              src={`/api/proxy?url=${encodeURIComponent(`${chapters.baseUrl}/data/${chapters.chapter?.hash}/${chapter}`)}`}
-              loading="lazy"
-              alt="Manga page"
-              onLoad={() => handleImageLoad(index)}
-            />
-          </div>
+            <div
+              className={s.chapImg}
+              ref={el => {
+                imageRefs.current[index] = el
+              }}
+            >
+              {!imageLoaded[index] && (
+                <Skeleton width={1200} height={1100} speed={'slow'} />
+              )}
+              <img
+                // src={`${process.env.NEXT_PUBLIC_IMG_PROXY}/img/${chapters.baseUrl}/data/${chapters.chapter?.hash}/${chapter}`}
+                // src={`${process.env.NEXT_PUBLIC_IMG_PROXY}?url=${encodeURIComponent(`${chapters.baseUrl}/data/${chapters.chapter?.hash}/${chapter}`)}`}
+                src={`/api/proxy?url=${encodeURIComponent(`${chapters.baseUrl}/data/${chapters.chapter?.hash}/${chapter}`)}`}
+                loading="lazy"
+                alt="Manga page"
+                onLoad={() => handleImageLoad(index)}
+              />
+            </div>
+          </ModalChapter>
         ))
       ) : (
         <ExternalChapter key={1} externalUrl={''} />

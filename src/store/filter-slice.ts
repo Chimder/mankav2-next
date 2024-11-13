@@ -1,9 +1,6 @@
 import { GetSearchMangaParams } from '@/shared/api/swagger/generated'
 import { create } from 'zustand'
-import { redux } from 'zustand/middleware'
 import { immer } from 'zustand/middleware/immer'
-
-import { tagsApi } from '@/hooks/tag'
 
 import { createSelectors } from './create-Selectors'
 
@@ -19,6 +16,7 @@ export type Filter = {
   languages: string
   status: string
 }
+
 export type GetSearchMangaOrderParams = Pick<
   GetSearchMangaParams,
   'order'
@@ -27,12 +25,12 @@ export type GetSearchMangaOrderParams = Pick<
 export type FilterAction = Filter & {
   setInpute: (text: string) => void
   setFilter: (key: keyof Filter, value: string) => void
-  setSortBy: ({ type, order }: sortByObj) => void
+  setSortBy: ({ order, type }: sortByObj) => void
   reset: () => void
 }
 
 export const filterStore = create<FilterAction>()(
-  immer((set, get) => ({
+  immer(set => ({
     languages: '',
     sortBy: undefined,
     status: '',
@@ -40,10 +38,7 @@ export const filterStore = create<FilterAction>()(
     tags: [],
     setSortBy: ({ type, order }: sortByObj) => {
       set(state => {
-        state.sortBy = {
-          order,
-          type,
-        }
+        state.sortBy = { order, type }
       })
     },
     setFilter: (key, value) => {

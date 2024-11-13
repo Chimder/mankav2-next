@@ -13,6 +13,7 @@ const useAggregateChapter = () => {
     .map(volume => Object.values(volume.chapters || {}))
     .reduce((acc, chapters) => acc.concat(chapters), [])
 
+
   const currentChapterIndex = flatAggregate.findIndex(
     chap => chap.id === router.query.id,
   )
@@ -29,7 +30,7 @@ const useAggregateChapter = () => {
   // console.log('AGGREAG', flatAggregate)
   // console.log('AGGREAG@@@', aggregate)
 
-  return { aggregate, nextChapter }
+  return { flatAggregate, nextChapter }
 }
 
 export default useAggregateChapter
