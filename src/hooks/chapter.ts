@@ -10,7 +10,8 @@ export const chapterApi = {
   useMangaChapters: (id: string) => {
     return useQuery({
       queryKey: [chapterApi.baseKey, 'chapterID', id],
-      queryFn: ({ signal }) => getChapterId(id, {}, { signal }),
+      queryFn: ({ signal }) =>
+        getChapterId(id, { 'includes[]': ['manga'] }, { signal }),
       retry: 0,
       staleTime: 100000,
       enabled: Boolean(id),

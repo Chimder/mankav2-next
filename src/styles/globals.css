@@ -2,7 +2,7 @@
   display: flex;
   height: 100vh;
   overflow-y: hidden;
-  background-color: aliceblue;
+  /* background-color: black; */
 
   h1 {
     position: absolute;

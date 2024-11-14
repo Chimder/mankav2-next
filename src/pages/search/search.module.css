@@ -4,6 +4,7 @@
   align-items: center;
   width: 100%;
   padding: 100px auto;
+  background-color: black;
 }
 
 .content {
@@ -27,6 +28,7 @@
   flex-direction: column;
   width: 280px;
   overflow: hidden;
+  color: white;
 
   img {
     width: 280px;
@@ -58,7 +60,8 @@
   width: 300px;
   height: 100vh;
   padding: 10px;
-  background-color: #f8f9fa;
+  color: white;
+  background-color: black;
 
   .wrap {
     position: sticky;

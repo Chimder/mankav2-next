@@ -60,3 +60,5 @@ export const filterConstants = {
     },
   ],
 }
+
+export const OffsetFilter = 34

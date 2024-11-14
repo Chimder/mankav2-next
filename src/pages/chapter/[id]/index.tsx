@@ -1,9 +1,10 @@
-import { useEffect, useRef, useState } from 'react'
+import { ReactElement, useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 
 import { chapterApi } from '@/hooks/chapter'
 import useAggregateChapter from '@/hooks/use-aggregate-chapter'
+import usePageTrack from '@/hooks/use-chapter-tracker'
 import Skeleton from '@/components/ui/skeleton'
 import ExternalChapter from '@/components/external-chapter'
 import ModalChapter from '@/components/modal-chapter'
@@ -22,23 +23,18 @@ function Chapter() {
   )
 
   const { data: chapterData } = chapterApi.useMangaChapters(id)
+  console.log('CHApterewsd', chapterData)
   const totalPages = chapters?.chapter?.data?.length || 0
   const externalUrl = chapterData?.data?.attributes?.externalUrl
-  // console.log('CHAPER>>>>>>>', chapterData)
-
-  const [currentPage, setCurrentPage] = useState(() => ({
-    page: 1,
-    chapterId: router.query.id,
-  }))
 
   const imageRefs = useRef<(HTMLDivElement | null)[]>([])
-
   const [imageLoaded, setImageLoaded] = useState<boolean[]>([])
+
+  const { currentPage, setCurrentPage } = usePageTrack(imageRefs, totalPages)
 
   useEffect(() => {
     if (chapters?.chapter?.data) {
       setImageLoaded(new Array(chapters.chapter.data.length).fill(false))
-      // setImageLoaded([false])
     }
   }, [chapters?.chapter?.data, router.query.id])
 
@@ -50,47 +46,20 @@ function Chapter() {
     })
   }
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const newChapterId = router.query.id
-      if (newChapterId !== currentPage.chapterId) {
-        setCurrentPage({ page: 1, chapterId: newChapterId })
-        return
-      }
-
-      for (let i = 0; i < imageRefs.current.length; i++) {
-        const imageRef = imageRefs.current[i]
-        if (imageRef) {
-          const rect = imageRef.getBoundingClientRect()
-          if (
-            rect.top <= window.innerHeight / 2 &&
-            rect.bottom >= window.innerHeight / 2
-          ) {
-            setCurrentPage(prev => ({ ...prev, page: i + 1 }))
-            break
-          }
-        }
-      }
-    }
-
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [currentPage.chapterId, router.query.id, totalPages])
-  // console.log('NEXT chap', nextChapter)
+  const [isModalOpen, setIsModalOpen] = useState(false)
+  const handleOpenModal = (e: React.MouseEvent<HTMLImageElement>) => {
+    e.preventDefault()
+    setIsModalOpen(true)
+  }
+  const closeModal = () => {
+    setIsModalOpen(false)
+  }
 
   return (
     <div className={s.chap}>
-      <p className={s.current}>
-        Img {currentPage.page} / {totalPages}
-      </p>
-
       {!externalUrl ? (
         chapters?.chapter?.data?.map((chapter, index) => (
-          <ModalChapter
-            chapters={flatAggregate}
-            chapterData={chapterData}
-            key={chapter}
-          >
+          <div key={chapter}>
             <div
               className={s.chapImg}
               ref={el => {
@@ -98,22 +67,34 @@ function Chapter() {
               }}
             >
               {!imageLoaded[index] && (
-                <Skeleton width={1200} height={1100} speed={'slow'} />
+                <Skeleton width={1100} height={1100} speed={'slow'} />
               )}
               <img
-                // src={`${process.env.NEXT_PUBLIC_IMG_PROXY}/img/${chapters.baseUrl}/data/${chapters.chapter?.hash}/${chapter}`}
-                // src={`${process.env.NEXT_PUBLIC_IMG_PROXY}?url=${encodeURIComponent(`${chapters.baseUrl}/data/${chapters.chapter?.hash}/${chapter}`)}`}
                 src={`/api/proxy?url=${encodeURIComponent(`${chapters.baseUrl}/data/${chapters.chapter?.hash}/${chapter}`)}`}
+                width={1100}
+                height={1100}
                 loading="lazy"
                 alt="Manga page"
                 onLoad={() => handleImageLoad(index)}
+                onClick={isModalOpen ? closeModal : handleOpenModal}
+                // onClick={handleOpenModal}
               />
             </div>
-          </ModalChapter>
+          </div>
         ))
       ) : (
         <ExternalChapter key={1} externalUrl={''} />
       )}
+
+      <ModalChapter
+        closeModal={closeModal}
+        isOpenModal={isModalOpen}
+        totalPages={totalPages}
+        chapterData={chapterData}
+        currentPage={currentPage.page}
+        chapters={flatAggregate}
+      />
+
       {!isFetching && nextChapter ? (
         <Link
           className={s.navigateChapterBtn}
@@ -130,7 +111,7 @@ function Chapter() {
           style={{
             display: imageLoaded.some(loaded => loaded) ? 'flex' : 'none',
           }}
-          href={`/title/${router.query.id}`}
+          href={`/title/${manga}`}
         >
           Return to Manga
         </Link>
@@ -139,4 +120,7 @@ function Chapter() {
   )
 }
 
+Chapter.getLayout = function getLayout(page: ReactElement) {
+  return <>{page}</>
+}
 export default Chapter

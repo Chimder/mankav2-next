@@ -10,6 +10,7 @@ import { PaginationButtons } from '@/components/pagination-button'
 
 import { queryClient } from '../_app'
 import s from './search.module.css'
+import { OffsetFilter } from '@/shared/constants/filters'
 
 function SearchManga() {
   const router = useRouter()
@@ -24,7 +25,7 @@ function SearchManga() {
     status,
     tags,
     name: input,
-    offset: (currentPage - 1) * 34,
+    offset: (currentPage - 1) * OffsetFilter,
     sortBy: { type: sortBy?.type, order: sortBy?.order },
   })
 
@@ -87,7 +88,7 @@ function SearchManga() {
 
       <PaginationButtons
         currentPage={currentPage}
-        totalPages={Math.ceil(Number(mangas?.total) / 8)}
+        totalPages={Math.ceil(Number(mangas?.total) / OffsetFilter)}
       />
     </div>
   )

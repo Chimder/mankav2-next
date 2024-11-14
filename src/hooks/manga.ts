@@ -5,6 +5,7 @@ import {
   GetSearchMangaParams,
   GetSearchMangaStatusItem,
 } from '@/shared/api/swagger/generated'
+import { OffsetFilter } from '@/shared/constants/filters'
 import { useQuery } from '@tanstack/react-query'
 
 export type mangaSearchOps = {
@@ -48,7 +49,7 @@ export const mangaApi = {
       'includes[]': ['cover_art'],
       ...(status && { 'status[]': [status as GetSearchMangaStatusItem] }),
       'contentRating[]': ['safe', 'suggestive'],
-      'limit': 34,
+      'limit': OffsetFilter,
       'offset': offset,
       'order': sortBy
         ? {

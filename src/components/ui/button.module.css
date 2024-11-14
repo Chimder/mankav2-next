@@ -54,3 +54,24 @@
     transform: rotate(360deg);
   }
 }
+
+.paginationBtn {
+  min-width: 2.5rem;
+  min-height: 2.5rem;
+  margin: 0 4px;
+  /* padding: 10px 10px; */
+  color: white;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  border-radius: 5px;
+
+  &:hover {
+    padding: 10px 10px;
+    color: #888888;
+    background-color: rgb(194, 194, 194);
+  }
+  &.active {
+    background-color: orange;
+  }
+}

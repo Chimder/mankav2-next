@@ -25,6 +25,10 @@ dd {
   margin-block-end: 0;
 }
 
+a {
+  text-decoration: none;
+}
+
 ul[role='list'],
 ol[role='list'] {
   list-style: none;
@@ -35,7 +39,9 @@ body {
   overflow-x: hidden;
   font-family: sans-serif;
   line-height: 1.5;
-  background-color: var(--background);
+  /* background-color: var(--background); */
+  background-color: black;
+
 }
 
 h1,

@@ -1,10 +1,15 @@
-import AsideBar from "../aside-bar";
+import AsideBar from '../aside-bar'
+import s from './main-layouts.module.css'
 
-export default function MainLayout({ children }: { children: React.ReactNode }) {
+export default function MainLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
   return (
-    <>
-        <AsideBar />
-        <main>{children}</main>
-    </>
-  );
+    <nav className={s.container}>
+      <AsideBar />
+      <main>{children}</main>
+    </nav>
+  )
 }
