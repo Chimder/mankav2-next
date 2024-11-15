@@ -1,7 +1,8 @@
-import { ReactNode, useEffect, useRef, useState } from 'react'
+import { ReactNode, useRef, useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { ChapterResponse } from '@/shared/api/swagger/generated'
+import { Button } from '@radix-ui/themes'
 import clsx from 'clsx'
 
 import logo from '../assets/mangaLogo.png'
@@ -74,9 +75,9 @@ function ModalChapter({
         <Link className={s.link} href={`/title/${mangaId}`}>
           {mangaTitle}
         </Link>
-        <button onClick={toggleDropdown} className={s.selectBtn}>
+        <Button onClick={toggleDropdown} className={s.selectBtn}>
           {chapterData?.data?.attributes?.chapter}
-        </button>
+        </Button>
       </div>
 
       {isOpenDrop && (

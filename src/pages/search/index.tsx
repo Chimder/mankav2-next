@@ -1,16 +1,16 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
+import { OffsetFilter } from '@/shared/constants/filters'
 import { useFilterStore } from '@/store/filter-slice'
+import { Button, Skeleton } from '@radix-ui/themes'
 
 import { mangaApi } from '@/hooks/manga'
-import Button from '@/components/ui/button'
-import Skeleton from '@/components/ui/skeleton'
+import CardSwitcher from '@/components/card-switcher'
 import { FilterManga } from '@/components/filter-bar/filter'
 import { PaginationButtons } from '@/components/pagination-button'
 
 import { queryClient } from '../_app'
 import s from './search.module.css'
-import { OffsetFilter } from '@/shared/constants/filters'
 
 function SearchManga() {
   const router = useRouter()
@@ -46,35 +46,8 @@ function SearchManga() {
   return (
     <div className={s.container}>
       <div className={s.content}>
-        <ul className={s.list}>
-          {isFetching
-            ? Array.from({ length: 10 }).map((_, index) => (
-                <Skeleton
-                  width={280}
-                  height={330}
-                  speed={'slow'}
-                  key={index}
-                ></Skeleton>
-              ))
-            : mangas?.data?.map(manga => (
-                <Link
-                  className={s.item}
-                  href={`title/${manga?.id}`}
-                  key={manga?.id}
-                >
-                  <img
-                    // src={`${process.env.NEXT_PUBLIC_IMG_PROXY}/img/mangadex.org/covers/${manga.id}/${manga.relationships?.find(obj => obj.type === 'cover_art')?.attributes?.fileName}`}
-                    // src={`${process.env.NEXT_PUBLIC_IMG_PROXY}?url=https://mangadex.org/covers/${manga?.id}/${manga?.relationships?.find(obj => obj.type === 'cover_art')?.attributes?.fileName}`}
-                    src={`api/proxy?url=https://mangadex.org/covers/${manga?.id}/${manga?.relationships?.find(obj => obj.type === 'cover_art')?.attributes?.fileName}`}
-                    width={280}
-                    height={310}
-                    loading="lazy"
-                    alt=""
-                  />
-                  <div className={s.title}>{manga.attributes?.title?.en}</div>
-                </Link>
-              ))}
-        </ul>
+        <CardSwitcher isFetching={isFetching} mangas={mangas} />
+
 
         <div className={s.filterBar}>
           <div className={s.wrap}>

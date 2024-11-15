@@ -43,26 +43,22 @@ const AccordionSection = ({
       </button>
       {isOpen && (
         <div>
-          {options?.map(({ id, name }) => {
-            console.log((currentFilter as string[]).includes(id))
-
-            return (
-              <div key={id}>
-                <label>
-                  <input
-                    type={singleSelect ? 'radio' : 'checkbox'}
-                    checked={
-                      singleSelect
-                        ? currentFilter === id
-                        : (currentFilter as string[]).includes(id)
-                    }
-                    onChange={() => handleOptionClick(id)}
-                  />
-                  {name}
-                </label>
-              </div>
-            )
-          })}
+          {options?.map(({ id, name }) => (
+            <div key={id}>
+              <label>
+                <input
+                  type={singleSelect ? 'radio' : 'checkbox'}
+                  checked={
+                    singleSelect
+                      ? currentFilter === id
+                      : (currentFilter as string[]).includes(id)
+                  }
+                  onChange={() => handleOptionClick(id)}
+                />
+                {name}
+              </label>
+            </div>
+          ))}
         </div>
       )}
     </div>

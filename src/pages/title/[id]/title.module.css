@@ -2,27 +2,38 @@
   display: flex;
   background-color: transparent;
 }
+
 .background {
   position: fixed;
   z-index: 1;
   width: 100%;
-
   height: 50vh;
 }
 
-.titleImg {
-  position: relative;
-  z-index: 10;
+.rightPanel {
+  display: flex;
+  flex-direction: column;
+  order: 2;
+  width: 40%;
+
+  .wrap {
+    position: fixed;
+  }
+
+  img {
+    position: relative;
+    z-index: 10;
+  }
 }
 
-.titleInfo {
-
+.title {
   .info {
     padding: 30px;
   }
 
   &Item {
-    margin-bottom: 10px;
+    margin: 14px 0;
+
     font-size: 13px;
     line-height: 1.4em;
 
@@ -34,24 +45,54 @@
     .name {
       font-size: 13px;
       line-height: 1.4em;
+      &Title{
+      font-size: 16px;
+      line-height: 1.4em;
+
+      }
+    }
+  }
+
+  &Genres {
+    padding: 10px 0 5px;
+    margin-bottom: 10px;
+    font-size: 13px;
+    line-height: 1.4em;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    .tag {
+      display: inline-block;
+      padding: 4px 8px;
+      margin: 0 2px 5px 0;
+      font-size: 12px;
+      line-height: 1.1em;
+      background-color: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      border-radius: 20px;
     }
   }
 }
-.titleGenres {
-  padding: 10px 0 5px;
-  margin-bottom: 10px;
-  font-size: 13px;
-  line-height: 1.4em;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  .tag {
-    display: inline-block;
-    padding: 4px 8px;
-    margin: 0 2px 5px 0;
-    font-size: 12px;
-    line-height: 1.1em;
-    background-color: transparent;
-    border: 1px solid rgba(255, 255, 255, 0.4);
-    border-radius: 20px;
+
+.chapterList {
+  width: 60%;
+}
+
+.list {
+  width: 100%;
+  padding: 20px;
+
+  .item {
+    display: flex;
+    justify-content: space-between;
+    height: 52px;
+    margin: 6px 0;
+    font-size: 18px;
+    line-height: 52px;
+    color: white;
+    border-bottom: 1px solid hsla(0, 0%, 100%, 0.1);
+
+    &:hover {
+      color: bisque;
+    }
   }
 }
