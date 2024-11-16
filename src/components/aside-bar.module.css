@@ -1,3 +1,134 @@
-.container{
+.container {
+  position: relative;
+  /* position: fixed;
+  top: 0; */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100vw;
+  height: 80px;
+  padding: 0 40px;
+  border: 1px solid hsla(0, 0%, 100%, 0.2);
+}
 
+.wrapLogo {
+  display: flex;
+  flex: 1 1 33%;
+  align-items: center;
+  justify-content: center;
+  .logo {
+    margin-right: 40px;
+    /* stylelint-disable-next-line font-family-no-missing-generic-family-keyword */
+    font-family: 'fontLogo';
+    font-size: 34px;
+    color: aquamarine;
+    text-decoration: none;
+    list-style: none;
+    /* padding-ri: 10px; */
+    /* h1{
+
+    } */
+  }
+}
+.search {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+  button {
+    margin: 0 18px;
+    color: white;
+    white-space: nowrap;
+  }
+}
+
+.input {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  &Wrap {
+    display: flex;
+
+    .closeIcon {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      color: aquamarine;
+      cursor: pointer;
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+
+    input {
+      width: clamp(200px, 34vw, 440px);
+      padding: 6px;
+      color: white;
+      background-color: #434340;
+      border: none;
+      border-radius: 5px;
+      outline: none;
+
+      &:focus {
+        border: 2px solid aquamarine;
+        border-radius: 5px;
+        outline: none;
+      }
+
+      &::placeholder {
+        color: gray;
+      }
+    }
+  }
+}
+
+.user {
+  display: flex;
+  flex: 1 2 33%;
+  justify-content: end;
+  /* justify-self: end; */
+}
+
+.listSearch {
+  position: absolute;
+  top: 32px;
+  z-index: 1000;
+
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 4px;
+  background-color: black;
+}
+.item {
+  display: flex;
+  margin: 4px 0;
+  cursor: pointer;
+  background-color: #434340;
+
+  img {
+    width: 60px;
+    height: 80px;
+  }
+
+  &Data {
+    margin-left: 6px;
+    .status {
+      display: inline-block;
+      padding: 4px 8px;
+      margin: 0 2px 5px 0;
+      font-size: 12px;
+      line-height: 1.1em;
+      background-color: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      border-radius: 20px;
+    }
+    .title {
+      width: 100%;
+    }
+    .createdAt {
+      width: 100%;
+    }
+  }
 }

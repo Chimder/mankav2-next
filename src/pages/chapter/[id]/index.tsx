@@ -73,7 +73,7 @@ function Chapter() {
                 src={`/api/proxy?url=${encodeURIComponent(`${chapters.baseUrl}/data/${chapters.chapter?.hash}/${chapter}`)}`}
                 width={1100}
                 height={1100}
-                loading="lazy"
+                // loading="lazy"
                 alt="Manga page"
                 onLoad={() => handleImageLoad(index)}
                 onClick={isModalOpen ? closeModal : handleOpenModal}

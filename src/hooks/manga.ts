@@ -6,7 +6,7 @@ import {
   GetSearchMangaStatusItem,
 } from '@/shared/api/swagger/generated'
 import { OffsetFilter } from '@/shared/constants/filters'
-import { useQuery } from '@tanstack/react-query'
+import { keepPreviousData, useQuery } from '@tanstack/react-query'
 
 export type mangaSearchOps = {
   tags?: string[]
@@ -31,6 +31,29 @@ export const mangaApi = {
       enabled: Boolean(id),
       refetchOnWindowFocus: false,
       staleTime: 100000,
+      retry: 0,
+    })
+  },
+  useMangaSeachInput: (title: string) => {
+    return useQuery({
+      queryKey: [mangaApi.baseKey, title],
+      queryFn: ({ signal }) =>
+        getSearchManga(
+          {
+            'includedTagsMode': 'AND',
+            'includes[]': ['manga', 'cover_art'],
+            'title': title,
+            'limit': 5,
+            'order': {
+              relevance: 'desc',
+            },
+          },
+          { signal },
+        ),
+      refetchOnMount: false,
+      enabled: Boolean(title),
+      refetchOnWindowFocus: false,
+      // placeholderData: keepPreviousData,
       retry: 0,
     })
   },

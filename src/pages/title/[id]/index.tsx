@@ -2,6 +2,7 @@ import { url } from 'inspector'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import clsx from 'clsx'
+import dayjs from 'dayjs'
 
 import { feedApi } from '@/hooks/feeds'
 import { mangaApi } from '@/hooks/manga'
@@ -42,7 +43,7 @@ function Title() {
               <div className={s.titleItem}>
                 <span className={s.head}>Created:</span>
                 <span className={s.name}>
-                  {manga?.data?.attributes?.createdAt}
+                  {dayjs(manga?.data?.attributes?.createdAt).format('YYYY')}
                 </span>
               </div>
               <div className={s.titleItem}>
