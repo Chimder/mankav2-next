@@ -3,11 +3,11 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { Skeleton } from '@radix-ui/themes'
 
-import { chapterApi } from '@/hooks/chapter'
+import { chapterApi } from '@/hooks/api/chapter'
 import useAggregateChapter from '@/hooks/use-aggregate-chapter'
 import usePageTrack from '@/hooks/use-chapter-tracker'
 import ExternalChapter from '@/components/external-chapter'
-import ModalChapter from '@/components/modal-chapter'
+import ModalChapter from '@/components/modal/modal-chapter'
 
 import s from './chapter.module.css'
 

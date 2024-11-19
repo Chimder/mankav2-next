@@ -1,11 +1,10 @@
-import React, { useState } from 'react'
 import Link from 'next/link'
 import Icons from '@/assets/svg/icons'
 import { MangaList } from '@/shared/api/swagger/generated'
-import { Box, Tabs, Text } from '@radix-ui/themes'
+import { useCardSwitcherStore } from '@/store/card-switcher'
 import clsx from 'clsx'
 
-import Skeleton from './ui/skeleton'
+import Skeleton from '../ui/skeleton'
 import s from './card-switcher.module.css'
 
 type Props = {
@@ -14,7 +13,8 @@ type Props = {
 }
 
 const CardSwitcher = ({ mangas, isFetching }: Props) => {
-  const [cardView, setCardView] = useState<'boxes' | 'two'>('boxes')
+  const cardView = useCardSwitcherStore().type
+  const setCardView = useCardSwitcherStore().setCardSwitcher
 
   function selectCardFormat(value: typeof cardView) {
     setCardView(value)
@@ -44,8 +44,8 @@ const CardSwitcher = ({ mangas, isFetching }: Props) => {
             ? Array.from({ length: 10 }).map((_, index) => (
                 <Skeleton
                   speed={'medium'}
-                  width={cardView == 'boxes' ? 280 : 440}
-                  height={cardView == 'boxes' ? 330 : 400}
+                  width={cardView == 'boxes' ? 280 : 760}
+                  height={cardView == 'boxes' ? 330 : 180}
                   key={index}
                 ></Skeleton>
               ))
@@ -100,7 +100,9 @@ const CardSwitcher = ({ mangas, isFetching }: Props) => {
                           {manga.attributes?.status}
                         </div>
                       </div>
-                      <div className={s.description}>{manga.attributes?.description?.en}</div>
+                      <div className={s.description}>
+                        {manga.attributes?.description?.en}
+                      </div>
                     </div>
                   </Link>
                 ))}

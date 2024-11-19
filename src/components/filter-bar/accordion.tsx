@@ -1,6 +1,9 @@
 import { useState } from 'react'
+import Icons from '@/assets/svg/icons'
 import { filterConstants } from '@/shared/constants/filters'
 import { Filter, useFilterStore } from '@/store/filter-slice'
+
+import s from './filter.module.css'
 
 type TagOption = {
   id: string
@@ -33,20 +36,24 @@ const AccordionSection = ({
 
   console.log('CURR', currentFilter)
   return (
-    <div>
+    <div className={s.accordion}>
       <button
+        className={s.toggleBtn}
         onClick={toggleAccordion}
         style={{ display: 'flex', alignItems: 'center' }}
       >
-        <span>{title}</span>
-        <span>{isOpen ? '-' : '+'}</span>
+        <span className={s.title}>{title}</span>
+        <div className={isOpen ? s.iconDown : s.iconUp}>
+          <Icons.DownToggle />
+        </div>
       </button>
       {isOpen && (
-        <div>
+        <ul className={s.list}>
           {options?.map(({ id, name }) => (
-            <div key={id}>
-              <label>
+            <label key={id}>
+              <div className={s.item}>
                 <input
+                  className={singleSelect ? s.radio : s.checkbox}
                   type={singleSelect ? 'radio' : 'checkbox'}
                   checked={
                     singleSelect
@@ -56,10 +63,10 @@ const AccordionSection = ({
                   onChange={() => handleOptionClick(id)}
                 />
                 {name}
-              </label>
-            </div>
+              </div>
+            </label>
           ))}
-        </div>
+        </ul>
       )}
     </div>
   )

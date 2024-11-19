@@ -1,6 +1,6 @@
 import { filterConstants } from '@/shared/constants/filters'
 
-import { tagsApi } from '@/hooks/tag'
+import { tagsApi } from '@/hooks/api/tag'
 
 import AccordionSection from './accordion'
 import AccordionSortBy from './accordion-sort-by'

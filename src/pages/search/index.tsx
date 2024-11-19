@@ -4,8 +4,8 @@ import { OffsetFilter } from '@/shared/constants/filters'
 import { useFilterStore } from '@/store/filter-slice'
 import { Button, Skeleton } from '@radix-ui/themes'
 
-import { mangaApi } from '@/hooks/manga'
-import CardSwitcher from '@/components/card-switcher'
+import { mangaApi } from '@/hooks/api/manga'
+import CardSwitcher from '@/components/card/card-switcher'
 import { FilterManga } from '@/components/filter-bar/filter'
 import { PaginationButtons } from '@/components/pagination-button'
 
@@ -47,7 +47,6 @@ function SearchManga() {
     <div className={s.container}>
       <div className={s.content}>
         <CardSwitcher isFetching={isFetching} mangas={mangas} />
-
 
         <div className={s.filterBar}>
           <div className={s.wrap}>

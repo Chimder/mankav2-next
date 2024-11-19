@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router'
 
-import { chapterApi } from './chapter'
+import { chapterApi } from './api/chapter'
 
 const useAggregateChapter = () => {
   const router = useRouter()
@@ -12,7 +12,6 @@ const useAggregateChapter = () => {
   const flatAggregate = Object.values(aggregate?.volumes || {})
     .map(volume => Object.values(volume.chapters || {}))
     .reduce((acc, chapters) => acc.concat(chapters), [])
-
 
   const currentChapterIndex = flatAggregate.findIndex(
     chap => chap.id === router.query.id,

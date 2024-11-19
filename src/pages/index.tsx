@@ -2,7 +2,6 @@ import { useEffect } from 'react'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 
-import Button from '@/components/ui/button'
 
 export default function Home() {
   const route = useRouter()

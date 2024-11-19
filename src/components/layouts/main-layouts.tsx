@@ -1,4 +1,4 @@
-import AsideBar from '../aside-bar'
+import AsideBar from '../aside-bar/aside-bar'
 import s from './main-layouts.module.css'
 
 export default function MainLayout({

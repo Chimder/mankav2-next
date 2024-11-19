@@ -1,11 +1,10 @@
-import { url } from 'inspector'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import clsx from 'clsx'
 import dayjs from 'dayjs'
 
-import { feedApi } from '@/hooks/feeds'
-import { mangaApi } from '@/hooks/manga'
+import { feedApi } from '@/hooks/api/feeds'
+import { mangaApi } from '@/hooks/api/manga'
 import useAggregateChapter from '@/hooks/use-aggregate-chapter'
 
 import s from './title.module.css'

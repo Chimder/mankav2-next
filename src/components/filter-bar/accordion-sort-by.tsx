@@ -1,10 +1,9 @@
 import { useState } from 'react'
+import Icons from '@/assets/svg/icons'
 import { filterConstants } from '@/shared/constants/filters'
-import {
-  Filter,
-  GetSearchMangaOrderParams,
-  useFilterStore,
-} from '@/store/filter-slice'
+import { useFilterStore } from '@/store/filter-slice'
+
+import s from './filter.module.css'
 
 type AccordionSectionProps = {
   title: string
@@ -19,6 +18,7 @@ const AccordionSortBy = ({ title, options }: AccordionSectionProps) => {
   const toggleAccordion = () => setIsOpen(prev => !prev)
 
   const handleSelectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    toggleAccordion()
     const selectedOption = options?.find(
       option => `${option.type}-${option.order}` === event.target.value,
     )
@@ -28,9 +28,8 @@ const AccordionSortBy = ({ title, options }: AccordionSectionProps) => {
   }
 
   return (
-    <div>
+    <div className={s.accordionSortBy}>
       <label>
-        {/* <span>{title}</span> */}
         <select
           value={`${sortBy?.type}-${sortBy?.order}`}
           onChange={handleSelectChange}

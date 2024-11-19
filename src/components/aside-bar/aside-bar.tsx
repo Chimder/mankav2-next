@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useRef, useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import Icons from '@/assets/svg/icons'
@@ -6,7 +6,8 @@ import { Button } from '@radix-ui/themes'
 import dayjs from 'dayjs'
 import { useDebounce } from 'use-debounce'
 
-import { mangaApi } from '@/hooks/manga'
+import { mangaApi } from '@/hooks/api/manga'
+import useClickOutside from '@/hooks/use-click-outside'
 
 import s from './aside-bar.module.css'
 
@@ -19,18 +20,9 @@ export default function AsideBar() {
 
   const { data: searchResults } = mangaApi.useMangaSeachInput(debouncedValue)
 
-  useEffect(() => {
-    function handleClickOutside(event: MouseEvent) {
-      if (listRef.current && !listRef.current.contains(event.target as Node)) {
-        setIsListVisible(false)
-      }
-    }
-
-    document.addEventListener('mousedown', handleClickOutside)
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside)
-    }
-  }, [])
+  useClickOutside(listRef, () => {
+    setIsListVisible(false)
+  })
 
   return (
     <div className={s.container}>
