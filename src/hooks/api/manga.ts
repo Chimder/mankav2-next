@@ -6,7 +6,7 @@ import {
   GetSearchMangaStatusItem,
 } from '@/shared/api/swagger/generated'
 import { OffsetFilter } from '@/shared/constants/filters'
-import { keepPreviousData, useQuery } from '@tanstack/react-query'
+import { useQuery } from '@tanstack/react-query'
 
 export type mangaSearchOps = {
   tags?: string[]
@@ -79,13 +79,6 @@ export const mangaApi = {
             [sortBy.type]: sortBy.order,
           }
         : undefined,
-      // 'order': {
-      //   ...(order?.createdAt && { createdAt: order?.createdAt }),
-      //   ...(order?.relevance && { relevance: order?.relevance }),
-      //   ...(order?.rating && { rating: order?.rating }),
-      //   ...(order?.updatedAt && { updatedAt: order?.updatedAt }),
-      //   ...(order?.title && { title: order?.title }),
-      // },
     }
     return useQuery({
       // eslint-disable-next-line @tanstack/query/exhaustive-deps

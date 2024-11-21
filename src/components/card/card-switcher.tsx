@@ -44,8 +44,9 @@ const CardSwitcher = ({ mangas, isFetching }: Props) => {
             ? Array.from({ length: 10 }).map((_, index) => (
                 <Skeleton
                   speed={'medium'}
-                  width={cardView == 'boxes' ? 280 : 760}
-                  height={cardView == 'boxes' ? 330 : 180}
+                  className={
+                    cardView == 'boxes' ? s.skeletonBoxes : s.skeletonTwo
+                  }
                   key={index}
                 ></Skeleton>
               ))

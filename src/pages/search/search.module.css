@@ -69,12 +69,29 @@
     display: flex;
     flex-direction: column;
   }
+  .btnWrap {
+    width: 100%;
+
+    .search {
+      width: 68%;
+      padding: 6px 12px;
+      margin-right: 2%;
+      font-size: 16px;
+      cursor: pointer;
+      /* padding: ; */
+    }
+    .reset {
+      width: 30%;
+      padding: 6px 12px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  }
 }
 
 .filterBar::-webkit-scrollbar {
   width: 8px;
 }
-
 
 .filterBar::-webkit-scrollbar-thumb {
   background-color: #888888;

@@ -2,10 +2,10 @@ import { ReactNode, useRef, useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { ChapterResponse } from '@/shared/api/swagger/generated'
-import { Button } from '@radix-ui/themes'
+import { Button, Separator } from '@radix-ui/themes'
 import clsx from 'clsx'
 
-import logo from '../assets/mangaLogo.png'
+import logo from './../../assets/mangaLogo.png'
 import s from './modal-capter.module.css'
 
 type flatAggregate = {
@@ -58,26 +58,24 @@ function ModalChapter({
   if (!isOpenModal) return null
 
   return (
-    <div ref={modalRef} className={s.modal}>
-      <div className={s.current}>
-        {currentPage} / {totalPages}
-      </div>
-
-      <img
-        className={s.logo}
-        src={logo.src}
-        width={400}
-        height={300}
-        alt="Logo"
-      />
-
-      <div className={s.select}>
-        <Link className={s.link} href={`/title/${mangaId}`}>
-          {mangaTitle}
+    <div className={s.modal} ref={modalRef}>
+      <div className={s.logoWrap}>
+        <Link className={s.logo} href={'/'}>
+          <h1>ManKA</h1>
         </Link>
-        <Button onClick={toggleDropdown} className={s.selectBtn}>
-          {chapterData?.data?.attributes?.chapter}
-        </Button>
+
+        <div className={s.select}>
+          <Link className={s.link} href={`/title/${mangaId}`}>
+            {mangaTitle}
+          </Link>
+          <Button onClick={toggleDropdown} className={s.selectBtn}>
+            {chapterData?.data?.attributes?.chapter}
+          </Button>
+        </div>
+      </div>
+      <div className={s.current}>
+        <p>{currentPage}</p><Separator color='yellow' />
+        <p> {totalPages}</p>
       </div>
 
       {isOpenDrop && (

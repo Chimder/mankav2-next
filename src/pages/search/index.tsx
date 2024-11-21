@@ -36,12 +36,12 @@ function SearchManga() {
     })
   }
 
-  // const resetSearch = async () => {
-  //   reset()
-  //   await queryClient.resetQueries({
-  //     queryKey: [mangaApi.baseKey],
-  //   })
-  // }
+  const resetSearch = async () => {
+    reset()
+    await queryClient.resetQueries({
+      queryKey: [mangaApi.baseKey],
+    })
+  }
 
   return (
     <div className={s.container}>
@@ -50,8 +50,23 @@ function SearchManga() {
 
         <div className={s.filterBar}>
           <div className={s.wrap}>
-            <div className={s.searchBtn}>
-              <Button onClick={e => Search(e)}>Search</Button>
+            <div className={s.btnWrap}>
+              <Button
+                className={s.search}
+                variant="surface"
+                color="green"
+                onClick={e => Search(e)}
+              >
+                Search
+              </Button>
+              <Button
+                variant="surface"
+                color="red"
+                onClick={() => resetSearch()}
+                className={s.reset}
+              >
+                Reset
+              </Button>
             </div>
             <FilterManga />
           </div>

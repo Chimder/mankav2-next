@@ -15,19 +15,28 @@
   z-index: 201;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   width: 100vw;
-  height: 120px;
-  color: aliceblue;
-  text-decoration: none;
-  list-style: none;
+  height: 80px;
+  padding: 0 40px;
+  color: white;
   background: linear-gradient(to bottom, #000000 0%, rgba(220, 9, 20, 0));
   transition: ease-in 0.5s;
 }
+.logoWrap {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
 
 .logo {
-  flex-basis: 10%;
-  height: 76px;
-  margin: auto 10px auto 30px;
+  margin-right: 40px;
+  /* stylelint-disable-next-line font-family-no-missing-generic-family-keyword */
+  font-family: 'fontLogo';
+  font-size: 28px;
+  color: aquamarine;
+  text-decoration: none;
+  list-style: none;
 }
 
 .select {
@@ -101,9 +110,13 @@
 }
 
 .current {
-  position: absolute;
-  right: 40px;
-  bottom: 60px;
+  position: relative;
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   color: yellow;
+  span {
+    width: 100%;
+  }
 }

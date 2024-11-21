@@ -1,4 +1,5 @@
 .chap {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -15,9 +16,13 @@
 }
 
 .current {
-  position: fixed;
-  top: 0;
+  position: sticky;
+  top: 10px;
+  left: 10px;
   display: flex;
+  justify-content: end;
+  width: 100%;
+  color: yellowgreen;
 }
 
 .navigateChapterBtn {

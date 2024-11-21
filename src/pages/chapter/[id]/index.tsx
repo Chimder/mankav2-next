@@ -57,6 +57,9 @@ function Chapter() {
 
   return (
     <div className={s.chap}>
+      {/* <div className={s.current}>
+        {currentPage.page} / {totalPages}
+      </div> */}
       {!externalUrl ? (
         chapters?.chapter?.data?.map((chapter, index) => (
           <div key={chapter}>

@@ -18,6 +18,20 @@
   flex: 1 1 0;
 }
 
+
+.skeletonBoxes {
+  width: 100%;
+  max-width: 280px;
+  max-height: 310px;
+  aspect-ratio: 280 / 310;
+}
+
+.skeletonTwo {
+  width: 100%;
+  max-width: 740px;
+  max-height: 180px;
+  aspect-ratio: 140 / 180;
+}
 .boxes {
   display: flex;
   flex-wrap: wrap;
