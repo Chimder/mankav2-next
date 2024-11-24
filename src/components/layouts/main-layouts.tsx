@@ -1,5 +1,4 @@
 import AsideBar from '../aside-bar/aside-bar'
-import s from './main-layouts.module.css'
 
 export default function MainLayout({
   children,
@@ -7,7 +6,7 @@ export default function MainLayout({
   children: React.ReactNode
 }) {
   return (
-    <nav className={s.container}>
+    <nav className="bg-black w-screen">
       <AsideBar />
       <main>{children}</main>
     </nav>

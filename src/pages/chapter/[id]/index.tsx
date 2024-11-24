@@ -9,7 +9,6 @@ import usePageTrack from '@/hooks/use-chapter-tracker'
 import ExternalChapter from '@/components/external-chapter'
 import ModalChapter from '@/components/modal/modal-chapter'
 
-import s from './chapter.module.css'
 
 function Chapter() {
   const router = useRouter()
@@ -56,7 +55,7 @@ function Chapter() {
   }
 
   return (
-    <div className={s.chap}>
+    <div className="relative center flex-col w-full bg-black">
       {/* <div className={s.current}>
         {currentPage.page} / {totalPages}
       </div> */}
@@ -64,7 +63,7 @@ function Chapter() {
         chapters?.chapter?.data?.map((chapter, index) => (
           <div key={chapter}>
             <div
-              className={s.chapImg}
+              className="flex flex-col items-center max-w-[1200px] py-[14px] px-0"
               ref={el => {
                 imageRefs.current[index] = el
               }}
@@ -100,20 +99,14 @@ function Chapter() {
 
       {!isFetching && nextChapter ? (
         <Link
-          className={s.navigateChapterBtn}
+          className="flex center w-full h-10 py-[34px] text-black bg-white border-1 border-black rounded-sm"
           href={`/chapter/${nextChapter?.id}?manga=${manga}&lang=${lang}`}
-          style={{
-            display: imageLoaded.some(loaded => loaded) ? 'flex' : 'none',
-          }}
         >
           Next
         </Link>
       ) : (
         <Link
-          className={s.navigateChapterBtn}
-          style={{
-            display: imageLoaded.some(loaded => loaded) ? 'flex' : 'none',
-          }}
+          className="flex center w-full h-10 py-[34px] text-black bg-white border-1 border-black rounded-sm"
           href={`/title/${manga}`}
         >
           Return to Manga

@@ -1,13 +1,16 @@
-import React, { useState } from 'react'
+import React, { ReactElement, useState } from 'react'
 
-import s from './test.module.css'
+// import s from './test.module.css'
 
 function Test() {
   return (
-    <div className={s.test}>
-      <div className={s.test1}></div>
+    <div className="w-full h-full">
+      <div className="text-6xl text-amber-300">Test text</div>
     </div>
   )
 }
 
+// Test.getLayout = function getLayout(page: ReactElement) {
+//   return <>{page}</>
+// }
 export default Test

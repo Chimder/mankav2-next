@@ -3,8 +3,6 @@ import Icons from '@/assets/svg/icons'
 import { filterConstants } from '@/shared/constants/filters'
 import { useFilterStore } from '@/store/filter-slice'
 
-import s from './filter.module.css'
-
 type AccordionSectionProps = {
   title: string
   options?: typeof filterConstants.sortBy
@@ -28,15 +26,21 @@ const AccordionSortBy = ({ title, options }: AccordionSectionProps) => {
   }
 
   return (
-    <div className={s.accordionSortBy}>
-      <label>
+    <div className="flex flex-col items-start justify-center w-full text-base text-black">
+      <label className="relative w-full">
         <select
+          className="center w-full! py-2 px-3 text--base text-black appearance-none cursor-pointer bg-white border-2 border-white
+           transition-colors  outline-none "
           value={`${sortBy?.type}-${sortBy?.order}`}
           onChange={handleSelectChange}
         >
           <option value="">Select an option</option>
           {options?.map(({ name, order, type }) => (
-            <option key={name} value={`${type}-${order}`}>
+            <option
+              className="hover:bg-green-400 focus:bg-green-400 appearance-none"
+              key={name}
+              value={`${type}-${order}`}
+            >
               {name}
             </option>
           ))}

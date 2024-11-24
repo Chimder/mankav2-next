@@ -9,7 +9,6 @@ import { useDebounce } from 'use-debounce'
 import { mangaApi } from '@/hooks/api/manga'
 import useClickOutside from '@/hooks/use-click-outside'
 
-import s from './aside-bar.module.css'
 
 export default function AsideBar() {
   const router = useRouter()
@@ -25,20 +24,24 @@ export default function AsideBar() {
   })
 
   return (
-    <div className={s.container}>
-      <div className={s.wrapLogo}>
-        <Link className={s.logo} href={'/'}>
+    <div className="relative center justify-between w-screen h-[80px] py-0 px-10 border-cyan-200 ">
+      <div className="flex-[1_1_33%] center">
+        <Link className="mr-10 text-6xl font-logo text-cyan-300 list-none" href={'/'}>
           <h1>ManKA</h1>
         </Link>
 
-        <Link className={s.search} href={`/search`}>
+        <Link
+          className="center ml-10 text-white whitespace-nowrap"
+          href={`/search`}
+        >
           <Button>Advanced Search</Button>
         </Link>
       </div>
 
-      <div className={s.input}>
-        <div className={s.inputWrap}>
+      <div className="relative flex justify-center flex-col ">
+        <div className="flex">
           <input
+            className="w-[clamp(200px,34vw,440px)] p-1.5 text-white bg-gray-600 border-none rounded-2xl outline-none focus:border-2 focus:border-cyan-400 placeholder:text-gray-400"
             value={searchQuery}
             onChange={e => {
               setSearchQuery(e.target.value)
@@ -55,14 +58,14 @@ export default function AsideBar() {
               setSearchQuery('')
               setIsListVisible(false)
             }}
-            className={s.closeIcon}
+            className="absolute top-2 right-2 text-cyan-300 cursor-pointer hover:scale-110"
           >
             <Icons.closeInpute />
           </div>
         </div>
         <ul
           ref={listRef}
-          className={s.listSearch}
+          className="flex absolute top-[32px] z-[1000] flex-col w-full p-1 bg-black"
           style={{
             display:
               isListVisible && searchResults?.data?.length ? 'block' : 'none',
@@ -71,7 +74,7 @@ export default function AsideBar() {
           {searchResults &&
             searchResults.data?.map(manga => (
               <div
-                className={s.item}
+                className="flex my-1 mx-0 cursor-pointer bg-gray-400"
                 onClick={() => {
                   setSearchQuery('')
                   setIsListVisible(false)
@@ -80,23 +83,26 @@ export default function AsideBar() {
                 key={manga.id}
               >
                 <img
+                  className="w-[60xp] h-[80px]"
                   src={`api/proxy?url=https://mangadex.org/covers/${manga?.id}/${manga?.relationships?.find(obj => obj.type === 'cover_art')?.attributes?.fileName}`}
                   width={60}
                   height={80}
                   alt=""
                 />
-                <div className={s.itemData}>
-                  <div className={s.title}>{manga.attributes?.title?.en}</div>
-                  <div className={s.createdAt}>
+                <div className="ml-1.5 ">
+                  <div className="w-full">{manga.attributes?.title?.en}</div>
+                  <div className="">
                     {dayjs(manga.attributes?.createdAt).format('YYYY')}
                   </div>
-                  <div className={s.status}>{manga.attributes?.status}</div>
+                  <div className="inline-block py-1 px-2 mr-[2px] rb-[5px] text-3xl bg-transparent border-[1px] border-gray-400 rounded-4xl">
+                    {manga.attributes?.status}
+                  </div>
                 </div>
               </div>
             ))}
         </ul>
       </div>
-      <div className={s.user}>USer</div>
+      <div className="flex-[1_2_33%] justify-end flex">USer</div>
     </div>
   )
 }

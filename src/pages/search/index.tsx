@@ -1,8 +1,6 @@
-import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { OffsetFilter } from '@/shared/constants/filters'
 import { useFilterStore } from '@/store/filter-slice'
-import { Button, Skeleton } from '@radix-ui/themes'
 
 import { mangaApi } from '@/hooks/api/manga'
 import CardSwitcher from '@/components/card/card-switcher'
@@ -10,7 +8,6 @@ import { FilterManga } from '@/components/filter-bar/filter'
 import { PaginationButtons } from '@/components/pagination-button'
 
 import { queryClient } from '../_app'
-import s from './search.module.css'
 
 function SearchManga() {
   const router = useRouter()
@@ -44,32 +41,27 @@ function SearchManga() {
   }
 
   return (
-    <div className={s.container}>
-      <div className={s.content}>
+    <div className="flex flex-col items-center w-full py-[100px] bg-black">
+      <div className="flex w-full">
         <CardSwitcher isFetching={isFetching} mangas={mangas} />
 
-        <div className={s.filterBar}>
-          <div className={s.wrap}>
-            <div className={s.btnWrap}>
-              <Button
-                className={s.search}
-                variant="surface"
-                color="green"
+        <div className="sticky filterBar top-0 right-1 flex flex-col gap-2.5 self-start w-[300px] h-screen p-2.5 overflow-y-scroll text-white bg-black">
+            <div className="w-full flex">
+              <button
+                className="w-8/12 py-2 mr-1  px-3  text-base cursor-pointer
+                bg-green-400"
                 onClick={e => Search(e)}
               >
                 Search
-              </Button>
-              <Button
-                variant="surface"
-                color="red"
+              </button>
+              <button
                 onClick={() => resetSearch()}
-                className={s.reset}
+                className="w-1/3 py-2  px-3 bg-red-500 text-base cursor-pointer "
               >
                 Reset
-              </Button>
+              </button>
             </div>
             <FilterManga />
-          </div>
         </div>
       </div>
 

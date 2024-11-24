@@ -1,6 +1,109 @@
-@import 'fonts';
-@import 'globals';
+@import './fonts';
+@import './normalize';
+@import 'tailwindcss';
+/* @import 'globals';
 @import 'media';
 @import 'mixins';
 @import 'normalize';
-@import 'vars';
+@import 'vars'; */
+
+@theme {
+  --font-display: 'Satoshi', 'sans-serif';
+
+  --breakpoint-3xl: 1920px;
+
+  --color-avocado-100: oklch(0.99 0 0);
+  --color-avocado-200: oklch(0.98 0.04 113.22);
+  --color-avocado-300: oklch(0.94 0.11 115.03);
+  --color-avocado-400: oklch(0.92 0.19 114.08);
+  --color-avocado-500: oklch(0.84 0.18 117.33);
+  --color-avocado-600: oklch(0.53 0.12 118.34);
+
+  --ease-fluid: cubic-bezier(0.3, 0, 0, 1);
+  --ease-snappy: cubic-bezier(0.2, 0, 0, 1);
+
+  /* --border-width-1: 1px; */
+
+  --font-logo: 'fontLogo';
+}
+
+@layer components {
+  .center {
+    @apply flex justify-center items-center;
+  }
+}
+
+.boxes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+  width: 100%;
+  padding: 0;
+  list-style: none;
+}
+
+.two {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  gap: 10px;
+  padding: 0 18px;
+}
+
+.skeletonBoxes {
+  width: 100%;
+  max-width: 280px;
+  max-height: 310px;
+  aspect-ratio: 280 / 310;
+}
+
+.skeletonTwo {
+  width: 100%;
+  max-width: 740px;
+  max-height: 180px;
+  aspect-ratio: 140 / 180;
+}
+
+.scrollbar {
+  scrollbar-color: black var(--color-black);
+  scrollbar-width: thin;
+}
+
+.filterBar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.filterBar::-webkit-scrollbar-thumb {
+  background-color: #888888;
+  border-radius: 10px;
+}
+
+.filterBar::-webkit-scrollbar-thumb:hover {
+  background-color: #555555;
+}
+
+.filterBar::-webkit-scrollbar-track {
+  background-color: #333333;
+  border-radius: 10px;
+}
+
+.title {
+  margin: 14px 0;
+  font-size: 13px;
+  line-height: 1.4em;
+}
+.head {
+  margin-right: 5px;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+/* .name {
+} */
+.titleGenres {
+  padding: 10px 0 5px;
+  margin-bottom: 10px;
+  font-size: 13px;
+  line-height: 1.4em;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
