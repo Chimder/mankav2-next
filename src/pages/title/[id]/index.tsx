@@ -1,47 +1,43 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { cn } from '@/shared/lib/tailwind'
-import clsx from 'clsx'
 import dayjs from 'dayjs'
 import relativeTime from 'dayjs/plugin/relativeTime'
 
 import { feedApi } from '@/hooks/api/feeds'
 import { mangaApi } from '@/hooks/api/manga'
-import useAggregateChapter from '@/hooks/use-aggregate-chapter'
-
-import s from './title.module.css'
+import { Skeleton } from '@/components/ui/skeleton'
 
 function Title() {
   const path = useRouter()
   const mangaId = path?.query?.id as string
-  const { data: chapters } = feedApi.useMangaFeed(mangaId)
+  const { data: chapters, isFetching } = feedApi.useMangaFeed(mangaId)
   const { data: manga } = mangaApi.useMangaByID(mangaId)
 
   const backgroundImageUrl = `/api/proxy?url=https://mangadex.org/covers/${mangaId}/${
     manga?.data?.relationships?.find(obj => obj.type === 'cover_art')
       ?.attributes?.fileName
   }`
-  //   const coverArt = manga?.data?.relationships?.find(obj => obj.type === 'cover_art')?.attributes?.fileName;
-  // const backgroundImageUrl = coverArt ? `/api/proxy?url=https://mangadex.org/covers/${mangaId}/${coverArt}` : null;
 
   // const setChapterLang = useChapterStore().setChapterLanguage
-  dayjs.extend(relativeTime)
 
-  console.log('CHAPTErs', chapters)
-  console.log('MNGAGA', manga)
+  dayjs.extend(relativeTime)
+  console.log('TITITEL', chapters?.data)
+
   return (
-    <div className="flex text-white bg-transparent">
-      <section className="flex flex-col order-2 w-1/4">
-        <div className="fixed">
+    <div className="flex h-full border-green-400 w-full text-white ">
+      <section className="flex flex-col order-2 w-1/3">
+        <div className="fixed border-[1px] border-green-400 flex flex-col justify-center items-center">
+          {/* <div className=''> */}
           <img
-            className="relative z-10"
+            className="relative w-[310px] h-[440px] z-10"
             src={backgroundImageUrl}
             alt=""
-            width={280}
-            height={310}
+            // width={300}
+            // height={340}
           />
-          <div className="">
-            <div className="py-12 pl-12">
+          {/* </div> */}
+          <div className="h-full flex">
+            <div className="py-4 ">
               <div className="my-3 mx-0 text-sm">
                 <span className="mr-1 mb-2.5 text-sm">Title:</span>
                 <span className="text-base">
@@ -95,29 +91,44 @@ function Title() {
         </div>
       </section>
 
-      <section className="w-3/5 text-white">
+      <section className="w-3/5 border-[1px] border-green-400 text-white bg-black">
         <ul className="w-full p-5">
-          {chapters?.data?.map(chapter => (
-            <Link
-              className="flex justify-between h-[52px] my-1.5 mx-0 text-lg border-1 border-gray-600 hover:bg-avocado-200 hover:text-black"
-              href={
-                chapter.attributes?.externalUrl ??
-                `/chapter/${chapter.id}?manga=${path.query.id}&lang=${chapter.attributes?.translatedLanguage}`
-              }
-              key={chapter.id}
-            >
-              <div className="">
-                Ch.{chapter.attributes?.chapter}{' '}
-                {chapter.attributes?.title
-                  ? `- ${chapter.attributes.title}`
-                  : ''}
+          {isFetching ? (
+            Array.from({ length: 12 }, (_, index) => (
+              <div
+                key={`skeletonTitle-${index}`}
+                className="flex p-1 border-[1px]  h-[52px] my-1.5 mx-0  border-gray-600 "
+              >
+                  <Skeleton className="w-full h-full bg-slate-500" />
               </div>
-              {chapter.attributes?.publishAt
-                ? dayjs(chapter.attributes.publishAt).fromNow()
-                : 'Дата неизвестна'}
-              {/* <div className={s.publish}>{chapter.attributes?.publishAt}</div> */}
-            </Link>
-          ))}
+            ))
+          ) : // <Skeleton />
+          chapters?.data?.length ? (
+            chapters.data.map(chapter => (
+              <Link
+                className="flex p-1 border-[1px] justify-between h-[52px] my-1.5 mx-0 text-lg border-gray-600 hover:border-teal-300"
+                href={
+                  chapter.attributes?.externalUrl ??
+                  `/chapter/${chapter.id}?manga=${path.query.id}&lang=${chapter.attributes?.translatedLanguage}`
+                }
+                key={chapter.id}
+              >
+                <div>
+                  Ch.{chapter.attributes?.chapter}{' '}
+                  {chapter.attributes?.title
+                    ? `- ${chapter.attributes.title}`
+                    : ''}
+                </div>
+                <div>
+                  {chapter.attributes?.publishAt
+                    ? dayjs(chapter.attributes.publishAt).fromNow()
+                    : 'No data'}
+                </div>
+              </Link>
+            ))
+          ) : (
+            <div className="text-white">No chapters</div>
+          )}
         </ul>
       </section>
     </div>

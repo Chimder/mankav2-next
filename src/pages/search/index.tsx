@@ -8,6 +8,7 @@ import { FilterManga } from '@/components/filter-bar/filter'
 import { PaginationButtons } from '@/components/pagination-button'
 
 import { queryClient } from '../_app'
+import { Button } from '@/components/ui/button'
 
 function SearchManga() {
   const router = useRouter()
@@ -47,19 +48,19 @@ function SearchManga() {
 
         <div className="sticky filterBar top-0 right-1 flex flex-col gap-2.5 self-start w-[300px] h-screen p-2.5 overflow-y-scroll text-white bg-black">
             <div className="w-full flex">
-              <button
+              <Button
                 className="w-8/12 py-2 mr-1  px-3  text-base cursor-pointer
                 bg-green-400"
                 onClick={e => Search(e)}
               >
                 Search
-              </button>
-              <button
+              </Button>
+              <Button
                 onClick={() => resetSearch()}
                 className="w-1/3 py-2  px-3 bg-red-500 text-base cursor-pointer "
               >
                 Reset
-              </button>
+              </Button>
             </div>
             <FilterManga />
         </div>

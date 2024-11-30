@@ -1,43 +1,15 @@
-import React from 'react'
-import { cva, type VariantProps } from 'class-variance-authority'
-import classNames from 'classnames'
+import { cn } from "@/lib/utils"
 
-import styles from './skeleton.module.css'
-
-const skeletonStyles = cva(styles.skeleton, {
-  variants: {
-    speed: {
-      slow: styles['skeleton--slow'],
-      medium: styles['skeleton--medium-speed'],
-      fast: styles['skeleton--fast'],
-    },
-  },
-  defaultVariants: {
-    speed: 'slow',
-  },
-})
-
-export interface SkeletonProps
-  extends React.HTMLAttributes<HTMLDivElement>,
-    VariantProps<typeof skeletonStyles> {
-  width?: string | number
-  height?: string | number
-}
-
-const Skeleton: React.FC<SkeletonProps> = ({
+function Skeleton({
   className,
-  speed,
-  width,
-  height,
   ...props
-}) => {
+}: React.HTMLAttributes<HTMLDivElement>) {
   return (
     <div
-      className={classNames(skeletonStyles({ speed }), className)}
-      style={{ width, height }}
+      className={cn("animate-pulse rounded-md bg-neutral-100 dark:bg-neutral-800", className)}
       {...props}
     />
   )
 }
 
-export default Skeleton
+export { Skeleton }

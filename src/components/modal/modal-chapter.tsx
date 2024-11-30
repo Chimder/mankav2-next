@@ -3,7 +3,8 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { ChapterResponse } from '@/shared/api/swagger/generated'
 import { cn } from '@/shared/lib/tailwind'
-import { Button, Separator } from '@radix-ui/themes'
+import { Separator } from '@radix-ui/themes'
+import { Button } from '../ui/button'
 
 type flatAggregate = {
   chapter?: string

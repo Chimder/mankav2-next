@@ -6,9 +6,9 @@ export default function MainLayout({
   children: React.ReactNode
 }) {
   return (
-    <nav className="bg-black w-screen">
+    <nav className="bg-black overflow-x-hidden h-screen">
       <AsideBar />
-      <main>{children}</main>
+      <main className=' bg-black'>{children}</main>
     </nav>
   )
 }

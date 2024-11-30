@@ -1,7 +1,6 @@
 import { useRouter } from 'next/router'
-import clsx from 'clsx'
 
-import s from './ui/button.module.css'
+import { Button } from './ui/button'
 
 export const PaginationButtons = ({
   currentPage,
@@ -46,14 +45,15 @@ export const PaginationButtons = ({
   return (
     <div>
       {pages.map((page, index) => (
-        <button
-          className={clsx(s.paginationBtn, page === currentPage && s.active)}
+        <Button
+          // className={clsx(s.paginationBtn, page === currentPage && s.active)}
+          className=""
           key={index}
           onClick={() => handlePageChange(page)}
           disabled={page === currentPage}
         >
           {page}
-        </button>
+        </Button>
       ))}
     </div>
   )

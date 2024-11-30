@@ -4,7 +4,7 @@ import { MangaList } from '@/shared/api/swagger/generated'
 import { cn } from '@/shared/lib/tailwind'
 import { useCardSwitcherStore } from '@/store/card-switcher'
 
-import Skeleton from '../ui/skeleton'
+import { Skeleton } from '../ui/skeleton'
 import s from './card-switcher.module.css'
 
 type Props = {
@@ -23,7 +23,7 @@ const CardSwitcher = ({ mangas, isFetching }: Props) => {
   console.log('MANGAINFO', mangas)
   return (
     <section className="flex-[1_1_0%]">
-      <div className="flex justify-end pt-2">
+      <div className="flex justify-end pt-2 mr-10">
         <div
           onClick={() => selectCardFormat('two')}
           className={cn(
@@ -49,7 +49,6 @@ const CardSwitcher = ({ mangas, isFetching }: Props) => {
           {isFetching
             ? Array.from({ length: 10 }).map((_, index) => (
                 <Skeleton
-                  speed={'medium'}
                   className={
                     cardView == 'boxes' ? 'skeletonBoxes' : 'skeletonTwo'
                   }

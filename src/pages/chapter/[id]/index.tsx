@@ -1,14 +1,13 @@
 import { ReactElement, useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { Skeleton } from '@radix-ui/themes'
 
 import { chapterApi } from '@/hooks/api/chapter'
 import useAggregateChapter from '@/hooks/use-aggregate-chapter'
 import usePageTrack from '@/hooks/use-chapter-tracker'
+import { Skeleton } from '@/components/ui/skeleton'
 import ExternalChapter from '@/components/external-chapter'
 import ModalChapter from '@/components/modal/modal-chapter'
-
 
 function Chapter() {
   const router = useRouter()
@@ -69,7 +68,7 @@ function Chapter() {
               }}
             >
               {!imageLoaded[index] && (
-                <Skeleton width="1100px" height="1100px" />
+                <Skeleton className="w-[1100px] h-[1100px]" />
               )}
               <img
                 src={`/api/proxy?url=${encodeURIComponent(`${chapters.baseUrl}/data/${chapters.chapter?.hash}/${chapter}`)}`}

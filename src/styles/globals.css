@@ -1,5 +1,6 @@
 .mainHome {
   display: flex;
+  width: 100vw;
   height: 100vh;
   overflow-y: hidden;
   /* background-color: black; */
@@ -9,4 +10,79 @@
     top: 46vh;
     left: 50%;
   }
+}
+
+.boxes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+  width: 100%;
+  padding: 0;
+  list-style: none;
+}
+
+.two {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  gap: 10px;
+  padding: 0 18px;
+}
+
+.skeletonBoxes {
+  width: 100%;
+  max-width: 280px;
+  max-height: 310px;
+  aspect-ratio: 280 / 310;
+}
+
+.skeletonTwo {
+  width: 100%;
+  max-width: 740px;
+  max-height: 180px;
+  aspect-ratio: 140 / 180;
+}
+
+.scrollbar {
+  scrollbar-color: black var(--color-black);
+  scrollbar-width: thin;
+}
+
+.filterBar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.filterBar::-webkit-scrollbar-thumb {
+  background-color: #888888;
+  border-radius: 10px;
+}
+
+.filterBar::-webkit-scrollbar-thumb:hover {
+  background-color: #555555;
+}
+
+.filterBar::-webkit-scrollbar-track {
+  background-color: #333333;
+  border-radius: 10px;
+}
+
+.title {
+  margin: 14px 0;
+  font-size: 13px;
+  line-height: 1.4em;
+}
+.head {
+  margin-right: 5px;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+/* .name {
+} */
+.titleGenres {
+  padding: 10px 0 5px;
+  margin-bottom: 10px;
+  font-size: 13px;
+  line-height: 1.4em;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
