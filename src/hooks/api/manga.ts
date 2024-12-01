@@ -6,7 +6,7 @@ import {
   GetSearchMangaStatusItem,
 } from '@/shared/api/swagger/generated'
 import { OffsetFilter } from '@/shared/constants/filters'
-import { useQuery } from '@tanstack/react-query'
+import { keepPreviousData, useQuery } from '@tanstack/react-query'
 
 export type mangaSearchOps = {
   tags?: string[]
@@ -86,6 +86,7 @@ export const mangaApi = {
       queryFn: ({ signal }) => getSearchManga(queryParams, { signal }),
       staleTime: 100000,
       retry: 0,
+      placeholderData: keepPreviousData,
       refetchOnWindowFocus: false,
       refetchOnMount: false,
     })
