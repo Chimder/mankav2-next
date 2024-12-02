@@ -15,6 +15,7 @@ const Chapters = (props: Props) => {
   const { data: chapters, isFetching } = feedApi.useMangaFeed(mangaId)
 
   dayjs.extend(relativeTime)
+  console.log("CHAPTR",chapters)
 
   return (
     <section className="w-3/5 border-[1px] border-green-400 text-white bg-black">

@@ -33,12 +33,12 @@ const CardsList = ({ mangas, isFetching }: Props) => {
           : cardView == 'boxes'
             ? mangas?.data?.map(manga => (
                 <Link
-                  className="flex flex-col w-[280px] overflow-hidden text-white"
+                  className="flex flex-col w-[280px] border-1 border-red-200 hover:border-red-400 rounded-xl pb-1 overflow-hidden text-white"
                   href={`title/${manga?.id}`}
                   key={manga?.id}
                 >
                   <img
-                    className="w-[280px] h-[310px] object-cover rounded-3xl"
+                    className="w-[280px] h-[310px] object-cover rounded-xl"
                     // src={`${process.env.NEXT_PUBLIC_IMG_PROXY}/img/mangadex.org/covers/${manga.id}/${manga.relationships?.find(obj => obj.type === 'cover_art')?.attributes?.fileName}`}
                     // src={`${process.env.NEXT_PUBLIC_IMG_PROXY}?url=https://mangadex.org/covers/${manga?.id}/${manga?.relationships?.find(obj => obj.type === 'cover_art')?.attributes?.fileName}`}
                     src={`api/proxy?url=https://mangadex.org/covers/${manga?.id}/${manga?.relationships?.find(obj => obj.type === 'cover_art')?.attributes?.fileName}`}
@@ -47,14 +47,14 @@ const CardsList = ({ mangas, isFetching }: Props) => {
                     loading="lazy"
                     alt=""
                   />
-                  <div className="w-full min-h-[40px] mt-1 overflow-hidden leading-[20px] text-ellipsis line-clamp-2">
+                  <div className="w-full ml-1 min-h-[40px] mt-1 overflow-hidden leading-[20px] text-ellipsis line-clamp-2">
                     {manga.attributes?.title?.en}
                   </div>
                 </Link>
               ))
             : mangas?.data?.map(manga => (
                 <Link
-                  className="flex overflow-hidden text-white border-[1px] border-gray-500"
+                  className="flex overflow-hidden border-1 text-white border-gray-500"
                   href={`title/${manga?.id}`}
                   key={manga?.id}
                 >
@@ -94,10 +94,7 @@ const CardsList = ({ mangas, isFetching }: Props) => {
               ))}
       </ul>
 
-      {/* <PaginationButtons
-        currentPage={currentPage}
-        totalPages={Math.ceil(Number(mangas?.total) / OffsetFilter)}
-      /> */}
+
     </div>
   )
 }

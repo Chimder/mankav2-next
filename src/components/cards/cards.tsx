@@ -8,6 +8,7 @@ import { useFilterStore } from '@/store/filter-slice'
 import { mangaApi } from '@/hooks/api/manga'
 
 import CardsList from './cards-list'
+import { PaginationButtons } from './pagination-button'
 
 const Cards = () => {
   const router = useRouter()

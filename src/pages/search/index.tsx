@@ -25,7 +25,7 @@ function SearchManga() {
 
   console.log('mangaTotla', mangas?.total)
   return (
-    <div className="flex flex-col items-center w-full py-[100px] bg-black">
+    <div className="flex flex-col items-center w-full py-8 bg-black">
       <div className="flex w-full">
         <Cards />
         <FilterMangaBar />

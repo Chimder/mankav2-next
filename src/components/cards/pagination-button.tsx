@@ -1,4 +1,5 @@
 import { useRouter } from 'next/router'
+import { cn } from '@/shared/lib/tailwind'
 
 import { Button } from '../ui/button'
 
@@ -43,18 +44,22 @@ export const PaginationButtons = ({
   const pages = getPageNumbers()
 
   return (
-    <div>
-      {pages.map((page, index) => (
-        <Button
-          // className={clsx(s.paginationBtn, page === currentPage && s.active)}
-          className=""
-          key={index}
-          onClick={() => handlePageChange(page)}
-          disabled={page === currentPage}
-        >
-          {page}
-        </Button>
-      ))}
+    <div className="center mt-4 ">
+      <div className="border-[1px] border-yellow-800 p-2">
+        {pages.map((page, index) => (
+          <Button
+            // className={clsx(s.paginationBtn, page === currentPage && s.active)}
+            className={cn(
+              'hover:border-yellow-300 border-1 cursor-default mx-1', page===currentPage && "border-[1px] border-slate-400"
+            )}
+            key={index}
+            onClick={() => handlePageChange(page)}
+            disabled={page === currentPage}
+          >
+            {page}
+          </Button>
+        ))}
+      </div>
     </div>
   )
 }

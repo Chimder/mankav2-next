@@ -1,8 +1,8 @@
 import React from 'react'
 import { useRouter } from 'next/router'
+import dayjs from 'dayjs'
 
 import { mangaApi } from '@/hooks/api/manga'
-import dayjs from 'dayjs'
 
 type Props = {}
 
@@ -15,6 +15,8 @@ const Info = (props: Props) => {
     manga?.data?.relationships?.find(obj => obj.type === 'cover_art')
       ?.attributes?.fileName
   }`
+
+  console.log('INFO', manga)
   return (
     <section className="flex flex-col order-2 w-1/3">
       <div className="fixed border-[1px] border-green-400 flex flex-col justify-center items-center">
