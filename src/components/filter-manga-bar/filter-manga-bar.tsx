@@ -29,18 +29,17 @@ export const FilterMangaBar = () => {
   }
   console.log('TESADSa', tags)
   return (
-    <div className="sticky filterBar top-0 right-1 flex flex-col gap-2.5 self-start w-[300px] h-screen p-2.5 overflow-y-scroll text-white bg-black">
-      <div className="w-full flex">
+    <div className="filterBar sticky right-1 top-0 flex h-screen w-[300px] flex-col gap-2.5 self-start overflow-y-scroll bg-black p-2.5 text-white">
+      <div className="flex w-full">
         <div
-          className="w-8/12 center hover:underline text-white decoration-green-400 py-2 mr-1 bg-transparent  px-3  text-base cursor-pointer
-               border-green-400 border-1 rounded-md  hover:bg-transparent"
+          className="center mr-1 w-8/12 cursor-pointer rounded-md border-1 border-green-400 bg-transparent px-3 py-2 text-base text-white decoration-green-400 hover:bg-transparent hover:underline"
           onClick={e => Search(e)}
         >
           Search
         </div>
         <div
           onClick={() => resetSearch()}
-          className="w-1/3 py-2  px-3 text-red-400 bg-transparent hover:underline decoration-red-400 text-base cursor-pointer "
+          className="w-1/3 cursor-pointer bg-transparent px-3 py-2 text-base text-red-400 decoration-red-400 hover:underline"
         >
           Reset
         </div>

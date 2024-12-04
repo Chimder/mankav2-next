@@ -54,7 +54,7 @@ function Chapter() {
   }
 
   return (
-    <div className="relative center flex-col w-full bg-black">
+    <div className="center relative w-full flex-col bg-black">
       {/* <div className={s.current}>
         {currentPage.page} / {totalPages}
       </div> */}
@@ -62,13 +62,13 @@ function Chapter() {
         chapters?.chapter?.data?.map((chapter, index) => (
           <div key={chapter}>
             <div
-              className="flex flex-col items-center max-w-[1200px] py-[14px] px-0"
+              className="flex max-w-[1200px] flex-col items-center px-0 py-[14px]"
               ref={el => {
                 imageRefs.current[index] = el
               }}
             >
               {!imageLoaded[index] && (
-                <Skeleton className="w-[1100px] h-[1100px]" />
+                <Skeleton className="h-[1100px] w-[1100px]" />
               )}
               <img
                 src={`/api/proxy?url=${encodeURIComponent(`${chapters.baseUrl}/data/${chapters.chapter?.hash}/${chapter}`)}`}
@@ -98,14 +98,14 @@ function Chapter() {
 
       {!isFetching && nextChapter ? (
         <Link
-          className="flex center w-full h-10 py-[34px] text-black bg-white border-1 border-black rounded-sm"
+          className="center flex h-10 w-full rounded-sm border-1 border-black bg-white py-[34px] text-black"
           href={`/chapter/${nextChapter?.id}?manga=${manga}&lang=${lang}`}
         >
           Next
         </Link>
       ) : (
         <Link
-          className="flex center w-full h-10 py-[34px] text-black bg-white border-1 border-black rounded-sm"
+          className="center flex h-10 w-full rounded-sm border-1 border-black bg-white py-[34px] text-black"
           href={`/title/${manga}`}
         >
           Return to Manga

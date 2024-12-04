@@ -35,14 +35,14 @@ const AccordionSection = ({
 
   console.log('CURR', currentFilter)
   return (
-    <div className="justify-center w-full text-base text-white  ">
+    <div className="w-full justify-center text-base text-white">
       <span className="">{title}</span>
       <ul className="flex flex-wrap">
         {options?.map(({ id, name }) => (
           <div
             key={id}
             className={cn(
-              'p-1 m-1 hover:underline decoration-green-400 ',
+              'm-1 p-1 decoration-green-400 hover:underline',
               isSingle(id) && 'text-green-400',
             )}
             onClick={() => handleOptionClick(id)}

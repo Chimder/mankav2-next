@@ -44,13 +44,14 @@ export const PaginationButtons = ({
   const pages = getPageNumbers()
 
   return (
-    <div className="center mt-4 ">
+    <div className="center mt-4">
       <div className="border-[1px] border-yellow-800 p-2">
         {pages.map((page, index) => (
           <Button
             // className={clsx(s.paginationBtn, page === currentPage && s.active)}
             className={cn(
-              'hover:border-yellow-300 border-1 cursor-default mx-1', page===currentPage && "border-[1px] border-slate-400"
+              'mx-1 cursor-default border-1 hover:border-yellow-300',
+              page === currentPage && 'border-[1px] border-slate-400',
             )}
             key={index}
             onClick={() => handlePageChange(page)}

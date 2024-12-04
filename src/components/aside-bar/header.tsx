@@ -5,24 +5,24 @@ import { InputeSearch } from './inpute-search'
 
 export default function Header() {
   return (
-    <div className=" z-1000 bg-header shadow-header  w-full ">
-      <div className="relative center justify-between  p-2 border-cyan-200 ">
-        <div className="flex-[1_1_33%]  center">
+    <div className="z-1000 w-full bg-header shadow-header">
+      <div className="center relative justify-between border-cyan-200 p-2">
+        <div className="center flex-[1_1_33%]">
           <Link
-            className="mr-10 text-6xl  font-logo text-cyan-300 list-none"
+            className="font-logo mr-10 list-none text-6xl text-cyan-300"
             href={'/'}
           >
-            <h1 className="text-4xl  hover:underline decoration-cyan-200">
+            <h1 className="text-4xl decoration-cyan-200 hover:underline">
               Manka
             </h1>
           </Link>
 
           <Link
-            className="center ml-10 text-white whitespace-nowrap"
+            className="center ml-10 whitespace-nowrap text-white"
             href={`/search`}
           >
             <Button
-              className=" cursor-default hover:underline decoration-green-400 text-green-400"
+              className="cursor-default text-green-400 decoration-green-400 hover:underline"
               variant={'link'}
             >
               Advanced Search
@@ -30,7 +30,7 @@ export default function Header() {
           </Link>
         </div>
         <InputeSearch />
-        <div className="flex-[1_2_33%] justify-end flex">USer</div>
+        <div className="flex flex-[1_2_33%] justify-end">USer</div>
       </div>
     </div>
   )

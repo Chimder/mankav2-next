@@ -4,6 +4,7 @@ import { useRouter } from 'next/router'
 import { ChapterResponse } from '@/shared/api/swagger/generated'
 import { cn } from '@/shared/lib/tailwind'
 import { Separator } from '@radix-ui/themes'
+
 import { Button } from '../ui/button'
 
 type flatAggregate = {
@@ -57,41 +58,37 @@ function ModalChapter({
 
   return (
     <div
-      className="fixed top-0 left-0 z-50 flex items-center justify-between w-screen h-[80px] py-0 px-10px text-white
-    bg-gradient-to-b from-black to-[rgba(220,9,20,0)] transition ease-in duration-500"
+      className="px-10px fixed left-0 top-0 z-50 flex h-[80px] w-screen items-center justify-between bg-gradient-to-b from-black to-[rgba(220,9,20,0)] py-0 text-white transition duration-500 ease-in"
       ref={modalRef}
     >
-      <div className="flex items-center w-full">
-        <Link className="mr-10 text-cyan-300 text-6xl font-logo" href={'/'}>
+      <div className="flex w-full items-center">
+        <Link className="font-logo mr-10 text-6xl text-cyan-300" href={'/'}>
           <h1>ManKA</h1>
         </Link>
 
         <div className="flex flex-col p-5 text-white">
           <Link href={`/title/${mangaId}`}>{mangaTitle}</Link>
           <Button
-            className="w-[80px] py-2 px-0 text-base text-amber-300 bg-black border-[1px] rounded-xs transition-all duration-200"
+            className="rounded-xs w-[80px] border-[1px] bg-black px-0 py-2 text-base text-amber-300 transition-all duration-200"
             onClick={toggleDropdown}
           >
             {chapterData?.data?.attributes?.chapter}
           </Button>
         </div>
       </div>
-      <div className="relative center flex-col text-amber-300">
+      <div className="center relative flex-col text-amber-300">
         <p>{currentPage}</p>
         <Separator className="w-full" color="yellow" />
         <p> {totalPages}</p>
       </div>
 
       {isOpenDrop && (
-        <ul
-          className="absolute scrollbar top-[-18px] left-0 z-[-1] flex flex-col items-center w-[400px] h-[130vh] p-0 overflow-scroll
-          bg-black"
-        >
+        <ul className="scrollbar absolute left-0 top-[-18px] z-[-1] flex h-[130vh] w-[400px] flex-col items-center overflow-scroll bg-black p-0">
           <div className="w-full pt-[140px]">
             {chapters.toReversed().map(({ chapter, count, id }) => (
               <Link
                 className={cn(
-                  'center w-[98%] p-2.5 m-1 text-white bg-transparent border-b-[1px] border-gray-600 rounded-sm hover:text-amber-300',
+                  'center m-1 w-[98%] rounded-sm border-b-[1px] border-gray-600 bg-transparent p-2.5 text-white hover:text-amber-300',
                   chapterId === id && 'text-amber-300',
                 )}
                 key={id}

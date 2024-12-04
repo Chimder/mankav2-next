@@ -18,18 +18,18 @@ const Info = (props: Props) => {
 
   console.log('INFO', manga)
   return (
-    <section className="flex flex-col order-2 w-1/3">
-      <div className="fixed border-[1px] border-green-400 flex flex-col justify-center items-center">
+    <section className="order-2 flex w-1/3 flex-col">
+      <div className="fixed flex flex-col items-center justify-center border-[1px] border-green-400">
         {/* <div className=''> */}
         <img
-          className="relative w-[310px] h-[440px] z-10"
+          className="relative z-10 h-[440px] w-[310px]"
           src={backgroundImageUrl}
           alt=""
         />
-        <div className="h-full flex">
-          <div className="py-4 ">
-            <div className="my-3 mx-0 text-sm">
-              <span className="mr-1 mb-2.5 text-sm">Title:</span>
+        <div className="flex h-full">
+          <div className="py-4">
+            <div className="mx-0 my-3 text-sm">
+              <span className="mb-2.5 mr-1 text-sm">Title:</span>
               <span className="text-base">
                 {manga?.data?.attributes?.title?.en}
               </span>
@@ -51,7 +51,7 @@ const Info = (props: Props) => {
 
             <div className="titleGenres">
               <span className="head">Status: </span>
-              <div className=" inline-block py-1 px-2 ml-[2px] mb-1 text-sm bg-transparent border-1 rounded-4xl">
+              <div className="rounded-4xl mb-1 ml-[2px] inline-block border-1 bg-transparent px-2 py-1 text-sm">
                 {manga?.data?.attributes?.status}
               </div>
             </div>
@@ -59,7 +59,7 @@ const Info = (props: Props) => {
               <span className="head">Genres: </span>
               {manga?.data?.attributes?.tags?.slice(0, 5).map(tag => (
                 <div
-                  className="inline-block py-1 px-2 ml-[2px] mb-1 text-sm bg-transparent border-1 rounded-4xl"
+                  className="rounded-4xl mb-1 ml-[2px] inline-block border-1 bg-transparent px-2 py-1 text-sm"
                   key={tag.id}
                 >
                   {tag.attributes?.name?.en}

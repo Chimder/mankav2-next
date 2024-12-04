@@ -35,11 +35,11 @@ const Cards = () => {
   console.log('MANGAINFO', mangas)
   return (
     <section className="flex-[1_1_0%]">
-      <div className="flex justify-end pt-2 mr-10">
+      <div className="mr-10 flex justify-end pt-2">
         <div
           onClick={() => selectCardFormat('two')}
           className={cn(
-            'w-[30px] h-[30px] p-1 text-white',
+            'h-[30px] w-[30px] p-1 text-white',
             cardView === 'two' && 'text-green-300',
           )}
         >
@@ -48,7 +48,7 @@ const Cards = () => {
         <div
           onClick={() => selectCardFormat('boxes')}
           className={cn(
-            'w-[30px] h-[30px] p-1 text-white',
+            'h-[30px] w-[30px] p-1 text-white',
             cardView === 'boxes' && 'text-green-300',
           )}
         >

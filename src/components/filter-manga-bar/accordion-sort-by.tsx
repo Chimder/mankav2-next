@@ -26,18 +26,17 @@ const AccordionSortBy = ({ title, options }: AccordionSectionProps) => {
   }
 
   return (
-    <div className="flex flex-col items-start justify-center w-full text-base text-black">
+    <div className="flex w-full flex-col items-start justify-center text-base text-black">
       <label className="relative w-full">
         <select
-          className="center w-full! py-2 px-3 text--base text-black appearance-none cursor-pointer bg-white border-2 border-white
-           transition-colors  outline-none "
+          className="center w-full! text--base cursor-pointer appearance-none border-2 border-white bg-white px-3 py-2 text-black outline-none transition-colors"
           value={`${sortBy?.type}-${sortBy?.order}`}
           onChange={handleSelectChange}
         >
           <option value="">Select an option</option>
           {options?.map(({ name, order, type }) => (
             <option
-              className="hover:bg-green-400 focus:bg-green-400 appearance-none"
+              className="appearance-none hover:bg-green-400 focus:bg-green-400"
               key={name}
               value={`${type}-${order}`}
             >

@@ -25,10 +25,10 @@ export const InputeSearch = () => {
     setIsListVisible(false)
   })
   return (
-    <section className="relative flex justify-center flex-col ">
+    <section className="relative flex flex-col justify-center">
       <div className="flex">
         <input
-          className="w-[clamp(200px,34vw,440px)] p-1.5 text-white bg-gray-600 border-none rounded-2xl outline-none focus:border-2 focus:border-cyan-400 placeholder:text-gray-400"
+          className="w-[clamp(200px,34vw,440px)] rounded-2xl border-none bg-gray-600 p-1.5 text-white outline-none placeholder:text-gray-400 focus:border-2 focus:border-cyan-400"
           value={searchQuery}
           onChange={e => {
             setSearchQuery(e.target.value)
@@ -45,26 +45,26 @@ export const InputeSearch = () => {
             setSearchQuery('')
             setIsListVisible(false)
           }}
-          className="absolute top-2 right-2 text-cyan-300 cursor-pointer hover:scale-110"
+          className="absolute right-2 top-2 cursor-pointer text-cyan-300 hover:scale-110"
         >
           <Icons.closeInpute />
         </div>
       </div>
       <ul
         ref={listRef}
-        className="flex absolute w-full min-h-80 top-[58px] text-white rounded-md z-[1000] flex-col p-1 bg-black"
+        className="absolute top-[58px] z-[1000] flex min-h-80 w-full flex-col rounded-md bg-black p-1 text-white"
         style={{
           display: isListVisible && searchQuery.length !== 0 ? 'block' : 'none',
         }}
       >
         {isFetching ? (
-          <div className="absolute items-center top-1/2 left-1/2 -translate-x-1/2  -translate-y-1/2 transform">
+          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform items-center">
             {isFetching && <ReloadIcon className="h-6 w-6 animate-spin" />}
           </div>
         ) : searchResults?.data?.length ? (
           searchResults.data.map(manga => (
             <div
-              className="flex my-1 mx-2 border-[1px] rounded-sm border-indigo-400 cursor-pointer bg-transparent"
+              className="mx-2 my-1 flex cursor-pointer rounded-sm border-[1px] border-indigo-400 bg-transparent"
               onClick={() => {
                 setSearchQuery('')
                 setIsListVisible(false)
@@ -72,9 +72,9 @@ export const InputeSearch = () => {
               }}
               key={manga.id}
             >
-              <div className="min-w-[64px] min-h-[80px]">
+              <div className="min-h-[80px] min-w-[64px]">
                 <img
-                  className="object-center object-cover"
+                  className="object-cover object-center"
                   src={`/api/proxy?url=https://mangadex.org/covers/${manga?.id}/${manga?.relationships?.find(obj => obj.type === 'cover_art')?.attributes?.fileName}`}
                   width={60}
                   height={80}
@@ -88,7 +88,7 @@ export const InputeSearch = () => {
                 <div>{dayjs(manga.attributes?.createdAt).format('YYYY')}</div>
                 <Badge
                   variant={'default'}
-                  className=" py-2 px-0 mr-[2px] rb-[5px] text-sm bg-transparent"
+                  className="rb-[5px] mr-[2px] bg-transparent px-0 py-2 text-sm"
                 >
                   {manga.attributes?.status}
                 </Badge>
@@ -97,7 +97,7 @@ export const InputeSearch = () => {
           ))
         ) : searchQuery && !isFetching ? (
           // Показ сообщения, если ничего не найдено
-          <div className="text-center py-4 text-gray-400">
+          <div className="py-4 text-center text-gray-400">
             No results found.
           </div>
         ) : null}

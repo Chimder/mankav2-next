@@ -14,8 +14,8 @@ type Props = {
 }
 
 const CardsList = ({ mangas, isFetching }: Props) => {
-  const router = useRouter()
-  const currentPage = Number(router?.query?.page) || 1
+  // const router = useRouter()
+  // const currentPage = Number(router?.query?.page) || 1
   const cardView = useCardSwitcherStore().type
 
   return (
@@ -33,12 +33,12 @@ const CardsList = ({ mangas, isFetching }: Props) => {
           : cardView == 'boxes'
             ? mangas?.data?.map(manga => (
                 <Link
-                  className="flex flex-col w-[280px] border-1 border-red-200 hover:border-red-400 rounded-xl pb-1 overflow-hidden text-white"
+                  className="flex w-[280px] flex-col overflow-hidden rounded-xl border-1 border-red-200 pb-1 text-white hover:border-red-400"
                   href={`title/${manga?.id}`}
                   key={manga?.id}
                 >
                   <img
-                    className="w-[280px] h-[310px] object-cover rounded-xl"
+                    className="h-[310px] w-[280px] rounded-xl object-cover"
                     // src={`${process.env.NEXT_PUBLIC_IMG_PROXY}/img/mangadex.org/covers/${manga.id}/${manga.relationships?.find(obj => obj.type === 'cover_art')?.attributes?.fileName}`}
                     // src={`${process.env.NEXT_PUBLIC_IMG_PROXY}?url=https://mangadex.org/covers/${manga?.id}/${manga?.relationships?.find(obj => obj.type === 'cover_art')?.attributes?.fileName}`}
                     src={`api/proxy?url=https://mangadex.org/covers/${manga?.id}/${manga?.relationships?.find(obj => obj.type === 'cover_art')?.attributes?.fileName}`}
@@ -47,19 +47,19 @@ const CardsList = ({ mangas, isFetching }: Props) => {
                     loading="lazy"
                     alt=""
                   />
-                  <div className="w-full ml-1 min-h-[40px] mt-1 overflow-hidden leading-[20px] text-ellipsis line-clamp-2">
+                  <div className="ml-1 mt-1 line-clamp-2 min-h-[40px] w-full overflow-hidden text-ellipsis leading-[20px]">
                     {manga.attributes?.title?.en}
                   </div>
                 </Link>
               ))
             : mangas?.data?.map(manga => (
                 <Link
-                  className="flex overflow-hidden border-1 text-white border-gray-500"
+                  className="flex overflow-hidden border-1 border-gray-500 text-white"
                   href={`title/${manga?.id}`}
                   key={manga?.id}
                 >
                   <img
-                    className="w-[140px] h-[180px] object-cover"
+                    className="h-[180px] w-[140px] object-cover"
                     // src={`${process.env.NEXT_PUBLIC_IMG_PROXY}/img/mangadex.org/covers/${manga.id}/${manga.relationships?.find(obj => obj.type === 'cover_art')?.attributes?.fileName}`}
                     // src={`${process.env.NEXT_PUBLIC_IMG_PROXY}?url=https://mangadex.org/covers/${manga?.id}/${manga?.relationships?.find(obj => obj.type === 'cover_art')?.attributes?.fileName}`}
                     src={`api/proxy?url=https://mangadex.org/covers/${manga?.id}/${manga?.relationships?.find(obj => obj.type === 'cover_art')?.attributes?.fileName}`}
@@ -70,19 +70,19 @@ const CardsList = ({ mangas, isFetching }: Props) => {
                   />
 
                   <div className="flex flex-col">
-                    <div className="text-lg m-1">
+                    <div className="m-1 text-lg">
                       {manga.attributes?.title?.en}
                     </div>
-                    <div className="flex flex-wrap  mr-[2px] pb-[5px]">
+                    <div className="mr-[2px] flex flex-wrap pb-[5px]">
                       {manga.attributes?.tags?.slice(0, 4)?.map(tag => (
                         <div
-                          className="p-1 text-sm bg-transparent border-2 border-gray-400 rounded-4xl"
+                          className="rounded-4xl border-2 border-gray-400 bg-transparent p-1 text-sm"
                           key={tag.id}
                         >
                           {tag.attributes?.name?.en}
                         </div>
                       ))}
-                      <div className="text-sm p-1 bg-transparent border-2 border-gray-400 rounded-4xl">
+                      <div className="rounded-4xl border-2 border-gray-400 bg-transparent p-1 text-sm">
                         {manga.attributes?.status}
                       </div>
                     </div>
@@ -93,8 +93,6 @@ const CardsList = ({ mangas, isFetching }: Props) => {
                 </Link>
               ))}
       </ul>
-
-
     </div>
   )
 }

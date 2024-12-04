@@ -4,7 +4,7 @@ import React, { ReactElement, useState } from 'react'
 
 function Test() {
   return (
-    <div className="w-full h-full">
+    <div className="h-full w-full">
       <div className="text-6xl text-amber-300">Test text</div>
     </div>
   )
