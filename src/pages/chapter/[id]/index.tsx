@@ -6,43 +6,28 @@ import { chapterApi } from '@/hooks/api/chapter'
 import useAggregateChapter from '@/hooks/use-aggregate-chapter'
 import usePageTrack from '@/hooks/use-chapter-tracker'
 import { Skeleton } from '@/components/ui/skeleton'
+import ModalChapter from '@/components/chapters/modal-chapter'
 import ExternalChapter from '@/components/external-chapter'
-import ModalChapter from '@/components/modal/modal-chapter'
 
 function Chapter() {
   const router = useRouter()
   const lang = router.query?.lang as string
   const manga = router.query?.manga as string
   const id = router.query?.id as string
-  const { flatAggregate, nextChapter } = useAggregateChapter()
 
   const { data: chapters, isFetching } = chapterApi.useMangaChapterByID(
     router.query?.id as string,
   )
-
   const { data: chapterData } = chapterApi.useMangaChapters(id)
-  console.log('CHApterewsd', chapterData)
-  const totalPages = chapters?.chapter?.data?.length || 0
-  const externalUrl = chapterData?.data?.attributes?.externalUrl
+  const { flatAggregate, nextChapter } = useAggregateChapter()
 
   const imageRefs = useRef<(HTMLDivElement | null)[]>([])
-  const [imageLoaded, setImageLoaded] = useState<boolean[]>([])
+  const externalUrl = chapterData?.data?.attributes?.externalUrl
+  const totalPages = chapters?.chapter?.data?.length || 0
+
+  // const [imageLoaded, setImageLoaded] = useState<boolean[]>([])
 
   const { currentPage, setCurrentPage } = usePageTrack(imageRefs, totalPages)
-
-  useEffect(() => {
-    if (chapters?.chapter?.data) {
-      setImageLoaded(new Array(chapters.chapter.data.length).fill(false))
-    }
-  }, [chapters?.chapter?.data, router.query.id])
-
-  const handleImageLoad = (index: number) => {
-    setImageLoaded(prev => {
-      const newImageLoaded = [...prev]
-      newImageLoaded[index] = true
-      return newImageLoaded
-    })
-  }
 
   const [isModalOpen, setIsModalOpen] = useState(false)
   const handleOpenModal = (e: React.MouseEvent<HTMLImageElement>) => {
@@ -67,19 +52,26 @@ function Chapter() {
                 imageRefs.current[index] = el
               }}
             >
-              {!imageLoaded[index] && (
+              {/* {!imageLoaded[index] && (
                 <Skeleton className="h-[1100px] w-[1100px]" />
-              )}
-              <img
-                src={`/api/proxy?url=${encodeURIComponent(`${chapters.baseUrl}/data/${chapters.chapter?.hash}/${chapter}`)}`}
-                width={1100}
-                height={1100}
-                // loading="lazy"
-                alt="Manga page"
-                onLoad={() => handleImageLoad(index)}
-                onClick={isModalOpen ? closeModal : handleOpenModal}
-                // onClick={handleOpenModal}
-              />
+              )} */}
+              <ModalChapter
+                totalPages={totalPages}
+                chapterData={chapterData}
+                currentPage={currentPage.page}
+                chapters={flatAggregate}
+              >
+                <img
+                  src={`/api/proxy?url=${encodeURIComponent(`${chapters.baseUrl}/data/${chapters.chapter?.hash}/${chapter}`)}`}
+                  width={1100}
+                  height={1100}
+                  loading="eager"
+                  alt="Manga page"
+                  // onLoad={() => handleImageLoad(index)}
+                  // onClick={isModalOpen ? closeModal : handleOpenModal}
+                  // onClick={handleOpenModal}
+                />
+              </ModalChapter>
             </div>
           </div>
         ))
@@ -87,25 +79,16 @@ function Chapter() {
         <ExternalChapter key={1} externalUrl={''} />
       )}
 
-      <ModalChapter
-        closeModal={closeModal}
-        isOpenModal={isModalOpen}
-        totalPages={totalPages}
-        chapterData={chapterData}
-        currentPage={currentPage.page}
-        chapters={flatAggregate}
-      />
-
       {!isFetching && nextChapter ? (
         <Link
-          className="center flex h-10 w-full rounded-sm border-1 border-black bg-white py-[34px] text-black"
+          className="center flex h-10 w-1/2 rounded-sm border-2 border-blue-950 py-[34px] text-white hover:border-blue-700"
           href={`/chapter/${nextChapter?.id}?manga=${manga}&lang=${lang}`}
         >
           Next
         </Link>
       ) : (
         <Link
-          className="center flex h-10 w-full rounded-sm border-1 border-black bg-white py-[34px] text-black"
+          className="center flex h-10 w-1/2 rounded-sm border-2 border-blue-950 py-[34px]  text-white hover:border-blue-700"
           href={`/title/${manga}`}
         >
           Return to Manga

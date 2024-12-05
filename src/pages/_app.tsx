@@ -26,7 +26,7 @@ const App = ({ Component, pageProps }: AppPropsWithLayout) => {
   return (
     <QueryClientProvider client={queryClient}>
       <ReactQueryDevtools initialIsOpen={false} />
-      {getLayout(<Component {...pageProps} />)}
+      {getLayout(<Component  {...pageProps} />)}
     </QueryClientProvider>
   )
 }

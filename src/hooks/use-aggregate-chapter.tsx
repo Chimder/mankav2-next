@@ -9,6 +9,7 @@ const useAggregateChapter = () => {
 
   const { data: aggregate } = chapterApi.useMangaAggregate(manga, lang)
 
+  console.log('AGGRE', aggregate)
   const flatAggregate = Object.values(aggregate?.volumes || {})
     .map(volume => Object.values(volume.chapters || {}))
     .reduce((acc, chapters) => acc.concat(chapters), [])
