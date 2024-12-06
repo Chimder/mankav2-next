@@ -3,18 +3,17 @@ import { useQuery } from '@tanstack/react-query'
 
 export const feedApi = {
   baseKey: 'feed',
-  useMangaFeed: (id: string) => {
+  useMangaFeed: ({ id, offset }: { id: string; offset: number }) => {
     return useQuery({
-      queryKey: [feedApi.baseKey, id],
+      queryKey: [feedApi.baseKey, id, offset],
       queryFn: ({ signal }) =>
         getMangaIdFeed(
           id,
           {
             'limit': 96,
-            'offset': 0,
+            'offset': offset,
             'order': { chapter: 'desc', volume: 'desc' },
             'includes[]': ['scanlation_group', 'user'],
-            // 'translatedLanguage[]': ['en'],
             'contentRating[]': ['safe', 'suggestive'],
           },
           { signal },

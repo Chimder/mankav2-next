@@ -15,11 +15,9 @@ const Info = (props: Props) => {
       ?.attributes?.fileName
   }`
 
-  console.log('INFO', manga)
   return (
     <section className="order-2 flex w-1/3 flex-col">
       <div className="fixed flex flex-col items-center justify-center border-[1px] border-green-400">
-        {/* <div className=''> */}
         <img
           className="relative z-10 h-[440px] w-[310px]"
           src={backgroundImageUrl}

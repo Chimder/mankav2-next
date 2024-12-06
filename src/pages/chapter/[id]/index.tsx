@@ -1,11 +1,10 @@
-import { ReactElement, useEffect, useRef, useState } from 'react'
+import { ReactElement, useRef } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 
 import { chapterApi } from '@/hooks/api/chapter'
 import useAggregateChapter from '@/hooks/use-aggregate-chapter'
 import usePageTrack from '@/hooks/use-chapter-tracker'
-import { Skeleton } from '@/components/ui/skeleton'
 import ModalChapter from '@/components/chapters/modal-chapter'
 import ExternalChapter from '@/components/external-chapter'
 
@@ -25,18 +24,7 @@ function Chapter() {
   const externalUrl = chapterData?.data?.attributes?.externalUrl
   const totalPages = chapters?.chapter?.data?.length || 0
 
-  // const [imageLoaded, setImageLoaded] = useState<boolean[]>([])
-
   const { currentPage, setCurrentPage } = usePageTrack(imageRefs, totalPages)
-
-  const [isModalOpen, setIsModalOpen] = useState(false)
-  const handleOpenModal = (e: React.MouseEvent<HTMLImageElement>) => {
-    e.preventDefault()
-    setIsModalOpen(true)
-  }
-  const closeModal = () => {
-    setIsModalOpen(false)
-  }
 
   return (
     <div className="center relative w-full flex-col bg-black">
@@ -88,7 +76,7 @@ function Chapter() {
         </Link>
       ) : (
         <Link
-          className="center flex h-10 w-1/2 rounded-sm border-2 border-blue-950 py-[34px]  text-white hover:border-blue-700"
+          className="center flex h-10 w-1/2 rounded-sm border-2 border-blue-950 py-[34px] text-white hover:border-blue-700"
           href={`/title/${manga}`}
         >
           Return to Manga

@@ -1,13 +1,14 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { Chapter } from '@/shared/api/swagger/generated'
-import { cn } from '@/shared/lib/tailwind'
+import { OffsetFilterTitle } from '@/shared/constants/filters'
 import dayjs from 'dayjs'
 import relativeTime from 'dayjs/plugin/relativeTime'
 
 import { feedApi } from '@/hooks/api/feeds'
 
 import { Skeleton } from '../ui/skeleton'
+import { PaginationButtons } from './pagination-title'
 
 dayjs.extend(relativeTime)
 
@@ -19,8 +20,12 @@ interface ExtendedChapter extends Chapter {
 
 const Chapters = () => {
   const router = useRouter()
+  const currentPage = Number(router.query.page) || 1
   const mangaId = router?.query?.id as string
-  const { data: chapters, isFetching } = feedApi.useMangaFeed(mangaId)
+  const { data: chapters, isFetching } = feedApi.useMangaFeed({
+    id: mangaId,
+    offset: (currentPage - 1) * OffsetFilterTitle,
+  })
 
   function filterChapters(chapters: Chapter[] | undefined): ExtendedChapter[] {
     if (!chapters) return []
@@ -57,7 +62,7 @@ const Chapters = () => {
 
   console.log('BOOLE', filterChapters.length === 0)
   return (
-    <section className="w-3/5 border border-green-400 text-white">
+    <section className="h-full w-3/5 border border-green-400 text-white">
       <ul className="w-full p-5">
         {isFetching ? (
           Array.from({ length: 16 }, (_, index) => (
@@ -108,6 +113,11 @@ const Chapters = () => {
           <div className="text-white">No chapters</div>
         )}
       </ul>
+      <PaginationButtons
+        key="pagin-title"
+        currentPage={currentPage}
+        totalItems={chapters?.total}
+      />
     </section>
   )
 }

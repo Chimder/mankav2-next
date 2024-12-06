@@ -6,7 +6,7 @@ import { cn } from '@/shared/lib/tailwind'
 import { useCardSwitcherStore } from '@/store/card-switcher'
 
 import { Skeleton } from '../ui/skeleton'
-import { PaginationButtons } from './pagination-button'
+import { PaginationButtons } from './pagination-cards'
 
 type Props = {
   mangas: MangaList | undefined

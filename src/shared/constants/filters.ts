@@ -62,3 +62,4 @@ export const filterConstants = {
 }
 
 export const OffsetFilter = 34
+export const OffsetFilterTitle = 96

@@ -4,7 +4,7 @@ import { useFilterStore } from '@/store/filter-slice'
 
 import { mangaApi } from '@/hooks/api/manga'
 import Cards from '@/components/cards/cards'
-import { PaginationButtons } from '@/components/cards/pagination-button'
+import { PaginationButtons } from '@/components/cards/pagination-cards'
 import { FilterMangaBar } from '@/components/filter-manga-bar/filter-manga-bar'
 
 function SearchManga() {
