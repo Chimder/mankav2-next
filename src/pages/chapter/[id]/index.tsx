@@ -2,7 +2,7 @@ import { ReactElement, useRef } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 
-import { chapterApi } from '@/hooks/api/chapter'
+import { chapterApi } from '@/hooks/api/mangadex/chapter'
 import useAggregateChapter from '@/hooks/use-aggregate-chapter'
 import usePageTrack from '@/hooks/use-chapter-tracker'
 import ModalChapter from '@/components/chapters/modal-chapter'
@@ -12,6 +12,7 @@ function Chapter() {
   const router = useRouter()
   const lang = router.query?.lang as string
   const manga = router.query?.manga as string
+  const name = router.query?.name as string
   const id = router.query?.id as string
 
   const { data: chapters, isFetching } = chapterApi.useMangaChapterByID(
@@ -72,14 +73,14 @@ function Chapter() {
           {!isFetching && nextChapter ? (
             <Link
               className="center flex h-10 w-1/2 rounded-sm border-2 border-blue-950 py-[34px] text-white hover:border-blue-700"
-              href={`/chapter/${nextChapter?.id}?manga=${manga}&lang=${lang}`}
+              href={`/chapter/${nextChapter?.id}?manga=${manga}&lang=${lang}&name=${name}`}
             >
               Next
             </Link>
           ) : (
             <Link
               className="center flex h-10 w-1/2 rounded-sm border-2 border-blue-950 py-[34px] text-white hover:border-blue-700"
-              href={`/title/${manga}`}
+              href={`title/${manga}?name=${name}`}
             >
               Return to Manga
             </Link>

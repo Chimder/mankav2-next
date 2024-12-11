@@ -1,20 +1,3 @@
-// module.exports = {
-//   main: {
-//     input: './src/shared/api/swagger/swagger.yaml',
-//     output: {
-//       target: './src/shared/api/swagger/generated.ts',
-//       override: {
-//         mutator: {
-//           path: './src/shared/api/swagger/axios.instance.ts',
-//           name: 'customInstance',
-//         },
-//       },
-//     },
-//   },
-// }
-
-// import { defineConfig } from 'orval'
-// export default defineConfig({
 module.exports = {
   mangadex: {
     input: './src/shared/api/mangadex/swagger.yaml',

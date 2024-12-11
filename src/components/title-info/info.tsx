@@ -1,13 +1,22 @@
 import { useRouter } from 'next/router'
 import dayjs from 'dayjs'
 
-import { mangaApi } from '@/hooks/api/manga'
+import { jikanMangaApi } from '@/hooks/api/jikan/manga'
+import { mangaApi } from '@/hooks/api/mangadex/manga'
 
 type Props = {}
 
 const Info = (props: Props) => {
   const path = useRouter()
+  const name = path?.query?.name as string
+  console.log('NAME', name)
   const mangaId = path?.query?.id as string
+  const { data: mangaa } = jikanMangaApi.useMangaByName({ name })
+  const { data: characters } = jikanMangaApi.useMangaCharacters({
+    id: mangaa?.mal_id,
+  })
+  console.log('CAHRT', characters)
+
   const { data: manga } = mangaApi.useMangaByID(mangaId)
 
   const backgroundImageUrl = `/api/proxy?url=https://mangadex.org/covers/${mangaId}/${

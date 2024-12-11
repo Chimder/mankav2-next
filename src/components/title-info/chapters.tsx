@@ -5,7 +5,7 @@ import { OffsetFilterTitle } from '@/shared/constants/filters'
 import dayjs from 'dayjs'
 import relativeTime from 'dayjs/plugin/relativeTime'
 
-import { feedApi } from '@/hooks/api/feeds'
+import { feedApi } from '@/hooks/api/mangadex/feeds'
 
 import { Skeleton } from '../ui/skeleton'
 import { PaginationButtons } from './pagination-title'
@@ -22,10 +22,12 @@ const Chapters = () => {
   const router = useRouter()
   const currentPage = Number(router.query.page) || 1
   const mangaId = router?.query?.id as string
+  const name = router?.query?.name as string
   const { data: chapters, isFetching } = feedApi.useMangaFeed({
     id: mangaId,
     offset: (currentPage - 1) * OffsetFilterTitle,
   })
+  console.log('CAHPDWA>>>%$#%#', chapters)
 
   function filterChapters(chapters: Chapter[] | undefined): ExtendedChapter[] {
     if (!chapters) return []
@@ -93,7 +95,7 @@ const Chapters = () => {
                       className="ml-4 cursor-pointer text-teal-300 hover:underline"
                       href={
                         chap.attributes?.externalUrl ??
-                        `/chapter/${chap.id}?manga=${router.query.id}&lang=${chap.attributes?.translatedLanguage}`
+                        `/chapter/${chap.id}?manga=${router.query.id}&lang=${chap.attributes?.translatedLanguage}&name=${name}`
                       }
                     >
                       {chap.attributes?.translatedLanguage}

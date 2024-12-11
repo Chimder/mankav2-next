@@ -2,8 +2,8 @@ import { queryClient } from '@/pages/_app'
 import { filterConstants } from '@/shared/constants/filters'
 import { useFilterStore } from '@/store/filter-slice'
 
-import { mangaApi } from '@/hooks/api/manga'
-import { tagsApi } from '@/hooks/api/tag'
+import { mangaApi } from '@/hooks/api/mangadex/manga'
+import { tagsApi } from '@/hooks/api/mangadex/tag'
 
 import { Button } from '../ui/button'
 import { Separator } from '../ui/separator'

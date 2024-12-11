@@ -5,7 +5,7 @@ import { cn } from '@/shared/lib/tailwind'
 import { useCardSwitcherStore } from '@/store/card-switcher'
 import { useFilterStore } from '@/store/filter-slice'
 
-import { mangaApi } from '@/hooks/api/manga'
+import { mangaApi } from '@/hooks/api/mangadex/manga'
 
 import CardsList from './cards-list'
 import { PaginationButtons } from './pagination-cards'
@@ -19,7 +19,7 @@ const Cards = () => {
   const sortBy = useFilterStore().sortBy
 
   console.log('SORT', sortBy)
-  console.log("RESET")
+  console.log('RESET')
   const { data: mangas, isFetching } = mangaApi.useMangaSearch({
     status,
     tags,

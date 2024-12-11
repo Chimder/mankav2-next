@@ -34,7 +34,7 @@ const CardsList = ({ mangas, isFetching }: Props) => {
             ? mangas?.data?.map(manga => (
                 <Link
                   className="flex w-[280px] flex-col overflow-hidden rounded-xl border-1 border-red-200 pb-1 text-white hover:border-red-400"
-                  href={`title/${manga?.id}`}
+                  href={`title/${manga?.id}?name=${manga.attributes?.title?.en}`}
                   key={manga?.id}
                 >
                   <img
@@ -55,7 +55,7 @@ const CardsList = ({ mangas, isFetching }: Props) => {
             : mangas?.data?.map(manga => (
                 <Link
                   className="flex overflow-hidden border-1 border-gray-500 text-white"
-                  href={`title/${manga?.id}`}
+                  href={`title/${manga?.id}?name=${manga.attributes?.title?.en}`}
                   key={manga?.id}
                 >
                   <img

@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router'
 
-import { chapterApi } from './api/chapter'
+import { chapterApi } from './api/mangadex/chapter'
 
 const useAggregateChapter = () => {
   const router = useRouter()

@@ -2,7 +2,7 @@ import { useRouter } from 'next/router'
 import { OffsetFilter } from '@/shared/constants/filters'
 import { useFilterStore } from '@/store/filter-slice'
 
-import { mangaApi } from '@/hooks/api/manga'
+import { mangaApi } from '@/hooks/api/mangadex/manga'
 import Cards from '@/components/cards/cards'
 import { PaginationButtons } from '@/components/cards/pagination-cards'
 import { FilterMangaBar } from '@/components/filter-manga-bar/filter-manga-bar'

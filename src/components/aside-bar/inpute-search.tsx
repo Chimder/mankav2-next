@@ -6,7 +6,7 @@ import { ReloadIcon } from '@radix-ui/react-icons'
 import dayjs from 'dayjs'
 import { useDebounce } from 'use-debounce'
 
-import { mangaApi } from '@/hooks/api/manga'
+import { mangaApi } from '@/hooks/api/mangadex/manga'
 import useClickOutside from '@/hooks/use-click-outside'
 
 import { Badge } from '../ui/badge'
