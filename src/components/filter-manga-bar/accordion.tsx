@@ -36,7 +36,7 @@ const AccordionSection = ({
   console.log('CURR', currentFilter)
   return (
     <div className="w-full justify-center text-base text-white">
-      <span className="">{title}</span>
+      {/* <span className="">{title}</span> */}
       <ul className="flex flex-wrap">
         {options?.map(({ id, name }) => (
           <div

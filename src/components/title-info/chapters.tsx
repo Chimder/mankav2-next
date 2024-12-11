@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { Chapter } from '@/shared/api/swagger/generated'
+import { Chapter } from '@/shared/api/mangadex/generated'
 import { OffsetFilterTitle } from '@/shared/constants/filters'
 import dayjs from 'dayjs'
 import relativeTime from 'dayjs/plugin/relativeTime'
@@ -60,7 +60,7 @@ const Chapters = () => {
 
   const filteredChapters = filterChapters(chapters?.data)
 
-  console.log('BOOLE', filterChapters.length === 0)
+  console.log('BOOLE', filteredChapters)
   return (
     <section className="h-full w-3/5 border border-green-400 text-white">
       <ul className="w-full p-5">

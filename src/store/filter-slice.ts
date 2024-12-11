@@ -1,4 +1,4 @@
-import { GetSearchMangaParams } from '@/shared/api/swagger/generated'
+import { GetSearchMangaParams } from '@/shared/api/mangadex/generated'
 import { create } from 'zustand'
 import { immer } from 'zustand/middleware/immer'
 
@@ -62,7 +62,7 @@ export const filterStore = create<FilterAction>()(
     reset: async () => {
       set({
         languages: '',
-        sortBy: undefined,
+        sortBy: { order: 'desc', type: 'latestUploadedChapter' },
         status: '',
         input: '',
         tags: [],

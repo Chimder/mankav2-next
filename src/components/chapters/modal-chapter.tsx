@@ -1,7 +1,7 @@
 import { ReactNode, useEffect, useLayoutEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { ChapterResponse } from '@/shared/api/swagger/generated'
+import { ChapterResponse } from '@/shared/api/mangadex/generated'
 import { cn } from '@/shared/lib/tailwind'
 
 import { Dialog, DialogContent, DialogTitle, DialogTrigger } from '../ui/dialog'
@@ -27,6 +27,7 @@ function ModalChapter({ chapters, children, chapterData }: Props) {
   const lang = router.query?.lang as string
   const chapterId = router.query?.id as string
   const mangaId = router.query?.manga as string
+  console.log('DIAIDA', chapterId)
 
   const [searchPageQuery, setSearchPageQuery] = useState('')
   const [highlightedChapter, setHighlightedChapter] = useState<string | null>(
@@ -93,7 +94,7 @@ function ModalChapter({ chapters, children, chapterData }: Props) {
         </div>
         <ul className="ml-4 flex w-full flex-col items-center overflow-scroll overflow-x-hidden bg-black">
           <div className="w-full">
-            {chapters.toReversed().map(({ chapter, count, id }, index) => (
+            {chapters.toReversed().map(({ chapter, count, id }) => (
               <Link
                 className={cn(
                   'center m-2 w-[98%] rounded-sm border-[1px] border-gray-600 bg-transparent p-2.5 text-white hover:border-orange-600 hover:text-amber-300',

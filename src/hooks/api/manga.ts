@@ -4,7 +4,7 @@ import {
   GetSearchMangaIncludedTagsMode,
   GetSearchMangaParams,
   GetSearchMangaStatusItem,
-} from '@/shared/api/swagger/generated'
+} from '@/shared/api/mangadex/generated'
 import { OffsetFilter } from '@/shared/constants/filters'
 import { keepPreviousData, useQuery } from '@tanstack/react-query'
 

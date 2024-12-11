@@ -67,20 +67,24 @@ function Chapter() {
         <ExternalChapter key={1} externalUrl={''} />
       )}
 
-      {!isFetching && nextChapter ? (
-        <Link
-          className="center flex h-10 w-1/2 rounded-sm border-2 border-blue-950 py-[34px] text-white hover:border-blue-700"
-          href={`/chapter/${nextChapter?.id}?manga=${manga}&lang=${lang}`}
-        >
-          Next
-        </Link>
-      ) : (
-        <Link
-          className="center flex h-10 w-1/2 rounded-sm border-2 border-blue-950 py-[34px] text-white hover:border-blue-700"
-          href={`/title/${manga}`}
-        >
-          Return to Manga
-        </Link>
+      {chapters?.chapter?.data && chapters.chapter.data.length > 0 && (
+        <div className="center mt-4 w-full">
+          {!isFetching && nextChapter ? (
+            <Link
+              className="center flex h-10 w-1/2 rounded-sm border-2 border-blue-950 py-[34px] text-white hover:border-blue-700"
+              href={`/chapter/${nextChapter?.id}?manga=${manga}&lang=${lang}`}
+            >
+              Next
+            </Link>
+          ) : (
+            <Link
+              className="center flex h-10 w-1/2 rounded-sm border-2 border-blue-950 py-[34px] text-white hover:border-blue-700"
+              href={`/title/${manga}`}
+            >
+              Return to Manga
+            </Link>
+          )}
+        </div>
       )}
     </div>
   )

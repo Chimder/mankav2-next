@@ -1,7 +1,15 @@
-import { useState } from 'react'
-import Icons from '@/assets/svg/icons'
 import { filterConstants } from '@/shared/constants/filters'
 import { useFilterStore } from '@/store/filter-slice'
+
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectTrigger,
+  SelectValue,
+} from '../ui/select'
 
 type AccordionSectionProps = {
   title: string
@@ -9,16 +17,14 @@ type AccordionSectionProps = {
 }
 
 const AccordionSortBy = ({ title, options }: AccordionSectionProps) => {
-  const [isOpen, setIsOpen] = useState(false)
-  const sortBy = useFilterStore().sortBy
+  // const sortBy = useFilterStore().sortBy
   const setSortBy = useFilterStore().setSortBy
 
-  const toggleAccordion = () => setIsOpen(prev => !prev)
+  // const toggleAccordion = () => setIsOpen(prev => !prev)
 
-  const handleSelectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    toggleAccordion()
+  const handleSelectChange = (value: string) => {
     const selectedOption = options?.find(
-      option => `${option.type}-${option.order}` === event.target.value,
+      option => `${option.type}-${option.order}` === value,
     )
     if (selectedOption) {
       setSortBy({ type: selectedOption.type, order: selectedOption.order })
@@ -26,26 +32,25 @@ const AccordionSortBy = ({ title, options }: AccordionSectionProps) => {
   }
 
   return (
-    <div className="flex w-full flex-col items-start justify-center text-base text-black">
-      <label className="relative w-full">
-        <select
-          className="center w-full! text--base cursor-pointer appearance-none border-2 border-white bg-white px-3 py-2 text-black outline-none transition-colors"
-          value={`${sortBy?.type}-${sortBy?.order}`}
-          onChange={handleSelectChange}
-        >
-          <option value="">Select an option</option>
+    <Select onValueChange={handleSelectChange}>
+      <SelectTrigger className="border-2 border-cyan-900 bg-black focus:bg-cyan-900">
+        <SelectValue placeholder="Select an option" />
+      </SelectTrigger>
+      <SelectContent className="bg-black">
+        <SelectGroup>
+          <SelectLabel>Fruits</SelectLabel>
           {options?.map(({ name, order, type }) => (
-            <option
-              className="appearance-none hover:bg-green-400 focus:bg-green-400"
+            <SelectItem
+              className="appearance-none text-white hover:bg-green-400 focus:bg-green-400"
               key={name}
               value={`${type}-${order}`}
             >
               {name}
-            </option>
+            </SelectItem>
           ))}
-        </select>
-      </label>
-    </div>
+        </SelectGroup>
+      </SelectContent>
+    </Select>
   )
 }
 

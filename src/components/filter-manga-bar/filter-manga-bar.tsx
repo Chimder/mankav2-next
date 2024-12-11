@@ -6,6 +6,7 @@ import { mangaApi } from '@/hooks/api/manga'
 import { tagsApi } from '@/hooks/api/tag'
 
 import { Button } from '../ui/button'
+import { Separator } from '../ui/separator'
 import AccordionSection from './accordion'
 import AccordionSortBy from './accordion-sort-by'
 
@@ -22,7 +23,7 @@ export const FilterMangaBar = () => {
   }
 
   const resetSearch = async () => {
-    reset()
+    await reset()
     await queryClient.resetQueries({
       queryKey: [mangaApi.baseKey],
     })
@@ -47,19 +48,18 @@ export const FilterMangaBar = () => {
 
       <div className="bg-black">
         <div>
-          <span>Sort By</span>
           <AccordionSortBy title="Sort By" options={filterConstants.sortBy} />
         </div>
         <div>
-          <span>Filter by</span>
-          <div>----------------------</div>
+          <Separator className="my-4" />
           <AccordionSection
             title="Tags"
             options={tags}
             singleSelect={false}
             filterKey="tags"
           />
-          <div>----------------------</div>
+
+          <Separator className="my-4" />
           <AccordionSection
             title="Status"
             options={filterConstants.status}

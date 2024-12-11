@@ -12,7 +12,7 @@ export const PaginationButtons = ({
 }) => {
   const router = useRouter()
 
-  if (totalPages <= 1) return null
+  if (!currentPage || !totalPages || totalPages < 1) return null
 
   const handlePageChange = (page: number) => {
     if (page > 0 && page <= totalPages) {
@@ -57,26 +57,26 @@ export const PaginationButtons = ({
   return (
     <div className="center mt-4">
       <div className="border-[1px] border-yellow-800 p-2">
-        {pages.map((page, index) =>
-          page === -1 ? (
-            <span key={`ellipsis-${index}`} className="mx-2 text-gray-500">
-              ...
-            </span>
-          ) : (
-            <Button
-              className={cn(
-                'mx-1 border text-white hover:border-yellow-300',
-                page === currentPage &&
-                  'border-[1px] border-slate-400 bg-yellow-500',
-              )}
-              key={page}
-              onClick={() => handlePageChange(page)}
-              disabled={page === currentPage}
-            >
-              {page}
-            </Button>
-          ),
-        )}
+        {pages &&
+          pages.map((page, index) =>
+            page === -1 ? (
+              <span key={`ellipsis-${index}`} className="mx-2 text-gray-500">
+                ...
+              </span>
+            ) : (
+              <Button
+                className={cn(
+                  'mx-1 text-white hover:bg-orange-700',
+                  page === currentPage && 'bg-orange-500',
+                )}
+                key={page}
+                onClick={() => handlePageChange(page)}
+                // disabled={page === currentPage}
+              >
+                {page}
+              </Button>
+            ),
+          )}
       </div>
     </div>
   )

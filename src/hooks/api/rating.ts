@@ -1,4 +1,4 @@
-import { getRating } from '@/shared/api/swagger/generated'
+import { getRating } from '@/shared/api/mangadex/generated'
 import { useQuery } from '@tanstack/react-query'
 
 export const ratingApi = {

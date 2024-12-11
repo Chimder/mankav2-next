@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { MangaList } from '@/shared/api/swagger/generated'
+import { MangaList } from '@/shared/api/mangadex/generated'
 import { OffsetFilter } from '@/shared/constants/filters'
 import { cn } from '@/shared/lib/tailwind'
 import { useCardSwitcherStore } from '@/store/card-switcher'

@@ -18,12 +18,17 @@ const Cards = () => {
   const status = useFilterStore().status
   const sortBy = useFilterStore().sortBy
 
+  console.log('SORT', sortBy)
+  console.log("RESET")
   const { data: mangas, isFetching } = mangaApi.useMangaSearch({
     status,
     tags,
     name: input,
     offset: (currentPage - 1) * OffsetFilter,
-    sortBy: { type: sortBy?.type, order: sortBy?.order },
+    sortBy: {
+      type: sortBy?.type,
+      order: sortBy?.order,
+    },
   })
   const cardView = useCardSwitcherStore().type
   const setCardView = useCardSwitcherStore().setCardSwitcher

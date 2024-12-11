@@ -1,4 +1,4 @@
-import { getStatisticsMangaUuid } from '@/shared/api/swagger/generated'
+import { getStatisticsMangaUuid } from '@/shared/api/mangadex/generated'
 import { useQuery } from '@tanstack/react-query'
 
 export const statisticsApi = {

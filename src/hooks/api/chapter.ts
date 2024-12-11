@@ -2,7 +2,7 @@ import {
   getAtHomeServerChapterId,
   getChapterId,
   getMangaAggregate,
-} from '@/shared/api/swagger/generated'
+} from '@/shared/api/mangadex/generated'
 import { useQuery } from '@tanstack/react-query'
 
 export const chapterApi = {

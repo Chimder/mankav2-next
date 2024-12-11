@@ -1,4 +1,4 @@
-import { getMangaTag } from '@/shared/api/swagger/generated'
+import { getMangaTag } from '@/shared/api/mangadex/generated'
 import { useQuery } from '@tanstack/react-query'
 
 export const tagsApi = {
