@@ -1,4 +1,4 @@
-import Header from '../aside-bar/header'
+import Header from '../header/header'
 
 export default function MainLayout({
   children,

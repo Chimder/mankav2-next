@@ -9,6 +9,7 @@ import { useDebounce } from 'use-debounce'
 import { mangaApi } from '@/hooks/api/mangadex/manga'
 import useClickOutside from '@/hooks/use-click-outside'
 
+import { getFirstTitle } from '../Manga/cards/cards-list'
 import { Badge } from '../ui/badge'
 
 export const InputeSearch = () => {
@@ -68,7 +69,9 @@ export const InputeSearch = () => {
               onClick={() => {
                 setSearchQuery('')
                 setIsListVisible(false)
-                router.push(`/title/${manga.id}`)
+                router.push(
+                  `/title/${manga.id}?name=${getFirstTitle(manga.attributes?.title)}`,
+                )
               }}
               key={manga.id}
             >

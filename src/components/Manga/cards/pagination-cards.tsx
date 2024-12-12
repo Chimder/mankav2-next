@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router'
 import { cn } from '@/shared/lib/tailwind'
 
-import { Button } from '../ui/button'
+import { Button } from '../../ui/button'
 
 export const PaginationButtons = ({
   currentPage = 1,

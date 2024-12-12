@@ -5,11 +5,24 @@ import { jikanMangaApi } from '@/hooks/api/jikan/manga'
 // import s from './test.module.css'
 
 function Test() {
-  const name = 'Too Many Losing Heroines!'
+  const name = `WataMote: No Matter How I Look at It, It's You Guys' Fault I'm Not Popular!`
   const { data } = jikanMangaApi.useMangaByName({ name })
 
-  const { data:characters } = jikanMangaApi.useMangaCharacters({ id:data?.mal_id })
-
+  const { data: characters } = jikanMangaApi.useMangaCharacters({
+    id: data?.mal_id,
+  })
+  console.log(
+    '<><<><<>',
+    `No Matter How I Look at It, It's You Guys' Fault I'm Not Popular!`
+    .toLowerCase()
+    .trim()
+    .includes(
+        name
+          .toLowerCase()
+          .trim(),
+      ),
+  )
+  console.log('TRIMED', name.toLowerCase())
   console.log('data>>>', data)
 
   return (

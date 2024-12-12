@@ -1,5 +1,10 @@
 import { jikanInstance } from '@/shared/api/jikan/axios.instance'
-import { getCharacterManga, getMangaCharacters, MangaFull } from '@/shared/api/jikan/generated'
+import {
+  getCharacterManga,
+  getMangaCharacters,
+  getMangaRelations,
+  MangaFull,
+} from '@/shared/api/jikan/generated'
 import { useQuery } from '@tanstack/react-query'
 
 export const jikanMangaApi = {
@@ -24,7 +29,8 @@ export const jikanMangaApi = {
           manga.titles?.some(
             title =>
               title.title &&
-              (title.title.toLowerCase().trim() === name.toLowerCase().trim() ||
+              (name.toLowerCase().trim() === title.title.toLowerCase().trim() ||
+                name.toLowerCase().includes(title.title.toLowerCase().trim()) ||
                 title.title.toLowerCase().includes(name.toLowerCase().trim())),
           ),
         )
@@ -42,13 +48,29 @@ export const jikanMangaApi = {
   },
   useMangaCharacters: ({ id }: { id?: number }) => {
     return useQuery({
-      queryKey: [jikanMangaApi.baseKey, id],
+      queryKey: [jikanMangaApi.baseKey, 'chapters', id],
       queryFn: async ({ signal }) => {
-      if (!id) {
-        return null;
-      }
-      return getMangaCharacters(id, { signal });
-    },
+        if (!id) {
+          return null
+        }
+        return getMangaCharacters(id, { signal })
+      },
+      refetchOnMount: false,
+      enabled: Boolean(id),
+      refetchOnWindowFocus: false,
+      staleTime: 100000,
+      retry: 0,
+    })
+  },
+  useMangaRelation: ({ id }: { id?: number }) => {
+    return useQuery({
+      queryKey: [jikanMangaApi.baseKey, 'relation', id],
+      queryFn: async ({ signal }) => {
+        if (!id) {
+          return null
+        }
+        return getMangaRelations(id, { signal })
+      },
       refetchOnMount: false,
       enabled: Boolean(id),
       refetchOnWindowFocus: false,

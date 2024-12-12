@@ -1,11 +1,11 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { MangaList } from '@/shared/api/mangadex/generated'
+import { LocalizedString, MangaList } from '@/shared/api/mangadex/generated'
 import { OffsetFilter } from '@/shared/constants/filters'
 import { cn } from '@/shared/lib/tailwind'
 import { useCardSwitcherStore } from '@/store/card-switcher'
 
-import { Skeleton } from '../ui/skeleton'
+import { Skeleton } from '../../ui/skeleton'
 import { PaginationButtons } from './pagination-cards'
 
 type Props = {
@@ -13,9 +13,19 @@ type Props = {
   isFetching: boolean
 }
 
+export function getFirstTitle(title?: LocalizedString) {
+  if (title?.en) {
+    return title.en
+  }
+  if (title && title['ja-ro']) {
+    return title['ja-ro'];
+  }
+  if (title && typeof title === 'object') {
+    const val = Object.values(title)
+    return val.length > 0 ? val[0] : undefined
+  }
+}
 const CardsList = ({ mangas, isFetching }: Props) => {
-  // const router = useRouter()
-  // const currentPage = Number(router?.query?.page) || 1
   const cardView = useCardSwitcherStore().type
 
   return (
@@ -34,7 +44,7 @@ const CardsList = ({ mangas, isFetching }: Props) => {
             ? mangas?.data?.map(manga => (
                 <Link
                   className="flex w-[280px] flex-col overflow-hidden rounded-xl border-1 border-red-200 pb-1 text-white hover:border-red-400"
-                  href={`title/${manga?.id}?name=${manga.attributes?.title?.en}`}
+                  href={`title/${manga?.id}?name=${getFirstTitle(manga.attributes?.title)}`}
                   key={manga?.id}
                 >
                   <img
@@ -48,14 +58,14 @@ const CardsList = ({ mangas, isFetching }: Props) => {
                     alt=""
                   />
                   <div className="ml-1 mt-1 line-clamp-2 min-h-[40px] w-full overflow-hidden text-ellipsis leading-[20px]">
-                    {manga.attributes?.title?.en}
+                    {getFirstTitle(manga.attributes?.title)}
                   </div>
                 </Link>
               ))
             : mangas?.data?.map(manga => (
                 <Link
                   className="flex overflow-hidden border-1 border-gray-500 text-white"
-                  href={`title/${manga?.id}?name=${manga.attributes?.title?.en}`}
+                  href={`title/${manga?.id}?name=${getFirstTitle(manga.attributes?.title)}`}
                   key={manga?.id}
                 >
                   <img

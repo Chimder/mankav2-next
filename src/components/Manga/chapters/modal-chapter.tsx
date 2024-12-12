@@ -4,8 +4,13 @@ import { useRouter } from 'next/router'
 import { ChapterResponse } from '@/shared/api/mangadex/generated'
 import { cn } from '@/shared/lib/tailwind'
 
-import { Dialog, DialogContent, DialogTitle, DialogTrigger } from '../ui/dialog'
-import { Input } from '../ui/input'
+import {
+  Dialog,
+  DialogContent,
+  DialogTitle,
+  DialogTrigger,
+} from '../../ui/dialog'
+import { Input } from '../../ui/input'
 
 type flatAggregate = {
   chapter?: string

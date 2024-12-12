@@ -9,7 +9,7 @@ import {
   SelectLabel,
   SelectTrigger,
   SelectValue,
-} from '../ui/select'
+} from '../../ui/select'
 
 type AccordionSectionProps = {
   title: string

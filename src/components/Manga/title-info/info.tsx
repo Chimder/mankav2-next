@@ -8,16 +8,13 @@ type Props = {}
 
 const Info = (props: Props) => {
   const path = useRouter()
-  const name = path?.query?.name as string
-  console.log('NAME', name)
   const mangaId = path?.query?.id as string
-  const { data: mangaa } = jikanMangaApi.useMangaByName({ name })
-  const { data: characters } = jikanMangaApi.useMangaCharacters({
-    id: mangaa?.mal_id,
-  })
-  console.log('CAHRT', characters)
 
   const { data: manga } = mangaApi.useMangaByID(mangaId)
+  const title =
+    manga?.data?.attributes?.title?.en ||
+    (manga?.data?.attributes?.title &&
+      Object.values(manga?.data?.attributes?.title)[0])
 
   const backgroundImageUrl = `/api/proxy?url=https://mangadex.org/covers/${mangaId}/${
     manga?.data?.relationships?.find(obj => obj.type === 'cover_art')
@@ -25,8 +22,8 @@ const Info = (props: Props) => {
   }`
 
   return (
-    <section className="order-2 flex w-1/3 flex-col">
-      <div className="fixed flex flex-col items-center justify-center border-[1px] border-green-400">
+    <section className="">
+      <div className=" flex flex-col items-center justify-center border-[1px] border-green-400">
         <img
           className="relative z-10 h-[440px] w-[310px]"
           src={backgroundImageUrl}
@@ -37,7 +34,7 @@ const Info = (props: Props) => {
             <div className="mx-0 my-3 text-sm">
               <span className="mb-2.5 mr-1 text-sm">Title:</span>
               <span className="text-base">
-                {manga?.data?.attributes?.title?.en}
+                {title}
               </span>
             </div>
             <div className="title">

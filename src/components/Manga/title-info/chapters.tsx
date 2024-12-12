@@ -7,7 +7,7 @@ import relativeTime from 'dayjs/plugin/relativeTime'
 
 import { feedApi } from '@/hooks/api/mangadex/feeds'
 
-import { Skeleton } from '../ui/skeleton'
+import { Skeleton } from '../../ui/skeleton'
 import { PaginationButtons } from './pagination-title'
 
 dayjs.extend(relativeTime)
@@ -64,7 +64,7 @@ const Chapters = () => {
 
   console.log('BOOLE', filteredChapters)
   return (
-    <section className="h-full w-3/5 border border-green-400 text-white">
+    <section className="">
       <ul className="w-full p-5">
         {isFetching ? (
           Array.from({ length: 16 }, (_, index) => (

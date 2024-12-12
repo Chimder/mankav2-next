@@ -1,5 +1,6 @@
 import {
   getMangaId,
+  getMangaRelation,
   getSearchManga,
   GetSearchMangaIncludedTagsMode,
   GetSearchMangaParams,
@@ -72,6 +73,7 @@ export const mangaApi = {
       'includes[]': ['cover_art'],
       ...(status && { 'status[]': [status as GetSearchMangaStatusItem] }),
       'contentRating[]': ['safe', 'suggestive'],
+      'ids[]': [],
       'limit': OffsetFilter,
       'offset': offset,
       'order': sortBy
@@ -87,6 +89,38 @@ export const mangaApi = {
       staleTime: 100000,
       retry: 0,
       placeholderData: keepPreviousData,
+      refetchOnWindowFocus: false,
+      refetchOnMount: false,
+    })
+  },
+
+  useMangaRelations: ({ id }: { id: string }) => {
+    return useQuery({
+      queryKey: [mangaApi.baseKey, 'relation', id],
+      queryFn: ({ signal }) =>
+        getMangaRelation(id, { 'includes[]': ['manga'] }, { signal }),
+      refetchOnMount: false,
+      refetchOnWindowFocus: false,
+      enabled: Boolean(id),
+      staleTime: 160000,
+      retry: 0,
+    })
+  },
+  useMangaSearchMany: ({ ids }: { ids?: string[] }) => {
+    return useQuery({
+      queryKey: [mangaApi.baseKey, 'filter', ids],
+      queryFn: ({ signal }) =>
+        getSearchManga(
+          {
+            'includes[]': ['cover_art'],
+            
+            'contentRating[]': ['safe', 'suggestive', 'erotica'],
+            'ids[]': ids,
+          },
+          { signal },
+        ),
+      staleTime: 100000,
+      retry: 0,
       refetchOnWindowFocus: false,
       refetchOnMount: false,
     })

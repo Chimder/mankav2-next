@@ -5,8 +5,8 @@ import { useRouter } from 'next/router'
 import { chapterApi } from '@/hooks/api/mangadex/chapter'
 import useAggregateChapter from '@/hooks/use-aggregate-chapter'
 import usePageTrack from '@/hooks/use-chapter-tracker'
-import ModalChapter from '@/components/chapters/modal-chapter'
 import ExternalChapter from '@/components/external-chapter'
+import ModalChapter from '@/components/Manga/chapters/modal-chapter'
 
 function Chapter() {
   const router = useRouter()

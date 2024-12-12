@@ -3,9 +3,9 @@ import { OffsetFilter } from '@/shared/constants/filters'
 import { useFilterStore } from '@/store/filter-slice'
 
 import { mangaApi } from '@/hooks/api/mangadex/manga'
-import Cards from '@/components/cards/cards'
-import { PaginationButtons } from '@/components/cards/pagination-cards'
-import { FilterMangaBar } from '@/components/filter-manga-bar/filter-manga-bar'
+import Cards from '@/components/Manga/cards/cards'
+import { PaginationButtons } from '@/components/Manga/cards/pagination-cards'
+import { FilterMangaBar } from '@/components/Manga/filter-manga-bar/filter-manga-bar'
 
 function SearchManga() {
   const router = useRouter()
