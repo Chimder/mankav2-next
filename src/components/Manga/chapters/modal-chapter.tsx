@@ -1,4 +1,4 @@
-import { ReactNode, useEffect, useLayoutEffect, useRef, useState } from 'react'
+import { ReactNode,  useLayoutEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { ChapterResponse } from '@/shared/api/mangadex/generated'
@@ -32,7 +32,6 @@ function ModalChapter({ chapters, children, chapterData }: Props) {
   const lang = router.query?.lang as string
   const chapterId = router.query?.id as string
   const mangaId = router.query?.manga as string
-  console.log('DIAIDA', chapterId)
 
   const [searchPageQuery, setSearchPageQuery] = useState('')
   const [highlightedChapter, setHighlightedChapter] = useState<string | null>(
@@ -83,7 +82,7 @@ function ModalChapter({ chapters, children, chapterData }: Props) {
 
           <Link
             className="mt-4 text-2xl text-white decoration-white hover:underline"
-            href={`/title/${mangaId}`}
+                  href={`/title/${mangaId}?name=${mangaTitle}`}
           >
             {mangaTitle}
           </Link>
@@ -110,7 +109,7 @@ function ModalChapter({ chapters, children, chapterData }: Props) {
                 ref={el => {
                   if (chapter) refs.current[chapter] = el
                 }}
-                href={`/chapter/${id}?manga=${mangaId}&lang=${lang}`}
+                  href={`/chapter/${id}?manga=${mangaId}&lang=${lang}&name=${mangaTitle}`}
               >
                 <option value={`${count}`}>Chapter {chapter}</option>
               </Link>
