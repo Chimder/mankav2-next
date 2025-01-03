@@ -1,14 +1,12 @@
-import { queryClient } from '@/pages/_app'
+import { mangaApi } from '@/hooks/api/mangadex/manga'
+import { tagsApi } from '@/hooks/api/mangadex/tag'
 import { filterConstants } from '@/shared/constants/filters'
 import { useFilterStore } from '@/store/filter-slice'
 
-import { mangaApi } from '@/hooks/api/mangadex/manga'
-import { tagsApi } from '@/hooks/api/mangadex/tag'
-
-import { Button } from '../../ui/button'
 import { Separator } from '../../ui/separator'
 import AccordionSection from './accordion'
 import AccordionSortBy from './accordion-sort-by'
+import { queryClient } from '@/pages/_app'
 
 export const FilterMangaBar = () => {
   const reset = useFilterStore().reset
@@ -17,6 +15,7 @@ export const FilterMangaBar = () => {
 
   const Search = async (e: React.MouseEvent<HTMLDivElement>) => {
     e.preventDefault()
+    console.log('RESERTT')
     await queryClient.resetQueries({
       queryKey: [mangaApi.baseKey],
     })
@@ -30,8 +29,8 @@ export const FilterMangaBar = () => {
   }
   console.log('TESADSa', tags)
   return (
-    <div className="filterBar sticky right-1 top-0 flex h-screen w-[300px] flex-col gap-2.5 self-start overflow-y-scroll bg-black p-2.5 text-white">
-      <div className="flex w-full">
+    <div className="flex-col gap-2.5 bg-black p-1 text-white">
+      <div className="mb-1 flex w-full">
         <div
           className="center mr-1 w-8/12 cursor-pointer rounded-md border-1 border-green-400 bg-transparent px-3 py-2 text-base text-white decoration-green-400 hover:bg-transparent hover:underline"
           onClick={e => Search(e)}

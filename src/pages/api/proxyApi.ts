@@ -7,7 +7,6 @@ export default async function handler(
 ) {
   const { url, ...query } = req.query
 
-  // Проверяем наличие URL параметра
   if (!url || typeof url !== 'string') {
     return res.status(400).json({ error: 'URL is required' })
   }

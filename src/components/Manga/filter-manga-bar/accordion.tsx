@@ -1,5 +1,6 @@
-import { cn } from '@/shared/lib/tailwind'
-import { Filter, useFilterStore } from '@/store/filter-slice'
+import { cn } from "@/shared/lib/tailwind"
+import { Filter, useFilterStore } from "@/store/filter-slice"
+
 
 type TagOption = {
   id: string

@@ -5,7 +5,7 @@
 }
 
 html {
-  font-family: '__GGSANS', sans-serif;
+  font-family: "__GGSANS", sans-serif;
   background-color: var(--background);
   text-size-adjust: none;
 }
@@ -31,8 +31,8 @@ a {
   cursor: default;
 }
 
-ul[role='list'],
-ol[role='list'] {
+ul[role="list"],
+ol[role="list"] {
   list-style: none;
 }
 
@@ -80,7 +80,7 @@ canvas {
 
 input,
 /* button, */
-textarea,
+  textarea,
 select {
   font-family: inherit;
   font-size: inherit;

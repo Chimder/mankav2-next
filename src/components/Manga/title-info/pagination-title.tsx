@@ -1,10 +1,7 @@
-import { useEffect, useLayoutEffect } from 'react'
-import { useSearchParams } from 'next/navigation'
 import { useRouter } from 'next/router'
 import { OffsetFilterTitle } from '@/shared/constants/filters'
+import { PATH } from '@/shared/constants/path-constants'
 import { cn } from '@/shared/lib/tailwind'
-
-import { Button } from '../../ui/button'
 
 export const PaginationButtons = ({
   currentPage = 1,
@@ -16,14 +13,16 @@ export const PaginationButtons = ({
   totalItems?: number
 }) => {
   const router = useRouter()
+  const name = router.query?.name as string
+  const id = router.query?.id as string
+
   const totalPages = Math.ceil(totalItems / itemsPerPage)
-  const id = router.query.id as string
 
   if (totalPages <= 1 || !id) return null
 
   const handlePageChange = (page: number) => {
     if (page > 0 && page <= totalPages) {
-      router.push(`/title/${id}?page=${page}`)
+      router.push(`${PATH.MANGA.getTitlePath(id)}?name=${name}&page=${page}`)
     }
   }
 
@@ -71,16 +70,16 @@ export const PaginationButtons = ({
                 ...
               </span>
             ) : (
-              <Button
+              <button
                 className={cn(
-                  'mx-1 text-white hover:bg-orange-700',
-                  page === currentPage && 'bg-orange-500',
+                  'mx-1 rounded-lg bg-background bg-slate-400 px-4 py-2 text-white hover:bg-orange-700',
+                  page == currentPage && '!bg-orange-400',
                 )}
                 key={page}
                 onClick={() => handlePageChange(page)}
               >
                 {page}
-              </Button>
+              </button>
             ),
           )}
       </div>

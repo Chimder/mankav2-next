@@ -21,264 +21,279 @@ If you believe you found a security issue in our API, please check our [security
 
  * OpenAPI spec version: 5.10.2
  */
-import { customInstance } from './axios.instance';
+import { customInstance } from './axios.instance'
 /**
  * The type of the resource
  */
-export type ForumsThreadCreateBodyType = typeof ForumsThreadCreateBodyType[keyof typeof ForumsThreadCreateBodyType];
-
+export type ForumsThreadCreateBodyType =
+  (typeof ForumsThreadCreateBodyType)[keyof typeof ForumsThreadCreateBodyType]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const ForumsThreadCreateBodyType = {
   manga: 'manga',
   group: 'group',
   chapter: 'chapter',
-} as const;
+} as const
 
 export type ForumsThreadCreateBody = {
   /** The id of the resource */
-  id?: string;
+  id?: string
   /** The type of the resource */
-  type?: ForumsThreadCreateBodyType;
-};
+  type?: ForumsThreadCreateBodyType
+}
 
 export type GetReadingHistory200RatingsItem = {
-  chapterId?: string;
-  readDate?: string;
-};
+  chapterId?: string
+  readDate?: string
+}
 
 export type GetReadingHistory200 = {
-  ratings?: GetReadingHistory200RatingsItem[];
-  result?: string;
-};
+  ratings?: GetReadingHistory200RatingsItem[]
+  result?: string
+}
 
 /**
  * Settings that were validated against the linked template
  */
-export type PostSettings200Settings = { [key: string]: unknown };
+export type PostSettings200Settings = { [key: string]: unknown }
 
 export type PostSettings200 = {
-  result?: string;
+  result?: string
   /** Settings that were validated against the linked template */
-  settings?: PostSettings200Settings;
+  settings?: PostSettings200Settings
   /** Settings template UUID */
-  template?: string;
-  updatedAt?: string;
-};
+  template?: string
+  updatedAt?: string
+}
 
 /**
  * A JSON object that can be validated against the lastest available template
  */
-export type PostSettingsBodySettings = { [key: string]: unknown };
+export type PostSettingsBodySettings = { [key: string]: unknown }
 
 export type PostSettingsBody = {
   /** A JSON object that can be validated against the lastest available template */
-  settings?: PostSettingsBodySettings;
+  settings?: PostSettingsBodySettings
   /** Format: 2022-03-14T13:19:37 */
-  updatedAt?: string;
-};
+  updatedAt?: string
+}
 
 /**
  * Settings that were validated by linked template
  */
-export type GetSettings200Settings = { [key: string]: unknown };
+export type GetSettings200Settings = { [key: string]: unknown }
 
 export type GetSettings200 = {
-  result?: string;
+  result?: string
   /** Settings that were validated by linked template */
-  settings?: GetSettings200Settings;
+  settings?: GetSettings200Settings
   /** Settings template UUID */
-  template?: string;
-  updatedAt?: string;
-};
+  template?: string
+  updatedAt?: string
+}
 
 /**
  * JSON Schema to validate settings
  */
-export type GetSettingsTemplateVersion200 = { [key: string]: unknown };
+export type GetSettingsTemplateVersion200 = { [key: string]: unknown }
 
 /**
  * JSON Schema to validate settings
  */
-export type PostSettingsTemplate200 = { [key: string]: unknown };
+export type PostSettingsTemplate200 = { [key: string]: unknown }
 
 /**
  * A JSON Schema to validate settings
  */
-export type PostSettingsTemplateBody = { [key: string]: unknown };
+export type PostSettingsTemplateBody = { [key: string]: unknown }
 
 /**
  * JSON Schema to validate settings
  */
-export type GetSettingsTemplate200 = { [key: string]: unknown };
+export type GetSettingsTemplate200 = { [key: string]: unknown }
 
 export type GetStatisticsManga200StatisticsRating = {
   /**
    * Will be nullable if no ratings has been done
    * @nullable
    */
-  average?: number | null;
+  average?: number | null
   /**
    * Average weighted on all the Manga population
    */
-  bayesian?: number;
-};
+  bayesian?: number
+}
 
-export type GetStatisticsManga200Statistics = {[key: string]: {
-  comments?: StatisticsDetailsComments;
-  follows?: number;
-  rating?: GetStatisticsManga200StatisticsRating;
-}};
+export type GetStatisticsManga200Statistics = {
+  [key: string]: {
+    comments?: StatisticsDetailsComments
+    follows?: number
+    rating?: GetStatisticsManga200StatisticsRating
+  }
+}
 
 export type GetStatisticsManga200 = {
-  result?: string;
-  statistics?: GetStatisticsManga200Statistics;
-};
+  result?: string
+  statistics?: GetStatisticsManga200Statistics
+}
 
 export type GetStatisticsMangaParams = {
-'manga[]': string[];
-};
+  'manga[]': string[]
+}
 
 export type GetStatisticsMangaUuid200StatisticsRatingDistribution = {
-  '1'?: number;
-  '10'?: number;
-  '2'?: number;
-  '3'?: number;
-  '4'?: number;
-  '5'?: number;
-  '6'?: number;
-  '7'?: number;
-  '8'?: number;
-  '9'?: number;
-};
+  '1'?: number
+  '10'?: number
+  '2'?: number
+  '3'?: number
+  '4'?: number
+  '5'?: number
+  '6'?: number
+  '7'?: number
+  '8'?: number
+  '9'?: number
+}
 
 export type GetStatisticsMangaUuid200StatisticsRating = {
   /**
    * Will be nullable if no ratings has been given
    * @nullable
    */
-  average?: number | null;
+  average?: number | null
   /**
    * Average weighted on all the Manga population
    */
-  bayesian?: number;
-  distribution?: GetStatisticsMangaUuid200StatisticsRatingDistribution;
-};
+  bayesian?: number
+  distribution?: GetStatisticsMangaUuid200StatisticsRatingDistribution
+}
 
-export type GetStatisticsMangaUuid200Statistics = {[key: string]: {
-  comments?: StatisticsDetailsComments;
-  follows?: number;
-  rating?: GetStatisticsMangaUuid200StatisticsRating;
-}};
+export type GetStatisticsMangaUuid200Statistics = {
+  [key: string]: {
+    comments?: StatisticsDetailsComments
+    follows?: number
+    rating?: GetStatisticsMangaUuid200StatisticsRating
+  }
+}
 
 export type GetStatisticsMangaUuid200 = {
-  result?: string;
-  statistics?: GetStatisticsMangaUuid200Statistics;
-};
+  result?: string
+  statistics?: GetStatisticsMangaUuid200Statistics
+}
 
-export type GetStatisticsGroups200Statistics = {[key: string]: {
-  comments?: StatisticsDetailsComments;
-}};
+export type GetStatisticsGroups200Statistics = {
+  [key: string]: {
+    comments?: StatisticsDetailsComments
+  }
+}
 
 export type GetStatisticsGroups200 = {
-  result?: string;
-  statistics?: GetStatisticsGroups200Statistics;
-};
+  result?: string
+  statistics?: GetStatisticsGroups200Statistics
+}
 
 export type GetStatisticsGroupsParams = {
-'group[]': string[];
-};
+  'group[]': string[]
+}
 
-export type GetStatisticsGroupUuid200Statistics = {[key: string]: {
-  comments?: StatisticsDetailsComments;
-}};
+export type GetStatisticsGroupUuid200Statistics = {
+  [key: string]: {
+    comments?: StatisticsDetailsComments
+  }
+}
 
 export type GetStatisticsGroupUuid200 = {
-  result?: string;
-  statistics?: GetStatisticsGroupUuid200Statistics;
-};
+  result?: string
+  statistics?: GetStatisticsGroupUuid200Statistics
+}
 
-export type GetStatisticsChapters200Statistics = {[key: string]: {
-  comments?: StatisticsDetailsComments;
-}};
+export type GetStatisticsChapters200Statistics = {
+  [key: string]: {
+    comments?: StatisticsDetailsComments
+  }
+}
 
 export type GetStatisticsChapters200 = {
-  result?: string;
-  statistics?: GetStatisticsChapters200Statistics;
-};
+  result?: string
+  statistics?: GetStatisticsChapters200Statistics
+}
 
 export type GetStatisticsChaptersParams = {
-'chapter[]': string[];
-};
+  'chapter[]': string[]
+}
 
-export type GetStatisticsChapterUuid200Statistics = {[key: string]: {
-  comments?: StatisticsDetailsComments;
-}};
+export type GetStatisticsChapterUuid200Statistics = {
+  [key: string]: {
+    comments?: StatisticsDetailsComments
+  }
+}
 
 export type GetStatisticsChapterUuid200 = {
-  result?: string;
-  statistics?: GetStatisticsChapterUuid200Statistics;
-};
+  result?: string
+  statistics?: GetStatisticsChapterUuid200Statistics
+}
 
 export type PostRatingMangaIdBody = {
   /**
    * @minimum 1
    * @maximum 10
    */
-  rating?: number;
-};
+  rating?: number
+}
 
-export type GetRating200Ratings = {[key: string]: {
-  createdAt?: string;
-  rating?: number;
-}};
+export type GetRating200Ratings = {
+  [key: string]: {
+    createdAt?: string
+    rating?: number
+  }
+}
 
 export type GetRating200 = {
-  ratings?: GetRating200Ratings;
-  result?: string;
-};
+  ratings?: GetRating200Ratings
+  result?: string
+}
 
 export type GetRatingParams = {
-manga: string[];
-};
+  manga: string[]
+}
 
 export type GetMangaRelationParams = {
-'includes[]'?: ReferenceExpansionMangaRelation;
-};
+  'includes[]'?: ReferenceExpansionMangaRelation
+}
 
 export type UploadCheckApprovalRequired200AllOf = {
-  requiresApproval?: boolean;
-};
+  requiresApproval?: boolean
+}
 
-export type UploadCheckApprovalRequired200 = Response & UploadCheckApprovalRequired200AllOf;
+export type UploadCheckApprovalRequired200 = Response &
+  UploadCheckApprovalRequired200AllOf
 
 export type UploadCheckApprovalRequiredBody = {
   /** @pattern ^[a-z]{2}(-[a-z]{2})?$ */
-  locale?: string;
-  manga?: string;
-};
+  locale?: string
+  manga?: string
+}
 
-export type PutUploadSessionFile200Result = typeof PutUploadSessionFile200Result[keyof typeof PutUploadSessionFile200Result];
-
+export type PutUploadSessionFile200Result =
+  (typeof PutUploadSessionFile200Result)[keyof typeof PutUploadSessionFile200Result]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const PutUploadSessionFile200Result = {
   ok: 'ok',
   error: 'error',
-} as const;
+} as const
 
 export type PutUploadSessionFile200 = {
-  data?: UploadSessionFile[];
-  errors?: Error[];
-  result?: PutUploadSessionFile200Result;
-};
+  data?: UploadSessionFile[]
+  errors?: Error[]
+  result?: PutUploadSessionFile200Result
+}
 
 export type PutUploadSessionFileBody = {
-  file?: Blob;
-};
+  file?: Blob
+}
 
-export type PostReportBodyCategory = typeof PostReportBodyCategory[keyof typeof PostReportBodyCategory];
-
+export type PostReportBodyCategory =
+  (typeof PostReportBodyCategory)[keyof typeof PostReportBodyCategory]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const PostReportBodyCategory = {
@@ -287,34 +302,34 @@ export const PostReportBodyCategory = {
   user: 'user',
   scanlation_group: 'scanlation_group',
   author: 'author',
-} as const;
+} as const
 
 export type PostReportBody = {
-  category?: PostReportBodyCategory;
-  details?: string;
+  category?: PostReportBodyCategory
+  details?: string
   /**
    * @minLength 36
    * @maxLength 36
    */
-  objectId?: string;
+  objectId?: string
   /**
    * @minLength 36
    * @maxLength 36
    */
-  reason?: string;
-};
+  reason?: string
+}
 
-export type GetReportsOrderCreatedAt = typeof GetReportsOrderCreatedAt[keyof typeof GetReportsOrderCreatedAt];
-
+export type GetReportsOrderCreatedAt =
+  (typeof GetReportsOrderCreatedAt)[keyof typeof GetReportsOrderCreatedAt]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const GetReportsOrderCreatedAt = {
   asc: 'asc',
   desc: 'desc',
-} as const;
+} as const
 
-export type GetReportsStatus = typeof GetReportsStatus[keyof typeof GetReportsStatus];
-
+export type GetReportsStatus =
+  (typeof GetReportsStatus)[keyof typeof GetReportsStatus]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const GetReportsStatus = {
@@ -322,10 +337,10 @@ export const GetReportsStatus = {
   accepted: 'accepted',
   refused: 'refused',
   autoresolved: 'autoresolved',
-} as const;
+} as const
 
-export type GetReportsCategory = typeof GetReportsCategory[keyof typeof GetReportsCategory];
-
+export type GetReportsCategory =
+  (typeof GetReportsCategory)[keyof typeof GetReportsCategory]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const GetReportsCategory = {
@@ -334,23 +349,23 @@ export const GetReportsCategory = {
   scanlation_group: 'scanlation_group',
   user: 'user',
   author: 'author',
-} as const;
+} as const
 
 export type GetReportsParams = {
-limit?: number;
-offset?: number;
-category?: GetReportsCategory;
-reasonId?: string;
-objectId?: string;
-status?: GetReportsStatus;
-order?: {
-  createdAt?: GetReportsOrderCreatedAt;
-};
-'includes[]'?: ReferenceExpansionReport;
-};
+  limit?: number
+  offset?: number
+  category?: GetReportsCategory
+  reasonId?: string
+  objectId?: string
+  status?: GetReportsStatus
+  order?: {
+    createdAt?: GetReportsOrderCreatedAt
+  }
+  'includes[]'?: ReferenceExpansionReport
+}
 
-export type GetReportReasonsByCategory200DataItemAttributesCategory = typeof GetReportReasonsByCategory200DataItemAttributesCategory[keyof typeof GetReportReasonsByCategory200DataItemAttributesCategory];
-
+export type GetReportReasonsByCategory200DataItemAttributesCategory =
+  (typeof GetReportReasonsByCategory200DataItemAttributesCategory)[keyof typeof GetReportReasonsByCategory200DataItemAttributesCategory]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const GetReportReasonsByCategory200DataItemAttributesCategory = {
@@ -359,119 +374,119 @@ export const GetReportReasonsByCategory200DataItemAttributesCategory = {
   scanlation_group: 'scanlation_group',
   user: 'user',
   author: 'author',
-} as const;
+} as const
 
 export type GetReportReasonsByCategory200DataItemAttributes = {
-  category?: GetReportReasonsByCategory200DataItemAttributesCategory;
-  detailsRequired?: boolean;
-  reason?: LocalizedString;
+  category?: GetReportReasonsByCategory200DataItemAttributesCategory
+  detailsRequired?: boolean
+  reason?: LocalizedString
   /** @minimum 1 */
-  version?: number;
-};
+  version?: number
+}
 
 export type GetReportReasonsByCategory200DataItem = {
-  attributes?: GetReportReasonsByCategory200DataItemAttributes;
-  id?: string;
-  type?: string;
-};
+  attributes?: GetReportReasonsByCategory200DataItemAttributes
+  id?: string
+  type?: string
+}
 
 export type GetReportReasonsByCategory200 = {
-  data?: GetReportReasonsByCategory200DataItem[];
-  limit?: number;
-  offset?: number;
-  response?: string;
-  result?: string;
-  total?: number;
-};
+  data?: GetReportReasonsByCategory200DataItem[]
+  limit?: number
+  offset?: number
+  response?: string
+  result?: string
+  total?: number
+}
 
-export type PostCaptchaSolve200Result = typeof PostCaptchaSolve200Result[keyof typeof PostCaptchaSolve200Result];
-
+export type PostCaptchaSolve200Result =
+  (typeof PostCaptchaSolve200Result)[keyof typeof PostCaptchaSolve200Result]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const PostCaptchaSolve200Result = {
   ok: 'ok',
   error: 'error',
-} as const;
+} as const
 
 export type PostCaptchaSolve200 = {
-  result?: PostCaptchaSolve200Result;
-};
+  result?: PostCaptchaSolve200Result
+}
 
 export type PostCaptchaSolveBody = {
   /** @minLength 1 */
-  captchaChallenge: string;
-};
+  captchaChallenge: string
+}
 
-export type GetMangaDraftsOrderYear = typeof GetMangaDraftsOrderYear[keyof typeof GetMangaDraftsOrderYear];
-
+export type GetMangaDraftsOrderYear =
+  (typeof GetMangaDraftsOrderYear)[keyof typeof GetMangaDraftsOrderYear]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const GetMangaDraftsOrderYear = {
   asc: 'asc',
   desc: 'desc',
-} as const;
+} as const
 
-export type GetMangaDraftsOrderUpdatedAt = typeof GetMangaDraftsOrderUpdatedAt[keyof typeof GetMangaDraftsOrderUpdatedAt];
-
+export type GetMangaDraftsOrderUpdatedAt =
+  (typeof GetMangaDraftsOrderUpdatedAt)[keyof typeof GetMangaDraftsOrderUpdatedAt]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const GetMangaDraftsOrderUpdatedAt = {
   asc: 'asc',
   desc: 'desc',
-} as const;
+} as const
 
-export type GetMangaDraftsOrderTitle = typeof GetMangaDraftsOrderTitle[keyof typeof GetMangaDraftsOrderTitle];
-
+export type GetMangaDraftsOrderTitle =
+  (typeof GetMangaDraftsOrderTitle)[keyof typeof GetMangaDraftsOrderTitle]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const GetMangaDraftsOrderTitle = {
   asc: 'asc',
   desc: 'desc',
-} as const;
+} as const
 
-export type GetMangaDraftsOrderCreatedAt = typeof GetMangaDraftsOrderCreatedAt[keyof typeof GetMangaDraftsOrderCreatedAt];
-
+export type GetMangaDraftsOrderCreatedAt =
+  (typeof GetMangaDraftsOrderCreatedAt)[keyof typeof GetMangaDraftsOrderCreatedAt]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const GetMangaDraftsOrderCreatedAt = {
   asc: 'asc',
   desc: 'desc',
-} as const;
+} as const
 
-export type GetMangaDraftsState = typeof GetMangaDraftsState[keyof typeof GetMangaDraftsState];
-
+export type GetMangaDraftsState =
+  (typeof GetMangaDraftsState)[keyof typeof GetMangaDraftsState]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const GetMangaDraftsState = {
   draft: 'draft',
   submitted: 'submitted',
   rejected: 'rejected',
-} as const;
+} as const
 
 export type GetMangaDraftsParams = {
-limit?: number;
-offset?: number;
-state?: GetMangaDraftsState;
-order?: {
-  createdAt?: GetMangaDraftsOrderCreatedAt;
-  title?: GetMangaDraftsOrderTitle;
-  updatedAt?: GetMangaDraftsOrderUpdatedAt;
-  year?: GetMangaDraftsOrderYear;
-};
-'includes[]'?: ReferenceExpansionManga;
-};
+  limit?: number
+  offset?: number
+  state?: GetMangaDraftsState
+  order?: {
+    createdAt?: GetMangaDraftsOrderCreatedAt
+    title?: GetMangaDraftsOrderTitle
+    updatedAt?: GetMangaDraftsOrderUpdatedAt
+    year?: GetMangaDraftsOrderYear
+  }
+  'includes[]'?: ReferenceExpansionManga
+}
 
 export type CommitMangaDraftBody = {
   /** @minimum 1 */
-  version?: number;
-};
+  version?: number
+}
 
 export type GetMangaIdDraftParams = {
-'includes[]'?: ReferenceExpansionManga;
-};
+  'includes[]'?: ReferenceExpansionManga
+}
 
-export type GetMangaIdStatus200Status = typeof GetMangaIdStatus200Status[keyof typeof GetMangaIdStatus200Status];
-
+export type GetMangaIdStatus200Status =
+  (typeof GetMangaIdStatus200Status)[keyof typeof GetMangaIdStatus200Status]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const GetMangaIdStatus200Status = {
@@ -481,22 +496,30 @@ export const GetMangaIdStatus200Status = {
   dropped: 'dropped',
   re_reading: 're_reading',
   completed: 'completed',
-} as const;
+} as const
 
 export type GetMangaIdStatus200 = {
-  result?: string;
-  status?: GetMangaIdStatus200Status;
-};
+  result?: string
+  status?: GetMangaIdStatus200Status
+}
 
-export type GetMangaStatus200Statuses = {[key: string]: 'reading' | 'on_hold' | 'plan_to_read' | 'dropped' | 're_reading' | 'completed'};
+export type GetMangaStatus200Statuses = {
+  [key: string]:
+    | 'reading'
+    | 'on_hold'
+    | 'plan_to_read'
+    | 'dropped'
+    | 're_reading'
+    | 'completed'
+}
 
 export type GetMangaStatus200 = {
-  result?: string;
-  statuses?: GetMangaStatus200Statuses;
-};
+  result?: string
+  statuses?: GetMangaStatus200Statuses
+}
 
-export type GetMangaStatusStatus = typeof GetMangaStatusStatus[keyof typeof GetMangaStatusStatus];
-
+export type GetMangaStatusStatus =
+  (typeof GetMangaStatusStatus)[keyof typeof GetMangaStatusStatus]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const GetMangaStatusStatus = {
@@ -506,53 +529,53 @@ export const GetMangaStatusStatus = {
   dropped: 'dropped',
   re_reading: 're_reading',
   completed: 'completed',
-} as const;
+} as const
 
 export type GetMangaStatusParams = {
-/**
- * Used to filter the list by given status
- */
-status?: GetMangaStatusStatus;
-};
+  /**
+   * Used to filter the list by given status
+   */
+  status?: GetMangaStatusStatus
+}
 
 export type GetUserFollowsListParams = {
-limit?: number;
-offset?: number;
-};
+  limit?: number
+  offset?: number
+}
 
 export type GetUserFollowsMangaParams = {
-limit?: number;
-offset?: number;
-'includes[]'?: ReferenceExpansionManga;
-};
+  limit?: number
+  offset?: number
+  'includes[]'?: ReferenceExpansionManga
+}
 
 export type GetUserFollowsUserParams = {
-limit?: number;
-offset?: number;
-};
+  limit?: number
+  offset?: number
+}
 
 export type GetUserFollowsGroupParams = {
-limit?: number;
-offset?: number;
-'includes[]'?: ReferenceExpansionScanlationGroup;
-};
+  limit?: number
+  offset?: number
+  'includes[]'?: ReferenceExpansionScanlationGroup
+}
 
 export type GetAtHomeServerChapterId200Chapter = {
-  data?: string[];
-  dataSaver?: string[];
-  hash?: string;
-};
+  data?: string[]
+  dataSaver?: string[]
+  hash?: string
+}
 
 export type GetAtHomeServerChapterId200 = {
   /** The base URL to construct final image URLs from.
 The URL returned is valid for the requested chapter only, and for a duration of 15 minutes from the time of the response. */
-  baseUrl?: string;
-  chapter?: GetAtHomeServerChapterId200Chapter;
-  result?: string;
-};
+  baseUrl?: string
+  chapter?: GetAtHomeServerChapterId200Chapter
+  result?: string
+}
 
 export type GetAtHomeServerChapterIdParams = {
-/**
+  /**
  * Force selecting from MangaDex@Home servers that use the standard HTTPS port 443.
 
 While the conventional port for HTTPS traffic is 443 and servers are encouraged to use it, it is not a hard requirement as it technically isn't
@@ -561,29 +584,29 @@ anything special.
 However, some misbehaving school/office network will at time block traffic to non-standard ports, and setting this flag to `true` will ensure
 selection of a server that uses these.
  */
-forcePort443?: boolean;
-};
+  forcePort443?: boolean
+}
 
-export type GetMangaRandomExcludedTagsMode = typeof GetMangaRandomExcludedTagsMode[keyof typeof GetMangaRandomExcludedTagsMode];
-
+export type GetMangaRandomExcludedTagsMode =
+  (typeof GetMangaRandomExcludedTagsMode)[keyof typeof GetMangaRandomExcludedTagsMode]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const GetMangaRandomExcludedTagsMode = {
   AND: 'AND',
   OR: 'OR',
-} as const;
+} as const
 
-export type GetMangaRandomIncludedTagsMode = typeof GetMangaRandomIncludedTagsMode[keyof typeof GetMangaRandomIncludedTagsMode];
-
+export type GetMangaRandomIncludedTagsMode =
+  (typeof GetMangaRandomIncludedTagsMode)[keyof typeof GetMangaRandomIncludedTagsMode]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const GetMangaRandomIncludedTagsMode = {
   AND: 'AND',
   OR: 'OR',
-} as const;
+} as const
 
-export type GetMangaRandomContentRatingItem = typeof GetMangaRandomContentRatingItem[keyof typeof GetMangaRandomContentRatingItem];
-
+export type GetMangaRandomContentRatingItem =
+  (typeof GetMangaRandomContentRatingItem)[keyof typeof GetMangaRandomContentRatingItem]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const GetMangaRandomContentRatingItem = {
@@ -591,169 +614,173 @@ export const GetMangaRandomContentRatingItem = {
   suggestive: 'suggestive',
   erotica: 'erotica',
   pornographic: 'pornographic',
-} as const;
+} as const
 
 export type GetMangaRandomParams = {
-'includes[]'?: ReferenceExpansionManga;
-'contentRating[]'?: GetMangaRandomContentRatingItem[];
-'includedTags[]'?: string[];
-includedTagsMode?: GetMangaRandomIncludedTagsMode;
-'excludedTags[]'?: string[];
-excludedTagsMode?: GetMangaRandomExcludedTagsMode;
-};
+  'includes[]'?: ReferenceExpansionManga
+  'contentRating[]'?: GetMangaRandomContentRatingItem[]
+  'includedTags[]'?: string[]
+  includedTagsMode?: GetMangaRandomIncludedTagsMode
+  'excludedTags[]'?: string[]
+  excludedTagsMode?: GetMangaRandomExcludedTagsMode
+}
 
-export type GetMangaChapterReadmarkers2200Result = typeof GetMangaChapterReadmarkers2200Result[keyof typeof GetMangaChapterReadmarkers2200Result];
-
+export type GetMangaChapterReadmarkers2200Result =
+  (typeof GetMangaChapterReadmarkers2200Result)[keyof typeof GetMangaChapterReadmarkers2200Result]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const GetMangaChapterReadmarkers2200Result = {
   ok: 'ok',
-} as const;
+} as const
 
 export type GetMangaChapterReadmarkers2200 = {
-  data?: GetMangaChapterReadmarkers2200Data;
-  result?: GetMangaChapterReadmarkers2200Result;
-};
+  data?: GetMangaChapterReadmarkers2200Data
+  result?: GetMangaChapterReadmarkers2200Result
+}
 
-export type GetMangaChapterReadmarkers2200DataOneOf = {[key: string]: string[]};
+export type GetMangaChapterReadmarkers2200DataOneOf = {
+  [key: string]: string[]
+}
 
-export type GetMangaChapterReadmarkers2200Data = string[] | GetMangaChapterReadmarkers2200DataOneOf;
+export type GetMangaChapterReadmarkers2200Data =
+  | string[]
+  | GetMangaChapterReadmarkers2200DataOneOf
 
 export type GetMangaChapterReadmarkers2Params = {
-/**
- * Manga ids
- */
-'ids[]': string[];
-/**
- * Group results by manga ids
- */
-grouped?: boolean;
-};
+  /**
+   * Manga ids
+   */
+  'ids[]': string[]
+  /**
+   * Group results by manga ids
+   */
+  grouped?: boolean
+}
 
-export type PostMangaChapterReadmarkers200Result = typeof PostMangaChapterReadmarkers200Result[keyof typeof PostMangaChapterReadmarkers200Result];
-
+export type PostMangaChapterReadmarkers200Result =
+  (typeof PostMangaChapterReadmarkers200Result)[keyof typeof PostMangaChapterReadmarkers200Result]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const PostMangaChapterReadmarkers200Result = {
   ok: 'ok',
-} as const;
+} as const
 
 export type PostMangaChapterReadmarkers200 = {
-  result?: PostMangaChapterReadmarkers200Result;
-};
+  result?: PostMangaChapterReadmarkers200Result
+}
 
 export type PostMangaChapterReadmarkersParams = {
-/**
- * Adding this will cause the chapter to be stored in the user's reading history
- */
-updateHistory?: boolean;
-};
+  /**
+   * Adding this will cause the chapter to be stored in the user's reading history
+   */
+  updateHistory?: boolean
+}
 
-export type GetMangaChapterReadmarkers200Result = typeof GetMangaChapterReadmarkers200Result[keyof typeof GetMangaChapterReadmarkers200Result];
-
+export type GetMangaChapterReadmarkers200Result =
+  (typeof GetMangaChapterReadmarkers200Result)[keyof typeof GetMangaChapterReadmarkers200Result]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const GetMangaChapterReadmarkers200Result = {
   ok: 'ok',
-} as const;
+} as const
 
 export type GetMangaChapterReadmarkers200 = {
-  data?: string[];
-  result?: GetMangaChapterReadmarkers200Result;
-};
+  data?: string[]
+  result?: GetMangaChapterReadmarkers200Result
+}
 
-export type GetMangaIdFeedIncludeExternalUrl = typeof GetMangaIdFeedIncludeExternalUrl[keyof typeof GetMangaIdFeedIncludeExternalUrl];
-
+export type GetMangaIdFeedIncludeExternalUrl =
+  (typeof GetMangaIdFeedIncludeExternalUrl)[keyof typeof GetMangaIdFeedIncludeExternalUrl]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const GetMangaIdFeedIncludeExternalUrl = {
   NUMBER_0: 0,
   NUMBER_1: 1,
-} as const;
+} as const
 
-export type GetMangaIdFeedIncludeFuturePublishAt = typeof GetMangaIdFeedIncludeFuturePublishAt[keyof typeof GetMangaIdFeedIncludeFuturePublishAt];
-
+export type GetMangaIdFeedIncludeFuturePublishAt =
+  (typeof GetMangaIdFeedIncludeFuturePublishAt)[keyof typeof GetMangaIdFeedIncludeFuturePublishAt]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const GetMangaIdFeedIncludeFuturePublishAt = {
   NUMBER_0: 0,
   NUMBER_1: 1,
-} as const;
+} as const
 
-export type GetMangaIdFeedIncludeEmptyPages = typeof GetMangaIdFeedIncludeEmptyPages[keyof typeof GetMangaIdFeedIncludeEmptyPages];
-
+export type GetMangaIdFeedIncludeEmptyPages =
+  (typeof GetMangaIdFeedIncludeEmptyPages)[keyof typeof GetMangaIdFeedIncludeEmptyPages]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const GetMangaIdFeedIncludeEmptyPages = {
   NUMBER_0: 0,
   NUMBER_1: 1,
-} as const;
+} as const
 
-export type GetMangaIdFeedOrderVolume = typeof GetMangaIdFeedOrderVolume[keyof typeof GetMangaIdFeedOrderVolume];
-
+export type GetMangaIdFeedOrderVolume =
+  (typeof GetMangaIdFeedOrderVolume)[keyof typeof GetMangaIdFeedOrderVolume]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const GetMangaIdFeedOrderVolume = {
   asc: 'asc',
   desc: 'desc',
-} as const;
+} as const
 
-export type GetMangaIdFeedOrderUpdatedAt = typeof GetMangaIdFeedOrderUpdatedAt[keyof typeof GetMangaIdFeedOrderUpdatedAt];
-
+export type GetMangaIdFeedOrderUpdatedAt =
+  (typeof GetMangaIdFeedOrderUpdatedAt)[keyof typeof GetMangaIdFeedOrderUpdatedAt]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const GetMangaIdFeedOrderUpdatedAt = {
   asc: 'asc',
   desc: 'desc',
-} as const;
+} as const
 
-export type GetMangaIdFeedOrderReadableAt = typeof GetMangaIdFeedOrderReadableAt[keyof typeof GetMangaIdFeedOrderReadableAt];
-
+export type GetMangaIdFeedOrderReadableAt =
+  (typeof GetMangaIdFeedOrderReadableAt)[keyof typeof GetMangaIdFeedOrderReadableAt]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const GetMangaIdFeedOrderReadableAt = {
   asc: 'asc',
   desc: 'desc',
-} as const;
+} as const
 
-export type GetMangaIdFeedOrderPublishAt = typeof GetMangaIdFeedOrderPublishAt[keyof typeof GetMangaIdFeedOrderPublishAt];
-
+export type GetMangaIdFeedOrderPublishAt =
+  (typeof GetMangaIdFeedOrderPublishAt)[keyof typeof GetMangaIdFeedOrderPublishAt]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const GetMangaIdFeedOrderPublishAt = {
   asc: 'asc',
   desc: 'desc',
-} as const;
+} as const
 
-export type GetMangaIdFeedOrderCreatedAt = typeof GetMangaIdFeedOrderCreatedAt[keyof typeof GetMangaIdFeedOrderCreatedAt];
-
+export type GetMangaIdFeedOrderCreatedAt =
+  (typeof GetMangaIdFeedOrderCreatedAt)[keyof typeof GetMangaIdFeedOrderCreatedAt]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const GetMangaIdFeedOrderCreatedAt = {
   asc: 'asc',
   desc: 'desc',
-} as const;
+} as const
 
-export type GetMangaIdFeedOrderChapter = typeof GetMangaIdFeedOrderChapter[keyof typeof GetMangaIdFeedOrderChapter];
-
+export type GetMangaIdFeedOrderChapter =
+  (typeof GetMangaIdFeedOrderChapter)[keyof typeof GetMangaIdFeedOrderChapter]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const GetMangaIdFeedOrderChapter = {
   asc: 'asc',
   desc: 'desc',
-} as const;
+} as const
 
-export type GetMangaIdFeedIncludeFutureUpdates = typeof GetMangaIdFeedIncludeFutureUpdates[keyof typeof GetMangaIdFeedIncludeFutureUpdates];
-
+export type GetMangaIdFeedIncludeFutureUpdates =
+  (typeof GetMangaIdFeedIncludeFutureUpdates)[keyof typeof GetMangaIdFeedIncludeFutureUpdates]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const GetMangaIdFeedIncludeFutureUpdates = {
   NUMBER_0: '0',
   NUMBER_1: '1',
-} as const;
+} as const
 
-export type GetMangaIdFeedContentRatingItem = typeof GetMangaIdFeedContentRatingItem[keyof typeof GetMangaIdFeedContentRatingItem];
-
+export type GetMangaIdFeedContentRatingItem =
+  (typeof GetMangaIdFeedContentRatingItem)[keyof typeof GetMangaIdFeedContentRatingItem]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const GetMangaIdFeedContentRatingItem = {
@@ -761,228 +788,228 @@ export const GetMangaIdFeedContentRatingItem = {
   suggestive: 'suggestive',
   erotica: 'erotica',
   pornographic: 'pornographic',
-} as const;
+} as const
 
 export type GetMangaIdFeedParams = {
-limit?: number;
-offset?: number;
-'translatedLanguage[]'?: string[];
-'originalLanguage[]'?: string[];
-'excludedOriginalLanguage[]'?: string[];
-'contentRating[]'?: GetMangaIdFeedContentRatingItem[];
-'excludedGroups[]'?: string[];
-'excludedUploaders[]'?: string[];
-includeFutureUpdates?: GetMangaIdFeedIncludeFutureUpdates;
-createdAtSince?: string;
-updatedAtSince?: string;
-publishAtSince?: string;
-order?: {
-  chapter?: GetMangaIdFeedOrderChapter;
-  createdAt?: GetMangaIdFeedOrderCreatedAt;
-  publishAt?: GetMangaIdFeedOrderPublishAt;
-  readableAt?: GetMangaIdFeedOrderReadableAt;
-  updatedAt?: GetMangaIdFeedOrderUpdatedAt;
-  volume?: GetMangaIdFeedOrderVolume;
-};
-'includes[]'?: ReferenceExpansionChapter;
-includeEmptyPages?: GetMangaIdFeedIncludeEmptyPages;
-includeFuturePublishAt?: GetMangaIdFeedIncludeFuturePublishAt;
-includeExternalUrl?: GetMangaIdFeedIncludeExternalUrl;
-};
+  limit?: number
+  offset?: number
+  'translatedLanguage[]'?: string[]
+  'originalLanguage[]'?: string[]
+  'excludedOriginalLanguage[]'?: string[]
+  'contentRating[]'?: GetMangaIdFeedContentRatingItem[]
+  'excludedGroups[]'?: string[]
+  'excludedUploaders[]'?: string[]
+  includeFutureUpdates?: GetMangaIdFeedIncludeFutureUpdates
+  createdAtSince?: string
+  updatedAtSince?: string
+  publishAtSince?: string
+  order?: {
+    chapter?: GetMangaIdFeedOrderChapter
+    createdAt?: GetMangaIdFeedOrderCreatedAt
+    publishAt?: GetMangaIdFeedOrderPublishAt
+    readableAt?: GetMangaIdFeedOrderReadableAt
+    updatedAt?: GetMangaIdFeedOrderUpdatedAt
+    volume?: GetMangaIdFeedOrderVolume
+  }
+  'includes[]'?: ReferenceExpansionChapter
+  includeEmptyPages?: GetMangaIdFeedIncludeEmptyPages
+  includeFuturePublishAt?: GetMangaIdFeedIncludeFuturePublishAt
+  includeExternalUrl?: GetMangaIdFeedIncludeExternalUrl
+}
 
 export type GetAuthorIdParams = {
-'includes[]'?: ReferenceExpansionAuthor;
-};
+  'includes[]'?: ReferenceExpansionAuthor
+}
 
-export type GetAuthorOrderName = typeof GetAuthorOrderName[keyof typeof GetAuthorOrderName];
-
+export type GetAuthorOrderName =
+  (typeof GetAuthorOrderName)[keyof typeof GetAuthorOrderName]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const GetAuthorOrderName = {
   asc: 'asc',
   desc: 'desc',
-} as const;
+} as const
 
 export type GetAuthorParams = {
-limit?: number;
-offset?: number;
-/**
- * Author ids (limited to 100 per request)
- */
-'ids[]'?: string[];
-name?: string;
-order?: {
-  name?: GetAuthorOrderName;
-};
-'includes[]'?: ReferenceExpansionAuthor;
-};
+  limit?: number
+  offset?: number
+  /**
+   * Author ids (limited to 100 per request)
+   */
+  'ids[]'?: string[]
+  name?: string
+  order?: {
+    name?: GetAuthorOrderName
+  }
+  'includes[]'?: ReferenceExpansionAuthor
+}
 
 export type GetCoverIdParams = {
-'includes[]'?: ReferenceExpansionCoverArt;
-};
+  'includes[]'?: ReferenceExpansionCoverArt
+}
 
 export type UploadCoverBody = {
   /** */
-  description?: string;
-  file?: Blob;
+  description?: string
+  file?: Blob
   /**
    * @pattern ^[a-z]{2}(-[a-z]{2})?$
    */
-  locale?: string;
+  locale?: string
   /**
    * @maxLength 8
    * @nullable
    * @pattern ^(0|[1-9]\\d*)((\\.\\d+){1,2})?[a-z]?$
    */
-  volume?: string | null;
-};
+  volume?: string | null
+}
 
-export type GetCoverOrderVolume = typeof GetCoverOrderVolume[keyof typeof GetCoverOrderVolume];
-
+export type GetCoverOrderVolume =
+  (typeof GetCoverOrderVolume)[keyof typeof GetCoverOrderVolume]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const GetCoverOrderVolume = {
   asc: 'asc',
   desc: 'desc',
-} as const;
+} as const
 
-export type GetCoverOrderUpdatedAt = typeof GetCoverOrderUpdatedAt[keyof typeof GetCoverOrderUpdatedAt];
-
+export type GetCoverOrderUpdatedAt =
+  (typeof GetCoverOrderUpdatedAt)[keyof typeof GetCoverOrderUpdatedAt]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const GetCoverOrderUpdatedAt = {
   asc: 'asc',
   desc: 'desc',
-} as const;
+} as const
 
-export type GetCoverOrderCreatedAt = typeof GetCoverOrderCreatedAt[keyof typeof GetCoverOrderCreatedAt];
-
+export type GetCoverOrderCreatedAt =
+  (typeof GetCoverOrderCreatedAt)[keyof typeof GetCoverOrderCreatedAt]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const GetCoverOrderCreatedAt = {
   asc: 'asc',
   desc: 'desc',
-} as const;
+} as const
 
 export type GetCoverParams = {
-limit?: number;
-offset?: number;
-/**
- * Manga ids (limited to 100 per request)
- */
-'manga[]'?: string[];
-/**
- * Covers ids (limited to 100 per request)
- */
-'ids[]'?: string[];
-/**
- * User ids (limited to 100 per request)
- */
-'uploaders[]'?: string[];
-/**
- * Locales of cover art (limited to 100 per request)
- */
-'locales[]'?: string[];
-order?: {
-  createdAt?: GetCoverOrderCreatedAt;
-  updatedAt?: GetCoverOrderUpdatedAt;
-  volume?: GetCoverOrderVolume;
-};
-'includes[]'?: ReferenceExpansionCoverArt;
-};
+  limit?: number
+  offset?: number
+  /**
+   * Manga ids (limited to 100 per request)
+   */
+  'manga[]'?: string[]
+  /**
+   * Covers ids (limited to 100 per request)
+   */
+  'ids[]'?: string[]
+  /**
+   * User ids (limited to 100 per request)
+   */
+  'uploaders[]'?: string[]
+  /**
+   * Locales of cover art (limited to 100 per request)
+   */
+  'locales[]'?: string[]
+  order?: {
+    createdAt?: GetCoverOrderCreatedAt
+    updatedAt?: GetCoverOrderUpdatedAt
+    volume?: GetCoverOrderVolume
+  }
+  'includes[]'?: ReferenceExpansionCoverArt
+}
 
-export type GetListIdFeedIncludeExternalUrl = typeof GetListIdFeedIncludeExternalUrl[keyof typeof GetListIdFeedIncludeExternalUrl];
-
+export type GetListIdFeedIncludeExternalUrl =
+  (typeof GetListIdFeedIncludeExternalUrl)[keyof typeof GetListIdFeedIncludeExternalUrl]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const GetListIdFeedIncludeExternalUrl = {
   NUMBER_0: 0,
   NUMBER_1: 1,
-} as const;
+} as const
 
-export type GetListIdFeedIncludeFuturePublishAt = typeof GetListIdFeedIncludeFuturePublishAt[keyof typeof GetListIdFeedIncludeFuturePublishAt];
-
+export type GetListIdFeedIncludeFuturePublishAt =
+  (typeof GetListIdFeedIncludeFuturePublishAt)[keyof typeof GetListIdFeedIncludeFuturePublishAt]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const GetListIdFeedIncludeFuturePublishAt = {
   NUMBER_0: 0,
   NUMBER_1: 1,
-} as const;
+} as const
 
-export type GetListIdFeedIncludeEmptyPages = typeof GetListIdFeedIncludeEmptyPages[keyof typeof GetListIdFeedIncludeEmptyPages];
-
+export type GetListIdFeedIncludeEmptyPages =
+  (typeof GetListIdFeedIncludeEmptyPages)[keyof typeof GetListIdFeedIncludeEmptyPages]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const GetListIdFeedIncludeEmptyPages = {
   NUMBER_0: 0,
   NUMBER_1: 1,
-} as const;
+} as const
 
-export type GetListIdFeedOrderVolume = typeof GetListIdFeedOrderVolume[keyof typeof GetListIdFeedOrderVolume];
-
+export type GetListIdFeedOrderVolume =
+  (typeof GetListIdFeedOrderVolume)[keyof typeof GetListIdFeedOrderVolume]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const GetListIdFeedOrderVolume = {
   asc: 'asc',
   desc: 'desc',
-} as const;
+} as const
 
-export type GetListIdFeedOrderUpdatedAt = typeof GetListIdFeedOrderUpdatedAt[keyof typeof GetListIdFeedOrderUpdatedAt];
-
+export type GetListIdFeedOrderUpdatedAt =
+  (typeof GetListIdFeedOrderUpdatedAt)[keyof typeof GetListIdFeedOrderUpdatedAt]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const GetListIdFeedOrderUpdatedAt = {
   asc: 'asc',
   desc: 'desc',
-} as const;
+} as const
 
-export type GetListIdFeedOrderReadableAt = typeof GetListIdFeedOrderReadableAt[keyof typeof GetListIdFeedOrderReadableAt];
-
+export type GetListIdFeedOrderReadableAt =
+  (typeof GetListIdFeedOrderReadableAt)[keyof typeof GetListIdFeedOrderReadableAt]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const GetListIdFeedOrderReadableAt = {
   asc: 'asc',
   desc: 'desc',
-} as const;
+} as const
 
-export type GetListIdFeedOrderPublishAt = typeof GetListIdFeedOrderPublishAt[keyof typeof GetListIdFeedOrderPublishAt];
-
+export type GetListIdFeedOrderPublishAt =
+  (typeof GetListIdFeedOrderPublishAt)[keyof typeof GetListIdFeedOrderPublishAt]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const GetListIdFeedOrderPublishAt = {
   asc: 'asc',
   desc: 'desc',
-} as const;
+} as const
 
-export type GetListIdFeedOrderCreatedAt = typeof GetListIdFeedOrderCreatedAt[keyof typeof GetListIdFeedOrderCreatedAt];
-
+export type GetListIdFeedOrderCreatedAt =
+  (typeof GetListIdFeedOrderCreatedAt)[keyof typeof GetListIdFeedOrderCreatedAt]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const GetListIdFeedOrderCreatedAt = {
   asc: 'asc',
   desc: 'desc',
-} as const;
+} as const
 
-export type GetListIdFeedOrderChapter = typeof GetListIdFeedOrderChapter[keyof typeof GetListIdFeedOrderChapter];
-
+export type GetListIdFeedOrderChapter =
+  (typeof GetListIdFeedOrderChapter)[keyof typeof GetListIdFeedOrderChapter]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const GetListIdFeedOrderChapter = {
   asc: 'asc',
   desc: 'desc',
-} as const;
+} as const
 
-export type GetListIdFeedIncludeFutureUpdates = typeof GetListIdFeedIncludeFutureUpdates[keyof typeof GetListIdFeedIncludeFutureUpdates];
-
+export type GetListIdFeedIncludeFutureUpdates =
+  (typeof GetListIdFeedIncludeFutureUpdates)[keyof typeof GetListIdFeedIncludeFutureUpdates]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const GetListIdFeedIncludeFutureUpdates = {
   NUMBER_0: '0',
   NUMBER_1: '1',
-} as const;
+} as const
 
-export type GetListIdFeedContentRatingItem = typeof GetListIdFeedContentRatingItem[keyof typeof GetListIdFeedContentRatingItem];
-
+export type GetListIdFeedContentRatingItem =
+  (typeof GetListIdFeedContentRatingItem)[keyof typeof GetListIdFeedContentRatingItem]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const GetListIdFeedContentRatingItem = {
@@ -990,127 +1017,127 @@ export const GetListIdFeedContentRatingItem = {
   suggestive: 'suggestive',
   erotica: 'erotica',
   pornographic: 'pornographic',
-} as const;
+} as const
 
 export type GetListIdFeedParams = {
-limit?: number;
-offset?: number;
-'translatedLanguage[]'?: string[];
-'originalLanguage[]'?: string[];
-'excludedOriginalLanguage[]'?: string[];
-'contentRating[]'?: GetListIdFeedContentRatingItem[];
-'excludedGroups[]'?: string[];
-'excludedUploaders[]'?: string[];
-includeFutureUpdates?: GetListIdFeedIncludeFutureUpdates;
-createdAtSince?: string;
-updatedAtSince?: string;
-publishAtSince?: string;
-order?: {
-  chapter?: GetListIdFeedOrderChapter;
-  createdAt?: GetListIdFeedOrderCreatedAt;
-  publishAt?: GetListIdFeedOrderPublishAt;
-  readableAt?: GetListIdFeedOrderReadableAt;
-  updatedAt?: GetListIdFeedOrderUpdatedAt;
-  volume?: GetListIdFeedOrderVolume;
-};
-'includes[]'?: ReferenceExpansionChapter;
-includeEmptyPages?: GetListIdFeedIncludeEmptyPages;
-includeFuturePublishAt?: GetListIdFeedIncludeFuturePublishAt;
-includeExternalUrl?: GetListIdFeedIncludeExternalUrl;
-};
+  limit?: number
+  offset?: number
+  'translatedLanguage[]'?: string[]
+  'originalLanguage[]'?: string[]
+  'excludedOriginalLanguage[]'?: string[]
+  'contentRating[]'?: GetListIdFeedContentRatingItem[]
+  'excludedGroups[]'?: string[]
+  'excludedUploaders[]'?: string[]
+  includeFutureUpdates?: GetListIdFeedIncludeFutureUpdates
+  createdAtSince?: string
+  updatedAtSince?: string
+  publishAtSince?: string
+  order?: {
+    chapter?: GetListIdFeedOrderChapter
+    createdAt?: GetListIdFeedOrderCreatedAt
+    publishAt?: GetListIdFeedOrderPublishAt
+    readableAt?: GetListIdFeedOrderReadableAt
+    updatedAt?: GetListIdFeedOrderUpdatedAt
+    volume?: GetListIdFeedOrderVolume
+  }
+  'includes[]'?: ReferenceExpansionChapter
+  includeEmptyPages?: GetListIdFeedIncludeEmptyPages
+  includeFuturePublishAt?: GetListIdFeedIncludeFuturePublishAt
+  includeExternalUrl?: GetListIdFeedIncludeExternalUrl
+}
 
-export type GetUserFollowsMangaFeedIncludeExternalUrl = typeof GetUserFollowsMangaFeedIncludeExternalUrl[keyof typeof GetUserFollowsMangaFeedIncludeExternalUrl];
-
+export type GetUserFollowsMangaFeedIncludeExternalUrl =
+  (typeof GetUserFollowsMangaFeedIncludeExternalUrl)[keyof typeof GetUserFollowsMangaFeedIncludeExternalUrl]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const GetUserFollowsMangaFeedIncludeExternalUrl = {
   NUMBER_0: 0,
   NUMBER_1: 1,
-} as const;
+} as const
 
-export type GetUserFollowsMangaFeedIncludeFuturePublishAt = typeof GetUserFollowsMangaFeedIncludeFuturePublishAt[keyof typeof GetUserFollowsMangaFeedIncludeFuturePublishAt];
-
+export type GetUserFollowsMangaFeedIncludeFuturePublishAt =
+  (typeof GetUserFollowsMangaFeedIncludeFuturePublishAt)[keyof typeof GetUserFollowsMangaFeedIncludeFuturePublishAt]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const GetUserFollowsMangaFeedIncludeFuturePublishAt = {
   NUMBER_0: 0,
   NUMBER_1: 1,
-} as const;
+} as const
 
-export type GetUserFollowsMangaFeedIncludeEmptyPages = typeof GetUserFollowsMangaFeedIncludeEmptyPages[keyof typeof GetUserFollowsMangaFeedIncludeEmptyPages];
-
+export type GetUserFollowsMangaFeedIncludeEmptyPages =
+  (typeof GetUserFollowsMangaFeedIncludeEmptyPages)[keyof typeof GetUserFollowsMangaFeedIncludeEmptyPages]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const GetUserFollowsMangaFeedIncludeEmptyPages = {
   NUMBER_0: 0,
   NUMBER_1: 1,
-} as const;
+} as const
 
-export type GetUserFollowsMangaFeedOrderVolume = typeof GetUserFollowsMangaFeedOrderVolume[keyof typeof GetUserFollowsMangaFeedOrderVolume];
-
+export type GetUserFollowsMangaFeedOrderVolume =
+  (typeof GetUserFollowsMangaFeedOrderVolume)[keyof typeof GetUserFollowsMangaFeedOrderVolume]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const GetUserFollowsMangaFeedOrderVolume = {
   asc: 'asc',
   desc: 'desc',
-} as const;
+} as const
 
-export type GetUserFollowsMangaFeedOrderUpdatedAt = typeof GetUserFollowsMangaFeedOrderUpdatedAt[keyof typeof GetUserFollowsMangaFeedOrderUpdatedAt];
-
+export type GetUserFollowsMangaFeedOrderUpdatedAt =
+  (typeof GetUserFollowsMangaFeedOrderUpdatedAt)[keyof typeof GetUserFollowsMangaFeedOrderUpdatedAt]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const GetUserFollowsMangaFeedOrderUpdatedAt = {
   asc: 'asc',
   desc: 'desc',
-} as const;
+} as const
 
-export type GetUserFollowsMangaFeedOrderReadableAt = typeof GetUserFollowsMangaFeedOrderReadableAt[keyof typeof GetUserFollowsMangaFeedOrderReadableAt];
-
+export type GetUserFollowsMangaFeedOrderReadableAt =
+  (typeof GetUserFollowsMangaFeedOrderReadableAt)[keyof typeof GetUserFollowsMangaFeedOrderReadableAt]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const GetUserFollowsMangaFeedOrderReadableAt = {
   asc: 'asc',
   desc: 'desc',
-} as const;
+} as const
 
-export type GetUserFollowsMangaFeedOrderPublishAt = typeof GetUserFollowsMangaFeedOrderPublishAt[keyof typeof GetUserFollowsMangaFeedOrderPublishAt];
-
+export type GetUserFollowsMangaFeedOrderPublishAt =
+  (typeof GetUserFollowsMangaFeedOrderPublishAt)[keyof typeof GetUserFollowsMangaFeedOrderPublishAt]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const GetUserFollowsMangaFeedOrderPublishAt = {
   asc: 'asc',
   desc: 'desc',
-} as const;
+} as const
 
-export type GetUserFollowsMangaFeedOrderCreatedAt = typeof GetUserFollowsMangaFeedOrderCreatedAt[keyof typeof GetUserFollowsMangaFeedOrderCreatedAt];
-
+export type GetUserFollowsMangaFeedOrderCreatedAt =
+  (typeof GetUserFollowsMangaFeedOrderCreatedAt)[keyof typeof GetUserFollowsMangaFeedOrderCreatedAt]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const GetUserFollowsMangaFeedOrderCreatedAt = {
   asc: 'asc',
   desc: 'desc',
-} as const;
+} as const
 
-export type GetUserFollowsMangaFeedOrderChapter = typeof GetUserFollowsMangaFeedOrderChapter[keyof typeof GetUserFollowsMangaFeedOrderChapter];
-
+export type GetUserFollowsMangaFeedOrderChapter =
+  (typeof GetUserFollowsMangaFeedOrderChapter)[keyof typeof GetUserFollowsMangaFeedOrderChapter]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const GetUserFollowsMangaFeedOrderChapter = {
   asc: 'asc',
   desc: 'desc',
-} as const;
+} as const
 
-export type GetUserFollowsMangaFeedIncludeFutureUpdates = typeof GetUserFollowsMangaFeedIncludeFutureUpdates[keyof typeof GetUserFollowsMangaFeedIncludeFutureUpdates];
-
+export type GetUserFollowsMangaFeedIncludeFutureUpdates =
+  (typeof GetUserFollowsMangaFeedIncludeFutureUpdates)[keyof typeof GetUserFollowsMangaFeedIncludeFutureUpdates]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const GetUserFollowsMangaFeedIncludeFutureUpdates = {
   NUMBER_0: '0',
   NUMBER_1: '1',
-} as const;
+} as const
 
-export type GetUserFollowsMangaFeedContentRatingItem = typeof GetUserFollowsMangaFeedContentRatingItem[keyof typeof GetUserFollowsMangaFeedContentRatingItem];
-
+export type GetUserFollowsMangaFeedContentRatingItem =
+  (typeof GetUserFollowsMangaFeedContentRatingItem)[keyof typeof GetUserFollowsMangaFeedContentRatingItem]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const GetUserFollowsMangaFeedContentRatingItem = {
@@ -1118,141 +1145,141 @@ export const GetUserFollowsMangaFeedContentRatingItem = {
   suggestive: 'suggestive',
   erotica: 'erotica',
   pornographic: 'pornographic',
-} as const;
+} as const
 
 export type GetUserFollowsMangaFeedParams = {
-limit?: number;
-offset?: number;
-'translatedLanguage[]'?: string[];
-'originalLanguage[]'?: string[];
-'excludedOriginalLanguage[]'?: string[];
-'contentRating[]'?: GetUserFollowsMangaFeedContentRatingItem[];
-'excludedGroups[]'?: string[];
-'excludedUploaders[]'?: string[];
-includeFutureUpdates?: GetUserFollowsMangaFeedIncludeFutureUpdates;
-createdAtSince?: string;
-updatedAtSince?: string;
-publishAtSince?: string;
-order?: {
-  chapter?: GetUserFollowsMangaFeedOrderChapter;
-  createdAt?: GetUserFollowsMangaFeedOrderCreatedAt;
-  publishAt?: GetUserFollowsMangaFeedOrderPublishAt;
-  readableAt?: GetUserFollowsMangaFeedOrderReadableAt;
-  updatedAt?: GetUserFollowsMangaFeedOrderUpdatedAt;
-  volume?: GetUserFollowsMangaFeedOrderVolume;
-};
-'includes[]'?: ReferenceExpansionChapter;
-includeEmptyPages?: GetUserFollowsMangaFeedIncludeEmptyPages;
-includeFuturePublishAt?: GetUserFollowsMangaFeedIncludeFuturePublishAt;
-includeExternalUrl?: GetUserFollowsMangaFeedIncludeExternalUrl;
-};
+  limit?: number
+  offset?: number
+  'translatedLanguage[]'?: string[]
+  'originalLanguage[]'?: string[]
+  'excludedOriginalLanguage[]'?: string[]
+  'contentRating[]'?: GetUserFollowsMangaFeedContentRatingItem[]
+  'excludedGroups[]'?: string[]
+  'excludedUploaders[]'?: string[]
+  includeFutureUpdates?: GetUserFollowsMangaFeedIncludeFutureUpdates
+  createdAtSince?: string
+  updatedAtSince?: string
+  publishAtSince?: string
+  order?: {
+    chapter?: GetUserFollowsMangaFeedOrderChapter
+    createdAt?: GetUserFollowsMangaFeedOrderCreatedAt
+    publishAt?: GetUserFollowsMangaFeedOrderPublishAt
+    readableAt?: GetUserFollowsMangaFeedOrderReadableAt
+    updatedAt?: GetUserFollowsMangaFeedOrderUpdatedAt
+    volume?: GetUserFollowsMangaFeedOrderVolume
+  }
+  'includes[]'?: ReferenceExpansionChapter
+  includeEmptyPages?: GetUserFollowsMangaFeedIncludeEmptyPages
+  includeFuturePublishAt?: GetUserFollowsMangaFeedIncludeFuturePublishAt
+  includeExternalUrl?: GetUserFollowsMangaFeedIncludeExternalUrl
+}
 
 export type GetChapterIdParams = {
-'includes[]'?: ReferenceExpansionChapter;
-};
+  'includes[]'?: ReferenceExpansionChapter
+}
 
-export type GetChapterIncludesItem = typeof GetChapterIncludesItem[keyof typeof GetChapterIncludesItem];
-
+export type GetChapterIncludesItem =
+  (typeof GetChapterIncludesItem)[keyof typeof GetChapterIncludesItem]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const GetChapterIncludesItem = {
   manga: 'manga',
   scanlation_group: 'scanlation_group',
   user: 'user',
-} as const;
+} as const
 
-export type GetChapterOrderVolume = typeof GetChapterOrderVolume[keyof typeof GetChapterOrderVolume];
-
+export type GetChapterOrderVolume =
+  (typeof GetChapterOrderVolume)[keyof typeof GetChapterOrderVolume]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const GetChapterOrderVolume = {
   asc: 'asc',
   desc: 'desc',
-} as const;
+} as const
 
-export type GetChapterOrderUpdatedAt = typeof GetChapterOrderUpdatedAt[keyof typeof GetChapterOrderUpdatedAt];
-
+export type GetChapterOrderUpdatedAt =
+  (typeof GetChapterOrderUpdatedAt)[keyof typeof GetChapterOrderUpdatedAt]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const GetChapterOrderUpdatedAt = {
   asc: 'asc',
   desc: 'desc',
-} as const;
+} as const
 
-export type GetChapterOrderReadableAt = typeof GetChapterOrderReadableAt[keyof typeof GetChapterOrderReadableAt];
-
+export type GetChapterOrderReadableAt =
+  (typeof GetChapterOrderReadableAt)[keyof typeof GetChapterOrderReadableAt]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const GetChapterOrderReadableAt = {
   asc: 'asc',
   desc: 'desc',
-} as const;
+} as const
 
-export type GetChapterOrderPublishAt = typeof GetChapterOrderPublishAt[keyof typeof GetChapterOrderPublishAt];
-
+export type GetChapterOrderPublishAt =
+  (typeof GetChapterOrderPublishAt)[keyof typeof GetChapterOrderPublishAt]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const GetChapterOrderPublishAt = {
   asc: 'asc',
   desc: 'desc',
-} as const;
+} as const
 
-export type GetChapterOrderCreatedAt = typeof GetChapterOrderCreatedAt[keyof typeof GetChapterOrderCreatedAt];
-
+export type GetChapterOrderCreatedAt =
+  (typeof GetChapterOrderCreatedAt)[keyof typeof GetChapterOrderCreatedAt]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const GetChapterOrderCreatedAt = {
   asc: 'asc',
   desc: 'desc',
-} as const;
+} as const
 
-export type GetChapterOrderChapter = typeof GetChapterOrderChapter[keyof typeof GetChapterOrderChapter];
-
+export type GetChapterOrderChapter =
+  (typeof GetChapterOrderChapter)[keyof typeof GetChapterOrderChapter]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const GetChapterOrderChapter = {
   asc: 'asc',
   desc: 'desc',
-} as const;
+} as const
 
-export type GetChapterIncludeExternalUrl = typeof GetChapterIncludeExternalUrl[keyof typeof GetChapterIncludeExternalUrl];
-
+export type GetChapterIncludeExternalUrl =
+  (typeof GetChapterIncludeExternalUrl)[keyof typeof GetChapterIncludeExternalUrl]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const GetChapterIncludeExternalUrl = {
   NUMBER_0: 0,
   NUMBER_1: 1,
-} as const;
+} as const
 
-export type GetChapterIncludeFuturePublishAt = typeof GetChapterIncludeFuturePublishAt[keyof typeof GetChapterIncludeFuturePublishAt];
-
+export type GetChapterIncludeFuturePublishAt =
+  (typeof GetChapterIncludeFuturePublishAt)[keyof typeof GetChapterIncludeFuturePublishAt]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const GetChapterIncludeFuturePublishAt = {
   NUMBER_0: 0,
   NUMBER_1: 1,
-} as const;
+} as const
 
-export type GetChapterIncludeEmptyPages = typeof GetChapterIncludeEmptyPages[keyof typeof GetChapterIncludeEmptyPages];
-
+export type GetChapterIncludeEmptyPages =
+  (typeof GetChapterIncludeEmptyPages)[keyof typeof GetChapterIncludeEmptyPages]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const GetChapterIncludeEmptyPages = {
   NUMBER_0: 0,
   NUMBER_1: 1,
-} as const;
+} as const
 
-export type GetChapterIncludeFutureUpdates = typeof GetChapterIncludeFutureUpdates[keyof typeof GetChapterIncludeFutureUpdates];
-
+export type GetChapterIncludeFutureUpdates =
+  (typeof GetChapterIncludeFutureUpdates)[keyof typeof GetChapterIncludeFutureUpdates]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const GetChapterIncludeFutureUpdates = {
   NUMBER_0: '0',
   NUMBER_1: '1',
-} as const;
+} as const
 
-export type GetChapterContentRatingItem = typeof GetChapterContentRatingItem[keyof typeof GetChapterContentRatingItem];
-
+export type GetChapterContentRatingItem =
+  (typeof GetChapterContentRatingItem)[keyof typeof GetChapterContentRatingItem]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const GetChapterContentRatingItem = {
@@ -1260,242 +1287,242 @@ export const GetChapterContentRatingItem = {
   suggestive: 'suggestive',
   erotica: 'erotica',
   pornographic: 'pornographic',
-} as const;
+} as const
 
 export type GetChapterParams = {
-limit?: number;
-offset?: number;
-/**
- * Chapter ids (limited to 100 per request)
- */
-'ids[]'?: string[];
-title?: string;
-'groups[]'?: string[];
-uploader?: string | string[];
-manga?: string;
-'volume[]'?: string | string[];
-chapter?: string | string[];
-'translatedLanguage[]'?: string[];
-'originalLanguage[]'?: string[];
-'excludedOriginalLanguage[]'?: string[];
-'contentRating[]'?: GetChapterContentRatingItem[];
-'excludedGroups[]'?: string[];
-'excludedUploaders[]'?: string[];
-includeFutureUpdates?: GetChapterIncludeFutureUpdates;
-includeEmptyPages?: GetChapterIncludeEmptyPages;
-includeFuturePublishAt?: GetChapterIncludeFuturePublishAt;
-includeExternalUrl?: GetChapterIncludeExternalUrl;
-createdAtSince?: string;
-updatedAtSince?: string;
-publishAtSince?: string;
-order?: {
-  chapter?: GetChapterOrderChapter;
-  createdAt?: GetChapterOrderCreatedAt;
-  publishAt?: GetChapterOrderPublishAt;
-  readableAt?: GetChapterOrderReadableAt;
-  updatedAt?: GetChapterOrderUpdatedAt;
-  volume?: GetChapterOrderVolume;
-};
-includes?: GetChapterIncludesItem[];
-};
+  limit?: number
+  offset?: number
+  /**
+   * Chapter ids (limited to 100 per request)
+   */
+  'ids[]'?: string[]
+  title?: string
+  'groups[]'?: string[]
+  uploader?: string | string[]
+  manga?: string
+  'volume[]'?: string | string[]
+  chapter?: string | string[]
+  'translatedLanguage[]'?: string[]
+  'originalLanguage[]'?: string[]
+  'excludedOriginalLanguage[]'?: string[]
+  'contentRating[]'?: GetChapterContentRatingItem[]
+  'excludedGroups[]'?: string[]
+  'excludedUploaders[]'?: string[]
+  includeFutureUpdates?: GetChapterIncludeFutureUpdates
+  includeEmptyPages?: GetChapterIncludeEmptyPages
+  includeFuturePublishAt?: GetChapterIncludeFuturePublishAt
+  includeExternalUrl?: GetChapterIncludeExternalUrl
+  createdAtSince?: string
+  updatedAtSince?: string
+  publishAtSince?: string
+  order?: {
+    chapter?: GetChapterOrderChapter
+    createdAt?: GetChapterOrderCreatedAt
+    publishAt?: GetChapterOrderPublishAt
+    readableAt?: GetChapterOrderReadableAt
+    updatedAt?: GetChapterOrderUpdatedAt
+    volume?: GetChapterOrderVolume
+  }
+  includes?: GetChapterIncludesItem[]
+}
 
-export type GetUserOrderUsername = typeof GetUserOrderUsername[keyof typeof GetUserOrderUsername];
-
+export type GetUserOrderUsername =
+  (typeof GetUserOrderUsername)[keyof typeof GetUserOrderUsername]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const GetUserOrderUsername = {
   asc: 'asc',
   desc: 'desc',
-} as const;
+} as const
 
 export type GetUserParams = {
-limit?: number;
-offset?: number;
-/**
- * User ids (limited to 100 per request)
- */
-'ids[]'?: string[];
-username?: string;
-order?: {
-  username?: GetUserOrderUsername;
-};
-};
+  limit?: number
+  offset?: number
+  /**
+   * User ids (limited to 100 per request)
+   */
+  'ids[]'?: string[]
+  username?: string
+  order?: {
+    username?: GetUserOrderUsername
+  }
+}
 
 export type GetUserIdListParams = {
-limit?: number;
-offset?: number;
-};
+  limit?: number
+  offset?: number
+}
 
 export type GetUserListParams = {
-limit?: number;
-offset?: number;
-};
+  limit?: number
+  offset?: number
+}
 
-export type UnfollowListId200Result = typeof UnfollowListId200Result[keyof typeof UnfollowListId200Result];
-
+export type UnfollowListId200Result =
+  (typeof UnfollowListId200Result)[keyof typeof UnfollowListId200Result]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const UnfollowListId200Result = {
   ok: 'ok',
-} as const;
+} as const
 
 export type UnfollowListId200 = {
-  result?: UnfollowListId200Result;
-};
+  result?: UnfollowListId200Result
+}
 
-export type UnfollowListIdBody = { [key: string]: unknown };
+export type UnfollowListIdBody = { [key: string]: unknown }
 
-export type FollowListId200Result = typeof FollowListId200Result[keyof typeof FollowListId200Result];
-
+export type FollowListId200Result =
+  (typeof FollowListId200Result)[keyof typeof FollowListId200Result]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const FollowListId200Result = {
   ok: 'ok',
-} as const;
+} as const
 
 export type FollowListId200 = {
-  result?: FollowListId200Result;
-};
+  result?: FollowListId200Result
+}
 
-export type FollowListIdBody = { [key: string]: unknown };
+export type FollowListIdBody = { [key: string]: unknown }
 
 export type GetGroupIdParams = {
-'includes[]'?: ReferenceExpansionScanlationGroup;
-};
+  'includes[]'?: ReferenceExpansionScanlationGroup
+}
 
-export type GetSearchGroupOrderUpdatedAt = typeof GetSearchGroupOrderUpdatedAt[keyof typeof GetSearchGroupOrderUpdatedAt];
-
+export type GetSearchGroupOrderUpdatedAt =
+  (typeof GetSearchGroupOrderUpdatedAt)[keyof typeof GetSearchGroupOrderUpdatedAt]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const GetSearchGroupOrderUpdatedAt = {
   asc: 'asc',
   desc: 'desc',
-} as const;
+} as const
 
-export type GetSearchGroupOrderRelevance = typeof GetSearchGroupOrderRelevance[keyof typeof GetSearchGroupOrderRelevance];
-
+export type GetSearchGroupOrderRelevance =
+  (typeof GetSearchGroupOrderRelevance)[keyof typeof GetSearchGroupOrderRelevance]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const GetSearchGroupOrderRelevance = {
   asc: 'asc',
   desc: 'desc',
-} as const;
+} as const
 
-export type GetSearchGroupOrderName = typeof GetSearchGroupOrderName[keyof typeof GetSearchGroupOrderName];
-
+export type GetSearchGroupOrderName =
+  (typeof GetSearchGroupOrderName)[keyof typeof GetSearchGroupOrderName]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const GetSearchGroupOrderName = {
   asc: 'asc',
   desc: 'desc',
-} as const;
+} as const
 
-export type GetSearchGroupOrderFollowedCount = typeof GetSearchGroupOrderFollowedCount[keyof typeof GetSearchGroupOrderFollowedCount];
-
+export type GetSearchGroupOrderFollowedCount =
+  (typeof GetSearchGroupOrderFollowedCount)[keyof typeof GetSearchGroupOrderFollowedCount]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const GetSearchGroupOrderFollowedCount = {
   asc: 'asc',
   desc: 'desc',
-} as const;
+} as const
 
-export type GetSearchGroupOrderCreatedAt = typeof GetSearchGroupOrderCreatedAt[keyof typeof GetSearchGroupOrderCreatedAt];
-
+export type GetSearchGroupOrderCreatedAt =
+  (typeof GetSearchGroupOrderCreatedAt)[keyof typeof GetSearchGroupOrderCreatedAt]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const GetSearchGroupOrderCreatedAt = {
   asc: 'asc',
   desc: 'desc',
-} as const;
+} as const
 
 export type GetSearchGroupParams = {
-limit?: number;
-offset?: number;
-/**
- * ScanlationGroup ids (limited to 100 per request)
- */
-'ids[]'?: string[];
-name?: string;
-focusedLanguage?: string;
-'includes[]'?: ReferenceExpansionScanlationGroup;
-order?: {
-  createdAt?: GetSearchGroupOrderCreatedAt;
-  followedCount?: GetSearchGroupOrderFollowedCount;
-  name?: GetSearchGroupOrderName;
-  relevance?: GetSearchGroupOrderRelevance;
-  updatedAt?: GetSearchGroupOrderUpdatedAt;
-};
-};
+  limit?: number
+  offset?: number
+  /**
+   * ScanlationGroup ids (limited to 100 per request)
+   */
+  'ids[]'?: string[]
+  name?: string
+  focusedLanguage?: string
+  'includes[]'?: ReferenceExpansionScanlationGroup
+  order?: {
+    createdAt?: GetSearchGroupOrderCreatedAt
+    followedCount?: GetSearchGroupOrderFollowedCount
+    name?: GetSearchGroupOrderName
+    relevance?: GetSearchGroupOrderRelevance
+    updatedAt?: GetSearchGroupOrderUpdatedAt
+  }
+}
 
-export type PostRegenerateApiclientSecret200Result = typeof PostRegenerateApiclientSecret200Result[keyof typeof PostRegenerateApiclientSecret200Result];
-
+export type PostRegenerateApiclientSecret200Result =
+  (typeof PostRegenerateApiclientSecret200Result)[keyof typeof PostRegenerateApiclientSecret200Result]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const PostRegenerateApiclientSecret200Result = {
   ok: 'ok',
-} as const;
+} as const
 
 export type PostRegenerateApiclientSecret200 = {
-  data?: string;
-  result?: PostRegenerateApiclientSecret200Result;
-};
+  data?: string
+  result?: PostRegenerateApiclientSecret200Result
+}
 
-export type PostRegenerateApiclientSecretBody = { [key: string]: unknown };
+export type PostRegenerateApiclientSecretBody = { [key: string]: unknown }
 
-export type GetApiclientSecret200Result = typeof GetApiclientSecret200Result[keyof typeof GetApiclientSecret200Result];
-
+export type GetApiclientSecret200Result =
+  (typeof GetApiclientSecret200Result)[keyof typeof GetApiclientSecret200Result]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const GetApiclientSecret200Result = {
   ok: 'ok',
-} as const;
+} as const
 
 export type GetApiclientSecret200 = {
-  data?: string;
-  result?: GetApiclientSecret200Result;
-};
+  data?: string
+  result?: GetApiclientSecret200Result
+}
 
 export type DeleteApiclient200 = {
-  result?: string;
-};
+  result?: string
+}
 
 export type DeleteApiclientParams = {
-version?: string;
-};
+  version?: string
+}
 
 export type GetApiclientParams = {
-'includes[]'?: ReferenceExpansionApiClient;
-};
+  'includes[]'?: ReferenceExpansionApiClient
+}
 
-export type GetListApiclientsOrderUpdatedAt = typeof GetListApiclientsOrderUpdatedAt[keyof typeof GetListApiclientsOrderUpdatedAt];
-
+export type GetListApiclientsOrderUpdatedAt =
+  (typeof GetListApiclientsOrderUpdatedAt)[keyof typeof GetListApiclientsOrderUpdatedAt]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const GetListApiclientsOrderUpdatedAt = {
   asc: 'asc',
   desc: 'desc',
-} as const;
+} as const
 
-export type GetListApiclientsOrderName = typeof GetListApiclientsOrderName[keyof typeof GetListApiclientsOrderName];
-
+export type GetListApiclientsOrderName =
+  (typeof GetListApiclientsOrderName)[keyof typeof GetListApiclientsOrderName]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const GetListApiclientsOrderName = {
   asc: 'asc',
   desc: 'desc',
-} as const;
+} as const
 
-export type GetListApiclientsOrderCreatedAt = typeof GetListApiclientsOrderCreatedAt[keyof typeof GetListApiclientsOrderCreatedAt];
-
+export type GetListApiclientsOrderCreatedAt =
+  (typeof GetListApiclientsOrderCreatedAt)[keyof typeof GetListApiclientsOrderCreatedAt]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const GetListApiclientsOrderCreatedAt = {
   asc: 'asc',
   desc: 'desc',
-} as const;
+} as const
 
-export type GetListApiclientsState = typeof GetListApiclientsState[keyof typeof GetListApiclientsState];
-
+export type GetListApiclientsState =
+  (typeof GetListApiclientsState)[keyof typeof GetListApiclientsState]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const GetListApiclientsState = {
@@ -1503,57 +1530,61 @@ export const GetListApiclientsState = {
   approved: 'approved',
   rejected: 'rejected',
   autoapproved: 'autoapproved',
-} as const;
+} as const
 
 export type GetListApiclientsParams = {
-limit?: number;
-offset?: number;
-state?: GetListApiclientsState;
-name?: string;
-'includes[]'?: ReferenceExpansionApiClient;
-order?: {
-  createdAt?: GetListApiclientsOrderCreatedAt;
-  name?: GetListApiclientsOrderName;
-  updatedAt?: GetListApiclientsOrderUpdatedAt;
-};
-};
+  limit?: number
+  offset?: number
+  state?: GetListApiclientsState
+  name?: string
+  'includes[]'?: ReferenceExpansionApiClient
+  order?: {
+    createdAt?: GetListApiclientsOrderCreatedAt
+    name?: GetListApiclientsOrderName
+    updatedAt?: GetListApiclientsOrderUpdatedAt
+  }
+}
 
 export type PutMangaIdBodyAllOf = {
-  artists?: string[];
-  authors?: string[];
-};
+  artists?: string[]
+  authors?: string[]
+}
 
-export type PutMangaIdBody = MangaEdit & PutMangaIdBodyAllOf;
+export type PutMangaIdBody = MangaEdit & PutMangaIdBodyAllOf
 
 export type GetMangaIdParams = {
-'includes[]'?: ReferenceExpansionManga;
-};
+  'includes[]'?: ReferenceExpansionManga
+}
 
-export type GetMangaAggregate200VolumesChapters = {[key: string]: {
-  chapter?: string;
-  count?: number;
-  id?: string;
-  others?: string[];
-}};
+export type GetMangaAggregate200VolumesChapters = {
+  [key: string]: {
+    chapter?: string
+    count?: number
+    id?: string
+    others?: string[]
+  }
+}
 
-export type GetMangaAggregate200Volumes = {[key: string]: {
-  chapters?: GetMangaAggregate200VolumesChapters;
-  count?: number;
-  volume?: string;
-}};
+export type GetMangaAggregate200Volumes = {
+  [key: string]: {
+    chapters?: GetMangaAggregate200VolumesChapters
+    count?: number
+    volume?: string
+  }
+}
 
 export type GetMangaAggregate200 = {
-  result?: string;
-  volumes?: GetMangaAggregate200Volumes;
-};
+  result?: string
+  volumes?: GetMangaAggregate200Volumes
+}
 
 export type GetMangaAggregateParams = {
-'translatedLanguage[]'?: string[];
-'groups[]'?: string[];
-};
+  'translatedLanguage[]'?: string[]
+  'groups[]'?: string[]
+}
 
-export type GetSearchMangaHasAvailableChapters = typeof GetSearchMangaHasAvailableChapters[keyof typeof GetSearchMangaHasAvailableChapters];
-
+export type GetSearchMangaHasAvailableChapters =
+  (typeof GetSearchMangaHasAvailableChapters)[keyof typeof GetSearchMangaHasAvailableChapters]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const GetSearchMangaHasAvailableChapters = {
@@ -1561,82 +1592,82 @@ export const GetSearchMangaHasAvailableChapters = {
   NUMBER_1: '1',
   true: 'true',
   false: 'false',
-} as const;
+} as const
 
-export type GetSearchMangaOrderYear = typeof GetSearchMangaOrderYear[keyof typeof GetSearchMangaOrderYear];
-
+export type GetSearchMangaOrderYear =
+  (typeof GetSearchMangaOrderYear)[keyof typeof GetSearchMangaOrderYear]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const GetSearchMangaOrderYear = {
   asc: 'asc',
   desc: 'desc',
-} as const;
+} as const
 
-export type GetSearchMangaOrderUpdatedAt = typeof GetSearchMangaOrderUpdatedAt[keyof typeof GetSearchMangaOrderUpdatedAt];
-
+export type GetSearchMangaOrderUpdatedAt =
+  (typeof GetSearchMangaOrderUpdatedAt)[keyof typeof GetSearchMangaOrderUpdatedAt]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const GetSearchMangaOrderUpdatedAt = {
   asc: 'asc',
   desc: 'desc',
-} as const;
+} as const
 
-export type GetSearchMangaOrderTitle = typeof GetSearchMangaOrderTitle[keyof typeof GetSearchMangaOrderTitle];
-
+export type GetSearchMangaOrderTitle =
+  (typeof GetSearchMangaOrderTitle)[keyof typeof GetSearchMangaOrderTitle]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const GetSearchMangaOrderTitle = {
   asc: 'asc',
   desc: 'desc',
-} as const;
+} as const
 
-export type GetSearchMangaOrderRelevance = typeof GetSearchMangaOrderRelevance[keyof typeof GetSearchMangaOrderRelevance];
-
+export type GetSearchMangaOrderRelevance =
+  (typeof GetSearchMangaOrderRelevance)[keyof typeof GetSearchMangaOrderRelevance]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const GetSearchMangaOrderRelevance = {
   asc: 'asc',
   desc: 'desc',
-} as const;
+} as const
 
-export type GetSearchMangaOrderRating = typeof GetSearchMangaOrderRating[keyof typeof GetSearchMangaOrderRating];
-
+export type GetSearchMangaOrderRating =
+  (typeof GetSearchMangaOrderRating)[keyof typeof GetSearchMangaOrderRating]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const GetSearchMangaOrderRating = {
   asc: 'asc',
   desc: 'desc',
-} as const;
+} as const
 
-export type GetSearchMangaOrderLatestUploadedChapter = typeof GetSearchMangaOrderLatestUploadedChapter[keyof typeof GetSearchMangaOrderLatestUploadedChapter];
-
+export type GetSearchMangaOrderLatestUploadedChapter =
+  (typeof GetSearchMangaOrderLatestUploadedChapter)[keyof typeof GetSearchMangaOrderLatestUploadedChapter]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const GetSearchMangaOrderLatestUploadedChapter = {
   asc: 'asc',
   desc: 'desc',
-} as const;
+} as const
 
-export type GetSearchMangaOrderFollowedCount = typeof GetSearchMangaOrderFollowedCount[keyof typeof GetSearchMangaOrderFollowedCount];
-
+export type GetSearchMangaOrderFollowedCount =
+  (typeof GetSearchMangaOrderFollowedCount)[keyof typeof GetSearchMangaOrderFollowedCount]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const GetSearchMangaOrderFollowedCount = {
   asc: 'asc',
   desc: 'desc',
-} as const;
+} as const
 
-export type GetSearchMangaOrderCreatedAt = typeof GetSearchMangaOrderCreatedAt[keyof typeof GetSearchMangaOrderCreatedAt];
-
+export type GetSearchMangaOrderCreatedAt =
+  (typeof GetSearchMangaOrderCreatedAt)[keyof typeof GetSearchMangaOrderCreatedAt]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const GetSearchMangaOrderCreatedAt = {
   asc: 'asc',
   desc: 'desc',
-} as const;
+} as const
 
-export type GetSearchMangaContentRatingItem = typeof GetSearchMangaContentRatingItem[keyof typeof GetSearchMangaContentRatingItem];
-
+export type GetSearchMangaContentRatingItem =
+  (typeof GetSearchMangaContentRatingItem)[keyof typeof GetSearchMangaContentRatingItem]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const GetSearchMangaContentRatingItem = {
@@ -1644,10 +1675,10 @@ export const GetSearchMangaContentRatingItem = {
   suggestive: 'suggestive',
   erotica: 'erotica',
   pornographic: 'pornographic',
-} as const;
+} as const
 
-export type GetSearchMangaPublicationDemographicItem = typeof GetSearchMangaPublicationDemographicItem[keyof typeof GetSearchMangaPublicationDemographicItem];
-
+export type GetSearchMangaPublicationDemographicItem =
+  (typeof GetSearchMangaPublicationDemographicItem)[keyof typeof GetSearchMangaPublicationDemographicItem]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const GetSearchMangaPublicationDemographicItem = {
@@ -1656,10 +1687,10 @@ export const GetSearchMangaPublicationDemographicItem = {
   josei: 'josei',
   seinen: 'seinen',
   none: 'none',
-} as const;
+} as const
 
-export type GetSearchMangaStatusItem = typeof GetSearchMangaStatusItem[keyof typeof GetSearchMangaStatusItem];
-
+export type GetSearchMangaStatusItem =
+  (typeof GetSearchMangaStatusItem)[keyof typeof GetSearchMangaStatusItem]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const GetSearchMangaStatusItem = {
@@ -1667,67 +1698,67 @@ export const GetSearchMangaStatusItem = {
   completed: 'completed',
   hiatus: 'hiatus',
   cancelled: 'cancelled',
-} as const;
+} as const
 
-export type GetSearchMangaExcludedTagsMode = typeof GetSearchMangaExcludedTagsMode[keyof typeof GetSearchMangaExcludedTagsMode];
-
+export type GetSearchMangaExcludedTagsMode =
+  (typeof GetSearchMangaExcludedTagsMode)[keyof typeof GetSearchMangaExcludedTagsMode]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const GetSearchMangaExcludedTagsMode = {
   AND: 'AND',
   OR: 'OR',
-} as const;
+} as const
 
-export type GetSearchMangaIncludedTagsMode = typeof GetSearchMangaIncludedTagsMode[keyof typeof GetSearchMangaIncludedTagsMode];
-
+export type GetSearchMangaIncludedTagsMode =
+  (typeof GetSearchMangaIncludedTagsMode)[keyof typeof GetSearchMangaIncludedTagsMode]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const GetSearchMangaIncludedTagsMode = {
   AND: 'AND',
   OR: 'OR',
-} as const;
+} as const
 
 export type GetSearchMangaParams = {
-limit?: number;
-offset?: number;
-title?: string;
-authorOrArtist?: string;
-'authors[]'?: string[];
-'artists[]'?: string[];
-/**
- * Year of release or none
- */
-year?: number | 'none';
-'includedTags[]'?: string[];
-includedTagsMode?: GetSearchMangaIncludedTagsMode;
-'excludedTags[]'?: string[];
-excludedTagsMode?: GetSearchMangaExcludedTagsMode;
-'status[]'?: GetSearchMangaStatusItem[];
-'originalLanguage[]'?: string[];
-'excludedOriginalLanguage[]'?: string[];
-'availableTranslatedLanguage[]'?: string[];
-'publicationDemographic[]'?: GetSearchMangaPublicationDemographicItem[];
-/**
- * Manga ids (limited to 100 per request)
- */
-'ids[]'?: string[];
-'contentRating[]'?: GetSearchMangaContentRatingItem[];
-createdAtSince?: string;
-updatedAtSince?: string;
-order?: {
-  createdAt?: GetSearchMangaOrderCreatedAt;
-  followedCount?: GetSearchMangaOrderFollowedCount;
-  latestUploadedChapter?: GetSearchMangaOrderLatestUploadedChapter;
-  rating?: GetSearchMangaOrderRating;
-  relevance?: GetSearchMangaOrderRelevance;
-  title?: GetSearchMangaOrderTitle;
-  updatedAt?: GetSearchMangaOrderUpdatedAt;
-  year?: GetSearchMangaOrderYear;
-};
-'includes[]'?: ReferenceExpansionManga;
-hasAvailableChapters?: GetSearchMangaHasAvailableChapters;
-group?: string;
-};
+  limit?: number
+  offset?: number
+  title?: string
+  authorOrArtist?: string
+  'authors[]'?: string[]
+  'artists[]'?: string[]
+  /**
+   * Year of release or none
+   */
+  year?: number | 'none'
+  'includedTags[]'?: string[]
+  includedTagsMode?: GetSearchMangaIncludedTagsMode
+  'excludedTags[]'?: string[]
+  excludedTagsMode?: GetSearchMangaExcludedTagsMode
+  'status[]'?: GetSearchMangaStatusItem[]
+  'originalLanguage[]'?: string[]
+  'excludedOriginalLanguage[]'?: string[]
+  'availableTranslatedLanguage[]'?: string[]
+  'publicationDemographic[]'?: GetSearchMangaPublicationDemographicItem[]
+  /**
+   * Manga ids (limited to 100 per request)
+   */
+  'ids[]'?: string[]
+  'contentRating[]'?: GetSearchMangaContentRatingItem[]
+  createdAtSince?: string
+  updatedAtSince?: string
+  order?: {
+    createdAt?: GetSearchMangaOrderCreatedAt
+    followedCount?: GetSearchMangaOrderFollowedCount
+    latestUploadedChapter?: GetSearchMangaOrderLatestUploadedChapter
+    rating?: GetSearchMangaOrderRating
+    relevance?: GetSearchMangaOrderRelevance
+    title?: GetSearchMangaOrderTitle
+    updatedAt?: GetSearchMangaOrderUpdatedAt
+    year?: GetSearchMangaOrderYear
+  }
+  'includes[]'?: ReferenceExpansionManga
+  hasAvailableChapters?: GetSearchMangaHasAvailableChapters
+  group?: string
+}
 
 /**
  * Comments-related statistics of an entity.
@@ -1741,57 +1772,59 @@ export type StatisticsDetailsComments = {
 
    * @minimum 0
    */
-  repliesCount?: number;
+  repliesCount?: number
   /**
    * The id of the thread backing the comments for that entity on the MangaDex Forums.
    * @minimum 1
    */
-  threadId?: number;
-} | null;
+  threadId?: number
+} | null
 
-export type ReferenceExpansionScanlationGroupItem = typeof ReferenceExpansionScanlationGroupItem[keyof typeof ReferenceExpansionScanlationGroupItem];
-
+export type ReferenceExpansionScanlationGroupItem =
+  (typeof ReferenceExpansionScanlationGroupItem)[keyof typeof ReferenceExpansionScanlationGroupItem]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const ReferenceExpansionScanlationGroupItem = {
   leader: 'leader',
   member: 'member',
-} as const;
+} as const
 
 /**
  * Reference expansion options for scanlation group entities or lists
  */
-export type ReferenceExpansionScanlationGroup = ReferenceExpansionScanlationGroupItem[];
+export type ReferenceExpansionScanlationGroup =
+  ReferenceExpansionScanlationGroupItem[]
 
-export type ReferenceExpansionReportItem = typeof ReferenceExpansionReportItem[keyof typeof ReferenceExpansionReportItem];
-
+export type ReferenceExpansionReportItem =
+  (typeof ReferenceExpansionReportItem)[keyof typeof ReferenceExpansionReportItem]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const ReferenceExpansionReportItem = {
   user: 'user',
   reason: 'reason',
-} as const;
+} as const
 
 /**
  * Reference expansion options for user report entities or lists
  */
-export type ReferenceExpansionReport = ReferenceExpansionReportItem[];
+export type ReferenceExpansionReport = ReferenceExpansionReportItem[]
 
-export type ReferenceExpansionMangaRelationItem = typeof ReferenceExpansionMangaRelationItem[keyof typeof ReferenceExpansionMangaRelationItem];
-
+export type ReferenceExpansionMangaRelationItem =
+  (typeof ReferenceExpansionMangaRelationItem)[keyof typeof ReferenceExpansionMangaRelationItem]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const ReferenceExpansionMangaRelationItem = {
   manga: 'manga',
-} as const;
+} as const
 
 /**
  * Reference expansion options for manga relation entities or lists
  */
-export type ReferenceExpansionMangaRelation = ReferenceExpansionMangaRelationItem[];
+export type ReferenceExpansionMangaRelation =
+  ReferenceExpansionMangaRelationItem[]
 
-export type ReferenceExpansionMangaItem = typeof ReferenceExpansionMangaItem[keyof typeof ReferenceExpansionMangaItem];
-
+export type ReferenceExpansionMangaItem =
+  (typeof ReferenceExpansionMangaItem)[keyof typeof ReferenceExpansionMangaItem]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const ReferenceExpansionMangaItem = {
@@ -1801,88 +1834,88 @@ export const ReferenceExpansionMangaItem = {
   artist: 'artist',
   tag: 'tag',
   creator: 'creator',
-} as const;
+} as const
 
 /**
  * Reference expansion options for manga entities or lists
  */
-export type ReferenceExpansionManga = ReferenceExpansionMangaItem[];
+export type ReferenceExpansionManga = ReferenceExpansionMangaItem[]
 
-export type ReferenceExpansionCoverArtItem = typeof ReferenceExpansionCoverArtItem[keyof typeof ReferenceExpansionCoverArtItem];
-
+export type ReferenceExpansionCoverArtItem =
+  (typeof ReferenceExpansionCoverArtItem)[keyof typeof ReferenceExpansionCoverArtItem]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const ReferenceExpansionCoverArtItem = {
   manga: 'manga',
   user: 'user',
-} as const;
+} as const
 
 /**
  * Reference expansion options for cover art entities or lists
  */
-export type ReferenceExpansionCoverArt = ReferenceExpansionCoverArtItem[];
+export type ReferenceExpansionCoverArt = ReferenceExpansionCoverArtItem[]
 
-export type ReferenceExpansionChapterItem = typeof ReferenceExpansionChapterItem[keyof typeof ReferenceExpansionChapterItem];
-
+export type ReferenceExpansionChapterItem =
+  (typeof ReferenceExpansionChapterItem)[keyof typeof ReferenceExpansionChapterItem]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const ReferenceExpansionChapterItem = {
   manga: 'manga',
   scanlation_group: 'scanlation_group',
   user: 'user',
-} as const;
+} as const
 
 /**
  * Reference expansion options for chapter entities or lists
  */
-export type ReferenceExpansionChapter = ReferenceExpansionChapterItem[];
+export type ReferenceExpansionChapter = ReferenceExpansionChapterItem[]
 
-export type ReferenceExpansionApiClientItem = typeof ReferenceExpansionApiClientItem[keyof typeof ReferenceExpansionApiClientItem];
-
+export type ReferenceExpansionApiClientItem =
+  (typeof ReferenceExpansionApiClientItem)[keyof typeof ReferenceExpansionApiClientItem]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const ReferenceExpansionApiClientItem = {
   creator: 'creator',
-} as const;
+} as const
 
 /**
  * Reference expansion options for api_client entities or lists
  */
-export type ReferenceExpansionApiClient = ReferenceExpansionApiClientItem[];
+export type ReferenceExpansionApiClient = ReferenceExpansionApiClientItem[]
 
-export type ReferenceExpansionAuthorItem = typeof ReferenceExpansionAuthorItem[keyof typeof ReferenceExpansionAuthorItem];
-
+export type ReferenceExpansionAuthorItem =
+  (typeof ReferenceExpansionAuthorItem)[keyof typeof ReferenceExpansionAuthorItem]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const ReferenceExpansionAuthorItem = {
   manga: 'manga',
-} as const;
+} as const
 
 /**
  * Reference expansion options for author/artist entities or lists
  */
-export type ReferenceExpansionAuthor = ReferenceExpansionAuthorItem[];
+export type ReferenceExpansionAuthor = ReferenceExpansionAuthorItem[]
 
 export type ForumsThreadResponseDataAttributes = {
   /** The number of replies so far in the forums thread returned */
-  repliesCount?: number;
-};
-
-export type ForumsThreadResponseData = {
-  attributes?: ForumsThreadResponseDataAttributes;
-  /** The id for the thread on the forums, accessible at `https://forums.mangadex.org/threads/:id` */
-  id?: number;
-  type?: string;
-};
-
-export interface ForumsThreadResponse {
-  data?: ForumsThreadResponseData;
-  response?: string;
-  result?: string;
+  repliesCount?: number
 }
 
-export type ReportAttributesStatus = typeof ReportAttributesStatus[keyof typeof ReportAttributesStatus];
+export type ForumsThreadResponseData = {
+  attributes?: ForumsThreadResponseDataAttributes
+  /** The id for the thread on the forums, accessible at `https://forums.mangadex.org/threads/:id` */
+  id?: number
+  type?: string
+}
 
+export interface ForumsThreadResponse {
+  data?: ForumsThreadResponseData
+  response?: string
+  result?: string
+}
+
+export type ReportAttributesStatus =
+  (typeof ReportAttributesStatus)[keyof typeof ReportAttributesStatus]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const ReportAttributesStatus = {
@@ -1890,46 +1923,45 @@ export const ReportAttributesStatus = {
   accepted: 'accepted',
   refused: 'refused',
   autoresolved: 'autoresolved',
-} as const;
+} as const
 
 export interface ReportAttributes {
-  createdAt?: string;
-  details?: string;
-  objectId?: string;
-  status?: ReportAttributesStatus;
+  createdAt?: string
+  details?: string
+  objectId?: string
+  status?: ReportAttributesStatus
 }
 
-export type ReportType = typeof ReportType[keyof typeof ReportType];
-
+export type ReportType = (typeof ReportType)[keyof typeof ReportType]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const ReportType = {
   report: 'report',
-} as const;
+} as const
 
 export interface Report {
-  attributes?: ReportAttributes;
-  id?: string;
-  relationships?: Relationship[];
-  type?: ReportType;
+  attributes?: ReportAttributes
+  id?: string
+  relationships?: Relationship[]
+  type?: ReportType
 }
 
-export type ReportListResponseResult = typeof ReportListResponseResult[keyof typeof ReportListResponseResult];
-
+export type ReportListResponseResult =
+  (typeof ReportListResponseResult)[keyof typeof ReportListResponseResult]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const ReportListResponseResult = {
   ok: 'ok',
   error: 'error',
-} as const;
+} as const
 
 export interface ReportListResponse {
-  data?: Report[];
-  limit?: number;
-  offset?: number;
-  response?: string;
-  result?: ReportListResponseResult;
-  total?: number;
+  data?: Report[]
+  limit?: number
+  offset?: number
+  response?: string
+  result?: ReportListResponseResult
+  total?: number
 }
 
 export interface ChapterDraft {
@@ -1938,149 +1970,151 @@ export interface ChapterDraft {
    * @nullable
    * @pattern ^((0|[1-9]\d*)(\.\d+)?[a-z]?)?$
    */
-  chapter: string | null;
+  chapter: string | null
   /**
    * @maxLength 512
    * @nullable
    * @pattern ^https?://
    */
-  externalUrl?: string | null;
+  externalUrl?: string | null
   /** @pattern ^\d{4}-[0-1]\d-([0-2]\d|3[0-1])T([0-1]\d|2[0-3]):[0-5]\d:[0-5]\d$ */
-  publishAt?: string;
+  publishAt?: string
   /**
    * @maxLength 255
    * @nullable
    */
-  title: string | null;
+  title: string | null
   /** @pattern ^[a-z]{2}(-[a-z]{2})?$ */
-  translatedLanguage: string;
+  translatedLanguage: string
   /**
    * @maxLength 8
    * @nullable
    * @pattern ^((0|[1-9]\d*)(\.\d+)?[a-z]?)?$
    */
-  volume: string | null;
+  volume: string | null
 }
 
 export interface CommitUploadSession {
-  chapterDraft?: ChapterDraft;
+  chapterDraft?: ChapterDraft
   /**
    * ordered list of Upload Session File ids
    * @minItems 1
    * @maxItems 500
    */
-  pageOrder?: string[];
+  pageOrder?: string[]
 }
 
 export interface BeginEditSession {
   /** @minimum 1 */
-  version: number;
+  version: number
 }
 
 export interface BeginUploadSession {
   /** @maxItems 10 */
-  groups: string[];
+  groups: string[]
   /**
    * @minLength 36
    * @maxLength 36
    */
-  manga: string;
+  manga: string
 }
 
-export type ChapterReadMarkerBatch = (unknown & {
-  chapterIdsRead?: string[];
-  chapterIdsUnread?: string[];
-}) | (unknown & {
-  chapterIdsRead?: string[];
-  chapterIdsUnread?: string[];
-});
+export type ChapterReadMarkerBatch =
+  | (unknown & {
+      chapterIdsRead?: string[]
+      chapterIdsUnread?: string[]
+    })
+  | (unknown & {
+      chapterIdsRead?: string[]
+      chapterIdsUnread?: string[]
+    })
 
-export type UploadSessionFileAttributesSource = typeof UploadSessionFileAttributesSource[keyof typeof UploadSessionFileAttributesSource];
-
+export type UploadSessionFileAttributesSource =
+  (typeof UploadSessionFileAttributesSource)[keyof typeof UploadSessionFileAttributesSource]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const UploadSessionFileAttributesSource = {
   local: 'local',
   remote: 'remote',
-} as const;
+} as const
 
 export interface UploadSessionFileAttributes {
-  fileHash?: string;
-  fileSize?: number;
-  mimeType?: string;
-  originalFileName?: string;
-  source?: UploadSessionFileAttributesSource;
+  fileHash?: string
+  fileSize?: number
+  mimeType?: string
+  originalFileName?: string
+  source?: UploadSessionFileAttributesSource
   /** @minimum 1 */
-  version?: number;
+  version?: number
 }
 
-export type UploadSessionFileType = typeof UploadSessionFileType[keyof typeof UploadSessionFileType];
-
+export type UploadSessionFileType =
+  (typeof UploadSessionFileType)[keyof typeof UploadSessionFileType]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const UploadSessionFileType = {
   upload_session_file: 'upload_session_file',
-} as const;
+} as const
 
 export interface UploadSessionFile {
-  attributes?: UploadSessionFileAttributes;
-  id?: string;
-  type?: UploadSessionFileType;
+  attributes?: UploadSessionFileAttributes
+  id?: string
+  type?: UploadSessionFileType
 }
 
 export interface UploadSessionAttributes {
-  createdAt?: string;
-  isCommitted?: boolean;
-  isDeleted?: boolean;
-  isProcessed?: boolean;
-  updatedAt?: string;
+  createdAt?: string
+  isCommitted?: boolean
+  isDeleted?: boolean
+  isProcessed?: boolean
+  updatedAt?: string
   /** @minimum 1 */
-  version?: number;
+  version?: number
 }
 
-export type UploadSessionType = typeof UploadSessionType[keyof typeof UploadSessionType];
-
+export type UploadSessionType =
+  (typeof UploadSessionType)[keyof typeof UploadSessionType]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const UploadSessionType = {
   upload_session: 'upload_session',
-} as const;
+} as const
 
 export interface UploadSession {
-  attributes?: UploadSessionAttributes;
-  id?: string;
-  type?: UploadSessionType;
+  attributes?: UploadSessionAttributes
+  id?: string
+  type?: UploadSessionType
 }
 
 export interface UserList {
-  data?: User[];
-  limit?: number;
-  offset?: number;
-  response?: string;
-  result?: string;
-  total?: number;
+  data?: User[]
+  limit?: number
+  offset?: number
+  response?: string
+  result?: string
+  total?: number
 }
 
 export interface CustomListList {
-  data?: CustomList[];
-  limit?: number;
-  offset?: number;
-  response?: string;
-  result?: string;
-  total?: number;
+  data?: CustomList[]
+  limit?: number
+  offset?: number
+  response?: string
+  result?: string
+  total?: number
 }
 
 export interface MangaList {
-  data?: Manga[];
-  limit?: number;
-  offset?: number;
-  response?: string;
-  result?: string;
-  total?: number;
+  data?: Manga[]
+  limit?: number
+  offset?: number
+  response?: string
+  result?: string
+  total?: number
 }
 
-export type MangaRelationAttributesRelation = typeof MangaRelationAttributesRelation[keyof typeof MangaRelationAttributesRelation];
-
+export type MangaRelationAttributesRelation =
+  (typeof MangaRelationAttributesRelation)[keyof typeof MangaRelationAttributesRelation]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const MangaRelationAttributesRelation = {
@@ -2100,55 +2134,55 @@ export const MangaRelationAttributesRelation = {
   preserialization: 'preserialization',
   colored: 'colored',
   serialization: 'serialization',
-} as const;
+} as const
 
 export interface MangaRelationAttributes {
-  relation?: MangaRelationAttributesRelation;
+  relation?: MangaRelationAttributesRelation
   /** @minimum 1 */
-  version?: number;
+  version?: number
 }
 
-export type MangaRelationType = typeof MangaRelationType[keyof typeof MangaRelationType];
-
+export type MangaRelationType =
+  (typeof MangaRelationType)[keyof typeof MangaRelationType]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const MangaRelationType = {
   manga_relation: 'manga_relation',
-} as const;
+} as const
 
 export interface MangaRelation {
-  attributes?: MangaRelationAttributes;
-  id?: string;
-  relationships?: Relationship[];
-  type?: MangaRelationType;
+  attributes?: MangaRelationAttributes
+  id?: string
+  relationships?: Relationship[]
+  type?: MangaRelationType
 }
 
-export type MangaRelationResponseResult = typeof MangaRelationResponseResult[keyof typeof MangaRelationResponseResult];
-
+export type MangaRelationResponseResult =
+  (typeof MangaRelationResponseResult)[keyof typeof MangaRelationResponseResult]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const MangaRelationResponseResult = {
   ok: 'ok',
   error: 'error',
-} as const;
+} as const
 
 export interface MangaRelationResponse {
-  data?: MangaRelation;
-  response?: string;
-  result?: MangaRelationResponseResult;
+  data?: MangaRelation
+  response?: string
+  result?: MangaRelationResponseResult
 }
 
 export interface MangaRelationList {
-  data?: MangaRelation[];
-  limit?: number;
-  offset?: number;
-  response?: string;
-  result?: string;
-  total?: number;
+  data?: MangaRelation[]
+  limit?: number
+  offset?: number
+  response?: string
+  result?: string
+  total?: number
 }
 
-export type MangaRelationRequestRelation = typeof MangaRelationRequestRelation[keyof typeof MangaRelationRequestRelation];
-
+export type MangaRelationRequestRelation =
+  (typeof MangaRelationRequestRelation)[keyof typeof MangaRelationRequestRelation]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const MangaRelationRequestRelation = {
@@ -2168,58 +2202,58 @@ export const MangaRelationRequestRelation = {
   preserialization: 'preserialization',
   colored: 'colored',
   serialization: 'serialization',
-} as const;
+} as const
 
 export interface MangaRelationRequest {
-  relation?: MangaRelationRequestRelation;
-  targetManga?: string;
+  relation?: MangaRelationRequestRelation
+  targetManga?: string
 }
 
-export type MangaRelationCreate = MangaRelationRequest & unknown;
+export type MangaRelationCreate = MangaRelationRequest & unknown
 
 export interface ScanlationGroupList {
-  data?: ScanlationGroup[];
-  limit?: number;
-  offset?: number;
-  response?: string;
-  result?: string;
-  total?: number;
+  data?: ScanlationGroup[]
+  limit?: number
+  offset?: number
+  response?: string
+  result?: string
+  total?: number
 }
 
 export interface ChapterList {
-  data?: Chapter[];
-  limit?: number;
-  offset?: number;
-  response?: string;
-  result?: string;
-  total?: number;
+  data?: Chapter[]
+  limit?: number
+  offset?: number
+  response?: string
+  result?: string
+  total?: number
 }
 
 export interface ApiClientList {
-  data?: ApiClient[];
-  limit?: number;
-  offset?: number;
-  response?: string;
-  result?: string;
-  total?: number;
+  data?: ApiClient[]
+  limit?: number
+  offset?: number
+  response?: string
+  result?: string
+  total?: number
 }
 
 export interface AuthorList {
-  data?: Author[];
-  limit?: number;
-  offset?: number;
-  response?: string;
-  result?: string;
-  total?: number;
+  data?: Author[]
+  limit?: number
+  offset?: number
+  response?: string
+  result?: string
+  total?: number
 }
 
 export interface CoverList {
-  data?: Cover[];
-  limit?: number;
-  offset?: number;
-  response?: string;
-  result?: string;
-  total?: number;
+  data?: Cover[]
+  limit?: number
+  offset?: number
+  response?: string
+  result?: string
+  total?: number
 }
 
 export interface ChapterRequest {
@@ -2227,27 +2261,28 @@ export interface ChapterRequest {
    * @maxLength 8
    * @nullable
    */
-  chapter?: string | null;
+  chapter?: string | null
   /** @maxItems 10 */
-  groups?: string[];
+  groups?: string[]
   /**
    * @maxLength 255
    * @nullable
    */
-  title?: string | null;
+  title?: string | null
   /** @pattern ^[a-z]{2}(-[a-z]{2})?$ */
-  translatedLanguage?: string;
+  translatedLanguage?: string
   /** @minimum 1 */
-  version?: number;
+  version?: number
   /** @nullable */
-  volume?: string | null;
+  volume?: string | null
 }
 
 /**
  * @nullable
  */
-export type UpdateMangaStatusStatus = typeof UpdateMangaStatusStatus[keyof typeof UpdateMangaStatusStatus] | null;
-
+export type UpdateMangaStatusStatus =
+  | (typeof UpdateMangaStatusStatus)[keyof typeof UpdateMangaStatusStatus]
+  | null
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const UpdateMangaStatusStatus = {
@@ -2257,11 +2292,11 @@ export const UpdateMangaStatusStatus = {
   dropped: 'dropped',
   re_reading: 're_reading',
   completed: 'completed',
-} as const;
+} as const
 
 export interface UpdateMangaStatus {
   /** @nullable */
-  status: UpdateMangaStatusStatus;
+  status: UpdateMangaStatusStatus
 }
 
 export interface RecoverCompleteBody {
@@ -2269,29 +2304,29 @@ export interface RecoverCompleteBody {
    * @minLength 8
    * @maxLength 1024
    */
-  newPassword: string;
+  newPassword: string
 }
 
 export interface SendAccountActivationCode {
-  email: string;
+  email: string
 }
 
-export type UserResponseResult = typeof UserResponseResult[keyof typeof UserResponseResult];
-
+export type UserResponseResult =
+  (typeof UserResponseResult)[keyof typeof UserResponseResult]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const UserResponseResult = {
   ok: 'ok',
-} as const;
+} as const
 
 export interface UserResponse {
-  data?: User;
-  response?: string;
-  result?: UserResponseResult;
+  data?: User
+  response?: string
+  result?: UserResponseResult
 }
 
-export type TagAttributesGroup = typeof TagAttributesGroup[keyof typeof TagAttributesGroup];
-
+export type TagAttributesGroup =
+  (typeof TagAttributesGroup)[keyof typeof TagAttributesGroup]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const TagAttributesGroup = {
@@ -2299,42 +2334,41 @@ export const TagAttributesGroup = {
   format: 'format',
   genre: 'genre',
   theme: 'theme',
-} as const;
+} as const
 
 export interface TagAttributes {
-  description?: LocalizedString;
-  group?: TagAttributesGroup;
-  name?: LocalizedString;
+  description?: LocalizedString
+  group?: TagAttributesGroup
+  name?: LocalizedString
   /** @minimum 1 */
-  version?: number;
+  version?: number
 }
 
-export type TagType = typeof TagType[keyof typeof TagType];
-
+export type TagType = (typeof TagType)[keyof typeof TagType]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const TagType = {
   tag: 'tag',
-} as const;
+} as const
 
 export interface Tag {
-  attributes?: TagAttributes;
-  id?: string;
-  relationships?: Relationship[];
-  type?: TagType;
+  attributes?: TagAttributes
+  id?: string
+  relationships?: Relationship[]
+  type?: TagType
 }
 
 export interface TagResponse {
-  data?: Tag[];
-  limit?: number;
-  offset?: number;
-  response?: string;
-  result?: string;
-  total?: number;
+  data?: Tag[]
+  limit?: number
+  offset?: number
+  response?: string
+  result?: string
+  total?: number
 }
 
-export type MappingIdAttributesType = typeof MappingIdAttributesType[keyof typeof MappingIdAttributesType];
-
+export type MappingIdAttributesType =
+  (typeof MappingIdAttributesType)[keyof typeof MappingIdAttributesType]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const MappingIdAttributesType = {
@@ -2342,40 +2376,39 @@ export const MappingIdAttributesType = {
   chapter: 'chapter',
   group: 'group',
   tag: 'tag',
-} as const;
+} as const
 
 export interface MappingIdAttributes {
-  legacyId?: number;
-  newId?: string;
-  type?: MappingIdAttributesType;
+  legacyId?: number
+  newId?: string
+  type?: MappingIdAttributesType
 }
 
-export type MappingIdType = typeof MappingIdType[keyof typeof MappingIdType];
-
+export type MappingIdType = (typeof MappingIdType)[keyof typeof MappingIdType]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const MappingIdType = {
   mapping_id: 'mapping_id',
-} as const;
+} as const
 
 export interface MappingId {
-  attributes?: MappingIdAttributes;
-  id?: string;
-  relationships?: Relationship[];
-  type?: MappingIdType;
+  attributes?: MappingIdAttributes
+  id?: string
+  relationships?: Relationship[]
+  type?: MappingIdType
 }
 
 export interface MappingIdResponse {
-  data?: MappingId[];
-  limit?: number;
-  offset?: number;
-  response?: string;
-  result?: string;
-  total?: number;
+  data?: MappingId[]
+  limit?: number
+  offset?: number
+  response?: string
+  result?: string
+  total?: number
 }
 
-export type MappingIdBodyType = typeof MappingIdBodyType[keyof typeof MappingIdBodyType];
-
+export type MappingIdBodyType =
+  (typeof MappingIdBodyType)[keyof typeof MappingIdBodyType]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const MappingIdBodyType = {
@@ -2383,46 +2416,46 @@ export const MappingIdBodyType = {
   manga: 'manga',
   chapter: 'chapter',
   tag: 'tag',
-} as const;
+} as const
 
 export interface MappingIdBody {
-  ids?: number[];
-  type?: MappingIdBodyType;
+  ids?: number[]
+  type?: MappingIdBodyType
 }
 
-export type ApiClientCreateProfile = typeof ApiClientCreateProfile[keyof typeof ApiClientCreateProfile];
-
+export type ApiClientCreateProfile =
+  (typeof ApiClientCreateProfile)[keyof typeof ApiClientCreateProfile]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const ApiClientCreateProfile = {
   personal: 'personal',
-} as const;
+} as const
 
 export interface ApiClientCreate {
   /**
    * @maxLength 256
    * @nullable
    */
-  description?: string | null;
+  description?: string | null
   /**
    * @minLength 5
    * @maxLength 32
    */
-  name: string;
-  profile: ApiClientCreateProfile;
+  name: string
+  profile: ApiClientCreateProfile
   /** @minimum 1 */
-  version?: number;
+  version?: number
 }
 
 export interface ApiClientEdit {
   /** @nullable */
-  description?: string | null;
+  description?: string | null
   /** @minimum 1 */
-  version: number;
+  version: number
 }
 
-export type ApiClientAttributesState = typeof ApiClientAttributesState[keyof typeof ApiClientAttributesState];
-
+export type ApiClientAttributesState =
+  (typeof ApiClientAttributesState)[keyof typeof ApiClientAttributesState]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const ApiClientAttributesState = {
@@ -2430,289 +2463,287 @@ export const ApiClientAttributesState = {
   approved: 'approved',
   rejected: 'rejected',
   autoapproved: 'autoapproved',
-} as const;
+} as const
 
 export interface ApiClientAttributes {
-  createdAt?: string;
+  createdAt?: string
   /**
    * @maxLength 256
    * @nullable
    */
-  description?: string | null;
+  description?: string | null
   /** @nullable */
-  externalClientId?: string | null;
-  isActive?: boolean;
-  name?: string;
-  profile?: string;
-  state?: ApiClientAttributesState;
-  updatedAt?: string;
+  externalClientId?: string | null
+  isActive?: boolean
+  name?: string
+  profile?: string
+  state?: ApiClientAttributesState
+  updatedAt?: string
   /** @minimum 1 */
-  version?: number;
+  version?: number
 }
 
-export type ApiClientType = typeof ApiClientType[keyof typeof ApiClientType];
-
+export type ApiClientType = (typeof ApiClientType)[keyof typeof ApiClientType]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const ApiClientType = {
   api_client: 'api_client',
-} as const;
+} as const
 
 export interface ApiClient {
-  attributes?: ApiClientAttributes;
-  id?: string;
-  relationships?: Relationship[];
-  type?: ApiClientType;
+  attributes?: ApiClientAttributes
+  id?: string
+  relationships?: Relationship[]
+  type?: ApiClientType
 }
 
 export interface ApiClientResponse {
-  data?: ApiClient;
-  response?: string;
-  result?: string;
+  data?: ApiClient
+  response?: string
+  result?: string
 }
 
 export interface AuthorCreate {
-  biography?: LocalizedString;
+  biography?: LocalizedString
   /**
    * @nullable
    * @pattern ^https?://([\w-]+\.)?booth\.pm(/|$)
    */
-  booth?: string | null;
+  booth?: string | null
   /**
    * @nullable
    * @pattern ^https?://([\w-]+\.)?fanbox\.cc(/|$)
    */
-  fanBox?: string | null;
+  fanBox?: string | null
   /**
    * @nullable
    * @pattern ^https?://([\w-]+\.)?fantia\.jp(/|$)
    */
-  fantia?: string | null;
+  fantia?: string | null
   /**
    * @nullable
    * @pattern ^https?://([\w-]+\.)?melonbooks\.co\.jp(/|$)
    */
-  melonBook?: string | null;
-  name: string;
+  melonBook?: string | null
+  name: string
   /**
    * @nullable
    * @pattern ^https?://([\w-]+\.)?naver\.com(/|$)
    */
-  naver?: string | null;
+  naver?: string | null
   /**
    * @nullable
    * @pattern ^https?://([\w-]+\.)?nicovideo\.jp(/|$)
    */
-  nicoVideo?: string | null;
+  nicoVideo?: string | null
   /**
    * @nullable
    * @pattern ^https?://([\w-]+\.)?pixiv\.net(/|$)
    */
-  pixiv?: string | null;
+  pixiv?: string | null
   /**
    * @nullable
    * @pattern ^https?://([\w-]+\.)?skeb\.jp(/|$)
    */
-  skeb?: string | null;
+  skeb?: string | null
   /**
    * @nullable
    * @pattern ^https?://([\w-]+\.)?tumblr\.com(/|$)
    */
-  tumblr?: string | null;
+  tumblr?: string | null
   /**
    * @nullable
    * @pattern ^https?://twitter\.com(/|$)
    */
-  twitter?: string | null;
+  twitter?: string | null
   /**
    * @nullable
    * @pattern ^https?://
    */
-  website?: string | null;
+  website?: string | null
   /**
    * @nullable
    * @pattern ^https?://([\w-]+\.)?weibo\.(cn|com)(/|$)
    */
-  weibo?: string | null;
+  weibo?: string | null
   /**
    * @nullable
    * @pattern ^https?://www\.youtube\.com(/|$)
    */
-  youtube?: string | null;
+  youtube?: string | null
 }
 
 export interface AuthorEdit {
-  biography?: LocalizedString;
+  biography?: LocalizedString
   /**
    * @nullable
    * @pattern ^https?://([\w-]+\.)?booth\.pm(/|$)
    */
-  booth?: string | null;
+  booth?: string | null
   /**
    * @nullable
    * @pattern ^https?://([\w-]+\.)?fanbox\.cc(/|$)
    */
-  fanBox?: string | null;
+  fanBox?: string | null
   /**
    * @nullable
    * @pattern ^https?://([\w-]+\.)?fantia\.jp(/|$)
    */
-  fantia?: string | null;
+  fantia?: string | null
   /**
    * @nullable
    * @pattern ^https?://([\w-]+\.)?melonbooks\.co\.jp(/|$)
    */
-  melonBook?: string | null;
-  name?: string;
+  melonBook?: string | null
+  name?: string
   /**
    * @nullable
    * @pattern ^https?://([\w-]+\.)?naver\.com(/|$)
    */
-  naver?: string | null;
+  naver?: string | null
   /**
    * @nullable
    * @pattern ^https?://([\w-]+\.)?nicovideo\.jp(/|$)
    */
-  nicoVideo?: string | null;
+  nicoVideo?: string | null
   /**
    * @nullable
    * @pattern ^https?://([\w-]+\.)?pixiv\.net(/|$)
    */
-  pixiv?: string | null;
+  pixiv?: string | null
   /**
    * @nullable
    * @pattern ^https?://([\w-]+\.)?skeb\.jp(/|$)
    */
-  skeb?: string | null;
+  skeb?: string | null
   /**
    * @nullable
    * @pattern ^https?://([\w-]+\.)?tumblr\.com(/|$)
    */
-  tumblr?: string | null;
+  tumblr?: string | null
   /**
    * @nullable
    * @pattern ^https?://twitter\.com(/|$)
    */
-  twitter?: string | null;
+  twitter?: string | null
   /** @minimum 1 */
-  version: number;
+  version: number
   /**
    * @nullable
    * @pattern ^https?://
    */
-  website?: string | null;
+  website?: string | null
   /**
    * @nullable
    * @pattern ^https?://([\w-]+\.)?weibo\.(cn|com)(/|$)
    */
-  weibo?: string | null;
+  weibo?: string | null
   /**
    * @nullable
    * @pattern ^https?://www\.youtube\.com(/|$)
    */
-  youtube?: string | null;
+  youtube?: string | null
 }
 
 export interface AuthorAttributes {
-  biography?: LocalizedString;
+  biography?: LocalizedString
   /**
    * @nullable
    * @pattern ^https?://([\w-]+\.)?booth\.pm(/|$)
    */
-  booth?: string | null;
-  createdAt?: string;
+  booth?: string | null
+  createdAt?: string
   /**
    * @nullable
    * @pattern ^https?://([\w-]+\.)?fanbox\.cc(/|$)
    */
-  fanBox?: string | null;
+  fanBox?: string | null
   /**
    * @nullable
    * @pattern ^https?://([\w-]+\.)?fantia\.jp(/|$)
    */
-  fantia?: string | null;
+  fantia?: string | null
   /** @nullable */
-  imageUrl?: string | null;
+  imageUrl?: string | null
   /**
    * @nullable
    * @pattern ^https?://([\w-]+\.)?melonbooks\.co\.jp(/|$)
    */
-  melonBook?: string | null;
-  name?: string;
+  melonBook?: string | null
+  name?: string
   /**
    * @nullable
    * @pattern ^https?://([\w-]+\.)?namicomi\.com(/|$)
    */
-  namicomi?: string | null;
+  namicomi?: string | null
   /**
    * @nullable
    * @pattern ^https?://([\w-]+\.)?naver\.com(/|$)
    */
-  naver?: string | null;
+  naver?: string | null
   /**
    * @nullable
    * @pattern ^https?://([\w-]+\.)?nicovideo\.jp(/|$)
    */
-  nicoVideo?: string | null;
+  nicoVideo?: string | null
   /**
    * @nullable
    * @pattern ^https?://([\w-]+\.)?pixiv\.net(/|$)
    */
-  pixiv?: string | null;
+  pixiv?: string | null
   /**
    * @nullable
    * @pattern ^https?://([\w-]+\.)?skeb\.jp(/|$)
    */
-  skeb?: string | null;
+  skeb?: string | null
   /**
    * @nullable
    * @pattern ^https?://([\w-]+\.)?tumblr\.com(/|$)
    */
-  tumblr?: string | null;
+  tumblr?: string | null
   /**
    * @nullable
    * @pattern ^https?://twitter\.com(/|$)
    */
-  twitter?: string | null;
-  updatedAt?: string;
+  twitter?: string | null
+  updatedAt?: string
   /** @minimum 1 */
-  version?: number;
+  version?: number
   /**
    * @nullable
    * @pattern ^https?://
    */
-  website?: string | null;
+  website?: string | null
   /**
    * @nullable
    * @pattern ^https?://([\w-]+\.)?weibo\.(cn|com)(/|$)
    */
-  weibo?: string | null;
+  weibo?: string | null
   /**
    * @nullable
    * @pattern ^https?://www\.youtube\.com(/|$)
    */
-  youtube?: string | null;
+  youtube?: string | null
 }
 
-export type AuthorType = typeof AuthorType[keyof typeof AuthorType];
-
+export type AuthorType = (typeof AuthorType)[keyof typeof AuthorType]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const AuthorType = {
   author: 'author',
-} as const;
+} as const
 
 export interface Author {
-  attributes?: AuthorAttributes;
-  id?: string;
-  relationships?: Relationship[];
-  type?: AuthorType;
+  attributes?: AuthorAttributes
+  id?: string
+  relationships?: Relationship[]
+  type?: AuthorType
 }
 
 export interface AuthorResponse {
-  data?: Author;
-  response?: string;
-  result?: string;
+  data?: Author
+  response?: string
+  result?: string
 }
 
 export interface CoverEdit {
@@ -2721,428 +2752,426 @@ export interface CoverEdit {
    * @maxLength 512
    * @nullable
    */
-  description?: string | null;
+  description?: string | null
   /**
    * @nullable
    * @pattern ^[a-z]{2}(-[a-z]{2})?$
    */
-  locale?: string | null;
+  locale?: string | null
   /** @minimum 1 */
-  version: number;
+  version: number
   /**
    * @minLength 0
    * @maxLength 8
    * @nullable
    */
-  volume: string | null;
+  volume: string | null
 }
 
 export interface CoverAttributes {
-  createdAt?: string;
+  createdAt?: string
   /** @nullable */
-  description?: string | null;
-  fileName?: string;
+  description?: string | null
+  fileName?: string
   /** @nullable */
-  locale?: string | null;
-  updatedAt?: string;
+  locale?: string | null
+  updatedAt?: string
   /** @minimum 1 */
-  version?: number;
+  version?: number
   /** @nullable */
-  volume?: string | null;
+  volume?: string | null
 }
 
-export type CoverType = typeof CoverType[keyof typeof CoverType];
-
+export type CoverType = (typeof CoverType)[keyof typeof CoverType]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const CoverType = {
   cover_art: 'cover_art',
-} as const;
+} as const
 
 export interface Cover {
-  attributes?: CoverAttributes;
-  id?: string;
-  relationships?: Relationship[];
-  type?: CoverType;
+  attributes?: CoverAttributes
+  id?: string
+  relationships?: Relationship[]
+  type?: CoverType
 }
 
 export interface CoverResponse {
-  data?: Cover;
-  response?: string;
-  result?: string;
+  data?: Cover
+  response?: string
+  result?: string
 }
 
-export type CustomListAttributesVisibility = typeof CustomListAttributesVisibility[keyof typeof CustomListAttributesVisibility];
-
+export type CustomListAttributesVisibility =
+  (typeof CustomListAttributesVisibility)[keyof typeof CustomListAttributesVisibility]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const CustomListAttributesVisibility = {
   private: 'private',
   public: 'public',
-} as const;
+} as const
 
 export interface CustomListAttributes {
-  name?: string;
+  name?: string
   /** @minimum 1 */
-  version?: number;
-  visibility?: CustomListAttributesVisibility;
+  version?: number
+  visibility?: CustomListAttributesVisibility
 }
 
-export type CustomListType = typeof CustomListType[keyof typeof CustomListType];
-
+export type CustomListType =
+  (typeof CustomListType)[keyof typeof CustomListType]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const CustomListType = {
   custom_list: 'custom_list',
-} as const;
+} as const
 
 export interface CustomList {
-  attributes?: CustomListAttributes;
-  id?: string;
-  relationships?: Relationship[];
-  type?: CustomListType;
+  attributes?: CustomListAttributes
+  id?: string
+  relationships?: Relationship[]
+  type?: CustomListType
 }
 
-export type CustomListResponseResult = typeof CustomListResponseResult[keyof typeof CustomListResponseResult];
-
+export type CustomListResponseResult =
+  (typeof CustomListResponseResult)[keyof typeof CustomListResponseResult]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const CustomListResponseResult = {
   ok: 'ok',
   error: 'error',
-} as const;
+} as const
 
 export interface CustomListResponse {
-  data?: CustomList;
-  response?: string;
-  result?: CustomListResponseResult;
+  data?: CustomList
+  response?: string
+  result?: CustomListResponseResult
 }
 
-export type CustomListEditVisibility = typeof CustomListEditVisibility[keyof typeof CustomListEditVisibility];
-
+export type CustomListEditVisibility =
+  (typeof CustomListEditVisibility)[keyof typeof CustomListEditVisibility]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const CustomListEditVisibility = {
   public: 'public',
   private: 'private',
-} as const;
+} as const
 
 export interface CustomListEdit {
-  manga?: string[];
-  name?: string;
+  manga?: string[]
+  name?: string
   /** @minimum 1 */
-  version: number;
-  visibility?: CustomListEditVisibility;
+  version: number
+  visibility?: CustomListEditVisibility
 }
 
-export type CustomListCreateVisibility = typeof CustomListCreateVisibility[keyof typeof CustomListCreateVisibility];
-
+export type CustomListCreateVisibility =
+  (typeof CustomListCreateVisibility)[keyof typeof CustomListCreateVisibility]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const CustomListCreateVisibility = {
   public: 'public',
   private: 'private',
-} as const;
+} as const
 
 export interface CustomListCreate {
-  manga?: string[];
-  name: string;
+  manga?: string[]
+  name: string
   /** @minimum 1 */
-  version?: number;
-  visibility?: CustomListCreateVisibility;
+  version?: number
+  visibility?: CustomListCreateVisibility
 }
 
 export interface ScanlationGroupEdit {
   /** @nullable */
-  contactEmail?: string | null;
+  contactEmail?: string | null
   /** @nullable */
-  description?: string | null;
+  description?: string | null
   /** @nullable */
-  discord?: string | null;
+  discord?: string | null
   /** @nullable */
-  focusedLanguages?: string[] | null;
-  inactive?: boolean;
+  focusedLanguages?: string[] | null
+  inactive?: boolean
   /** @nullable */
-  ircChannel?: string | null;
+  ircChannel?: string | null
   /** @nullable */
-  ircServer?: string | null;
-  leader?: string;
-  locked?: boolean;
+  ircServer?: string | null
+  leader?: string
+  locked?: boolean
   /**
    * @maxLength 128
    * @nullable
    * @pattern ^https:\/\/www\.mangaupdates\.com\/(group|publisher)(s\.html\?id=\d+|\/[\w-]+\/?([\w-]+)?(\/)?)$
    */
-  mangaUpdates?: string | null;
-  members?: string[];
-  name?: string;
-  publishDelay?: string;
+  mangaUpdates?: string | null
+  members?: string[]
+  name?: string
+  publishDelay?: string
   /**
    * @nullable
    * @pattern ^https?://
    */
-  twitter?: string | null;
+  twitter?: string | null
   /** @minimum 1 */
-  version: number;
+  version: number
   /** @nullable */
-  website?: string | null;
+  website?: string | null
 }
 
 export interface CreateScanlationGroup {
   /** @nullable */
-  contactEmail?: string | null;
+  contactEmail?: string | null
   /** @nullable */
-  description?: string | null;
+  description?: string | null
   /** @nullable */
-  discord?: string | null;
-  inactive?: boolean;
+  discord?: string | null
+  inactive?: boolean
   /** @nullable */
-  ircChannel?: string | null;
+  ircChannel?: string | null
   /** @nullable */
-  ircServer?: string | null;
+  ircServer?: string | null
   /**
    * @maxLength 128
    * @nullable
    * @pattern ^https:\/\/www\.mangaupdates\.com\/(group|publisher)(s\.html\?id=\d+|\/[\w-]+\/?([\w-]+)?(\/)?)$
    */
-  mangaUpdates?: string | null;
-  name: string;
+  mangaUpdates?: string | null
+  name: string
   /**
    * @nullable
    * @pattern ^P(([1-9]|[1-9][0-9])D)?(([1-9])W)?(T(([1-9]|1[0-9]|2[0-4])H)?(([1-9]|[1-5][0-9]|60)M)?(([1-9]|[1-5][0-9]|60)S)?)?$
    */
-  publishDelay?: string | null;
+  publishDelay?: string | null
   /**
    * @nullable
    * @pattern ^https?://twitter\.com
    */
-  twitter?: string | null;
+  twitter?: string | null
   /** @nullable */
-  website?: string | null;
+  website?: string | null
 }
 
 export interface UserAttributes {
-  roles?: string[];
-  username?: string;
+  roles?: string[]
+  username?: string
   /** @minimum 1 */
-  version?: number;
+  version?: number
 }
 
-export type UserType = typeof UserType[keyof typeof UserType];
-
+export type UserType = (typeof UserType)[keyof typeof UserType]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const UserType = {
   user: 'user',
-} as const;
+} as const
 
 export interface User {
-  attributes?: UserAttributes;
-  id?: string;
-  relationships?: Relationship[];
-  type?: UserType;
+  attributes?: UserAttributes
+  id?: string
+  relationships?: Relationship[]
+  type?: UserType
 }
 
 export interface ScanlationGroupAttributes {
-  altNames?: LocalizedString[];
+  altNames?: LocalizedString[]
   /** @nullable */
-  contactEmail?: string | null;
-  createdAt?: string;
+  contactEmail?: string | null
+  createdAt?: string
   /** @nullable */
-  description?: string | null;
+  description?: string | null
   /** @nullable */
-  discord?: string | null;
-  exLicensed?: boolean;
+  discord?: string | null
+  exLicensed?: boolean
   /** @nullable */
-  focusedLanguage?: string[] | null;
-  inactive?: boolean;
+  focusedLanguage?: string[] | null
+  inactive?: boolean
   /** @nullable */
-  ircChannel?: string | null;
+  ircChannel?: string | null
   /** @nullable */
-  ircServer?: string | null;
-  locked?: boolean;
+  ircServer?: string | null
+  locked?: boolean
   /**
    * @maxLength 128
    * @nullable
    * @pattern ^https:\/\/www\.mangaupdates\.com\/(group|publisher)(s\.html\?id=\d+|\/[\w-]+\/?([\w-]+)?(\/)?)$
    */
-  mangaUpdates?: string | null;
-  name?: string;
-  official?: boolean;
+  mangaUpdates?: string | null
+  name?: string
+  official?: boolean
   /**
    * Should respected ISO 8601 duration specification: https://en.wikipedia.org/wiki/ISO_8601#Durations
    * @pattern ^(P([1-9]|[1-9][0-9])D)?(P?([1-9])W)?(P?T(([1-9]|1[0-9]|2[0-4])H)?(([1-9]|[1-5][0-9]|60)M)?(([1-9]|[1-5][0-9]|60)S)?)?$
    */
-  publishDelay?: string;
+  publishDelay?: string
   /**
    * @nullable
    * @pattern ^https?://
    */
-  twitter?: string | null;
-  updatedAt?: string;
-  verified?: boolean;
+  twitter?: string | null
+  updatedAt?: string
+  verified?: boolean
   /** @minimum 1 */
-  version?: number;
+  version?: number
   /** @nullable */
-  website?: string | null;
+  website?: string | null
 }
 
-export type ScanlationGroupType = typeof ScanlationGroupType[keyof typeof ScanlationGroupType];
-
+export type ScanlationGroupType =
+  (typeof ScanlationGroupType)[keyof typeof ScanlationGroupType]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const ScanlationGroupType = {
   scanlation_group: 'scanlation_group',
-} as const;
+} as const
 
 export interface ScanlationGroup {
-  attributes?: ScanlationGroupAttributes;
-  id?: string;
-  relationships?: Relationship[];
-  type?: ScanlationGroupType;
+  attributes?: ScanlationGroupAttributes
+  id?: string
+  relationships?: Relationship[]
+  type?: ScanlationGroupType
 }
 
-export type ScanlationGroupResponseResult = typeof ScanlationGroupResponseResult[keyof typeof ScanlationGroupResponseResult];
-
+export type ScanlationGroupResponseResult =
+  (typeof ScanlationGroupResponseResult)[keyof typeof ScanlationGroupResponseResult]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const ScanlationGroupResponseResult = {
   ok: 'ok',
-} as const;
+} as const
 
 export interface ScanlationGroupResponse {
-  data?: ScanlationGroup;
-  response?: string;
-  result?: ScanlationGroupResponseResult;
+  data?: ScanlationGroup
+  response?: string
+  result?: ScanlationGroupResponseResult
 }
 
 export interface CreateAccount {
-  email: string;
+  email: string
   /**
    * @minLength 8
    * @maxLength 1024
    */
-  password: string;
+  password: string
   /**
    * @minLength 1
    * @maxLength 64
    */
-  username: string;
+  username: string
 }
 
-export type AccountActivateResponseResult = typeof AccountActivateResponseResult[keyof typeof AccountActivateResponseResult];
-
+export type AccountActivateResponseResult =
+  (typeof AccountActivateResponseResult)[keyof typeof AccountActivateResponseResult]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const AccountActivateResponseResult = {
   ok: 'ok',
-} as const;
+} as const
 
 export interface AccountActivateResponse {
-  result?: AccountActivateResponseResult;
+  result?: AccountActivateResponseResult
 }
 
 export type RefreshResponseToken = {
-  refresh?: string;
-  session?: string;
-};
+  refresh?: string
+  session?: string
+}
 
-export type RefreshResponseResult = typeof RefreshResponseResult[keyof typeof RefreshResponseResult];
-
+export type RefreshResponseResult =
+  (typeof RefreshResponseResult)[keyof typeof RefreshResponseResult]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const RefreshResponseResult = {
   ok: 'ok',
   error: 'error',
-} as const;
+} as const
 
 export interface RefreshResponse {
-  message?: string;
-  result: RefreshResponseResult;
-  token?: RefreshResponseToken;
+  message?: string
+  result: RefreshResponseResult
+  token?: RefreshResponseToken
 }
 
 export interface RefreshToken {
   /** @minLength 1 */
-  token: string;
+  token: string
 }
 
-export type LogoutResponseResult = typeof LogoutResponseResult[keyof typeof LogoutResponseResult];
-
+export type LogoutResponseResult =
+  (typeof LogoutResponseResult)[keyof typeof LogoutResponseResult]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const LogoutResponseResult = {
   ok: 'ok',
   error: 'error',
-} as const;
+} as const
 
 export interface LogoutResponse {
-  result?: LogoutResponseResult;
+  result?: LogoutResponseResult
 }
 
 export interface CheckResponse {
-  isAuthenticated?: boolean;
-  permissions?: string[];
-  result?: string;
-  roles?: string[];
+  isAuthenticated?: boolean
+  permissions?: string[]
+  result?: string
+  roles?: string[]
 }
 
 export type LoginResponseToken = {
-  refresh?: string;
-  session?: string;
-};
+  refresh?: string
+  session?: string
+}
 
-export type LoginResponseResult = typeof LoginResponseResult[keyof typeof LoginResponseResult];
-
+export type LoginResponseResult =
+  (typeof LoginResponseResult)[keyof typeof LoginResponseResult]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const LoginResponseResult = {
   ok: 'ok',
   error: 'error',
-} as const;
+} as const
 
 export interface LoginResponse {
-  result?: LoginResponseResult;
-  token?: LoginResponseToken;
+  result?: LoginResponseResult
+  token?: LoginResponseToken
 }
 
 export interface Login {
-  email?: string;
+  email?: string
   /**
    * @minLength 8
    * @maxLength 1024
    */
-  password: string;
+  password: string
   /**
    * @minLength 1
    * @maxLength 64
    */
-  username?: string;
+  username?: string
 }
 
-export type ResponseResult = typeof ResponseResult[keyof typeof ResponseResult];
-
+export type ResponseResult =
+  (typeof ResponseResult)[keyof typeof ResponseResult]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const ResponseResult = {
   ok: 'ok',
   error: 'error',
-} as const;
+} as const
 
 export interface Response {
-  result?: ResponseResult;
+  result?: ResponseResult
 }
 
-export type ChapterEdit = ChapterRequest & unknown;
+export type ChapterEdit = ChapterRequest & unknown
 
-export type MangaEdit = MangaRequest & unknown;
+export type MangaEdit = MangaRequest & unknown
 
-export type MangaCreate = MangaRequest & unknown;
+export type MangaCreate = MangaRequest & unknown
 
 /**
  */
-export type MangaAttributesStatus = typeof MangaAttributesStatus[keyof typeof MangaAttributesStatus];
-
+export type MangaAttributesStatus =
+  (typeof MangaAttributesStatus)[keyof typeof MangaAttributesStatus]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const MangaAttributesStatus = {
@@ -3150,10 +3179,10 @@ export const MangaAttributesStatus = {
   ongoing: 'ongoing',
   cancelled: 'cancelled',
   hiatus: 'hiatus',
-} as const;
+} as const
 
-export type MangaAttributesState = typeof MangaAttributesState[keyof typeof MangaAttributesState];
-
+export type MangaAttributesState =
+  (typeof MangaAttributesState)[keyof typeof MangaAttributesState]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const MangaAttributesState = {
@@ -3161,13 +3190,14 @@ export const MangaAttributesState = {
   submitted: 'submitted',
   published: 'published',
   rejected: 'rejected',
-} as const;
+} as const
 
 /**
  * @nullable
  */
-export type MangaAttributesPublicationDemographic = typeof MangaAttributesPublicationDemographic[keyof typeof MangaAttributesPublicationDemographic] | null;
-
+export type MangaAttributesPublicationDemographic =
+  | (typeof MangaAttributesPublicationDemographic)[keyof typeof MangaAttributesPublicationDemographic]
+  | null
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const MangaAttributesPublicationDemographic = {
@@ -3175,12 +3205,12 @@ export const MangaAttributesPublicationDemographic = {
   shoujo: 'shoujo',
   josei: 'josei',
   seinen: 'seinen',
-} as const;
+} as const
 
-export type MangaAttributesLinks = {[key: string]: string};
+export type MangaAttributesLinks = { [key: string]: string }
 
-export type MangaAttributesContentRating = typeof MangaAttributesContentRating[keyof typeof MangaAttributesContentRating];
-
+export type MangaAttributesContentRating =
+  (typeof MangaAttributesContentRating)[keyof typeof MangaAttributesContentRating]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const MangaAttributesContentRating = {
@@ -3188,38 +3218,38 @@ export const MangaAttributesContentRating = {
   suggestive: 'suggestive',
   erotica: 'erotica',
   pornographic: 'pornographic',
-} as const;
+} as const
 
 export interface MangaAttributes {
-  altTitles?: LocalizedString[];
-  availableTranslatedLanguages?: string[];
-  chapterNumbersResetOnNewVolume?: boolean;
-  contentRating?: MangaAttributesContentRating;
-  createdAt?: string;
-  description?: LocalizedString;
-  isLocked?: boolean;
+  altTitles?: LocalizedString[]
+  availableTranslatedLanguages?: string[]
+  chapterNumbersResetOnNewVolume?: boolean
+  contentRating?: MangaAttributesContentRating
+  createdAt?: string
+  description?: LocalizedString
+  isLocked?: boolean
   /** @nullable */
-  lastChapter?: string | null;
+  lastChapter?: string | null
   /** @nullable */
-  lastVolume?: string | null;
-  latestUploadedChapter?: string;
-  links?: MangaAttributesLinks;
-  originalLanguage?: string;
+  lastVolume?: string | null
+  latestUploadedChapter?: string
+  links?: MangaAttributesLinks
+  originalLanguage?: string
   /** @nullable */
-  publicationDemographic?: MangaAttributesPublicationDemographic;
-  state?: MangaAttributesState;
+  publicationDemographic?: MangaAttributesPublicationDemographic
+  state?: MangaAttributesState
   /** */
-  status?: MangaAttributesStatus;
-  tags?: Tag[];
-  title?: LocalizedString;
-  updatedAt?: string;
+  status?: MangaAttributesStatus
+  tags?: Tag[]
+  title?: LocalizedString
+  updatedAt?: string
   /** @minimum 1 */
-  version?: number;
+  version?: number
   /**
    * Year of release
    * @nullable
    */
-  year?: number | null;
+  year?: number | null
 }
 
 export interface ChapterAttributes {
@@ -3227,70 +3257,68 @@ export interface ChapterAttributes {
    * @maxLength 8
    * @nullable
    */
-  chapter?: string | null;
-  createdAt?: string;
+  chapter?: string | null
+  createdAt?: string
   /**
    * Denotes a chapter that links to an external source.
    * @maxLength 512
    * @nullable
    * @pattern ^https?://
    */
-  externalUrl?: string | null;
+  externalUrl?: string | null
   /** Count of readable images for this chapter */
-  pages?: number;
-  publishAt?: string;
-  readableAt?: string;
+  pages?: number
+  publishAt?: string
+  readableAt?: string
   /**
    * @maxLength 255
    * @nullable
    */
-  title?: string | null;
+  title?: string | null
   /** @pattern ^[a-z]{2}(-[a-z]{2})?$ */
-  translatedLanguage?: string;
-  updatedAt?: string;
-  uploader?: string;
+  translatedLanguage?: string
+  updatedAt?: string
+  uploader?: string
   /** @minimum 1 */
-  version?: number;
+  version?: number
   /** @nullable */
-  volume?: string | null;
+  volume?: string | null
 }
 
 export interface Error {
   /** @nullable */
-  context?: string | null;
+  context?: string | null
   /** @nullable */
-  detail?: string | null;
-  id?: string;
-  status?: number;
-  title?: string;
+  detail?: string | null
+  id?: string
+  status?: number
+  title?: string
 }
 
 export interface ErrorResponse {
-  errors?: Error[];
-  result?: string;
+  errors?: Error[]
+  result?: string
 }
 
-export type MangaType = typeof MangaType[keyof typeof MangaType];
-
+export type MangaType = (typeof MangaType)[keyof typeof MangaType]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const MangaType = {
   manga: 'manga',
-} as const;
+} as const
 
-export type ChapterType = typeof ChapterType[keyof typeof ChapterType];
-
+export type ChapterType = (typeof ChapterType)[keyof typeof ChapterType]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const ChapterType = {
   chapter: 'chapter',
-} as const;
+} as const
 
 /**
  * Related Manga type, only present if you are on a Manga entity and a Manga relationship
  */
-export type RelationshipRelated = typeof RelationshipRelated[keyof typeof RelationshipRelated];
-
+export type RelationshipRelated =
+  (typeof RelationshipRelated)[keyof typeof RelationshipRelated]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const RelationshipRelated = {
@@ -3310,76 +3338,78 @@ export const RelationshipRelated = {
   preserialization: 'preserialization',
   colored: 'colored',
   serialization: 'serialization',
-} as const;
+} as const
 
 /**
  * If Reference Expansion is applied, contains objects attributes
  * @nullable
  */
-export type RelationshipAttributes = { [key: string]: unknown } | null;
+export type RelationshipAttributes = { [key: string]: unknown } | null
 
 export interface Relationship {
   /**
    * If Reference Expansion is applied, contains objects attributes
    * @nullable
    */
-  attributes?: RelationshipAttributes;
-  id?: string;
+  attributes?: RelationshipAttributes
+  id?: string
   /** Related Manga type, only present if you are on a Manga entity and a Manga relationship */
-  related?: RelationshipRelated;
-  type?: string;
+  related?: RelationshipRelated
+  type?: string
 }
 
 export interface Manga {
-  attributes?: MangaAttributes;
-  id?: string;
-  relationships?: Relationship[];
-  type?: MangaType;
+  attributes?: MangaAttributes
+  id?: string
+  relationships?: Relationship[]
+  type?: MangaType
 }
 
 export interface Chapter {
-  attributes?: ChapterAttributes;
-  id?: string;
-  relationships?: Relationship[];
-  type?: ChapterType;
+  attributes?: ChapterAttributes
+  id?: string
+  relationships?: Relationship[]
+  type?: ChapterType
 }
 
-export type ChapterResponseResult = typeof ChapterResponseResult[keyof typeof ChapterResponseResult];
-
+export type ChapterResponseResult =
+  (typeof ChapterResponseResult)[keyof typeof ChapterResponseResult]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const ChapterResponseResult = {
   ok: 'ok',
   error: 'error',
-} as const;
+} as const
 
 export interface ChapterResponse {
-  data?: Chapter;
-  response?: string;
-  result?: ChapterResponseResult;
+  data?: Chapter
+  response?: string
+  result?: ChapterResponseResult
 }
 
-export type MangaResponseResult = typeof MangaResponseResult[keyof typeof MangaResponseResult];
-
+export type MangaResponseResult =
+  (typeof MangaResponseResult)[keyof typeof MangaResponseResult]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const MangaResponseResult = {
   ok: 'ok',
   error: 'error',
-} as const;
+} as const
 
 export interface MangaResponse {
-  data?: Manga;
-  response?: string;
-  result?: MangaResponseResult;
+  data?: Manga
+  response?: string
+  result?: MangaResponseResult
 }
 
-export interface LocalizedString {[key: string]: string}
+export interface LocalizedString {
+  [key: string]: string
+}
 
 /**
  */
-export type MangaRequestStatus = typeof MangaRequestStatus[keyof typeof MangaRequestStatus];
-
+export type MangaRequestStatus =
+  (typeof MangaRequestStatus)[keyof typeof MangaRequestStatus]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const MangaRequestStatus = {
@@ -3387,13 +3417,14 @@ export const MangaRequestStatus = {
   ongoing: 'ongoing',
   cancelled: 'cancelled',
   hiatus: 'hiatus',
-} as const;
+} as const
 
 /**
  * @nullable
  */
-export type MangaRequestPublicationDemographic = typeof MangaRequestPublicationDemographic[keyof typeof MangaRequestPublicationDemographic] | null;
-
+export type MangaRequestPublicationDemographic =
+  | (typeof MangaRequestPublicationDemographic)[keyof typeof MangaRequestPublicationDemographic]
+  | null
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const MangaRequestPublicationDemographic = {
@@ -3401,12 +3432,12 @@ export const MangaRequestPublicationDemographic = {
   shoujo: 'shoujo',
   josei: 'josei',
   seinen: 'seinen',
-} as const;
+} as const
 
-export type MangaRequestLinks = {[key: string]: string};
+export type MangaRequestLinks = { [key: string]: string }
 
-export type MangaRequestContentRating = typeof MangaRequestContentRating[keyof typeof MangaRequestContentRating];
-
+export type MangaRequestContentRating =
+  (typeof MangaRequestContentRating)[keyof typeof MangaRequestContentRating]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const MangaRequestContentRating = {
@@ -3414,1145 +3445,1246 @@ export const MangaRequestContentRating = {
   suggestive: 'suggestive',
   erotica: 'erotica',
   pornographic: 'pornographic',
-} as const;
+} as const
 
 export interface MangaRequest {
-  altTitles?: LocalizedString[];
-  artists?: string[];
-  authors?: string[];
-  chapterNumbersResetOnNewVolume?: boolean;
-  contentRating?: MangaRequestContentRating;
-  description?: LocalizedString;
+  altTitles?: LocalizedString[]
+  artists?: string[]
+  authors?: string[]
+  chapterNumbersResetOnNewVolume?: boolean
+  contentRating?: MangaRequestContentRating
+  description?: LocalizedString
   /** @nullable */
-  lastChapter?: string | null;
+  lastChapter?: string | null
   /** @nullable */
-  lastVolume?: string | null;
-  links?: MangaRequestLinks;
+  lastVolume?: string | null
+  links?: MangaRequestLinks
   /** @pattern ^[a-z]{2}(-[a-z]{2})?$ */
-  originalLanguage?: string;
+  originalLanguage?: string
   /** @nullable */
-  primaryCover?: string | null;
+  primaryCover?: string | null
   /** @nullable */
-  publicationDemographic?: MangaRequestPublicationDemographic;
+  publicationDemographic?: MangaRequestPublicationDemographic
   /** */
-  status?: MangaRequestStatus;
-  tags?: string[];
-  title?: LocalizedString;
+  status?: MangaRequestStatus
+  tags?: string[]
+  title?: LocalizedString
   /** @minimum 1 */
-  version?: number;
+  version?: number
   /**
    * Year of release
    * @minimum 1
    * @maximum 9999
    * @nullable
    */
-  year?: number | null;
+  year?: number | null
 }
 
+type SecondParameter<T extends (...args: any) => any> = Parameters<T>[1]
 
-
-
-type SecondParameter<T extends (...args: any) => any> = Parameters<T>[1];
-
-
-  /**
+/**
  * Returns a plaintext response containing only the word "pong" if the API is healthy
  * @summary Ping healthcheck
  */
-export const getPing = (
-    
- options?: SecondParameter<typeof customInstance>,) => {
-      return customInstance<string>(
-      {url: `/ping`, method: 'GET'
-    },
-      options);
-    }
-  
+export const getPing = (options?: SecondParameter<typeof customInstance>) => {
+  return customInstance<string>({ url: `/ping`, method: 'GET' }, options)
+}
+
 /**
  * Search a list of Manga.
  * @summary Manga list
  */
 export const getSearchManga = (
-    params?: GetSearchMangaParams,
- options?: SecondParameter<typeof customInstance>,) => {
-      return customInstance<MangaList>(
-      {url: `/manga`, method: 'GET',
-        params
-    },
-      options);
-    }
-  
+  params?: GetSearchMangaParams,
+  options?: SecondParameter<typeof customInstance>,
+) => {
+  return customInstance<MangaList>(
+    { url: `/manga`, method: 'GET', params },
+    options,
+  )
+}
+
 /**
  * Create a new Manga.
  * @summary Create Manga
  */
 export const postManga = (
-    mangaCreate: MangaCreate,
- options?: SecondParameter<typeof customInstance>,) => {
-      return customInstance<MangaResponse>(
-      {url: `/manga`, method: 'POST',
-      headers: {'Content-Type': 'application/json', },
-      data: mangaCreate
+  mangaCreate: MangaCreate,
+  options?: SecondParameter<typeof customInstance>,
+) => {
+  return customInstance<MangaResponse>(
+    {
+      url: `/manga`,
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      data: mangaCreate,
     },
-      options);
-    }
-  
+    options,
+  )
+}
+
 /**
  * @summary Get Manga volumes & chapters
  */
 export const getMangaAggregate = (
-    id: string,
-    params?: GetMangaAggregateParams,
- options?: SecondParameter<typeof customInstance>,) => {
-      return customInstance<GetMangaAggregate200>(
-      {url: `/manga/${id}/aggregate`, method: 'GET',
-        params
-    },
-      options);
-    }
-  
+  id: string,
+  params?: GetMangaAggregateParams,
+  options?: SecondParameter<typeof customInstance>,
+) => {
+  return customInstance<GetMangaAggregate200>(
+    { url: `/manga/${id}/aggregate`, method: 'GET', params },
+    options,
+  )
+}
+
 /**
  * Get Manga.
  * @summary Get Manga
  */
 export const getMangaId = (
-    id: string,
-    params?: GetMangaIdParams,
- options?: SecondParameter<typeof customInstance>,) => {
-      return customInstance<MangaResponse>(
-      {url: `/manga/${id}`, method: 'GET',
-        params
-    },
-      options);
-    }
-  
+  id: string,
+  params?: GetMangaIdParams,
+  options?: SecondParameter<typeof customInstance>,
+) => {
+  return customInstance<MangaResponse>(
+    { url: `/manga/${id}`, method: 'GET', params },
+    options,
+  )
+}
+
 /**
  * @summary Update Manga
  */
 export const putMangaId = (
-    id: string,
-    putMangaIdBody: PutMangaIdBody,
- options?: SecondParameter<typeof customInstance>,) => {
-      return customInstance<MangaResponse>(
-      {url: `/manga/${id}`, method: 'PUT',
-      headers: {'Content-Type': 'application/json', },
-      data: putMangaIdBody
+  id: string,
+  putMangaIdBody: PutMangaIdBody,
+  options?: SecondParameter<typeof customInstance>,
+) => {
+  return customInstance<MangaResponse>(
+    {
+      url: `/manga/${id}`,
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      data: putMangaIdBody,
     },
-      options);
-    }
-  
+    options,
+  )
+}
+
 /**
  * @summary Delete Manga
  */
 export const deleteMangaId = (
-    id: string,
- options?: SecondParameter<typeof customInstance>,) => {
-      return customInstance<Response>(
-      {url: `/manga/${id}`, method: 'DELETE'
-    },
-      options);
-    }
-  
+  id: string,
+  options?: SecondParameter<typeof customInstance>,
+) => {
+  return customInstance<Response>(
+    { url: `/manga/${id}`, method: 'DELETE' },
+    options,
+  )
+}
+
 /**
  * @deprecated
  * @summary Login
  */
 export const postAuthLogin = (
-    login: Login,
- options?: SecondParameter<typeof customInstance>,) => {
-      return customInstance<LoginResponse>(
-      {url: `/auth/login`, method: 'POST',
-      headers: {'Content-Type': 'application/json', },
-      data: login
+  login: Login,
+  options?: SecondParameter<typeof customInstance>,
+) => {
+  return customInstance<LoginResponse>(
+    {
+      url: `/auth/login`,
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      data: login,
     },
-      options);
-    }
-  
+    options,
+  )
+}
+
 /**
  * The returned list of permissions is computed depending on the generic role permissions that the token user has, their personal overrides, and the OpenID scopes of the token (we do not offer granular token permissions yet)
 
  * @summary Check the set of permissions associated with the current token
  */
 export const getAuthCheck = (
-    
- options?: SecondParameter<typeof customInstance>,) => {
-      return customInstance<CheckResponse>(
-      {url: `/auth/check`, method: 'GET'
-    },
-      options);
-    }
-  
+  options?: SecondParameter<typeof customInstance>,
+) => {
+  return customInstance<CheckResponse>(
+    { url: `/auth/check`, method: 'GET' },
+    options,
+  )
+}
+
 /**
  * @deprecated
  * @summary Logout
  */
 export const postAuthLogout = (
-    
- options?: SecondParameter<typeof customInstance>,) => {
-      return customInstance<LogoutResponse>(
-      {url: `/auth/logout`, method: 'POST'
-    },
-      options);
-    }
-  
+  options?: SecondParameter<typeof customInstance>,
+) => {
+  return customInstance<LogoutResponse>(
+    { url: `/auth/logout`, method: 'POST' },
+    options,
+  )
+}
+
 /**
  * @deprecated
  * @summary Refresh token
  */
 export const postAuthRefresh = (
-    refreshToken: RefreshToken,
- options?: SecondParameter<typeof customInstance>,) => {
-      return customInstance<RefreshResponse>(
-      {url: `/auth/refresh`, method: 'POST',
-      headers: {'Content-Type': 'application/json', },
-      data: refreshToken
+  refreshToken: RefreshToken,
+  options?: SecondParameter<typeof customInstance>,
+) => {
+  return customInstance<RefreshResponse>(
+    {
+      url: `/auth/refresh`,
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      data: refreshToken,
     },
-      options);
-    }
-  
+    options,
+  )
+}
+
 /**
  * @summary List own Api Clients
  */
 export const getListApiclients = (
-    params?: GetListApiclientsParams,
- options?: SecondParameter<typeof customInstance>,) => {
-      return customInstance<ApiClientList>(
-      {url: `/client`, method: 'GET',
-        params
-    },
-      options);
-    }
-  
+  params?: GetListApiclientsParams,
+  options?: SecondParameter<typeof customInstance>,
+) => {
+  return customInstance<ApiClientList>(
+    { url: `/client`, method: 'GET', params },
+    options,
+  )
+}
+
 /**
  * @summary Create ApiClient
  */
 export const postCreateApiclient = (
-    apiClientCreate: ApiClientCreate,
- options?: SecondParameter<typeof customInstance>,) => {
-      return customInstance<ApiClientResponse>(
-      {url: `/client`, method: 'POST',
-      headers: {'Content-Type': 'application/json', },
-      data: apiClientCreate
+  apiClientCreate: ApiClientCreate,
+  options?: SecondParameter<typeof customInstance>,
+) => {
+  return customInstance<ApiClientResponse>(
+    {
+      url: `/client`,
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      data: apiClientCreate,
     },
-      options);
-    }
-  
+    options,
+  )
+}
+
 /**
  * @summary Get Api Client by ID
  */
 export const getApiclient = (
-    id: string,
-    params?: GetApiclientParams,
- options?: SecondParameter<typeof customInstance>,) => {
-      return customInstance<ApiClientResponse>(
-      {url: `/client/${id}`, method: 'GET',
-        params
-    },
-      options);
-    }
-  
+  id: string,
+  params?: GetApiclientParams,
+  options?: SecondParameter<typeof customInstance>,
+) => {
+  return customInstance<ApiClientResponse>(
+    { url: `/client/${id}`, method: 'GET', params },
+    options,
+  )
+}
+
 /**
  * @summary Edit ApiClient
  */
 export const postEditApiclient = (
-    id: string,
-    apiClientEdit: ApiClientEdit,
- options?: SecondParameter<typeof customInstance>,) => {
-      return customInstance<ApiClientResponse>(
-      {url: `/client/${id}`, method: 'POST',
-      headers: {'Content-Type': 'application/json', },
-      data: apiClientEdit
+  id: string,
+  apiClientEdit: ApiClientEdit,
+  options?: SecondParameter<typeof customInstance>,
+) => {
+  return customInstance<ApiClientResponse>(
+    {
+      url: `/client/${id}`,
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      data: apiClientEdit,
     },
-      options);
-    }
-  
+    options,
+  )
+}
+
 /**
  * @summary Delete Api Client
  */
 export const deleteApiclient = (
-    id: string,
-    params?: DeleteApiclientParams,
- options?: SecondParameter<typeof customInstance>,) => {
-      return customInstance<DeleteApiclient200>(
-      {url: `/client/${id}`, method: 'DELETE',
-        params
-    },
-      options);
-    }
-  
+  id: string,
+  params?: DeleteApiclientParams,
+  options?: SecondParameter<typeof customInstance>,
+) => {
+  return customInstance<DeleteApiclient200>(
+    { url: `/client/${id}`, method: 'DELETE', params },
+    options,
+  )
+}
+
 /**
  * @summary Get Secret for Client by ID
  */
 export const getApiclientSecret = (
-    id: string,
- options?: SecondParameter<typeof customInstance>,) => {
-      return customInstance<GetApiclientSecret200>(
-      {url: `/client/${id}/secret`, method: 'GET'
-    },
-      options);
-    }
-  
+  id: string,
+  options?: SecondParameter<typeof customInstance>,
+) => {
+  return customInstance<GetApiclientSecret200>(
+    { url: `/client/${id}/secret`, method: 'GET' },
+    options,
+  )
+}
+
 /**
  * @summary Regenerate Client Secret
  */
 export const postRegenerateApiclientSecret = (
-    id: string,
-    postRegenerateApiclientSecretBody: PostRegenerateApiclientSecretBody,
- options?: SecondParameter<typeof customInstance>,) => {
-      return customInstance<PostRegenerateApiclientSecret200>(
-      {url: `/client/${id}/secret`, method: 'POST',
-      headers: {'Content-Type': 'application/json', },
-      data: postRegenerateApiclientSecretBody
+  id: string,
+  postRegenerateApiclientSecretBody: PostRegenerateApiclientSecretBody,
+  options?: SecondParameter<typeof customInstance>,
+) => {
+  return customInstance<PostRegenerateApiclientSecret200>(
+    {
+      url: `/client/${id}/secret`,
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      data: postRegenerateApiclientSecretBody,
     },
-      options);
-    }
-  
+    options,
+  )
+}
+
 /**
  * @summary Scanlation Group list
  */
 export const getSearchGroup = (
-    params?: GetSearchGroupParams,
- options?: SecondParameter<typeof customInstance>,) => {
-      return customInstance<ScanlationGroupList>(
-      {url: `/group`, method: 'GET',
-        params
-    },
-      options);
-    }
-  
+  params?: GetSearchGroupParams,
+  options?: SecondParameter<typeof customInstance>,
+) => {
+  return customInstance<ScanlationGroupList>(
+    { url: `/group`, method: 'GET', params },
+    options,
+  )
+}
+
 /**
  * @summary Create Scanlation Group
  */
 export const postGroup = (
-    createScanlationGroup: CreateScanlationGroup,
- options?: SecondParameter<typeof customInstance>,) => {
-      return customInstance<ScanlationGroupResponse>(
-      {url: `/group`, method: 'POST',
-      headers: {'Content-Type': 'application/json', },
-      data: createScanlationGroup
+  createScanlationGroup: CreateScanlationGroup,
+  options?: SecondParameter<typeof customInstance>,
+) => {
+  return customInstance<ScanlationGroupResponse>(
+    {
+      url: `/group`,
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      data: createScanlationGroup,
     },
-      options);
-    }
-  
+    options,
+  )
+}
+
 /**
  * @summary Get Scanlation Group
  */
 export const getGroupId = (
-    id: string,
-    params?: GetGroupIdParams,
- options?: SecondParameter<typeof customInstance>,) => {
-      return customInstance<ScanlationGroupResponse>(
-      {url: `/group/${id}`, method: 'GET',
-        params
-    },
-      options);
-    }
-  
+  id: string,
+  params?: GetGroupIdParams,
+  options?: SecondParameter<typeof customInstance>,
+) => {
+  return customInstance<ScanlationGroupResponse>(
+    { url: `/group/${id}`, method: 'GET', params },
+    options,
+  )
+}
+
 /**
  * @summary Update Scanlation Group
  */
 export const putGroupId = (
-    id: string,
-    scanlationGroupEdit: ScanlationGroupEdit,
- options?: SecondParameter<typeof customInstance>,) => {
-      return customInstance<ScanlationGroupResponse>(
-      {url: `/group/${id}`, method: 'PUT',
-      headers: {'Content-Type': 'application/json', },
-      data: scanlationGroupEdit
+  id: string,
+  scanlationGroupEdit: ScanlationGroupEdit,
+  options?: SecondParameter<typeof customInstance>,
+) => {
+  return customInstance<ScanlationGroupResponse>(
+    {
+      url: `/group/${id}`,
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      data: scanlationGroupEdit,
     },
-      options);
-    }
-  
+    options,
+  )
+}
+
 /**
  * @summary Delete Scanlation Group
  */
 export const deleteGroupId = (
-    id: string,
- options?: SecondParameter<typeof customInstance>,) => {
-      return customInstance<Response>(
-      {url: `/group/${id}`, method: 'DELETE'
-    },
-      options);
-    }
-  
+  id: string,
+  options?: SecondParameter<typeof customInstance>,
+) => {
+  return customInstance<Response>(
+    { url: `/group/${id}`, method: 'DELETE' },
+    options,
+  )
+}
+
 /**
  * @summary Follow Scanlation Group
  */
 export const postGroupIdFollow = (
-    id: string,
- options?: SecondParameter<typeof customInstance>,) => {
-      return customInstance<Response>(
-      {url: `/group/${id}/follow`, method: 'POST'
-    },
-      options);
-    }
-  
+  id: string,
+  options?: SecondParameter<typeof customInstance>,
+) => {
+  return customInstance<Response>(
+    { url: `/group/${id}/follow`, method: 'POST' },
+    options,
+  )
+}
+
 /**
  * @summary Unfollow Scanlation Group
  */
 export const deleteGroupIdFollow = (
-    id: string,
- options?: SecondParameter<typeof customInstance>,) => {
-      return customInstance<Response>(
-      {url: `/group/${id}/follow`, method: 'DELETE'
-    },
-      options);
-    }
-  
+  id: string,
+  options?: SecondParameter<typeof customInstance>,
+) => {
+  return customInstance<Response>(
+    { url: `/group/${id}/follow`, method: 'DELETE' },
+    options,
+  )
+}
+
 /**
  * @summary Create CustomList
  */
 export const postList = (
-    customListCreate: CustomListCreate,
- options?: SecondParameter<typeof customInstance>,) => {
-      return customInstance<CustomListResponse>(
-      {url: `/list`, method: 'POST',
-      headers: {'Content-Type': 'application/json', },
-      data: customListCreate
+  customListCreate: CustomListCreate,
+  options?: SecondParameter<typeof customInstance>,
+) => {
+  return customInstance<CustomListResponse>(
+    {
+      url: `/list`,
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      data: customListCreate,
     },
-      options);
-    }
-  
+    options,
+  )
+}
+
 /**
  * @summary Get CustomList
  */
 export const getListId = (
-    id: string,
- options?: SecondParameter<typeof customInstance>,) => {
-      return customInstance<CustomListResponse>(
-      {url: `/list/${id}`, method: 'GET'
-    },
-      options);
-    }
-  
+  id: string,
+  options?: SecondParameter<typeof customInstance>,
+) => {
+  return customInstance<CustomListResponse>(
+    { url: `/list/${id}`, method: 'GET' },
+    options,
+  )
+}
+
 /**
  * The size of the body is limited to 8KB.
  * @summary Update CustomList
  */
 export const putListId = (
-    id: string,
-    customListEdit: CustomListEdit,
- options?: SecondParameter<typeof customInstance>,) => {
-      return customInstance<CustomListResponse>(
-      {url: `/list/${id}`, method: 'PUT',
-      headers: {'Content-Type': 'application/json', },
-      data: customListEdit
+  id: string,
+  customListEdit: CustomListEdit,
+  options?: SecondParameter<typeof customInstance>,
+) => {
+  return customInstance<CustomListResponse>(
+    {
+      url: `/list/${id}`,
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      data: customListEdit,
     },
-      options);
-    }
-  
+    options,
+  )
+}
+
 /**
  * @summary Delete CustomList
  */
 export const deleteListId = (
-    id: string,
- options?: SecondParameter<typeof customInstance>,) => {
-      return customInstance<Response>(
-      {url: `/list/${id}`, method: 'DELETE'
-    },
-      options);
-    }
-  
+  id: string,
+  options?: SecondParameter<typeof customInstance>,
+) => {
+  return customInstance<Response>(
+    { url: `/list/${id}`, method: 'DELETE' },
+    options,
+  )
+}
+
 /**
  * The request body is empty
  * @summary Follow CustomList
  */
 export const followListId = (
-    id: string,
-    followListIdBody: FollowListIdBody,
- options?: SecondParameter<typeof customInstance>,) => {
-      return customInstance<FollowListId200>(
-      {url: `/list/${id}/follow`, method: 'POST',
-      headers: {'Content-Type': 'application/json', },
-      data: followListIdBody
+  id: string,
+  followListIdBody: FollowListIdBody,
+  options?: SecondParameter<typeof customInstance>,
+) => {
+  return customInstance<FollowListId200>(
+    {
+      url: `/list/${id}/follow`,
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      data: followListIdBody,
     },
-      options);
-    }
-  
+    options,
+  )
+}
+
 /**
  * The request body is empty
  * @summary Unfollow CustomList
  */
 export const unfollowListId = (
-    id: string,
-    unfollowListIdBody: UnfollowListIdBody,
- options?: SecondParameter<typeof customInstance>,) => {
-      return customInstance<UnfollowListId200>(
-      {url: `/list/${id}/follow`, method: 'DELETE',
-      headers: {'Content-Type': 'application/json', },
-      data: unfollowListIdBody
+  id: string,
+  unfollowListIdBody: UnfollowListIdBody,
+  options?: SecondParameter<typeof customInstance>,
+) => {
+  return customInstance<UnfollowListId200>(
+    {
+      url: `/list/${id}/follow`,
+      method: 'DELETE',
+      headers: { 'Content-Type': 'application/json' },
+      data: unfollowListIdBody,
     },
-      options);
-    }
-  
+    options,
+  )
+}
+
 /**
  * @summary Add Manga in CustomList
  */
 export const postMangaIdListListId = (
-    id: string,
-    listId: string,
- options?: SecondParameter<typeof customInstance>,) => {
-      return customInstance<Response>(
-      {url: `/manga/${id}/list/${listId}`, method: 'POST'
-    },
-      options);
-    }
-  
+  id: string,
+  listId: string,
+  options?: SecondParameter<typeof customInstance>,
+) => {
+  return customInstance<Response>(
+    { url: `/manga/${id}/list/${listId}`, method: 'POST' },
+    options,
+  )
+}
+
 /**
  * @summary Remove Manga in CustomList
  */
 export const deleteMangaIdListListId = (
-    id: string,
-    listId: string,
- options?: SecondParameter<typeof customInstance>,) => {
-      return customInstance<Response>(
-      {url: `/manga/${id}/list/${listId}`, method: 'DELETE'
-    },
-      options);
-    }
-  
+  id: string,
+  listId: string,
+  options?: SecondParameter<typeof customInstance>,
+) => {
+  return customInstance<Response>(
+    { url: `/manga/${id}/list/${listId}`, method: 'DELETE' },
+    options,
+  )
+}
+
 /**
  * This will list public and private CustomList
  * @summary Get logged User CustomList list
  */
 export const getUserList = (
-    params?: GetUserListParams,
- options?: SecondParameter<typeof customInstance>,) => {
-      return customInstance<CustomListList>(
-      {url: `/user/list`, method: 'GET',
-        params
-    },
-      options);
-    }
-  
+  params?: GetUserListParams,
+  options?: SecondParameter<typeof customInstance>,
+) => {
+  return customInstance<CustomListList>(
+    { url: `/user/list`, method: 'GET', params },
+    options,
+  )
+}
+
 /**
  * This will list only public CustomList
  * @summary Get User's CustomList list
  */
 export const getUserIdList = (
-    id: string,
-    params?: GetUserIdListParams,
- options?: SecondParameter<typeof customInstance>,) => {
-      return customInstance<CustomListList>(
-      {url: `/user/${id}/list`, method: 'GET',
-        params
-    },
-      options);
-    }
-  
+  id: string,
+  params?: GetUserIdListParams,
+  options?: SecondParameter<typeof customInstance>,
+) => {
+  return customInstance<CustomListList>(
+    { url: `/user/${id}/list`, method: 'GET', params },
+    options,
+  )
+}
+
 /**
  * @summary User list
  */
 export const getUser = (
-    params?: GetUserParams,
- options?: SecondParameter<typeof customInstance>,) => {
-      return customInstance<UserList>(
-      {url: `/user`, method: 'GET',
-        params
-    },
-      options);
-    }
-  
+  params?: GetUserParams,
+  options?: SecondParameter<typeof customInstance>,
+) => {
+  return customInstance<UserList>(
+    { url: `/user`, method: 'GET', params },
+    options,
+  )
+}
+
 /**
  * @summary Get User
  */
 export const getUserId = (
-    id: string,
- options?: SecondParameter<typeof customInstance>,) => {
-      return customInstance<UserResponse>(
-      {url: `/user/${id}`, method: 'GET'
-    },
-      options);
-    }
-  
+  id: string,
+  options?: SecondParameter<typeof customInstance>,
+) => {
+  return customInstance<UserResponse>(
+    { url: `/user/${id}`, method: 'GET' },
+    options,
+  )
+}
+
 /**
  * @deprecated
  * @summary Delete User
  */
 export const deleteUserId = (
-    id: string,
- options?: SecondParameter<typeof customInstance>,) => {
-      return customInstance<Response>(
-      {url: `/user/${id}`, method: 'DELETE'
-    },
-      options);
-    }
-  
+  id: string,
+  options?: SecondParameter<typeof customInstance>,
+) => {
+  return customInstance<Response>(
+    { url: `/user/${id}`, method: 'DELETE' },
+    options,
+  )
+}
+
 /**
  * @deprecated
  * @summary Approve User deletion
  */
 export const postUserDeleteCode = (
-    code: string,
- options?: SecondParameter<typeof customInstance>,) => {
-      return customInstance<Response>(
-      {url: `/user/delete/${code}`, method: 'POST'
-    },
-      options);
-    }
-  
+  code: string,
+  options?: SecondParameter<typeof customInstance>,
+) => {
+  return customInstance<Response>(
+    { url: `/user/delete/${code}`, method: 'POST' },
+    options,
+  )
+}
+
 /**
  * Chapter list. If you want the Chapters of a given Manga, please check the feed endpoints.
  * @summary Chapter list
  */
 export const getChapter = (
-    params?: GetChapterParams,
- options?: SecondParameter<typeof customInstance>,) => {
-      return customInstance<ChapterList>(
-      {url: `/chapter`, method: 'GET',
-        params
-    },
-      options);
-    }
-  
+  params?: GetChapterParams,
+  options?: SecondParameter<typeof customInstance>,
+) => {
+  return customInstance<ChapterList>(
+    { url: `/chapter`, method: 'GET', params },
+    options,
+  )
+}
+
 /**
  * @summary Get Chapter
  */
 export const getChapterId = (
-    id: string,
-    params?: GetChapterIdParams,
- options?: SecondParameter<typeof customInstance>,) => {
-      return customInstance<ChapterResponse>(
-      {url: `/chapter/${id}`, method: 'GET',
-        params
-    },
-      options);
-    }
-  
+  id: string,
+  params?: GetChapterIdParams,
+  options?: SecondParameter<typeof customInstance>,
+) => {
+  return customInstance<ChapterResponse>(
+    { url: `/chapter/${id}`, method: 'GET', params },
+    options,
+  )
+}
+
 /**
  * @summary Update Chapter
  */
 export const putChapterId = (
-    id: string,
-    chapterEdit: ChapterEdit,
- options?: SecondParameter<typeof customInstance>,) => {
-      return customInstance<ChapterResponse>(
-      {url: `/chapter/${id}`, method: 'PUT',
-      headers: {'Content-Type': 'application/json', },
-      data: chapterEdit
+  id: string,
+  chapterEdit: ChapterEdit,
+  options?: SecondParameter<typeof customInstance>,
+) => {
+  return customInstance<ChapterResponse>(
+    {
+      url: `/chapter/${id}`,
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      data: chapterEdit,
     },
-      options);
-    }
-  
+    options,
+  )
+}
+
 /**
  * @summary Delete Chapter
  */
 export const deleteChapterId = (
-    id: string,
- options?: SecondParameter<typeof customInstance>,) => {
-      return customInstance<Response>(
-      {url: `/chapter/${id}`, method: 'DELETE'
-    },
-      options);
-    }
-  
+  id: string,
+  options?: SecondParameter<typeof customInstance>,
+) => {
+  return customInstance<Response>(
+    { url: `/chapter/${id}`, method: 'DELETE' },
+    options,
+  )
+}
+
 /**
  * @summary Get logged User followed Manga feed (Chapter list)
  */
 export const getUserFollowsMangaFeed = (
-    params?: GetUserFollowsMangaFeedParams,
- options?: SecondParameter<typeof customInstance>,) => {
-      return customInstance<ChapterList>(
-      {url: `/user/follows/manga/feed`, method: 'GET',
-        params
-    },
-      options);
-    }
-  
+  params?: GetUserFollowsMangaFeedParams,
+  options?: SecondParameter<typeof customInstance>,
+) => {
+  return customInstance<ChapterList>(
+    { url: `/user/follows/manga/feed`, method: 'GET', params },
+    options,
+  )
+}
+
 /**
  * @summary CustomList Manga feed
  */
 export const getListIdFeed = (
-    id: string,
-    params?: GetListIdFeedParams,
- options?: SecondParameter<typeof customInstance>,) => {
-      return customInstance<ChapterList>(
-      {url: `/list/${id}/feed`, method: 'GET',
-        params
-    },
-      options);
-    }
-  
+  id: string,
+  params?: GetListIdFeedParams,
+  options?: SecondParameter<typeof customInstance>,
+) => {
+  return customInstance<ChapterList>(
+    { url: `/list/${id}/feed`, method: 'GET', params },
+    options,
+  )
+}
+
 /**
  * @summary Unfollow Manga
  */
 export const deleteMangaIdFollow = (
-    id: string,
- options?: SecondParameter<typeof customInstance>,) => {
-      return customInstance<Response>(
-      {url: `/manga/${id}/follow`, method: 'DELETE'
-    },
-      options);
-    }
-  
+  id: string,
+  options?: SecondParameter<typeof customInstance>,
+) => {
+  return customInstance<Response>(
+    { url: `/manga/${id}/follow`, method: 'DELETE' },
+    options,
+  )
+}
+
 /**
  * @summary Follow Manga
  */
 export const postMangaIdFollow = (
-    id: string,
- options?: SecondParameter<typeof customInstance>,) => {
-      return customInstance<Response>(
-      {url: `/manga/${id}/follow`, method: 'POST'
-    },
-      options);
-    }
-  
+  id: string,
+  options?: SecondParameter<typeof customInstance>,
+) => {
+  return customInstance<Response>(
+    { url: `/manga/${id}/follow`, method: 'POST' },
+    options,
+  )
+}
+
 /**
  * @summary CoverArt list
  */
 export const getCover = (
-    params?: GetCoverParams,
- options?: SecondParameter<typeof customInstance>,) => {
-      return customInstance<CoverList>(
-      {url: `/cover`, method: 'GET',
-        params
-    },
-      options);
-    }
-  
+  params?: GetCoverParams,
+  options?: SecondParameter<typeof customInstance>,
+) => {
+  return customInstance<CoverList>(
+    { url: `/cover`, method: 'GET', params },
+    options,
+  )
+}
+
 /**
  * @summary Upload Cover
  */
 export const uploadCover = (
-    mangaOrCoverId: string,
-    uploadCoverBody: UploadCoverBody,
- options?: SecondParameter<typeof customInstance>,) => {const formData = new FormData();
-if(uploadCoverBody.file !== undefined) {
- formData.append('file', uploadCoverBody.file)
- }
-if(uploadCoverBody.volume !== undefined && uploadCoverBody.volume !== null) {
- formData.append('volume', uploadCoverBody.volume)
- }
-if(uploadCoverBody.description !== undefined) {
- formData.append('description', uploadCoverBody.description)
- }
-if(uploadCoverBody.locale !== undefined) {
- formData.append('locale', uploadCoverBody.locale)
- }
+  mangaOrCoverId: string,
+  uploadCoverBody: UploadCoverBody,
+  options?: SecondParameter<typeof customInstance>,
+) => {
+  const formData = new FormData()
+  if (uploadCoverBody.file !== undefined) {
+    formData.append('file', uploadCoverBody.file)
+  }
+  if (uploadCoverBody.volume !== undefined && uploadCoverBody.volume !== null) {
+    formData.append('volume', uploadCoverBody.volume)
+  }
+  if (uploadCoverBody.description !== undefined) {
+    formData.append('description', uploadCoverBody.description)
+  }
+  if (uploadCoverBody.locale !== undefined) {
+    formData.append('locale', uploadCoverBody.locale)
+  }
 
-      return customInstance<CoverResponse>(
-      {url: `/cover/${mangaOrCoverId}`, method: 'POST',
-      headers: {'Content-Type': 'multipart/form-data', },
-       data: formData
+  return customInstance<CoverResponse>(
+    {
+      url: `/cover/${mangaOrCoverId}`,
+      method: 'POST',
+      headers: { 'Content-Type': 'multipart/form-data' },
+      data: formData,
     },
-      options);
-    }
-  
+    options,
+  )
+}
+
 /**
  * @summary Get Cover
  */
 export const getCoverId = (
-    mangaOrCoverId: string,
-    params?: GetCoverIdParams,
- options?: SecondParameter<typeof customInstance>,) => {
-      return customInstance<CoverResponse>(
-      {url: `/cover/${mangaOrCoverId}`, method: 'GET',
-        params
-    },
-      options);
-    }
-  
+  mangaOrCoverId: string,
+  params?: GetCoverIdParams,
+  options?: SecondParameter<typeof customInstance>,
+) => {
+  return customInstance<CoverResponse>(
+    { url: `/cover/${mangaOrCoverId}`, method: 'GET', params },
+    options,
+  )
+}
+
 /**
  * @summary Edit Cover
  */
 export const editCover = (
-    mangaOrCoverId: string,
-    coverEdit: CoverEdit,
- options?: SecondParameter<typeof customInstance>,) => {
-      return customInstance<CoverResponse>(
-      {url: `/cover/${mangaOrCoverId}`, method: 'PUT',
-      headers: {'Content-Type': 'application/json', },
-      data: coverEdit
+  mangaOrCoverId: string,
+  coverEdit: CoverEdit,
+  options?: SecondParameter<typeof customInstance>,
+) => {
+  return customInstance<CoverResponse>(
+    {
+      url: `/cover/${mangaOrCoverId}`,
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      data: coverEdit,
     },
-      options);
-    }
-  
+    options,
+  )
+}
+
 /**
  * @summary Delete Cover
  */
 export const deleteCover = (
-    mangaOrCoverId: string,
- options?: SecondParameter<typeof customInstance>,) => {
-      return customInstance<Response>(
-      {url: `/cover/${mangaOrCoverId}`, method: 'DELETE'
-    },
-      options);
-    }
-  
+  mangaOrCoverId: string,
+  options?: SecondParameter<typeof customInstance>,
+) => {
+  return customInstance<Response>(
+    { url: `/cover/${mangaOrCoverId}`, method: 'DELETE' },
+    options,
+  )
+}
+
 /**
  * @summary Author list
  */
 export const getAuthor = (
-    params?: GetAuthorParams,
- options?: SecondParameter<typeof customInstance>,) => {
-      return customInstance<AuthorList>(
-      {url: `/author`, method: 'GET',
-        params
-    },
-      options);
-    }
-  
+  params?: GetAuthorParams,
+  options?: SecondParameter<typeof customInstance>,
+) => {
+  return customInstance<AuthorList>(
+    { url: `/author`, method: 'GET', params },
+    options,
+  )
+}
+
 /**
  * @summary Create Author
  */
 export const postAuthor = (
-    authorCreate: AuthorCreate,
- options?: SecondParameter<typeof customInstance>,) => {
-      return customInstance<AuthorResponse>(
-      {url: `/author`, method: 'POST',
-      headers: {'Content-Type': 'application/json', },
-      data: authorCreate
+  authorCreate: AuthorCreate,
+  options?: SecondParameter<typeof customInstance>,
+) => {
+  return customInstance<AuthorResponse>(
+    {
+      url: `/author`,
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      data: authorCreate,
     },
-      options);
-    }
-  
+    options,
+  )
+}
+
 /**
  * @summary Get Author
  */
 export const getAuthorId = (
-    id: string,
-    params?: GetAuthorIdParams,
- options?: SecondParameter<typeof customInstance>,) => {
-      return customInstance<AuthorResponse>(
-      {url: `/author/${id}`, method: 'GET',
-        params
-    },
-      options);
-    }
-  
+  id: string,
+  params?: GetAuthorIdParams,
+  options?: SecondParameter<typeof customInstance>,
+) => {
+  return customInstance<AuthorResponse>(
+    { url: `/author/${id}`, method: 'GET', params },
+    options,
+  )
+}
+
 /**
  * @summary Update Author
  */
 export const putAuthorId = (
-    id: string,
-    authorEdit: AuthorEdit,
- options?: SecondParameter<typeof customInstance>,) => {
-      return customInstance<AuthorResponse>(
-      {url: `/author/${id}`, method: 'PUT',
-      headers: {'Content-Type': 'application/json', },
-      data: authorEdit
+  id: string,
+  authorEdit: AuthorEdit,
+  options?: SecondParameter<typeof customInstance>,
+) => {
+  return customInstance<AuthorResponse>(
+    {
+      url: `/author/${id}`,
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      data: authorEdit,
     },
-      options);
-    }
-  
+    options,
+  )
+}
+
 /**
  * @summary Delete Author
  */
 export const deleteAuthorId = (
-    id: string,
- options?: SecondParameter<typeof customInstance>,) => {
-      return customInstance<Response>(
-      {url: `/author/${id}`, method: 'DELETE'
-    },
-      options);
-    }
-  
+  id: string,
+  options?: SecondParameter<typeof customInstance>,
+) => {
+  return customInstance<Response>(
+    { url: `/author/${id}`, method: 'DELETE' },
+    options,
+  )
+}
+
 /**
  * @summary Legacy ID mapping
  */
 export const postLegacyMapping = (
-    mappingIdBody: MappingIdBody,
- options?: SecondParameter<typeof customInstance>,) => {
-      return customInstance<MappingIdResponse>(
-      {url: `/legacy/mapping`, method: 'POST',
-      headers: {'Content-Type': 'application/json', },
-      data: mappingIdBody
+  mappingIdBody: MappingIdBody,
+  options?: SecondParameter<typeof customInstance>,
+) => {
+  return customInstance<MappingIdResponse>(
+    {
+      url: `/legacy/mapping`,
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      data: mappingIdBody,
     },
-      options);
-    }
-  
+    options,
+  )
+}
+
 /**
  * @summary Manga feed
  */
 export const getMangaIdFeed = (
-    id: string,
-    params?: GetMangaIdFeedParams,
- options?: SecondParameter<typeof customInstance>,) => {
-      return customInstance<ChapterList>(
-      {url: `/manga/${id}/feed`, method: 'GET',
-        params
-    },
-      options);
-    }
-  
+  id: string,
+  params?: GetMangaIdFeedParams,
+  options?: SecondParameter<typeof customInstance>,
+) => {
+  return customInstance<ChapterList>(
+    { url: `/manga/${id}/feed`, method: 'GET', params },
+    options,
+  )
+}
+
 /**
  * A list of chapter ids that are marked as read for the specified manga
  * @summary Manga read markers
  */
 export const getMangaChapterReadmarkers = (
-    id: string,
- options?: SecondParameter<typeof customInstance>,) => {
-      return customInstance<GetMangaChapterReadmarkers200>(
-      {url: `/manga/${id}/read`, method: 'GET'
-    },
-      options);
-    }
-  
+  id: string,
+  options?: SecondParameter<typeof customInstance>,
+) => {
+  return customInstance<GetMangaChapterReadmarkers200>(
+    { url: `/manga/${id}/read`, method: 'GET' },
+    options,
+  )
+}
+
 /**
  * Send a lot of chapter ids for one manga to mark as read and/or unread
  * @summary Manga read markers batch
  */
 export const postMangaChapterReadmarkers = (
-    id: string,
-    chapterReadMarkerBatch: ChapterReadMarkerBatch,
-    params?: PostMangaChapterReadmarkersParams,
- options?: SecondParameter<typeof customInstance>,) => {
-      return customInstance<PostMangaChapterReadmarkers200>(
-      {url: `/manga/${id}/read`, method: 'POST',
-      headers: {'Content-Type': 'application/json', },
+  id: string,
+  chapterReadMarkerBatch: ChapterReadMarkerBatch,
+  params?: PostMangaChapterReadmarkersParams,
+  options?: SecondParameter<typeof customInstance>,
+) => {
+  return customInstance<PostMangaChapterReadmarkers200>(
+    {
+      url: `/manga/${id}/read`,
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
       data: chapterReadMarkerBatch,
-        params
+      params,
     },
-      options);
-    }
-  
+    options,
+  )
+}
+
 /**
  * A list of chapter ids that are marked as read for the given manga ids
  * @summary Manga read markers
  */
 export const getMangaChapterReadmarkers2 = (
-    params: GetMangaChapterReadmarkers2Params,
- options?: SecondParameter<typeof customInstance>,) => {
-      return customInstance<GetMangaChapterReadmarkers2200>(
-      {url: `/manga/read`, method: 'GET',
-        params
-    },
-      options);
-    }
-  
+  params: GetMangaChapterReadmarkers2Params,
+  options?: SecondParameter<typeof customInstance>,
+) => {
+  return customInstance<GetMangaChapterReadmarkers2200>(
+    { url: `/manga/read`, method: 'GET', params },
+    options,
+  )
+}
+
 /**
  * @summary Get a random Manga
  */
 export const getMangaRandom = (
-    params?: GetMangaRandomParams,
- options?: SecondParameter<typeof customInstance>,) => {
-      return customInstance<MangaResponse>(
-      {url: `/manga/random`, method: 'GET',
-        params
-    },
-      options);
-    }
-  
+  params?: GetMangaRandomParams,
+  options?: SecondParameter<typeof customInstance>,
+) => {
+  return customInstance<MangaResponse>(
+    { url: `/manga/random`, method: 'GET', params },
+    options,
+  )
+}
+
 /**
  * @summary Get MangaDex@Home server URL
  */
 export const getAtHomeServerChapterId = (
-    chapterId: string,
-    params?: GetAtHomeServerChapterIdParams,
- options?: SecondParameter<typeof customInstance>,) => {
-      return customInstance<GetAtHomeServerChapterId200>(
-      {url: `/at-home/server/${chapterId}`, method: 'GET',
-        params
-    },
-      options);
-    }
-  
+  chapterId: string,
+  params?: GetAtHomeServerChapterIdParams,
+  options?: SecondParameter<typeof customInstance>,
+) => {
+  return customInstance<GetAtHomeServerChapterId200>(
+    { url: `/at-home/server/${chapterId}`, method: 'GET', params },
+    options,
+  )
+}
+
 /**
  * @summary Tag list
  */
 export const getMangaTag = (
-    
- options?: SecondParameter<typeof customInstance>,) => {
-      return customInstance<TagResponse>(
-      {url: `/manga/tag`, method: 'GET'
-    },
-      options);
-    }
-  
+  options?: SecondParameter<typeof customInstance>,
+) => {
+  return customInstance<TagResponse>(
+    { url: `/manga/tag`, method: 'GET' },
+    options,
+  )
+}
+
 /**
  * @summary Logged User details
  */
-export const getUserMe = (
-    
- options?: SecondParameter<typeof customInstance>,) => {
-      return customInstance<UserResponse>(
-      {url: `/user/me`, method: 'GET'
-    },
-      options);
-    }
-  
+export const getUserMe = (options?: SecondParameter<typeof customInstance>) => {
+  return customInstance<UserResponse>(
+    { url: `/user/me`, method: 'GET' },
+    options,
+  )
+}
+
 /**
  * @summary Get logged User followed Groups
  */
 export const getUserFollowsGroup = (
-    params?: GetUserFollowsGroupParams,
- options?: SecondParameter<typeof customInstance>,) => {
-      return customInstance<ScanlationGroupList>(
-      {url: `/user/follows/group`, method: 'GET',
-        params
-    },
-      options);
-    }
-  
+  params?: GetUserFollowsGroupParams,
+  options?: SecondParameter<typeof customInstance>,
+) => {
+  return customInstance<ScanlationGroupList>(
+    { url: `/user/follows/group`, method: 'GET', params },
+    options,
+  )
+}
+
 /**
  * @summary Check if logged User follows a Group
  */
 export const getUserFollowsGroupId = (
-    id: string,
- options?: SecondParameter<typeof customInstance>,) => {
-      return customInstance<Response>(
-      {url: `/user/follows/group/${id}`, method: 'GET'
-    },
-      options);
-    }
-  
+  id: string,
+  options?: SecondParameter<typeof customInstance>,
+) => {
+  return customInstance<Response>(
+    { url: `/user/follows/group/${id}`, method: 'GET' },
+    options,
+  )
+}
+
 /**
  * @summary Get logged User followed User list
  */
 export const getUserFollowsUser = (
-    params?: GetUserFollowsUserParams,
- options?: SecondParameter<typeof customInstance>,) => {
-      return customInstance<UserList>(
-      {url: `/user/follows/user`, method: 'GET',
-        params
-    },
-      options);
-    }
-  
+  params?: GetUserFollowsUserParams,
+  options?: SecondParameter<typeof customInstance>,
+) => {
+  return customInstance<UserList>(
+    { url: `/user/follows/user`, method: 'GET', params },
+    options,
+  )
+}
+
 /**
  * @summary Check if logged User follows a User
  */
 export const getUserFollowsUserId = (
-    id: string,
- options?: SecondParameter<typeof customInstance>,) => {
-      return customInstance<Response>(
-      {url: `/user/follows/user/${id}`, method: 'GET'
-    },
-      options);
-    }
-  
+  id: string,
+  options?: SecondParameter<typeof customInstance>,
+) => {
+  return customInstance<Response>(
+    { url: `/user/follows/user/${id}`, method: 'GET' },
+    options,
+  )
+}
+
 /**
  * @summary Get logged User followed Manga list
  */
 export const getUserFollowsManga = (
-    params?: GetUserFollowsMangaParams,
- options?: SecondParameter<typeof customInstance>,) => {
-      return customInstance<MangaList>(
-      {url: `/user/follows/manga`, method: 'GET',
-        params
-    },
-      options);
-    }
-  
+  params?: GetUserFollowsMangaParams,
+  options?: SecondParameter<typeof customInstance>,
+) => {
+  return customInstance<MangaList>(
+    { url: `/user/follows/manga`, method: 'GET', params },
+    options,
+  )
+}
+
 /**
  * @summary Check if logged User follows a Manga
  */
 export const getUserFollowsMangaId = (
-    id: string,
- options?: SecondParameter<typeof customInstance>,) => {
-      return customInstance<Response>(
-      {url: `/user/follows/manga/${id}`, method: 'GET'
-    },
-      options);
-    }
-  
+  id: string,
+  options?: SecondParameter<typeof customInstance>,
+) => {
+  return customInstance<Response>(
+    { url: `/user/follows/manga/${id}`, method: 'GET' },
+    options,
+  )
+}
+
 /**
  * @summary Get logged User followed CustomList list
  */
 export const getUserFollowsList = (
-    params?: GetUserFollowsListParams,
- options?: SecondParameter<typeof customInstance>,) => {
-      return customInstance<CustomListList>(
-      {url: `/user/follows/list`, method: 'GET',
-        params
-    },
-      options);
-    }
-  
+  params?: GetUserFollowsListParams,
+  options?: SecondParameter<typeof customInstance>,
+) => {
+  return customInstance<CustomListList>(
+    { url: `/user/follows/list`, method: 'GET', params },
+    options,
+  )
+}
+
 /**
  * @summary Check if logged User follows a CustomList
  */
 export const getUserFollowsListId = (
-    id: string,
- options?: SecondParameter<typeof customInstance>,) => {
-      return customInstance<Response>(
-      {url: `/user/follows/list/${id}`, method: 'GET'
-    },
-      options);
-    }
-  
+  id: string,
+  options?: SecondParameter<typeof customInstance>,
+) => {
+  return customInstance<Response>(
+    { url: `/user/follows/list/${id}`, method: 'GET' },
+    options,
+  )
+}
+
 /**
  * @summary Get all Manga reading status for logged User
  */
 export const getMangaStatus = (
-    params?: GetMangaStatusParams,
- options?: SecondParameter<typeof customInstance>,) => {
-      return customInstance<GetMangaStatus200>(
-      {url: `/manga/status`, method: 'GET',
-        params
-    },
-      options);
-    }
-  
+  params?: GetMangaStatusParams,
+  options?: SecondParameter<typeof customInstance>,
+) => {
+  return customInstance<GetMangaStatus200>(
+    { url: `/manga/status`, method: 'GET', params },
+    options,
+  )
+}
+
 /**
  * @summary Get a Manga reading status
  */
 export const getMangaIdStatus = (
-    id: string,
- options?: SecondParameter<typeof customInstance>,) => {
-      return customInstance<GetMangaIdStatus200>(
-      {url: `/manga/${id}/status`, method: 'GET'
-    },
-      options);
-    }
-  
+  id: string,
+  options?: SecondParameter<typeof customInstance>,
+) => {
+  return customInstance<GetMangaIdStatus200>(
+    { url: `/manga/${id}/status`, method: 'GET' },
+    options,
+  )
+}
+
 /**
  * @summary Update Manga reading status
  */
 export const postMangaIdStatus = (
-    id: string,
-    updateMangaStatus: UpdateMangaStatus,
- options?: SecondParameter<typeof customInstance>,) => {
-      return customInstance<Response>(
-      {url: `/manga/${id}/status`, method: 'POST',
-      headers: {'Content-Type': 'application/json', },
-      data: updateMangaStatus
+  id: string,
+  updateMangaStatus: UpdateMangaStatus,
+  options?: SecondParameter<typeof customInstance>,
+) => {
+  return customInstance<Response>(
+    {
+      url: `/manga/${id}/status`,
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      data: updateMangaStatus,
     },
-      options);
-    }
-  
+    options,
+  )
+}
+
 /**
  * @summary Get a specific Manga Draft
  */
 export const getMangaIdDraft = (
-    id: string,
-    params?: GetMangaIdDraftParams,
- options?: SecondParameter<typeof customInstance>,) => {
-      return customInstance<MangaResponse>(
-      {url: `/manga/draft/${id}`, method: 'GET',
-        params
-    },
-      options);
-    }
-  
+  id: string,
+  params?: GetMangaIdDraftParams,
+  options?: SecondParameter<typeof customInstance>,
+) => {
+  return customInstance<MangaResponse>(
+    { url: `/manga/draft/${id}`, method: 'GET', params },
+    options,
+  )
+}
+
 /**
  * @summary Submit a Manga Draft
  */
 export const commitMangaDraft = (
-    id: string,
-    commitMangaDraftBody: CommitMangaDraftBody,
- options?: SecondParameter<typeof customInstance>,) => {
-      return customInstance<MangaResponse>(
-      {url: `/manga/draft/${id}/commit`, method: 'POST',
-      headers: {'Content-Type': 'application/json', },
-      data: commitMangaDraftBody
+  id: string,
+  commitMangaDraftBody: CommitMangaDraftBody,
+  options?: SecondParameter<typeof customInstance>,
+) => {
+  return customInstance<MangaResponse>(
+    {
+      url: `/manga/draft/${id}/commit`,
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      data: commitMangaDraftBody,
     },
-      options);
-    }
-  
+    options,
+  )
+}
+
 /**
  * @summary Get a list of Manga Drafts
  */
 export const getMangaDrafts = (
-    params?: GetMangaDraftsParams,
- options?: SecondParameter<typeof customInstance>,) => {
-      return customInstance<MangaResponse>(
-      {url: `/manga/draft`, method: 'GET',
-        params
-    },
-      options);
-    }
-  
+  params?: GetMangaDraftsParams,
+  options?: SecondParameter<typeof customInstance>,
+) => {
+  return customInstance<MangaResponse>(
+    { url: `/manga/draft`, method: 'GET', params },
+    options,
+  )
+}
+
 /**
  * Captchas can be solved explicitly through this endpoint, another way is to add a `X-Captcha-Result` header to any request. The same logic will verify the captcha and is probably more convenient because it takes one less request.
 
@@ -4560,418 +4692,479 @@ Authentication is optional. Captchas are tracked for both the client ip and for 
  * @summary Solve Captcha
  */
 export const postCaptchaSolve = (
-    postCaptchaSolveBody: PostCaptchaSolveBody,
- options?: SecondParameter<typeof customInstance>,) => {
-      return customInstance<PostCaptchaSolve200>(
-      {url: `/captcha/solve`, method: 'POST',
-      headers: {'Content-Type': 'application/json', },
-      data: postCaptchaSolveBody
+  postCaptchaSolveBody: PostCaptchaSolveBody,
+  options?: SecondParameter<typeof customInstance>,
+) => {
+  return customInstance<PostCaptchaSolve200>(
+    {
+      url: `/captcha/solve`,
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      data: postCaptchaSolveBody,
     },
-      options);
-    }
-  
+    options,
+  )
+}
+
 /**
  * @summary Get a list of report reasons
  */
 export const getReportReasonsByCategory = (
-    category: 'manga' | 'chapter' | 'scanlation_group' | 'user' | 'author',
- options?: SecondParameter<typeof customInstance>,) => {
-      return customInstance<GetReportReasonsByCategory200>(
-      {url: `/report/reasons/${category}`, method: 'GET'
-    },
-      options);
-    }
-  
+  category: 'manga' | 'chapter' | 'scanlation_group' | 'user' | 'author',
+  options?: SecondParameter<typeof customInstance>,
+) => {
+  return customInstance<GetReportReasonsByCategory200>(
+    { url: `/report/reasons/${category}`, method: 'GET' },
+    options,
+  )
+}
+
 /**
  * @summary Get a list of reports by the user
  */
 export const getReports = (
-    params?: GetReportsParams,
- options?: SecondParameter<typeof customInstance>,) => {
-      return customInstance<ReportListResponse>(
-      {url: `/report`, method: 'GET',
-        params
-    },
-      options);
-    }
-  
+  params?: GetReportsParams,
+  options?: SecondParameter<typeof customInstance>,
+) => {
+  return customInstance<ReportListResponse>(
+    { url: `/report`, method: 'GET', params },
+    options,
+  )
+}
+
 /**
  * @summary Create a new Report
  */
 export const postReport = (
-    postReportBody: PostReportBody,
- options?: SecondParameter<typeof customInstance>,) => {
-      return customInstance<Response>(
-      {url: `/report`, method: 'POST',
-      headers: {'Content-Type': 'application/json', },
-      data: postReportBody
+  postReportBody: PostReportBody,
+  options?: SecondParameter<typeof customInstance>,
+) => {
+  return customInstance<Response>(
+    {
+      url: `/report`,
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      data: postReportBody,
     },
-      options);
-    }
-  
+    options,
+  )
+}
+
 /**
  * @summary Get the current User upload session
  */
 export const getUploadSession = (
-    
- options?: SecondParameter<typeof customInstance>,) => {
-      return customInstance<UploadSession>(
-      {url: `/upload`, method: 'GET'
-    },
-      options);
-    }
-  
+  options?: SecondParameter<typeof customInstance>,
+) => {
+  return customInstance<UploadSession>(
+    { url: `/upload`, method: 'GET' },
+    options,
+  )
+}
+
 /**
  * @summary Start an upload session
  */
 export const beginUploadSession = (
-    beginUploadSession: BeginUploadSession,
- options?: SecondParameter<typeof customInstance>,) => {
-      return customInstance<UploadSession>(
-      {url: `/upload/begin`, method: 'POST',
-      headers: {'Content-Type': 'application/json', },
-      data: beginUploadSession
+  beginUploadSession: BeginUploadSession,
+  options?: SecondParameter<typeof customInstance>,
+) => {
+  return customInstance<UploadSession>(
+    {
+      url: `/upload/begin`,
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      data: beginUploadSession,
     },
-      options);
-    }
-  
+    options,
+  )
+}
+
 /**
  * @summary Start an edit chapter session
  */
 export const beginEditSession = (
-    chapterId: string,
-    beginEditSession: BeginEditSession,
- options?: SecondParameter<typeof customInstance>,) => {
-      return customInstance<UploadSession>(
-      {url: `/upload/begin/${chapterId}`, method: 'POST',
-      headers: {'Content-Type': 'application/json', },
-      data: beginEditSession
+  chapterId: string,
+  beginEditSession: BeginEditSession,
+  options?: SecondParameter<typeof customInstance>,
+) => {
+  return customInstance<UploadSession>(
+    {
+      url: `/upload/begin/${chapterId}`,
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      data: beginEditSession,
     },
-      options);
-    }
-  
+    options,
+  )
+}
+
 /**
  * @summary Upload images to the upload session
  */
 export const putUploadSessionFile = (
-    uploadSessionId: string,
-    putUploadSessionFileBody: PutUploadSessionFileBody,
- options?: SecondParameter<typeof customInstance>,) => {const formData = new FormData();
-if(putUploadSessionFileBody.file !== undefined) {
- formData.append('file', putUploadSessionFileBody.file)
- }
+  uploadSessionId: string,
+  putUploadSessionFileBody: PutUploadSessionFileBody,
+  options?: SecondParameter<typeof customInstance>,
+) => {
+  const formData = new FormData()
+  if (putUploadSessionFileBody.file !== undefined) {
+    formData.append('file', putUploadSessionFileBody.file)
+  }
 
-      return customInstance<PutUploadSessionFile200>(
-      {url: `/upload/${uploadSessionId}`, method: 'POST',
-      headers: {'Content-Type': 'multipart/form-data', },
-       data: formData
+  return customInstance<PutUploadSessionFile200>(
+    {
+      url: `/upload/${uploadSessionId}`,
+      method: 'POST',
+      headers: { 'Content-Type': 'multipart/form-data' },
+      data: formData,
     },
-      options);
-    }
-  
+    options,
+  )
+}
+
 /**
  * @summary Abandon upload session
  */
 export const abandonUploadSession = (
-    uploadSessionId: string,
- options?: SecondParameter<typeof customInstance>,) => {
-      return customInstance<Response>(
-      {url: `/upload/${uploadSessionId}`, method: 'DELETE'
-    },
-      options);
-    }
-  
+  uploadSessionId: string,
+  options?: SecondParameter<typeof customInstance>,
+) => {
+  return customInstance<Response>(
+    { url: `/upload/${uploadSessionId}`, method: 'DELETE' },
+    options,
+  )
+}
+
 /**
  * @summary Commit the upload session and specify chapter data
  */
 export const commitUploadSession = (
-    uploadSessionId: string,
-    commitUploadSession: CommitUploadSession,
- options?: SecondParameter<typeof customInstance>,) => {
-      return customInstance<Chapter>(
-      {url: `/upload/${uploadSessionId}/commit`, method: 'POST',
-      headers: {'Content-Type': 'application/json', },
-      data: commitUploadSession
+  uploadSessionId: string,
+  commitUploadSession: CommitUploadSession,
+  options?: SecondParameter<typeof customInstance>,
+) => {
+  return customInstance<Chapter>(
+    {
+      url: `/upload/${uploadSessionId}/commit`,
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      data: commitUploadSession,
     },
-      options);
-    }
-  
+    options,
+  )
+}
+
 /**
  * @summary Delete an uploaded image from the Upload Session
  */
 export const deleteUploadedSessionFile = (
-    uploadSessionId: string,
-    uploadSessionFileId: string,
- options?: SecondParameter<typeof customInstance>,) => {
-      return customInstance<Response>(
-      {url: `/upload/${uploadSessionId}/${uploadSessionFileId}`, method: 'DELETE'
+  uploadSessionId: string,
+  uploadSessionFileId: string,
+  options?: SecondParameter<typeof customInstance>,
+) => {
+  return customInstance<Response>(
+    {
+      url: `/upload/${uploadSessionId}/${uploadSessionFileId}`,
+      method: 'DELETE',
     },
-      options);
-    }
-  
+    options,
+  )
+}
+
 /**
  * @summary Delete a set of uploaded images from the Upload Session
  */
 export const deleteUploadedSessionFiles = (
-    uploadSessionId: string,
-    deleteUploadedSessionFilesBody: string[],
- options?: SecondParameter<typeof customInstance>,) => {
-      return customInstance<Response>(
-      {url: `/upload/${uploadSessionId}/batch`, method: 'DELETE',
-      headers: {'Content-Type': 'application/json', },
-      data: deleteUploadedSessionFilesBody
+  uploadSessionId: string,
+  deleteUploadedSessionFilesBody: string[],
+  options?: SecondParameter<typeof customInstance>,
+) => {
+  return customInstance<Response>(
+    {
+      url: `/upload/${uploadSessionId}/batch`,
+      method: 'DELETE',
+      headers: { 'Content-Type': 'application/json' },
+      data: deleteUploadedSessionFilesBody,
     },
-      options);
-    }
-  
+    options,
+  )
+}
+
 /**
  * @summary Check if a given manga / locale for a User needs moderation approval
  */
 export const uploadCheckApprovalRequired = (
-    uploadCheckApprovalRequiredBody: UploadCheckApprovalRequiredBody,
- options?: SecondParameter<typeof customInstance>,) => {
-      return customInstance<UploadCheckApprovalRequired200>(
-      {url: `/upload/check-approval-required`, method: 'POST',
-      headers: {'Content-Type': 'application/json', },
-      data: uploadCheckApprovalRequiredBody
+  uploadCheckApprovalRequiredBody: UploadCheckApprovalRequiredBody,
+  options?: SecondParameter<typeof customInstance>,
+) => {
+  return customInstance<UploadCheckApprovalRequired200>(
+    {
+      url: `/upload/check-approval-required`,
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      data: uploadCheckApprovalRequiredBody,
     },
-      options);
-    }
-  
+    options,
+  )
+}
+
 /**
  * @summary Manga relation list
  */
 export const getMangaRelation = (
-    mangaId: string,
-    params?: GetMangaRelationParams,
- options?: SecondParameter<typeof customInstance>,) => {
-      return customInstance<MangaRelationList>(
-      {url: `/manga/${mangaId}/relation`, method: 'GET',
-        params
-    },
-      options);
-    }
-  
+  mangaId: string,
+  params?: GetMangaRelationParams,
+  options?: SecondParameter<typeof customInstance>,
+) => {
+  return customInstance<MangaRelationList>(
+    { url: `/manga/${mangaId}/relation`, method: 'GET', params },
+    options,
+  )
+}
+
 /**
  * Create a new Manga relation.
  * @summary Create Manga relation
  */
 export const postMangaRelation = (
-    mangaId: string,
-    mangaRelationCreate: MangaRelationCreate,
- options?: SecondParameter<typeof customInstance>,) => {
-      return customInstance<MangaRelationResponse>(
-      {url: `/manga/${mangaId}/relation`, method: 'POST',
-      headers: {'Content-Type': 'application/json', },
-      data: mangaRelationCreate
+  mangaId: string,
+  mangaRelationCreate: MangaRelationCreate,
+  options?: SecondParameter<typeof customInstance>,
+) => {
+  return customInstance<MangaRelationResponse>(
+    {
+      url: `/manga/${mangaId}/relation`,
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      data: mangaRelationCreate,
     },
-      options);
-    }
-  
+    options,
+  )
+}
+
 /**
  * @summary Delete Manga relation
  */
 export const deleteMangaRelationId = (
-    mangaId: string,
-    id: string,
- options?: SecondParameter<typeof customInstance>,) => {
-      return customInstance<Response>(
-      {url: `/manga/${mangaId}/relation/${id}`, method: 'DELETE'
-    },
-      options);
-    }
-  
+  mangaId: string,
+  id: string,
+  options?: SecondParameter<typeof customInstance>,
+) => {
+  return customInstance<Response>(
+    { url: `/manga/${mangaId}/relation/${id}`, method: 'DELETE' },
+    options,
+  )
+}
+
 /**
  * @summary Get your ratings
  */
 export const getRating = (
-    params: GetRatingParams,
- options?: SecondParameter<typeof customInstance>,) => {
-      return customInstance<GetRating200>(
-      {url: `/rating`, method: 'GET',
-        params
-    },
-      options);
-    }
-  
+  params: GetRatingParams,
+  options?: SecondParameter<typeof customInstance>,
+) => {
+  return customInstance<GetRating200>(
+    { url: `/rating`, method: 'GET', params },
+    options,
+  )
+}
+
 /**
  * @summary Create or update Manga rating
  */
 export const postRatingMangaId = (
-    mangaId: string,
-    postRatingMangaIdBody: PostRatingMangaIdBody,
- options?: SecondParameter<typeof customInstance>,) => {
-      return customInstance<Response>(
-      {url: `/rating/${mangaId}`, method: 'POST',
-      headers: {'Content-Type': 'application/json', },
-      data: postRatingMangaIdBody
+  mangaId: string,
+  postRatingMangaIdBody: PostRatingMangaIdBody,
+  options?: SecondParameter<typeof customInstance>,
+) => {
+  return customInstance<Response>(
+    {
+      url: `/rating/${mangaId}`,
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      data: postRatingMangaIdBody,
     },
-      options);
-    }
-  
+    options,
+  )
+}
+
 /**
  * @summary Delete Manga rating
  */
 export const deleteRatingMangaId = (
-    mangaId: string,
- options?: SecondParameter<typeof customInstance>,) => {
-      return customInstance<Response>(
-      {url: `/rating/${mangaId}`, method: 'DELETE'
-    },
-      options);
-    }
-  
+  mangaId: string,
+  options?: SecondParameter<typeof customInstance>,
+) => {
+  return customInstance<Response>(
+    { url: `/rating/${mangaId}`, method: 'DELETE' },
+    options,
+  )
+}
+
 /**
  * @summary Get statistics about given chapter
  */
 export const getStatisticsChapterUuid = (
-    uuid: string,
- options?: SecondParameter<typeof customInstance>,) => {
-      return customInstance<GetStatisticsChapterUuid200>(
-      {url: `/statistics/chapter/${uuid}`, method: 'GET'
-    },
-      options);
-    }
-  
+  uuid: string,
+  options?: SecondParameter<typeof customInstance>,
+) => {
+  return customInstance<GetStatisticsChapterUuid200>(
+    { url: `/statistics/chapter/${uuid}`, method: 'GET' },
+    options,
+  )
+}
+
 /**
  * @summary Get statistics about given chapters
  */
 export const getStatisticsChapters = (
-    params: GetStatisticsChaptersParams,
- options?: SecondParameter<typeof customInstance>,) => {
-      return customInstance<GetStatisticsChapters200>(
-      {url: `/statistics/chapter`, method: 'GET',
-        params
-    },
-      options);
-    }
-  
+  params: GetStatisticsChaptersParams,
+  options?: SecondParameter<typeof customInstance>,
+) => {
+  return customInstance<GetStatisticsChapters200>(
+    { url: `/statistics/chapter`, method: 'GET', params },
+    options,
+  )
+}
+
 /**
  * @summary Get statistics about given scanlation group
  */
 export const getStatisticsGroupUuid = (
-    uuid: string,
- options?: SecondParameter<typeof customInstance>,) => {
-      return customInstance<GetStatisticsGroupUuid200>(
-      {url: `/statistics/group/${uuid}`, method: 'GET'
-    },
-      options);
-    }
-  
+  uuid: string,
+  options?: SecondParameter<typeof customInstance>,
+) => {
+  return customInstance<GetStatisticsGroupUuid200>(
+    { url: `/statistics/group/${uuid}`, method: 'GET' },
+    options,
+  )
+}
+
 /**
  * @summary Get statistics about given groups
  */
 export const getStatisticsGroups = (
-    params: GetStatisticsGroupsParams,
- options?: SecondParameter<typeof customInstance>,) => {
-      return customInstance<GetStatisticsGroups200>(
-      {url: `/statistics/group`, method: 'GET',
-        params
-    },
-      options);
-    }
-  
+  params: GetStatisticsGroupsParams,
+  options?: SecondParameter<typeof customInstance>,
+) => {
+  return customInstance<GetStatisticsGroups200>(
+    { url: `/statistics/group`, method: 'GET', params },
+    options,
+  )
+}
+
 /**
  * @summary Get statistics about given Manga
  */
 export const getStatisticsMangaUuid = (
-    uuid: string,
- options?: SecondParameter<typeof customInstance>,) => {
-      return customInstance<GetStatisticsMangaUuid200>(
-      {url: `/statistics/manga/${uuid}`, method: 'GET'
-    },
-      options);
-    }
-  
+  uuid: string,
+  options?: SecondParameter<typeof customInstance>,
+) => {
+  return customInstance<GetStatisticsMangaUuid200>(
+    { url: `/statistics/manga/${uuid}`, method: 'GET' },
+    options,
+  )
+}
+
 /**
  * @summary Find statistics about given Manga
  */
 export const getStatisticsManga = (
-    params: GetStatisticsMangaParams,
- options?: SecondParameter<typeof customInstance>,) => {
-      return customInstance<GetStatisticsManga200>(
-      {url: `/statistics/manga`, method: 'GET',
-        params
-    },
-      options);
-    }
-  
+  params: GetStatisticsMangaParams,
+  options?: SecondParameter<typeof customInstance>,
+) => {
+  return customInstance<GetStatisticsManga200>(
+    { url: `/statistics/manga`, method: 'GET', params },
+    options,
+  )
+}
+
 /**
  * @summary Get latest Settings template
  */
 export const getSettingsTemplate = (
-    
- options?: SecondParameter<typeof customInstance>,) => {
-      return customInstance<GetSettingsTemplate200>(
-      {url: `/settings/template`, method: 'GET'
-    },
-      options);
-    }
-  
+  options?: SecondParameter<typeof customInstance>,
+) => {
+  return customInstance<GetSettingsTemplate200>(
+    { url: `/settings/template`, method: 'GET' },
+    options,
+  )
+}
+
 /**
  * @summary Create Settings template
  */
 export const postSettingsTemplate = (
-    postSettingsTemplateBody: PostSettingsTemplateBody,
- options?: SecondParameter<typeof customInstance>,) => {
-      return customInstance<PostSettingsTemplate200>(
-      {url: `/settings/template`, method: 'POST',
-      headers: {'Content-Type': 'application/json', },
-      data: postSettingsTemplateBody
+  postSettingsTemplateBody: PostSettingsTemplateBody,
+  options?: SecondParameter<typeof customInstance>,
+) => {
+  return customInstance<PostSettingsTemplate200>(
+    {
+      url: `/settings/template`,
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      data: postSettingsTemplateBody,
     },
-      options);
-    }
-  
+    options,
+  )
+}
+
 /**
  * @summary Get Settings template by version id
  */
 export const getSettingsTemplateVersion = (
-    version: string,
- options?: SecondParameter<typeof customInstance>,) => {
-      return customInstance<GetSettingsTemplateVersion200>(
-      {url: `/settings/template/${version}`, method: 'GET'
-    },
-      options);
-    }
-  
+  version: string,
+  options?: SecondParameter<typeof customInstance>,
+) => {
+  return customInstance<GetSettingsTemplateVersion200>(
+    { url: `/settings/template/${version}`, method: 'GET' },
+    options,
+  )
+}
+
 /**
  * @summary Get an User Settings
  */
 export const getSettings = (
-    
- options?: SecondParameter<typeof customInstance>,) => {
-      return customInstance<GetSettings200>(
-      {url: `/settings`, method: 'GET'
-    },
-      options);
-    }
-  
+  options?: SecondParameter<typeof customInstance>,
+) => {
+  return customInstance<GetSettings200>(
+    { url: `/settings`, method: 'GET' },
+    options,
+  )
+}
+
 /**
  * @summary Create or update an User Settings
  */
 export const postSettings = (
-    postSettingsBody: PostSettingsBody,
- options?: SecondParameter<typeof customInstance>,) => {
-      return customInstance<PostSettings200>(
-      {url: `/settings`, method: 'POST',
-      headers: {'Content-Type': 'application/json', },
-      data: postSettingsBody
+  postSettingsBody: PostSettingsBody,
+  options?: SecondParameter<typeof customInstance>,
+) => {
+  return customInstance<PostSettings200>(
+    {
+      url: `/settings`,
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      data: postSettingsBody,
     },
-      options);
-    }
-  
+    options,
+  )
+}
+
 /**
  * @summary Get users reading history
  */
 export const getReadingHistory = (
-    
- options?: SecondParameter<typeof customInstance>,) => {
-      return customInstance<GetReadingHistory200>(
-      {url: `/user/history`, method: 'GET'
-    },
-      options);
-    }
-  
+  options?: SecondParameter<typeof customInstance>,
+) => {
+  return customInstance<GetReadingHistory200>(
+    { url: `/user/history`, method: 'GET' },
+    options,
+  )
+}
+
 /**
  * Creates a thread in the forums for the given resource, which backs the comments functionality.
 A thread is only created if it doesn't exist yet; otherwise the preexisting thread is returned.
@@ -4979,125 +5172,327 @@ A thread is only created if it doesn't exist yet; otherwise the preexisting thre
  * @summary Create forums thread
  */
 export const forumsThreadCreate = (
-    forumsThreadCreateBody: ForumsThreadCreateBody,
- options?: SecondParameter<typeof customInstance>,) => {
-      return customInstance<ForumsThreadResponse>(
-      {url: `/forums/thread`, method: 'POST',
-      headers: {'Content-Type': 'application/json', },
-      data: forumsThreadCreateBody
+  forumsThreadCreateBody: ForumsThreadCreateBody,
+  options?: SecondParameter<typeof customInstance>,
+) => {
+  return customInstance<ForumsThreadResponse>(
+    {
+      url: `/forums/thread`,
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      data: forumsThreadCreateBody,
     },
-      options);
-    }
-  
+    options,
+  )
+}
+
 export type GetPingResult = NonNullable<Awaited<ReturnType<typeof getPing>>>
-export type GetSearchMangaResult = NonNullable<Awaited<ReturnType<typeof getSearchManga>>>
+export type GetSearchMangaResult = NonNullable<
+  Awaited<ReturnType<typeof getSearchManga>>
+>
 export type PostMangaResult = NonNullable<Awaited<ReturnType<typeof postManga>>>
-export type GetMangaAggregateResult = NonNullable<Awaited<ReturnType<typeof getMangaAggregate>>>
-export type GetMangaIdResult = NonNullable<Awaited<ReturnType<typeof getMangaId>>>
-export type PutMangaIdResult = NonNullable<Awaited<ReturnType<typeof putMangaId>>>
-export type DeleteMangaIdResult = NonNullable<Awaited<ReturnType<typeof deleteMangaId>>>
-export type PostAuthLoginResult = NonNullable<Awaited<ReturnType<typeof postAuthLogin>>>
-export type GetAuthCheckResult = NonNullable<Awaited<ReturnType<typeof getAuthCheck>>>
-export type PostAuthLogoutResult = NonNullable<Awaited<ReturnType<typeof postAuthLogout>>>
-export type PostAuthRefreshResult = NonNullable<Awaited<ReturnType<typeof postAuthRefresh>>>
-export type GetListApiclientsResult = NonNullable<Awaited<ReturnType<typeof getListApiclients>>>
-export type PostCreateApiclientResult = NonNullable<Awaited<ReturnType<typeof postCreateApiclient>>>
-export type GetApiclientResult = NonNullable<Awaited<ReturnType<typeof getApiclient>>>
-export type PostEditApiclientResult = NonNullable<Awaited<ReturnType<typeof postEditApiclient>>>
-export type DeleteApiclientResult = NonNullable<Awaited<ReturnType<typeof deleteApiclient>>>
-export type GetApiclientSecretResult = NonNullable<Awaited<ReturnType<typeof getApiclientSecret>>>
-export type PostRegenerateApiclientSecretResult = NonNullable<Awaited<ReturnType<typeof postRegenerateApiclientSecret>>>
-export type GetSearchGroupResult = NonNullable<Awaited<ReturnType<typeof getSearchGroup>>>
+export type GetMangaAggregateResult = NonNullable<
+  Awaited<ReturnType<typeof getMangaAggregate>>
+>
+export type GetMangaIdResult = NonNullable<
+  Awaited<ReturnType<typeof getMangaId>>
+>
+export type PutMangaIdResult = NonNullable<
+  Awaited<ReturnType<typeof putMangaId>>
+>
+export type DeleteMangaIdResult = NonNullable<
+  Awaited<ReturnType<typeof deleteMangaId>>
+>
+export type PostAuthLoginResult = NonNullable<
+  Awaited<ReturnType<typeof postAuthLogin>>
+>
+export type GetAuthCheckResult = NonNullable<
+  Awaited<ReturnType<typeof getAuthCheck>>
+>
+export type PostAuthLogoutResult = NonNullable<
+  Awaited<ReturnType<typeof postAuthLogout>>
+>
+export type PostAuthRefreshResult = NonNullable<
+  Awaited<ReturnType<typeof postAuthRefresh>>
+>
+export type GetListApiclientsResult = NonNullable<
+  Awaited<ReturnType<typeof getListApiclients>>
+>
+export type PostCreateApiclientResult = NonNullable<
+  Awaited<ReturnType<typeof postCreateApiclient>>
+>
+export type GetApiclientResult = NonNullable<
+  Awaited<ReturnType<typeof getApiclient>>
+>
+export type PostEditApiclientResult = NonNullable<
+  Awaited<ReturnType<typeof postEditApiclient>>
+>
+export type DeleteApiclientResult = NonNullable<
+  Awaited<ReturnType<typeof deleteApiclient>>
+>
+export type GetApiclientSecretResult = NonNullable<
+  Awaited<ReturnType<typeof getApiclientSecret>>
+>
+export type PostRegenerateApiclientSecretResult = NonNullable<
+  Awaited<ReturnType<typeof postRegenerateApiclientSecret>>
+>
+export type GetSearchGroupResult = NonNullable<
+  Awaited<ReturnType<typeof getSearchGroup>>
+>
 export type PostGroupResult = NonNullable<Awaited<ReturnType<typeof postGroup>>>
-export type GetGroupIdResult = NonNullable<Awaited<ReturnType<typeof getGroupId>>>
-export type PutGroupIdResult = NonNullable<Awaited<ReturnType<typeof putGroupId>>>
-export type DeleteGroupIdResult = NonNullable<Awaited<ReturnType<typeof deleteGroupId>>>
-export type PostGroupIdFollowResult = NonNullable<Awaited<ReturnType<typeof postGroupIdFollow>>>
-export type DeleteGroupIdFollowResult = NonNullable<Awaited<ReturnType<typeof deleteGroupIdFollow>>>
+export type GetGroupIdResult = NonNullable<
+  Awaited<ReturnType<typeof getGroupId>>
+>
+export type PutGroupIdResult = NonNullable<
+  Awaited<ReturnType<typeof putGroupId>>
+>
+export type DeleteGroupIdResult = NonNullable<
+  Awaited<ReturnType<typeof deleteGroupId>>
+>
+export type PostGroupIdFollowResult = NonNullable<
+  Awaited<ReturnType<typeof postGroupIdFollow>>
+>
+export type DeleteGroupIdFollowResult = NonNullable<
+  Awaited<ReturnType<typeof deleteGroupIdFollow>>
+>
 export type PostListResult = NonNullable<Awaited<ReturnType<typeof postList>>>
 export type GetListIdResult = NonNullable<Awaited<ReturnType<typeof getListId>>>
 export type PutListIdResult = NonNullable<Awaited<ReturnType<typeof putListId>>>
-export type DeleteListIdResult = NonNullable<Awaited<ReturnType<typeof deleteListId>>>
-export type FollowListIdResult = NonNullable<Awaited<ReturnType<typeof followListId>>>
-export type UnfollowListIdResult = NonNullable<Awaited<ReturnType<typeof unfollowListId>>>
-export type PostMangaIdListListIdResult = NonNullable<Awaited<ReturnType<typeof postMangaIdListListId>>>
-export type DeleteMangaIdListListIdResult = NonNullable<Awaited<ReturnType<typeof deleteMangaIdListListId>>>
-export type GetUserListResult = NonNullable<Awaited<ReturnType<typeof getUserList>>>
-export type GetUserIdListResult = NonNullable<Awaited<ReturnType<typeof getUserIdList>>>
+export type DeleteListIdResult = NonNullable<
+  Awaited<ReturnType<typeof deleteListId>>
+>
+export type FollowListIdResult = NonNullable<
+  Awaited<ReturnType<typeof followListId>>
+>
+export type UnfollowListIdResult = NonNullable<
+  Awaited<ReturnType<typeof unfollowListId>>
+>
+export type PostMangaIdListListIdResult = NonNullable<
+  Awaited<ReturnType<typeof postMangaIdListListId>>
+>
+export type DeleteMangaIdListListIdResult = NonNullable<
+  Awaited<ReturnType<typeof deleteMangaIdListListId>>
+>
+export type GetUserListResult = NonNullable<
+  Awaited<ReturnType<typeof getUserList>>
+>
+export type GetUserIdListResult = NonNullable<
+  Awaited<ReturnType<typeof getUserIdList>>
+>
 export type GetUserResult = NonNullable<Awaited<ReturnType<typeof getUser>>>
 export type GetUserIdResult = NonNullable<Awaited<ReturnType<typeof getUserId>>>
-export type DeleteUserIdResult = NonNullable<Awaited<ReturnType<typeof deleteUserId>>>
-export type PostUserDeleteCodeResult = NonNullable<Awaited<ReturnType<typeof postUserDeleteCode>>>
-export type GetChapterResult = NonNullable<Awaited<ReturnType<typeof getChapter>>>
-export type GetChapterIdResult = NonNullable<Awaited<ReturnType<typeof getChapterId>>>
-export type PutChapterIdResult = NonNullable<Awaited<ReturnType<typeof putChapterId>>>
-export type DeleteChapterIdResult = NonNullable<Awaited<ReturnType<typeof deleteChapterId>>>
-export type GetUserFollowsMangaFeedResult = NonNullable<Awaited<ReturnType<typeof getUserFollowsMangaFeed>>>
-export type GetListIdFeedResult = NonNullable<Awaited<ReturnType<typeof getListIdFeed>>>
-export type DeleteMangaIdFollowResult = NonNullable<Awaited<ReturnType<typeof deleteMangaIdFollow>>>
-export type PostMangaIdFollowResult = NonNullable<Awaited<ReturnType<typeof postMangaIdFollow>>>
+export type DeleteUserIdResult = NonNullable<
+  Awaited<ReturnType<typeof deleteUserId>>
+>
+export type PostUserDeleteCodeResult = NonNullable<
+  Awaited<ReturnType<typeof postUserDeleteCode>>
+>
+export type GetChapterResult = NonNullable<
+  Awaited<ReturnType<typeof getChapter>>
+>
+export type GetChapterIdResult = NonNullable<
+  Awaited<ReturnType<typeof getChapterId>>
+>
+export type PutChapterIdResult = NonNullable<
+  Awaited<ReturnType<typeof putChapterId>>
+>
+export type DeleteChapterIdResult = NonNullable<
+  Awaited<ReturnType<typeof deleteChapterId>>
+>
+export type GetUserFollowsMangaFeedResult = NonNullable<
+  Awaited<ReturnType<typeof getUserFollowsMangaFeed>>
+>
+export type GetListIdFeedResult = NonNullable<
+  Awaited<ReturnType<typeof getListIdFeed>>
+>
+export type DeleteMangaIdFollowResult = NonNullable<
+  Awaited<ReturnType<typeof deleteMangaIdFollow>>
+>
+export type PostMangaIdFollowResult = NonNullable<
+  Awaited<ReturnType<typeof postMangaIdFollow>>
+>
 export type GetCoverResult = NonNullable<Awaited<ReturnType<typeof getCover>>>
-export type UploadCoverResult = NonNullable<Awaited<ReturnType<typeof uploadCover>>>
-export type GetCoverIdResult = NonNullable<Awaited<ReturnType<typeof getCoverId>>>
+export type UploadCoverResult = NonNullable<
+  Awaited<ReturnType<typeof uploadCover>>
+>
+export type GetCoverIdResult = NonNullable<
+  Awaited<ReturnType<typeof getCoverId>>
+>
 export type EditCoverResult = NonNullable<Awaited<ReturnType<typeof editCover>>>
-export type DeleteCoverResult = NonNullable<Awaited<ReturnType<typeof deleteCover>>>
+export type DeleteCoverResult = NonNullable<
+  Awaited<ReturnType<typeof deleteCover>>
+>
 export type GetAuthorResult = NonNullable<Awaited<ReturnType<typeof getAuthor>>>
-export type PostAuthorResult = NonNullable<Awaited<ReturnType<typeof postAuthor>>>
-export type GetAuthorIdResult = NonNullable<Awaited<ReturnType<typeof getAuthorId>>>
-export type PutAuthorIdResult = NonNullable<Awaited<ReturnType<typeof putAuthorId>>>
-export type DeleteAuthorIdResult = NonNullable<Awaited<ReturnType<typeof deleteAuthorId>>>
-export type PostLegacyMappingResult = NonNullable<Awaited<ReturnType<typeof postLegacyMapping>>>
-export type GetMangaIdFeedResult = NonNullable<Awaited<ReturnType<typeof getMangaIdFeed>>>
-export type GetMangaChapterReadmarkersResult = NonNullable<Awaited<ReturnType<typeof getMangaChapterReadmarkers>>>
-export type PostMangaChapterReadmarkersResult = NonNullable<Awaited<ReturnType<typeof postMangaChapterReadmarkers>>>
-export type GetMangaChapterReadmarkers2Result = NonNullable<Awaited<ReturnType<typeof getMangaChapterReadmarkers2>>>
-export type GetMangaRandomResult = NonNullable<Awaited<ReturnType<typeof getMangaRandom>>>
-export type GetAtHomeServerChapterIdResult = NonNullable<Awaited<ReturnType<typeof getAtHomeServerChapterId>>>
-export type GetMangaTagResult = NonNullable<Awaited<ReturnType<typeof getMangaTag>>>
+export type PostAuthorResult = NonNullable<
+  Awaited<ReturnType<typeof postAuthor>>
+>
+export type GetAuthorIdResult = NonNullable<
+  Awaited<ReturnType<typeof getAuthorId>>
+>
+export type PutAuthorIdResult = NonNullable<
+  Awaited<ReturnType<typeof putAuthorId>>
+>
+export type DeleteAuthorIdResult = NonNullable<
+  Awaited<ReturnType<typeof deleteAuthorId>>
+>
+export type PostLegacyMappingResult = NonNullable<
+  Awaited<ReturnType<typeof postLegacyMapping>>
+>
+export type GetMangaIdFeedResult = NonNullable<
+  Awaited<ReturnType<typeof getMangaIdFeed>>
+>
+export type GetMangaChapterReadmarkersResult = NonNullable<
+  Awaited<ReturnType<typeof getMangaChapterReadmarkers>>
+>
+export type PostMangaChapterReadmarkersResult = NonNullable<
+  Awaited<ReturnType<typeof postMangaChapterReadmarkers>>
+>
+export type GetMangaChapterReadmarkers2Result = NonNullable<
+  Awaited<ReturnType<typeof getMangaChapterReadmarkers2>>
+>
+export type GetMangaRandomResult = NonNullable<
+  Awaited<ReturnType<typeof getMangaRandom>>
+>
+export type GetAtHomeServerChapterIdResult = NonNullable<
+  Awaited<ReturnType<typeof getAtHomeServerChapterId>>
+>
+export type GetMangaTagResult = NonNullable<
+  Awaited<ReturnType<typeof getMangaTag>>
+>
 export type GetUserMeResult = NonNullable<Awaited<ReturnType<typeof getUserMe>>>
-export type GetUserFollowsGroupResult = NonNullable<Awaited<ReturnType<typeof getUserFollowsGroup>>>
-export type GetUserFollowsGroupIdResult = NonNullable<Awaited<ReturnType<typeof getUserFollowsGroupId>>>
-export type GetUserFollowsUserResult = NonNullable<Awaited<ReturnType<typeof getUserFollowsUser>>>
-export type GetUserFollowsUserIdResult = NonNullable<Awaited<ReturnType<typeof getUserFollowsUserId>>>
-export type GetUserFollowsMangaResult = NonNullable<Awaited<ReturnType<typeof getUserFollowsManga>>>
-export type GetUserFollowsMangaIdResult = NonNullable<Awaited<ReturnType<typeof getUserFollowsMangaId>>>
-export type GetUserFollowsListResult = NonNullable<Awaited<ReturnType<typeof getUserFollowsList>>>
-export type GetUserFollowsListIdResult = NonNullable<Awaited<ReturnType<typeof getUserFollowsListId>>>
-export type GetMangaStatusResult = NonNullable<Awaited<ReturnType<typeof getMangaStatus>>>
-export type GetMangaIdStatusResult = NonNullable<Awaited<ReturnType<typeof getMangaIdStatus>>>
-export type PostMangaIdStatusResult = NonNullable<Awaited<ReturnType<typeof postMangaIdStatus>>>
-export type GetMangaIdDraftResult = NonNullable<Awaited<ReturnType<typeof getMangaIdDraft>>>
-export type CommitMangaDraftResult = NonNullable<Awaited<ReturnType<typeof commitMangaDraft>>>
-export type GetMangaDraftsResult = NonNullable<Awaited<ReturnType<typeof getMangaDrafts>>>
-export type PostCaptchaSolveResult = NonNullable<Awaited<ReturnType<typeof postCaptchaSolve>>>
-export type GetReportReasonsByCategoryResult = NonNullable<Awaited<ReturnType<typeof getReportReasonsByCategory>>>
-export type GetReportsResult = NonNullable<Awaited<ReturnType<typeof getReports>>>
-export type PostReportResult = NonNullable<Awaited<ReturnType<typeof postReport>>>
-export type GetUploadSessionResult = NonNullable<Awaited<ReturnType<typeof getUploadSession>>>
-export type BeginUploadSessionResult = NonNullable<Awaited<ReturnType<typeof beginUploadSession>>>
-export type BeginEditSessionResult = NonNullable<Awaited<ReturnType<typeof beginEditSession>>>
-export type PutUploadSessionFileResult = NonNullable<Awaited<ReturnType<typeof putUploadSessionFile>>>
-export type AbandonUploadSessionResult = NonNullable<Awaited<ReturnType<typeof abandonUploadSession>>>
-export type CommitUploadSessionResult = NonNullable<Awaited<ReturnType<typeof commitUploadSession>>>
-export type DeleteUploadedSessionFileResult = NonNullable<Awaited<ReturnType<typeof deleteUploadedSessionFile>>>
-export type DeleteUploadedSessionFilesResult = NonNullable<Awaited<ReturnType<typeof deleteUploadedSessionFiles>>>
-export type UploadCheckApprovalRequiredResult = NonNullable<Awaited<ReturnType<typeof uploadCheckApprovalRequired>>>
-export type GetMangaRelationResult = NonNullable<Awaited<ReturnType<typeof getMangaRelation>>>
-export type PostMangaRelationResult = NonNullable<Awaited<ReturnType<typeof postMangaRelation>>>
-export type DeleteMangaRelationIdResult = NonNullable<Awaited<ReturnType<typeof deleteMangaRelationId>>>
+export type GetUserFollowsGroupResult = NonNullable<
+  Awaited<ReturnType<typeof getUserFollowsGroup>>
+>
+export type GetUserFollowsGroupIdResult = NonNullable<
+  Awaited<ReturnType<typeof getUserFollowsGroupId>>
+>
+export type GetUserFollowsUserResult = NonNullable<
+  Awaited<ReturnType<typeof getUserFollowsUser>>
+>
+export type GetUserFollowsUserIdResult = NonNullable<
+  Awaited<ReturnType<typeof getUserFollowsUserId>>
+>
+export type GetUserFollowsMangaResult = NonNullable<
+  Awaited<ReturnType<typeof getUserFollowsManga>>
+>
+export type GetUserFollowsMangaIdResult = NonNullable<
+  Awaited<ReturnType<typeof getUserFollowsMangaId>>
+>
+export type GetUserFollowsListResult = NonNullable<
+  Awaited<ReturnType<typeof getUserFollowsList>>
+>
+export type GetUserFollowsListIdResult = NonNullable<
+  Awaited<ReturnType<typeof getUserFollowsListId>>
+>
+export type GetMangaStatusResult = NonNullable<
+  Awaited<ReturnType<typeof getMangaStatus>>
+>
+export type GetMangaIdStatusResult = NonNullable<
+  Awaited<ReturnType<typeof getMangaIdStatus>>
+>
+export type PostMangaIdStatusResult = NonNullable<
+  Awaited<ReturnType<typeof postMangaIdStatus>>
+>
+export type GetMangaIdDraftResult = NonNullable<
+  Awaited<ReturnType<typeof getMangaIdDraft>>
+>
+export type CommitMangaDraftResult = NonNullable<
+  Awaited<ReturnType<typeof commitMangaDraft>>
+>
+export type GetMangaDraftsResult = NonNullable<
+  Awaited<ReturnType<typeof getMangaDrafts>>
+>
+export type PostCaptchaSolveResult = NonNullable<
+  Awaited<ReturnType<typeof postCaptchaSolve>>
+>
+export type GetReportReasonsByCategoryResult = NonNullable<
+  Awaited<ReturnType<typeof getReportReasonsByCategory>>
+>
+export type GetReportsResult = NonNullable<
+  Awaited<ReturnType<typeof getReports>>
+>
+export type PostReportResult = NonNullable<
+  Awaited<ReturnType<typeof postReport>>
+>
+export type GetUploadSessionResult = NonNullable<
+  Awaited<ReturnType<typeof getUploadSession>>
+>
+export type BeginUploadSessionResult = NonNullable<
+  Awaited<ReturnType<typeof beginUploadSession>>
+>
+export type BeginEditSessionResult = NonNullable<
+  Awaited<ReturnType<typeof beginEditSession>>
+>
+export type PutUploadSessionFileResult = NonNullable<
+  Awaited<ReturnType<typeof putUploadSessionFile>>
+>
+export type AbandonUploadSessionResult = NonNullable<
+  Awaited<ReturnType<typeof abandonUploadSession>>
+>
+export type CommitUploadSessionResult = NonNullable<
+  Awaited<ReturnType<typeof commitUploadSession>>
+>
+export type DeleteUploadedSessionFileResult = NonNullable<
+  Awaited<ReturnType<typeof deleteUploadedSessionFile>>
+>
+export type DeleteUploadedSessionFilesResult = NonNullable<
+  Awaited<ReturnType<typeof deleteUploadedSessionFiles>>
+>
+export type UploadCheckApprovalRequiredResult = NonNullable<
+  Awaited<ReturnType<typeof uploadCheckApprovalRequired>>
+>
+export type GetMangaRelationResult = NonNullable<
+  Awaited<ReturnType<typeof getMangaRelation>>
+>
+export type PostMangaRelationResult = NonNullable<
+  Awaited<ReturnType<typeof postMangaRelation>>
+>
+export type DeleteMangaRelationIdResult = NonNullable<
+  Awaited<ReturnType<typeof deleteMangaRelationId>>
+>
 export type GetRatingResult = NonNullable<Awaited<ReturnType<typeof getRating>>>
-export type PostRatingMangaIdResult = NonNullable<Awaited<ReturnType<typeof postRatingMangaId>>>
-export type DeleteRatingMangaIdResult = NonNullable<Awaited<ReturnType<typeof deleteRatingMangaId>>>
-export type GetStatisticsChapterUuidResult = NonNullable<Awaited<ReturnType<typeof getStatisticsChapterUuid>>>
-export type GetStatisticsChaptersResult = NonNullable<Awaited<ReturnType<typeof getStatisticsChapters>>>
-export type GetStatisticsGroupUuidResult = NonNullable<Awaited<ReturnType<typeof getStatisticsGroupUuid>>>
-export type GetStatisticsGroupsResult = NonNullable<Awaited<ReturnType<typeof getStatisticsGroups>>>
-export type GetStatisticsMangaUuidResult = NonNullable<Awaited<ReturnType<typeof getStatisticsMangaUuid>>>
-export type GetStatisticsMangaResult = NonNullable<Awaited<ReturnType<typeof getStatisticsManga>>>
-export type GetSettingsTemplateResult = NonNullable<Awaited<ReturnType<typeof getSettingsTemplate>>>
-export type PostSettingsTemplateResult = NonNullable<Awaited<ReturnType<typeof postSettingsTemplate>>>
-export type GetSettingsTemplateVersionResult = NonNullable<Awaited<ReturnType<typeof getSettingsTemplateVersion>>>
-export type GetSettingsResult = NonNullable<Awaited<ReturnType<typeof getSettings>>>
-export type PostSettingsResult = NonNullable<Awaited<ReturnType<typeof postSettings>>>
-export type GetReadingHistoryResult = NonNullable<Awaited<ReturnType<typeof getReadingHistory>>>
-export type ForumsThreadCreateResult = NonNullable<Awaited<ReturnType<typeof forumsThreadCreate>>>
+export type PostRatingMangaIdResult = NonNullable<
+  Awaited<ReturnType<typeof postRatingMangaId>>
+>
+export type DeleteRatingMangaIdResult = NonNullable<
+  Awaited<ReturnType<typeof deleteRatingMangaId>>
+>
+export type GetStatisticsChapterUuidResult = NonNullable<
+  Awaited<ReturnType<typeof getStatisticsChapterUuid>>
+>
+export type GetStatisticsChaptersResult = NonNullable<
+  Awaited<ReturnType<typeof getStatisticsChapters>>
+>
+export type GetStatisticsGroupUuidResult = NonNullable<
+  Awaited<ReturnType<typeof getStatisticsGroupUuid>>
+>
+export type GetStatisticsGroupsResult = NonNullable<
+  Awaited<ReturnType<typeof getStatisticsGroups>>
+>
+export type GetStatisticsMangaUuidResult = NonNullable<
+  Awaited<ReturnType<typeof getStatisticsMangaUuid>>
+>
+export type GetStatisticsMangaResult = NonNullable<
+  Awaited<ReturnType<typeof getStatisticsManga>>
+>
+export type GetSettingsTemplateResult = NonNullable<
+  Awaited<ReturnType<typeof getSettingsTemplate>>
+>
+export type PostSettingsTemplateResult = NonNullable<
+  Awaited<ReturnType<typeof postSettingsTemplate>>
+>
+export type GetSettingsTemplateVersionResult = NonNullable<
+  Awaited<ReturnType<typeof getSettingsTemplateVersion>>
+>
+export type GetSettingsResult = NonNullable<
+  Awaited<ReturnType<typeof getSettings>>
+>
+export type PostSettingsResult = NonNullable<
+  Awaited<ReturnType<typeof postSettings>>
+>
+export type GetReadingHistoryResult = NonNullable<
+  Awaited<ReturnType<typeof getReadingHistory>>
+>
+export type ForumsThreadCreateResult = NonNullable<
+  Awaited<ReturnType<typeof forumsThreadCreate>>
+>

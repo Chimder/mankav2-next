@@ -1,16 +1,19 @@
 import Link from 'next/link'
+import { PATH } from '@/shared/constants/path-constants'
 
 import { Button } from '../ui/button'
-import { InputeSearch } from './inpute-search'
+import InputeSearch from './inpute-search'
 
 export default function Header() {
+  console.log('HEader')
+  // return
   return (
-    <div className="z-1000 w-full bg-header shadow-header">
-      <div className="center relative justify-between border-cyan-200 p-2">
+    <div className="sticky top-0 z-50 h-[64px] w-full bg-black shadow-header">
+      <div className="center relative justify-between rounded-b-lg border-1 border-cyan-200 p-2">
         <div className="center flex-[1_1_33%]">
           <Link
             className="font-logo mr-10 list-none text-6xl text-cyan-300"
-            href={'/'}
+            href={PATH.MANGA.MAIN}
           >
             <h1 className="text-4xl decoration-cyan-200 hover:underline">
               Manka
@@ -19,7 +22,7 @@ export default function Header() {
 
           <Link
             className="center ml-10 whitespace-nowrap text-white"
-            href={`/search`}
+            href={PATH.MANGA.SEARCH}
           >
             <Button
               className="cursor-default text-green-400 decoration-green-400 hover:underline"

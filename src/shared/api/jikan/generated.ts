@@ -105,168 +105,184 @@ By using the API, you are agreeing to Jikan's [terms of use](https://jikan.moe/t
 [v3 Documentation](https://jikan.docs.apiary.io/) - [Wrappers/SDKs](https://github.com/jikan-me/jikan#wrappers) - [Report an issue](https://github.com/jikan-me/jikan-rest/issues/new) - [Host your own server](https://github.com/jikan-me/jikan-rest)
  * OpenAPI spec version: 4.0.0
  */
-import { jikanInstance } from './axios.instance';
+import { jikanInstance } from './axios.instance'
 export type GetWatchRecentPromosParams = {
-page?: PageParameter;
-};
+  page?: PageParameter
+}
 
 export type GetUserClubsParams = {
-page?: PageParameter;
-};
+  page?: PageParameter
+}
 
 export type GetUserRecommendationsParams = {
-page?: PageParameter;
-};
+  page?: PageParameter
+}
 
-export type GetUserReviews200Data = GetUserReviews200DataAllOf & Pagination;
+export type GetUserReviews200Data = GetUserReviews200DataAllOf & Pagination
 
 export type GetUserReviews200 = {
-  data?: GetUserReviews200Data;
-};
+  data?: GetUserReviews200Data
+}
 
 export type GetUserReviews200DataAllOfDataItemAnyOfFourAllOfTwo = {
-  manga?: MangaMeta;
-};
+  manga?: MangaMeta
+}
 
 export type GetUserReviews200DataAllOfDataItemAnyOfFourAllOf = {
-  user?: UserMeta;
-};
+  user?: UserMeta
+}
 
-export type GetUserReviews200DataAllOfDataItemAnyOfFour = GetUserReviews200DataAllOfDataItemAnyOfFourAllOf & GetUserReviews200DataAllOfDataItemAnyOfFourAllOfTwo & MangaReview;
+export type GetUserReviews200DataAllOfDataItemAnyOfFour =
+  GetUserReviews200DataAllOfDataItemAnyOfFourAllOf &
+    GetUserReviews200DataAllOfDataItemAnyOfFourAllOfTwo &
+    MangaReview
 
 export type GetUserReviews200DataAllOfDataItemAnyOfAllOfTwo = {
-  anime?: AnimeMeta;
-};
+  anime?: AnimeMeta
+}
 
 export type GetUserReviews200DataAllOfDataItemAnyOfAllOf = {
-  user?: UserMeta;
-};
+  user?: UserMeta
+}
 
-export type GetUserReviews200DataAllOfDataItemAnyOf = GetUserReviews200DataAllOfDataItemAnyOfAllOf & GetUserReviews200DataAllOfDataItemAnyOfAllOfTwo & AnimeReview;
+export type GetUserReviews200DataAllOfDataItemAnyOf =
+  GetUserReviews200DataAllOfDataItemAnyOfAllOf &
+    GetUserReviews200DataAllOfDataItemAnyOfAllOfTwo &
+    AnimeReview
 
-export type GetUserReviews200DataAllOfDataItem = GetUserReviews200DataAllOfDataItemAnyOf | GetUserReviews200DataAllOfDataItemAnyOfFour;
+export type GetUserReviews200DataAllOfDataItem =
+  | GetUserReviews200DataAllOfDataItemAnyOf
+  | GetUserReviews200DataAllOfDataItemAnyOfFour
 
 export type GetUserReviews200DataAllOf = {
-  data?: GetUserReviews200DataAllOfDataItem[];
-};
+  data?: GetUserReviews200DataAllOfDataItem[]
+}
 
 export type GetUserReviewsParams = {
-page?: PageParameter;
-};
+  page?: PageParameter
+}
 
 export type GetUserMangaListParams = {
-status?: UserMangaListStatusFilter;
-};
+  status?: UserMangaListStatusFilter
+}
 
 export type GetUserAnimelistParams = {
-status?: UserAnimeListStatusFilter;
-};
+  status?: UserAnimeListStatusFilter
+}
 
 export type GetUserFriendsParams = {
-page?: PageParameter;
-};
+  page?: PageParameter
+}
 
-export type GetUserHistoryType = typeof GetUserHistoryType[keyof typeof GetUserHistoryType];
-
+export type GetUserHistoryType =
+  (typeof GetUserHistoryType)[keyof typeof GetUserHistoryType]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const GetUserHistoryType = {
   anime: 'anime',
   manga: 'manga',
-} as const;
+} as const
 
 export type GetUserHistoryParams = {
-type?: GetUserHistoryType;
-};
+  type?: GetUserHistoryType
+}
 
 export type GetUserFavorites200 = {
-  data?: UserFavorites;
-};
+  data?: UserFavorites
+}
 
 export type GetUserProfile200 = {
-  data?: UserProfile;
-};
+  data?: UserProfile
+}
 
 export type GetUserFullProfile200 = {
-  data?: UserProfileFull;
-};
+  data?: UserProfileFull
+}
 
 export type GetTopReviews200DataAllOf = {
-  data?: GetTopReviews200DataAllOfDataItem[];
-};
+  data?: GetTopReviews200DataAllOfDataItem[]
+}
 
-export type GetTopReviews200Data = GetTopReviews200DataAllOf & Pagination;
+export type GetTopReviews200Data = GetTopReviews200DataAllOf & Pagination
 
 export type GetTopReviews200 = {
-  data?: GetTopReviews200Data;
-};
+  data?: GetTopReviews200Data
+}
 
 export type GetTopReviews200DataAllOfDataItemAnyOfFourAllOfTwo = {
-  manga?: MangaMeta;
-};
+  manga?: MangaMeta
+}
 
 export type GetTopReviews200DataAllOfDataItemAnyOfFourAllOf = {
-  user?: UserMeta;
-};
+  user?: UserMeta
+}
 
-export type GetTopReviews200DataAllOfDataItemAnyOfFour = GetTopReviews200DataAllOfDataItemAnyOfFourAllOf & GetTopReviews200DataAllOfDataItemAnyOfFourAllOfTwo & MangaReview;
+export type GetTopReviews200DataAllOfDataItemAnyOfFour =
+  GetTopReviews200DataAllOfDataItemAnyOfFourAllOf &
+    GetTopReviews200DataAllOfDataItemAnyOfFourAllOfTwo &
+    MangaReview
 
-export type GetTopReviews200DataAllOfDataItemAnyOf = GetTopReviews200DataAllOfDataItemAnyOfAllOf & GetTopReviews200DataAllOfDataItemAnyOfAllOfTwo & AnimeReview;
+export type GetTopReviews200DataAllOfDataItemAnyOf =
+  GetTopReviews200DataAllOfDataItemAnyOfAllOf &
+    GetTopReviews200DataAllOfDataItemAnyOfAllOfTwo &
+    AnimeReview
 
-export type GetTopReviews200DataAllOfDataItem = GetTopReviews200DataAllOfDataItemAnyOf | GetTopReviews200DataAllOfDataItemAnyOfFour;
+export type GetTopReviews200DataAllOfDataItem =
+  | GetTopReviews200DataAllOfDataItemAnyOf
+  | GetTopReviews200DataAllOfDataItemAnyOfFour
 
 export type GetTopReviews200DataAllOfDataItemAnyOfAllOfTwo = {
-  anime?: AnimeMeta;
-};
+  anime?: AnimeMeta
+}
 
 export type GetTopReviews200DataAllOfDataItemAnyOfAllOf = {
-  user?: UserMeta;
-};
+  user?: UserMeta
+}
 
 export type GetTopReviewsParams = {
-page?: PageParameter;
-type?: TopReviewsTypeEnum;
-/**
- * Whether the results include preliminary reviews or not. Defaults to true.
- */
-preliminary?: boolean;
-/**
- * Whether the results include reviews with spoilers or not. Defaults to true.
- */
-spoilers?: boolean;
-};
+  page?: PageParameter
+  type?: TopReviewsTypeEnum
+  /**
+   * Whether the results include preliminary reviews or not. Defaults to true.
+   */
+  preliminary?: boolean
+  /**
+   * Whether the results include reviews with spoilers or not. Defaults to true.
+   */
+  spoilers?: boolean
+}
 
 export type GetTopCharactersParams = {
-page?: PageParameter;
-limit?: LimitParameter;
-};
+  page?: PageParameter
+  limit?: LimitParameter
+}
 
 export type GetTopPeopleParams = {
-page?: PageParameter;
-limit?: LimitParameter;
-};
+  page?: PageParameter
+  limit?: LimitParameter
+}
 
 export type GetTopMangaParams = {
-type?: MangaSearchQueryType;
-filter?: TopMangaFilter;
-page?: PageParameter;
-limit?: LimitParameter;
-};
+  type?: MangaSearchQueryType
+  filter?: TopMangaFilter
+  page?: PageParameter
+  limit?: LimitParameter
+}
 
 export type GetTopAnimeParams = {
-type?: AnimeSearchQueryType;
-filter?: TopAnimeFilter;
-rating?: AnimeSearchQueryRating;
-/**
- * Filter out Adult entries
- */
-sfw?: boolean;
-page?: PageParameter;
-limit?: LimitParameter;
-};
+  type?: AnimeSearchQueryType
+  filter?: TopAnimeFilter
+  rating?: AnimeSearchQueryRating
+  /**
+   * Filter out Adult entries
+   */
+  sfw?: boolean
+  page?: PageParameter
+  limit?: LimitParameter
+}
 
-export type GetSeasonUpcomingFilter = typeof GetSeasonUpcomingFilter[keyof typeof GetSeasonUpcomingFilter];
-
+export type GetSeasonUpcomingFilter =
+  (typeof GetSeasonUpcomingFilter)[keyof typeof GetSeasonUpcomingFilter]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const GetSeasonUpcomingFilter = {
@@ -276,31 +292,31 @@ export const GetSeasonUpcomingFilter = {
   special: 'special',
   ona: 'ona',
   music: 'music',
-} as const;
+} as const
 
 export type GetSeasonUpcomingParams = {
-/**
- * Entry types
- */
-filter?: GetSeasonUpcomingFilter;
-/**
- * 'Safe For Work'. This is a flag. When supplied it will filter out entries according to the SFW Policy. You do not need to pass a value to it. e.g usage: `?sfw`
- */
-sfw?: SfwParameter;
-/**
- * This is a flag. When supplied it will include entries which are unapproved. Unapproved entries on MyAnimeList are those that are user submitted and have not yet been approved by MAL to show up on other pages. They will have their own specifc pages and are often removed resulting in a 404 error. You do not need to pass a value to it. e.g usage: `?unapproved`
- */
-unapproved?: UnapprovedParameter;
-/**
- * This is a flag. When supplied it will include entries which are continuing from previous seasons. MAL includes these items on the seasons view in the &#8243;TV (continuing)&#8243; section. (Example: https://myanimelist.net/anime/season/2024/winter) <br />Example usage: `?continuing`
- */
-continuing?: ContinuingParameter;
-page?: PageParameter;
-limit?: LimitParameter;
-};
+  /**
+   * Entry types
+   */
+  filter?: GetSeasonUpcomingFilter
+  /**
+   * 'Safe For Work'. This is a flag. When supplied it will filter out entries according to the SFW Policy. You do not need to pass a value to it. e.g usage: `?sfw`
+   */
+  sfw?: SfwParameter
+  /**
+   * This is a flag. When supplied it will include entries which are unapproved. Unapproved entries on MyAnimeList are those that are user submitted and have not yet been approved by MAL to show up on other pages. They will have their own specifc pages and are often removed resulting in a 404 error. You do not need to pass a value to it. e.g usage: `?unapproved`
+   */
+  unapproved?: UnapprovedParameter
+  /**
+   * This is a flag. When supplied it will include entries which are continuing from previous seasons. MAL includes these items on the seasons view in the &#8243;TV (continuing)&#8243; section. (Example: https://myanimelist.net/anime/season/2024/winter) <br />Example usage: `?continuing`
+   */
+  continuing?: ContinuingParameter
+  page?: PageParameter
+  limit?: LimitParameter
+}
 
-export type GetSeasonFilter = typeof GetSeasonFilter[keyof typeof GetSeasonFilter];
-
+export type GetSeasonFilter =
+  (typeof GetSeasonFilter)[keyof typeof GetSeasonFilter]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const GetSeasonFilter = {
@@ -310,31 +326,31 @@ export const GetSeasonFilter = {
   special: 'special',
   ona: 'ona',
   music: 'music',
-} as const;
+} as const
 
 export type GetSeasonParams = {
-/**
- * Entry types
- */
-filter?: GetSeasonFilter;
-/**
- * 'Safe For Work'. This is a flag. When supplied it will filter out entries according to the SFW Policy. You do not need to pass a value to it. e.g usage: `?sfw`
- */
-sfw?: SfwParameter;
-/**
- * This is a flag. When supplied it will include entries which are unapproved. Unapproved entries on MyAnimeList are those that are user submitted and have not yet been approved by MAL to show up on other pages. They will have their own specifc pages and are often removed resulting in a 404 error. You do not need to pass a value to it. e.g usage: `?unapproved`
- */
-unapproved?: UnapprovedParameter;
-/**
- * This is a flag. When supplied it will include entries which are continuing from previous seasons. MAL includes these items on the seasons view in the &#8243;TV (continuing)&#8243; section. (Example: https://myanimelist.net/anime/season/2024/winter) <br />Example usage: `?continuing`
- */
-continuing?: ContinuingParameter;
-page?: PageParameter;
-limit?: LimitParameter;
-};
+  /**
+   * Entry types
+   */
+  filter?: GetSeasonFilter
+  /**
+   * 'Safe For Work'. This is a flag. When supplied it will filter out entries according to the SFW Policy. You do not need to pass a value to it. e.g usage: `?sfw`
+   */
+  sfw?: SfwParameter
+  /**
+   * This is a flag. When supplied it will include entries which are unapproved. Unapproved entries on MyAnimeList are those that are user submitted and have not yet been approved by MAL to show up on other pages. They will have their own specifc pages and are often removed resulting in a 404 error. You do not need to pass a value to it. e.g usage: `?unapproved`
+   */
+  unapproved?: UnapprovedParameter
+  /**
+   * This is a flag. When supplied it will include entries which are continuing from previous seasons. MAL includes these items on the seasons view in the &#8243;TV (continuing)&#8243; section. (Example: https://myanimelist.net/anime/season/2024/winter) <br />Example usage: `?continuing`
+   */
+  continuing?: ContinuingParameter
+  page?: PageParameter
+  limit?: LimitParameter
+}
 
-export type GetSeasonNowFilter = typeof GetSeasonNowFilter[keyof typeof GetSeasonNowFilter];
-
+export type GetSeasonNowFilter =
+  (typeof GetSeasonNowFilter)[keyof typeof GetSeasonNowFilter]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const GetSeasonNowFilter = {
@@ -344,216 +360,216 @@ export const GetSeasonNowFilter = {
   special: 'special',
   ona: 'ona',
   music: 'music',
-} as const;
+} as const
 
 export type GetSeasonNowParams = {
-/**
- * Entry types
- */
-filter?: GetSeasonNowFilter;
-/**
- * 'Safe For Work'. This is a flag. When supplied it will filter out entries according to the SFW Policy. You do not need to pass a value to it. e.g usage: `?sfw`
- */
-sfw?: SfwParameter;
-/**
- * This is a flag. When supplied it will include entries which are unapproved. Unapproved entries on MyAnimeList are those that are user submitted and have not yet been approved by MAL to show up on other pages. They will have their own specifc pages and are often removed resulting in a 404 error. You do not need to pass a value to it. e.g usage: `?unapproved`
- */
-unapproved?: UnapprovedParameter;
-/**
- * This is a flag. When supplied it will include entries which are continuing from previous seasons. MAL includes these items on the seasons view in the &#8243;TV (continuing)&#8243; section. (Example: https://myanimelist.net/anime/season/2024/winter) <br />Example usage: `?continuing`
- */
-continuing?: ContinuingParameter;
-page?: PageParameter;
-limit?: LimitParameter;
-};
+  /**
+   * Entry types
+   */
+  filter?: GetSeasonNowFilter
+  /**
+   * 'Safe For Work'. This is a flag. When supplied it will filter out entries according to the SFW Policy. You do not need to pass a value to it. e.g usage: `?sfw`
+   */
+  sfw?: SfwParameter
+  /**
+   * This is a flag. When supplied it will include entries which are unapproved. Unapproved entries on MyAnimeList are those that are user submitted and have not yet been approved by MAL to show up on other pages. They will have their own specifc pages and are often removed resulting in a 404 error. You do not need to pass a value to it. e.g usage: `?unapproved`
+   */
+  unapproved?: UnapprovedParameter
+  /**
+   * This is a flag. When supplied it will include entries which are continuing from previous seasons. MAL includes these items on the seasons view in the &#8243;TV (continuing)&#8243; section. (Example: https://myanimelist.net/anime/season/2024/winter) <br />Example usage: `?continuing`
+   */
+  continuing?: ContinuingParameter
+  page?: PageParameter
+  limit?: LimitParameter
+}
 
 export type GetProducersParams = {
-page?: PageParameter;
-limit?: LimitParameter;
-q?: string;
-order_by?: ProducersQueryOrderby;
-sort?: SearchQuerySort;
-/**
- * Return entries starting with the given letter
- */
-letter?: string;
-};
+  page?: PageParameter
+  limit?: LimitParameter
+  q?: string
+  order_by?: ProducersQueryOrderby
+  sort?: SearchQuerySort
+  /**
+   * Return entries starting with the given letter
+   */
+  letter?: string
+}
 
 export type GetClubsSearchParams = {
-page?: PageParameter;
-limit?: LimitParameter;
-q?: string;
-type?: ClubSearchQueryType;
-category?: ClubSearchQueryCategory;
-order_by?: ClubSearchQueryOrderby;
-sort?: SearchQuerySort;
-/**
- * Return entries starting with the given letter
- */
-letter?: string;
-};
+  page?: PageParameter
+  limit?: LimitParameter
+  q?: string
+  type?: ClubSearchQueryType
+  category?: ClubSearchQueryCategory
+  order_by?: ClubSearchQueryOrderby
+  sort?: SearchQuerySort
+  /**
+   * Return entries starting with the given letter
+   */
+  letter?: string
+}
 
 export type GetUserById200 = {
-  data?: UserById;
-};
+  data?: UserById
+}
 
 export type GetUsersSearchParams = {
-page?: PageParameter;
-limit?: LimitParameter;
-q?: string;
-gender?: UsersSearchQueryGender;
-location?: string;
-maxAge?: number;
-minAge?: number;
-};
+  page?: PageParameter
+  limit?: LimitParameter
+  q?: string
+  gender?: UsersSearchQueryGender
+  location?: string
+  maxAge?: number
+  minAge?: number
+}
 
 export type GetCharactersSearchParams = {
-page?: PageParameter;
-limit?: LimitParameter;
-q?: string;
-order_by?: CharactersSearchQueryOrderby;
-sort?: SearchQuerySort;
-/**
- * Return entries starting with the given letter
- */
-letter?: string;
-};
+  page?: PageParameter
+  limit?: LimitParameter
+  q?: string
+  order_by?: CharactersSearchQueryOrderby
+  sort?: SearchQuerySort
+  /**
+   * Return entries starting with the given letter
+   */
+  letter?: string
+}
 
 export type GetPeopleSearchParams = {
-page?: PageParameter;
-limit?: LimitParameter;
-q?: string;
-order_by?: PeopleSearchQueryOrderby;
-sort?: SearchQuerySort;
-/**
- * Return entries starting with the given letter
- */
-letter?: string;
-};
+  page?: PageParameter
+  limit?: LimitParameter
+  q?: string
+  order_by?: PeopleSearchQueryOrderby
+  sort?: SearchQuerySort
+  /**
+   * Return entries starting with the given letter
+   */
+  letter?: string
+}
 
 export type GetMangaSearchParams = {
-/**
- * This is a flag. When supplied it will include entries which are unapproved. Unapproved entries on MyAnimeList are those that are user submitted and have not yet been approved by MAL to show up on other pages. They will have their own specifc pages and are often removed resulting in a 404 error. You do not need to pass a value to it. e.g usage: `?unapproved`
- */
-unapproved?: UnapprovedParameter;
-page?: PageParameter;
-limit?: LimitParameter;
-q?: string;
-type?: MangaSearchQueryType;
-score?: number;
-/**
- * Set a minimum score for results.
- */
-min_score?: number;
-/**
- * Set a maximum score for results
- */
-max_score?: number;
-status?: MangaSearchQueryStatus;
-/**
- * Filter out Adult entries
- */
-sfw?: boolean;
-/**
- * Filter by genre(s) IDs. Can pass multiple with a comma as a delimiter. e.g 1,2,3
- */
-genres?: string;
-/**
- * Exclude genre(s) IDs. Can pass multiple with a comma as a delimiter. e.g 1,2,3
- */
-genres_exclude?: string;
-order_by?: MangaSearchQueryOrderby;
-sort?: SearchQuerySort;
-/**
- * Return entries starting with the given letter
- */
-letter?: string;
-/**
- * Filter by magazine(s) IDs. Can pass multiple with a comma as a delimiter. e.g 1,2,3
- */
-magazines?: string;
-/**
- * Filter by starting date. Format: YYYY-MM-DD. e.g `2022`, `2005-05`, `2005-01-01`
- */
-start_date?: string;
-/**
- * Filter by ending date. Format: YYYY-MM-DD. e.g `2022`, `2005-05`, `2005-01-01`
- */
-end_date?: string;
-};
+  /**
+   * This is a flag. When supplied it will include entries which are unapproved. Unapproved entries on MyAnimeList are those that are user submitted and have not yet been approved by MAL to show up on other pages. They will have their own specifc pages and are often removed resulting in a 404 error. You do not need to pass a value to it. e.g usage: `?unapproved`
+   */
+  unapproved?: UnapprovedParameter
+  page?: PageParameter
+  limit?: LimitParameter
+  q?: string
+  type?: MangaSearchQueryType
+  score?: number
+  /**
+   * Set a minimum score for results.
+   */
+  min_score?: number
+  /**
+   * Set a maximum score for results
+   */
+  max_score?: number
+  status?: MangaSearchQueryStatus
+  /**
+   * Filter out Adult entries
+   */
+  sfw?: boolean
+  /**
+   * Filter by genre(s) IDs. Can pass multiple with a comma as a delimiter. e.g 1,2,3
+   */
+  genres?: string
+  /**
+   * Exclude genre(s) IDs. Can pass multiple with a comma as a delimiter. e.g 1,2,3
+   */
+  genres_exclude?: string
+  order_by?: MangaSearchQueryOrderby
+  sort?: SearchQuerySort
+  /**
+   * Return entries starting with the given letter
+   */
+  letter?: string
+  /**
+   * Filter by magazine(s) IDs. Can pass multiple with a comma as a delimiter. e.g 1,2,3
+   */
+  magazines?: string
+  /**
+   * Filter by starting date. Format: YYYY-MM-DD. e.g `2022`, `2005-05`, `2005-01-01`
+   */
+  start_date?: string
+  /**
+   * Filter by ending date. Format: YYYY-MM-DD. e.g `2022`, `2005-05`, `2005-01-01`
+   */
+  end_date?: string
+}
 
 export type GetAnimeSearchParams = {
-/**
- * This is a flag. When supplied it will include entries which are unapproved. Unapproved entries on MyAnimeList are those that are user submitted and have not yet been approved by MAL to show up on other pages. They will have their own specifc pages and are often removed resulting in a 404 error. You do not need to pass a value to it. e.g usage: `?unapproved`
- */
-unapproved?: UnapprovedParameter;
-page?: PageParameter;
-limit?: LimitParameter;
-q?: string;
-type?: AnimeSearchQueryType;
-score?: number;
-/**
- * Set a minimum score for results.
- */
-min_score?: number;
-/**
- * Set a maximum score for results
- */
-max_score?: number;
-status?: AnimeSearchQueryStatus;
-rating?: AnimeSearchQueryRating;
-/**
- * Filter out Adult entries
- */
-sfw?: boolean;
-/**
- * Filter by genre(s) IDs. Can pass multiple with a comma as a delimiter. e.g 1,2,3
- */
-genres?: string;
-/**
- * Exclude genre(s) IDs. Can pass multiple with a comma as a delimiter. e.g 1,2,3
- */
-genres_exclude?: string;
-order_by?: AnimeSearchQueryOrderby;
-sort?: SearchQuerySort;
-/**
- * Return entries starting with the given letter
- */
-letter?: string;
-/**
- * Filter by producer(s) IDs. Can pass multiple with a comma as a delimiter. e.g 1,2,3
- */
-producers?: string;
-/**
- * Filter by starting date. Format: YYYY-MM-DD. e.g `2022`, `2005-05`, `2005-01-01`
- */
-start_date?: string;
-/**
- * Filter by ending date. Format: YYYY-MM-DD. e.g `2022`, `2005-05`, `2005-01-01`
- */
-end_date?: string;
-};
+  /**
+   * This is a flag. When supplied it will include entries which are unapproved. Unapproved entries on MyAnimeList are those that are user submitted and have not yet been approved by MAL to show up on other pages. They will have their own specifc pages and are often removed resulting in a 404 error. You do not need to pass a value to it. e.g usage: `?unapproved`
+   */
+  unapproved?: UnapprovedParameter
+  page?: PageParameter
+  limit?: LimitParameter
+  q?: string
+  type?: AnimeSearchQueryType
+  score?: number
+  /**
+   * Set a minimum score for results.
+   */
+  min_score?: number
+  /**
+   * Set a maximum score for results
+   */
+  max_score?: number
+  status?: AnimeSearchQueryStatus
+  rating?: AnimeSearchQueryRating
+  /**
+   * Filter out Adult entries
+   */
+  sfw?: boolean
+  /**
+   * Filter by genre(s) IDs. Can pass multiple with a comma as a delimiter. e.g 1,2,3
+   */
+  genres?: string
+  /**
+   * Exclude genre(s) IDs. Can pass multiple with a comma as a delimiter. e.g 1,2,3
+   */
+  genres_exclude?: string
+  order_by?: AnimeSearchQueryOrderby
+  sort?: SearchQuerySort
+  /**
+   * Return entries starting with the given letter
+   */
+  letter?: string
+  /**
+   * Filter by producer(s) IDs. Can pass multiple with a comma as a delimiter. e.g 1,2,3
+   */
+  producers?: string
+  /**
+   * Filter by starting date. Format: YYYY-MM-DD. e.g `2022`, `2005-05`, `2005-01-01`
+   */
+  start_date?: string
+  /**
+   * Filter by ending date. Format: YYYY-MM-DD. e.g `2022`, `2005-05`, `2005-01-01`
+   */
+  end_date?: string
+}
 
-export type GetSchedulesSfw = typeof GetSchedulesSfw[keyof typeof GetSchedulesSfw];
-
+export type GetSchedulesSfw =
+  (typeof GetSchedulesSfw)[keyof typeof GetSchedulesSfw]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const GetSchedulesSfw = {
   true: 'true',
   false: 'false',
-} as const;
+} as const
 
-export type GetSchedulesKids = typeof GetSchedulesKids[keyof typeof GetSchedulesKids];
-
+export type GetSchedulesKids =
+  (typeof GetSchedulesKids)[keyof typeof GetSchedulesKids]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const GetSchedulesKids = {
   true: 'true',
   false: 'false',
-} as const;
+} as const
 
-export type GetSchedulesFilter = typeof GetSchedulesFilter[keyof typeof GetSchedulesFilter];
-
+export type GetSchedulesFilter =
+  (typeof GetSchedulesFilter)[keyof typeof GetSchedulesFilter]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const GetSchedulesFilter = {
@@ -566,433 +582,435 @@ export const GetSchedulesFilter = {
   sunday: 'sunday',
   unknown: 'unknown',
   other: 'other',
-} as const;
+} as const
 
 export type GetSchedulesParams = {
-/**
- * Filter by day
- */
-filter?: GetSchedulesFilter;
-/**
- * When supplied, it will filter entries with the `Kids` Genre Demographic. When supplied as `kids=true`, it will return only Kid entries and when supplied as `kids=false`, it will filter out any Kid entries. Defaults to `false`.
- */
-kids?: GetSchedulesKids;
-/**
- * 'Safe For Work'. When supplied, it will filter entries with the `Hentai` Genre. When supplied as `sfw=true`, it will return only SFW entries and when supplied as `sfw=false`, it will filter out any Hentai entries. Defaults to `false`.
- */
-sfw?: GetSchedulesSfw;
-/**
- * This is a flag. When supplied it will include entries which are unapproved. Unapproved entries on MyAnimeList are those that are user submitted and have not yet been approved by MAL to show up on other pages. They will have their own specifc pages and are often removed resulting in a 404 error. You do not need to pass a value to it. e.g usage: `?unapproved`
- */
-unapproved?: UnapprovedParameter;
-page?: PageParameter;
-limit?: LimitParameter;
-};
+  /**
+   * Filter by day
+   */
+  filter?: GetSchedulesFilter
+  /**
+   * When supplied, it will filter entries with the `Kids` Genre Demographic. When supplied as `kids=true`, it will return only Kid entries and when supplied as `kids=false`, it will filter out any Kid entries. Defaults to `false`.
+   */
+  kids?: GetSchedulesKids
+  /**
+   * 'Safe For Work'. When supplied, it will filter entries with the `Hentai` Genre. When supplied as `sfw=true`, it will return only SFW entries and when supplied as `sfw=false`, it will filter out any Hentai entries. Defaults to `false`.
+   */
+  sfw?: GetSchedulesSfw
+  /**
+   * This is a flag. When supplied it will include entries which are unapproved. Unapproved entries on MyAnimeList are those that are user submitted and have not yet been approved by MAL to show up on other pages. They will have their own specifc pages and are often removed resulting in a 404 error. You do not need to pass a value to it. e.g usage: `?unapproved`
+   */
+  unapproved?: UnapprovedParameter
+  page?: PageParameter
+  limit?: LimitParameter
+}
 
 export type GetRecentMangaReviewsParams = {
-page?: PageParameter;
-/**
- * Any reviews left during an ongoing anime/manga, those reviews are tagged as preliminary. NOTE: Preliminary reviews are not returned by default so if the entry is airing/publishing you need to add this otherwise you will get an empty list. e.g usage: `?preliminary=true`
- */
-preliminary?: PreliminaryParameter;
-/**
- * Any reviews that are tagged as a spoiler. Spoiler reviews are not returned by default. e.g usage: `?spoiler=true`
- */
-spoilers?: SpoilersParameter;
-};
+  page?: PageParameter
+  /**
+   * Any reviews left during an ongoing anime/manga, those reviews are tagged as preliminary. NOTE: Preliminary reviews are not returned by default so if the entry is airing/publishing you need to add this otherwise you will get an empty list. e.g usage: `?preliminary=true`
+   */
+  preliminary?: PreliminaryParameter
+  /**
+   * Any reviews that are tagged as a spoiler. Spoiler reviews are not returned by default. e.g usage: `?spoiler=true`
+   */
+  spoilers?: SpoilersParameter
+}
 
 export type GetRecentAnimeReviewsParams = {
-page?: PageParameter;
-/**
- * Any reviews left during an ongoing anime/manga, those reviews are tagged as preliminary. NOTE: Preliminary reviews are not returned by default so if the entry is airing/publishing you need to add this otherwise you will get an empty list. e.g usage: `?preliminary=true`
- */
-preliminary?: PreliminaryParameter;
-/**
- * Any reviews that are tagged as a spoiler. Spoiler reviews are not returned by default. e.g usage: `?spoiler=true`
- */
-spoilers?: SpoilersParameter;
-};
+  page?: PageParameter
+  /**
+   * Any reviews left during an ongoing anime/manga, those reviews are tagged as preliminary. NOTE: Preliminary reviews are not returned by default so if the entry is airing/publishing you need to add this otherwise you will get an empty list. e.g usage: `?preliminary=true`
+   */
+  preliminary?: PreliminaryParameter
+  /**
+   * Any reviews that are tagged as a spoiler. Spoiler reviews are not returned by default. e.g usage: `?spoiler=true`
+   */
+  spoilers?: SpoilersParameter
+}
 
 export type GetRecentMangaRecommendationsParams = {
-page?: PageParameter;
-};
+  page?: PageParameter
+}
 
 export type GetRecentAnimeRecommendationsParams = {
-page?: PageParameter;
-};
+  page?: PageParameter
+}
 
 export type GetRandomUsers200 = {
-  data?: UserProfile;
-};
+  data?: UserProfile
+}
 
 export type GetRandomPeople200 = {
-  data?: Person;
-};
+  data?: Person
+}
 
 export type GetRandomCharacters200 = {
-  data?: Character;
-};
+  data?: Character
+}
 
 export type GetRandomManga200 = {
-  data?: Manga;
-};
+  data?: Manga
+}
 
 export type GetRandomAnime200 = {
-  data?: Anime;
-};
+  data?: Anime
+}
 
 export type GetProducerFullById200 = {
-  data?: ProducerFull;
-};
+  data?: ProducerFull
+}
 
 export type GetProducerById200 = {
-  data?: Producer;
-};
+  data?: Producer
+}
 
 export type GetPersonById200 = {
-  data?: Person;
-};
+  data?: Person
+}
 
 export type GetPersonFullById200 = {
-  data?: PersonFull;
-};
+  data?: PersonFull
+}
 
 export type GetMangaRelations200 = {
-  data?: Relation[];
-};
+  data?: Relation[]
+}
 
 export type GetMangaReviewsParams = {
-page?: PageParameter;
-/**
- * Any reviews left during an ongoing anime/manga, those reviews are tagged as preliminary. NOTE: Preliminary reviews are not returned by default so if the entry is airing/publishing you need to add this otherwise you will get an empty list. e.g usage: `?preliminary=true`
- */
-preliminary?: PreliminaryParameter;
-/**
- * Any reviews that are tagged as a spoiler. Spoiler reviews are not returned by default. e.g usage: `?spoiler=true`
- */
-spoilers?: SpoilersParameter;
-};
+  page?: PageParameter
+  /**
+   * Any reviews left during an ongoing anime/manga, those reviews are tagged as preliminary. NOTE: Preliminary reviews are not returned by default so if the entry is airing/publishing you need to add this otherwise you will get an empty list. e.g usage: `?preliminary=true`
+   */
+  preliminary?: PreliminaryParameter
+  /**
+   * Any reviews that are tagged as a spoiler. Spoiler reviews are not returned by default. e.g usage: `?spoiler=true`
+   */
+  spoilers?: SpoilersParameter
+}
 
 export type GetMangaUserUpdatesParams = {
-page?: PageParameter;
-};
+  page?: PageParameter
+}
 
-export type GetMangaTopicsFilter = typeof GetMangaTopicsFilter[keyof typeof GetMangaTopicsFilter];
-
+export type GetMangaTopicsFilter =
+  (typeof GetMangaTopicsFilter)[keyof typeof GetMangaTopicsFilter]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const GetMangaTopicsFilter = {
   all: 'all',
   episode: 'episode',
   other: 'other',
-} as const;
+} as const
 
 export type GetMangaTopicsParams = {
-/**
- * Filter topics
- */
-filter?: GetMangaTopicsFilter;
-};
+  /**
+   * Filter topics
+   */
+  filter?: GetMangaTopicsFilter
+}
 
 export type GetMangaNewsParams = {
-page?: PageParameter;
-};
+  page?: PageParameter
+}
 
 export type GetMangaById200 = {
-  data?: Manga;
-};
+  data?: Manga
+}
 
 export type GetMangaFullById200 = {
-  data?: MangaFull;
-};
+  data?: MangaFull
+}
 
 export type GetMagazinesParams = {
-page?: PageParameter;
-limit?: LimitParameter;
-q?: string;
-order_by?: MagazinesQueryOrderby;
-sort?: SearchQuerySort;
-/**
- * Return entries starting with the given letter
- */
-letter?: string;
-};
+  page?: PageParameter
+  limit?: LimitParameter
+  q?: string
+  order_by?: MagazinesQueryOrderby
+  sort?: SearchQuerySort
+  /**
+   * Return entries starting with the given letter
+   */
+  letter?: string
+}
 
 export type GetMangaGenresParams = {
-filter?: GenreQueryFilter;
-};
+  filter?: GenreQueryFilter
+}
 
 export type GetAnimeGenresParams = {
-filter?: GenreQueryFilter;
-};
+  filter?: GenreQueryFilter
+}
 
-export type GetClubMembers200 = Pagination & ClubMember;
+export type GetClubMembers200 = Pagination & ClubMember
 
 export type GetClubMembersParams = {
-page?: PageParameter;
-};
+  page?: PageParameter
+}
 
 export type GetClubsById200 = {
-  data?: Club;
-};
+  data?: Club
+}
 
 export type GetCharacterById200 = {
-  data?: Character;
-};
+  data?: Character
+}
 
 export type GetCharacterFullById200 = {
-  data?: CharacterFull;
-};
+  data?: CharacterFull
+}
 
 export type GetAnimeRelations200 = {
-  data?: Relation[];
-};
+  data?: Relation[]
+}
 
 export type GetAnimeReviewsParams = {
-page?: PageParameter;
-/**
- * Any reviews left during an ongoing anime/manga, those reviews are tagged as preliminary. NOTE: Preliminary reviews are not returned by default so if the entry is airing/publishing you need to add this otherwise you will get an empty list. e.g usage: `?preliminary=true`
- */
-preliminary?: PreliminaryParameter;
-/**
- * Any reviews that are tagged as a spoiler. Spoiler reviews are not returned by default. e.g usage: `?spoiler=true`
- */
-spoilers?: SpoilersParameter;
-};
+  page?: PageParameter
+  /**
+   * Any reviews left during an ongoing anime/manga, those reviews are tagged as preliminary. NOTE: Preliminary reviews are not returned by default so if the entry is airing/publishing you need to add this otherwise you will get an empty list. e.g usage: `?preliminary=true`
+   */
+  preliminary?: PreliminaryParameter
+  /**
+   * Any reviews that are tagged as a spoiler. Spoiler reviews are not returned by default. e.g usage: `?spoiler=true`
+   */
+  spoilers?: SpoilersParameter
+}
 
 export type GetAnimeUserUpdatesParams = {
-page?: PageParameter;
-};
+  page?: PageParameter
+}
 
 export type GetAnimeVideosEpisodesParams = {
-page?: PageParameter;
-};
+  page?: PageParameter
+}
 
-export type GetAnimeForumFilter = typeof GetAnimeForumFilter[keyof typeof GetAnimeForumFilter];
-
+export type GetAnimeForumFilter =
+  (typeof GetAnimeForumFilter)[keyof typeof GetAnimeForumFilter]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const GetAnimeForumFilter = {
   all: 'all',
   episode: 'episode',
   other: 'other',
-} as const;
+} as const
 
 export type GetAnimeForumParams = {
-/**
- * Filter topics
- */
-filter?: GetAnimeForumFilter;
-};
+  /**
+   * Filter topics
+   */
+  filter?: GetAnimeForumFilter
+}
 
 export type GetAnimeNewsParams = {
-page?: PageParameter;
-};
+  page?: PageParameter
+}
 
 export type GetAnimeEpisodeById200 = {
-  data?: AnimeEpisode;
-};
+  data?: AnimeEpisode
+}
 
 export type GetAnimeEpisodesParams = {
-page?: PageParameter;
-};
+  page?: PageParameter
+}
 
 export type GetAnimeById200 = {
-  data?: Anime;
-};
+  data?: Anime
+}
 
 export type GetAnimeFullById200 = {
-  data?: AnimeFull;
-};
+  data?: AnimeFull
+}
 
 /**
  * This is a flag. When supplied it will include entries which are unapproved. Unapproved entries on MyAnimeList are those that are user submitted and have not yet been approved by MAL to show up on other pages. They will have their own specifc pages and are often removed resulting in a 404 error. You do not need to pass a value to it. e.g usage: `?unapproved`
  */
-export type UnapprovedParameter = boolean;
+export type UnapprovedParameter = boolean
 
 /**
  * Any reviews that are tagged as a spoiler. Spoiler reviews are not returned by default. e.g usage: `?spoiler=true`
  */
-export type SpoilersParameter = boolean;
+export type SpoilersParameter = boolean
 
 /**
  * 'Safe For Work'. This is a flag. When supplied it will filter out entries according to the SFW Policy. You do not need to pass a value to it. e.g usage: `?sfw`
  */
-export type SfwParameter = boolean;
+export type SfwParameter = boolean
 
 /**
  * Any reviews left during an ongoing anime/manga, those reviews are tagged as preliminary. NOTE: Preliminary reviews are not returned by default so if the entry is airing/publishing you need to add this otherwise you will get an empty list. e.g usage: `?preliminary=true`
  */
-export type PreliminaryParameter = boolean;
+export type PreliminaryParameter = boolean
 
-export type PageParameter = number;
+export type PageParameter = number
 
-export type LimitParameter = number;
+export type LimitParameter = number
 
 /**
  * This is a flag. When supplied it will include entries with the Kids genres in specific endpoints that filter them out by default. You do not need to pass a value to it. e.g usage: `?kids`
  */
-export type KidsParameter = boolean;
+export type KidsParameter = boolean
 
 /**
  * This is a flag. When supplied it will include entries which are continuing from previous seasons. MAL includes these items on the seasons view in the &#8243;TV (continuing)&#8243; section. (Example: https://myanimelist.net/anime/season/2024/winter) <br />Example usage: `?continuing`
  */
-export type ContinuingParameter = boolean;
+export type ContinuingParameter = boolean
 
 /**
  * Error: Bad request. When required parameters were not supplied.
  */
-export type N400Response = void;
+export type N400Response = void
 
 export type MangaUserupdatesAllOfDataItem = {
   /** Number of chapters read */
-  chapters_read?: number;
+  chapters_read?: number
   /** Total number of chapters */
-  chapters_total?: number;
+  chapters_total?: number
   /** Last updated date ISO8601 */
-  date?: string;
+  date?: string
   /**
    * User Score
    * @nullable
    */
-  score?: number | null;
+  score?: number | null
   /** User list status */
-  status?: string;
-  user?: UserMeta;
+  status?: string
+  user?: UserMeta
   /** Number of volumes read */
-  volumes_read?: number;
+  volumes_read?: number
   /** Total number of volumes */
-  volumes_total?: number;
-};
+  volumes_total?: number
+}
 
 export type MangaUserupdatesAllOf = {
-  data?: MangaUserupdatesAllOfDataItem[];
-};
+  data?: MangaUserupdatesAllOfDataItem[]
+}
 
 /**
  * Manga User Updates Resource
  */
-export type MangaUserupdates = MangaUserupdatesAllOf & Pagination;
+export type MangaUserupdates = MangaUserupdatesAllOf & Pagination
 
 export type AnimeUserupdatesAllOfDataItem = {
   /** Last updated date ISO8601 */
-  date?: string;
+  date?: string
   /**
    * Number of episodes seen
    * @nullable
    */
-  episodes_seen?: number | null;
+  episodes_seen?: number | null
   /**
    * Total number of episodes
    * @nullable
    */
-  episodes_total?: number | null;
+  episodes_total?: number | null
   /**
    * User Score
    * @nullable
    */
-  score?: number | null;
+  score?: number | null
   /** User list status */
-  status?: string;
-  user?: UserMeta;
-};
+  status?: string
+  user?: UserMeta
+}
 
 export type AnimeUserupdatesAllOf = {
-  data?: AnimeUserupdatesAllOfDataItem[];
-};
+  data?: AnimeUserupdatesAllOfDataItem[]
+}
 
 /**
  * Anime User Updates Resource
  */
-export type AnimeUserupdates = AnimeUserupdatesAllOf & Pagination;
+export type AnimeUserupdates = AnimeUserupdatesAllOf & Pagination
 
 export type StreamingLinksDataItem = {
-  name?: string;
-  url?: string;
-};
+  name?: string
+  url?: string
+}
 
 /**
  * Streaming links
  */
 export interface StreamingLinks {
-  data?: StreamingLinksDataItem[];
+  data?: StreamingLinksDataItem[]
 }
 
 /**
  * Manga Reviews Resource
  */
-export type MangaReviews = MangaReviewsAllOf & Pagination;
+export type MangaReviews = MangaReviewsAllOf & Pagination
 
 export type MangaReviewsAllOfDataItemAllOf = {
-  user?: UserMeta;
-};
+  user?: UserMeta
+}
 
-export type MangaReviewsAllOfDataItem = MangaReviewsAllOfDataItemAllOf & MangaReview;
+export type MangaReviewsAllOfDataItem = MangaReviewsAllOfDataItemAllOf &
+  MangaReview
 
 export type MangaReviewsAllOf = {
-  data?: MangaReviewsAllOfDataItem[];
-};
+  data?: MangaReviewsAllOfDataItem[]
+}
 
 /**
  * Anime Reviews Resource
  */
-export type AnimeReviews = AnimeReviewsAllOf & Pagination;
+export type AnimeReviews = AnimeReviewsAllOf & Pagination
 
 export type AnimeReviewsAllOfDataItemAllOf = {
-  user?: UserMeta;
-};
+  user?: UserMeta
+}
 
-export type AnimeReviewsAllOfDataItem = AnimeReviewsAllOfDataItemAllOf & AnimeReview;
+export type AnimeReviewsAllOfDataItem = AnimeReviewsAllOfDataItemAllOf &
+  AnimeReview
 
 export type AnimeReviewsAllOf = {
-  data?: AnimeReviewsAllOfDataItem[];
-};
+  data?: AnimeReviewsAllOfDataItem[]
+}
 
 /**
  * User reaction count on the review
  */
 export type AnimeReviewReactions = {
   /** Confusing reaction count */
-  confusing?: number;
+  confusing?: number
   /** Creative reaction count */
-  creative?: number;
+  creative?: number
   /** Funny reaction count */
-  funny?: number;
+  funny?: number
   /** Informative reaction count */
-  informative?: number;
+  informative?: number
   /** Love it reaction count */
-  love_it?: number;
+  love_it?: number
   /** Nice reaction count */
-  nice?: number;
+  nice?: number
   /** Overall reaction count */
-  overall?: number;
+  overall?: number
   /** Well written reaction count */
-  well_written?: number;
-};
+  well_written?: number
+}
 
 export interface AnimeReview {
   /** Review created date ISO8601 */
-  date?: string;
+  date?: string
   /** Number of episodes watched */
-  episodes_watched?: number;
+  episodes_watched?: number
   /** The review was made before the entry was completed */
-  is_preliminary?: boolean;
+  is_preliminary?: boolean
   /** The review contains spoiler */
-  is_spoiler?: boolean;
+  is_spoiler?: boolean
   /** MyAnimeList ID */
-  mal_id?: number;
+  mal_id?: number
   /** User reaction count on the review */
-  reactions?: AnimeReviewReactions;
+  reactions?: AnimeReviewReactions
   /** Review content */
-  review?: string;
+  review?: string
   /** Number of user votes on the Review */
-  score?: number;
+  score?: number
   /** Review tags */
-  tags?: string[];
+  tags?: string[]
   /** Entry type */
-  type?: string;
+  type?: string
   /** MyAnimeList review URL */
-  url?: string;
+  url?: string
 }
 
 /**
@@ -1000,82 +1018,82 @@ export interface AnimeReview {
  */
 export type MangaReviewReactions = {
   /** Confusing reaction count */
-  confusing?: number;
+  confusing?: number
   /** Creative reaction count */
-  creative?: number;
+  creative?: number
   /** Funny reaction count */
-  funny?: number;
+  funny?: number
   /** Informative reaction count */
-  informative?: number;
+  informative?: number
   /** Love it reaction count */
-  love_it?: number;
+  love_it?: number
   /** Nice reaction count */
-  nice?: number;
+  nice?: number
   /** Overall reaction count */
-  overall?: number;
+  overall?: number
   /** Well written reaction count */
-  well_written?: number;
-};
+  well_written?: number
+}
 
 export interface MangaReview {
   /** Review created date ISO8601 */
-  date?: string;
+  date?: string
   /** The review was made before the entry was completed */
-  is_preliminary?: boolean;
+  is_preliminary?: boolean
   /** The review contains spoiler */
-  is_spoiler?: boolean;
+  is_spoiler?: boolean
   /** MyAnimeList ID */
-  mal_id?: number;
+  mal_id?: number
   /** User reaction count on the review */
-  reactions?: MangaReviewReactions;
+  reactions?: MangaReviewReactions
   /** Review content */
-  review?: string;
+  review?: string
   /** Number of user votes on the Review */
-  score?: number;
+  score?: number
   /** Review tags */
-  tags?: string[];
+  tags?: string[]
   /** Entry type */
-  type?: string;
+  type?: string
   /** MyAnimeList review URL */
-  url?: string;
+  url?: string
 }
 
-export type EntryRecommendationsDataItemEntry = AnimeMeta | MangaMeta;
+export type EntryRecommendationsDataItemEntry = AnimeMeta | MangaMeta
 
 export type EntryRecommendationsDataItem = {
-  entry?: EntryRecommendationsDataItemEntry;
-};
+  entry?: EntryRecommendationsDataItemEntry
+}
 
 /**
  * Entry Recommendations Resource
  */
 export interface EntryRecommendations {
-  data?: EntryRecommendationsDataItem[];
+  data?: EntryRecommendationsDataItem[]
 }
 
-export type RecommendationsAllOfDataItemEntryItem = AnimeMeta | MangaMeta;
+export type RecommendationsAllOfDataItemEntryItem = AnimeMeta | MangaMeta
 
 export type RecommendationsAllOfDataItem = {
   /** Recommendation context provided by the user */
-  content?: string;
+  content?: string
   /** Array of 2 entries that are being recommended to each other */
-  entry?: RecommendationsAllOfDataItemEntryItem[];
+  entry?: RecommendationsAllOfDataItemEntryItem[]
   /** MAL IDs of recommendations is both of the MAL ID's with a `-` delimiter */
-  mal_id?: string;
-  user?: UserById;
-};
+  mal_id?: string
+  user?: UserById
+}
 
 export type RecommendationsAllOf = {
-  data?: RecommendationsAllOfDataItem[];
-};
+  data?: RecommendationsAllOfDataItem[]
+}
 
 /**
  * Recommendations
  */
-export type Recommendations = RecommendationsAllOf & Pagination;
+export type Recommendations = RecommendationsAllOf & Pagination
 
 export interface UserStatistics {
-  data?: UserStatisticsData;
+  data?: UserStatisticsData
 }
 
 /**
@@ -1083,67 +1101,67 @@ export interface UserStatistics {
  */
 export type UserStatisticsDataManga = {
   /** Number of Manga Chapters Read */
-  chapters_read?: number;
+  chapters_read?: number
   /** Manga Completed */
-  completed?: number;
+  completed?: number
   /** Number of days spent reading Manga */
-  days_read?: number;
+  days_read?: number
   /** Manga Dropped */
-  dropped?: number;
+  dropped?: number
   /** Mean Score */
-  mean_score?: number;
+  mean_score?: number
   /** Manga On-Hold */
-  on_hold?: number;
+  on_hold?: number
   /** Manga Planned to Read */
-  plan_to_read?: number;
+  plan_to_read?: number
   /** Manga Reading */
-  reading?: number;
+  reading?: number
   /** Manga re-read */
-  reread?: number;
+  reread?: number
   /** Total Manga entries on User list */
-  total_entries?: number;
+  total_entries?: number
   /** Number of Manga Volumes Read */
-  volumes_read?: number;
-};
+  volumes_read?: number
+}
 
 /**
  * Anime Statistics
  */
 export type UserStatisticsDataAnime = {
   /** Anime Completed */
-  completed?: number;
+  completed?: number
   /** Number of days spent watching Anime */
-  days_watched?: number;
+  days_watched?: number
   /** Anime Dropped */
-  dropped?: number;
+  dropped?: number
   /** Number of Anime Episodes Watched */
-  episodes_watched?: number;
+  episodes_watched?: number
   /** Mean Score */
-  mean_score?: number;
+  mean_score?: number
   /** Anime On-Hold */
-  on_hold?: number;
+  on_hold?: number
   /** Anime Planned to Watch */
-  plan_to_watch?: number;
+  plan_to_watch?: number
   /** Anime re-watched */
-  rewatched?: number;
+  rewatched?: number
   /** Total Anime entries on User list */
-  total_entries?: number;
+  total_entries?: number
   /** Anime Watching */
-  watching?: number;
-};
+  watching?: number
+}
 
 export type UserStatisticsData = {
   /** Anime Statistics */
-  anime?: UserStatisticsDataAnime;
+  anime?: UserStatisticsDataAnime
   /** Manga Statistics */
-  manga?: UserStatisticsDataManga;
-};
+  manga?: UserStatisticsDataManga
+}
 
 /**
  * Transform the resource into an array.
  */
 export interface UsersTemp {
-  data?: UsersTempDataItem[];
+  data?: UsersTempDataItem[]
 }
 
 /**
@@ -1151,226 +1169,228 @@ export interface UsersTemp {
  */
 export type UsersTempDataItemMangaStats = {
   /** Number of Manga Chapters Read */
-  chapters_read?: number;
+  chapters_read?: number
   /** Manga Completed */
-  completed?: number;
+  completed?: number
   /** Number of days spent reading Manga */
-  days_read?: number;
+  days_read?: number
   /** Manga Dropped */
-  dropped?: number;
+  dropped?: number
   /** Mean Score */
-  mean_score?: number;
+  mean_score?: number
   /** Manga On-Hold */
-  on_hold?: number;
+  on_hold?: number
   /** Manga Planned to Read */
-  plan_to_read?: number;
+  plan_to_read?: number
   /** Manga Reading */
-  reading?: number;
+  reading?: number
   /** Manga re-read */
-  reread?: number;
+  reread?: number
   /** Total Manga entries on User list */
-  total_entries?: number;
+  total_entries?: number
   /** Number of Manga Volumes Read */
-  volumes_read?: number;
-};
+  volumes_read?: number
+}
 
 /**
  * Available images in WEBP
  */
 export type UsersTempDataItemImagesWebp = {
   /** Image URL WEBP (225x335) */
-  image_url?: string;
-};
+  image_url?: string
+}
 
 /**
  * Available images in JPG
  */
 export type UsersTempDataItemImagesJpg = {
   /** Image URL JPG (225x335) */
-  image_url?: string;
-};
+  image_url?: string
+}
 
 /**
  * Images
  */
 export type UsersTempDataItemImages = {
   /** Available images in JPG */
-  jpg?: UsersTempDataItemImagesJpg;
+  jpg?: UsersTempDataItemImagesJpg
   /** Available images in WEBP */
-  webp?: UsersTempDataItemImagesWebp;
-};
+  webp?: UsersTempDataItemImagesWebp
+}
 
 /**
  * Favorite entries
  */
 export type UsersTempDataItemFavorites = {
   /** Favorite Anime */
-  anime?: EntryMeta[];
+  anime?: EntryMeta[]
   /** Favorite Characters */
-  characters?: EntryMeta[];
+  characters?: EntryMeta[]
   /** Favorite Manga */
-  manga?: EntryMeta[];
+  manga?: EntryMeta[]
   /** Favorite People */
-  people?: EntryMeta[];
-};
+  people?: EntryMeta[]
+}
 
 /**
  * Anime Stats
  */
 export type UsersTempDataItemAnimeStats = {
   /** Anime Completed */
-  completed?: number;
+  completed?: number
   /** Number of days spent watching Anime */
-  days_watched?: number;
+  days_watched?: number
   /** Anime Dropped */
-  dropped?: number;
+  dropped?: number
   /** Number of Anime Episodes Watched */
-  episodes_watched?: number;
+  episodes_watched?: number
   /** Mean Score */
-  mean_score?: number;
+  mean_score?: number
   /** Anime On-Hold */
-  on_hold?: number;
+  on_hold?: number
   /** Anime Planned to Watch */
-  plan_to_watch?: number;
+  plan_to_watch?: number
   /** Anime re-watched */
-  rewatched?: number;
+  rewatched?: number
   /** Total Anime entries on User list */
-  total_entries?: number;
+  total_entries?: number
   /** Anime Watching */
-  watching?: number;
-};
+  watching?: number
+}
 
 export type UsersTempDataItem = {
   /** User About. NOTE: About information is customizable by users through BBCode on MyAnimeList. This means users can add multimedia content, different text sizes, etc. Due to this freeform, Jikan returns parsed HTML. Validate on your end! */
-  about?: string;
+  about?: string
   /** Anime Stats */
-  anime_stats?: UsersTempDataItemAnimeStats;
+  anime_stats?: UsersTempDataItemAnimeStats
   /** Birthday Date ISO8601 */
-  birthday?: string;
+  birthday?: string
   /** Favorite entries */
-  favorites?: UsersTempDataItemFavorites;
+  favorites?: UsersTempDataItemFavorites
   /** User Gender */
-  gender?: string;
+  gender?: string
   /** Images */
-  images?: UsersTempDataItemImages;
+  images?: UsersTempDataItemImages
   /** Joined Date ISO8601 */
-  joined?: string;
+  joined?: string
   /** Last Online Date ISO8601 */
-  last_online?: string;
+  last_online?: string
   /** Location */
-  location?: string;
+  location?: string
   /** MyAnimeList ID */
-  mal_id?: number;
+  mal_id?: number
   /** Manga Stats */
-  manga_stats?: UsersTempDataItemMangaStats;
+  manga_stats?: UsersTempDataItemMangaStats
   /** MyAnimeList URL */
-  url?: string;
+  url?: string
   /** MyAnimeList Username */
-  username?: string;
-};
+  username?: string
+}
 
 export interface UserProfile {
   /**
    * Birthday Date ISO8601
    * @nullable
    */
-  birthday?: string | null;
+  birthday?: string | null
   /**
    * User Gender
    * @nullable
    */
-  gender?: string | null;
-  images?: UserImages;
+  gender?: string | null
+  images?: UserImages
   /**
    * Joined Date ISO8601
    * @nullable
    */
-  joined?: string | null;
+  joined?: string | null
   /**
    * Last Online Date ISO8601
    * @nullable
    */
-  last_online?: string | null;
+  last_online?: string | null
   /**
    * Location
    * @nullable
    */
-  location?: string | null;
+  location?: string | null
   /**
    * MyAnimeList ID
    * @nullable
    */
-  mal_id?: number | null;
+  mal_id?: number | null
   /** MyAnimeList URL */
-  url?: string;
+  url?: string
   /** MyAnimeList Username */
-  username?: string;
+  username?: string
 }
 
 export interface UserUpdates {
-  data?: UserUpdatesData;
+  data?: UserUpdatesData
 }
 
 export type UserUpdatesDataMangaItemAllOfTwo = {
   /** @nullable */
-  chapters_read?: number | null;
+  chapters_read?: number | null
   /** @nullable */
-  chapters_total?: number | null;
+  chapters_total?: number | null
   /** ISO8601 format */
-  date?: string;
+  date?: string
   /** @nullable */
-  score?: number | null;
-  status?: string;
+  score?: number | null
+  status?: string
   /** @nullable */
-  volumes_read?: number | null;
+  volumes_read?: number | null
   /** @nullable */
-  volumes_total?: number | null;
-};
+  volumes_total?: number | null
+}
 
 export type UserUpdatesDataMangaItemAllOf = {
-  entry?: MangaMeta;
-};
+  entry?: MangaMeta
+}
 
-export type UserUpdatesDataMangaItem = UserUpdatesDataMangaItemAllOf & UserUpdatesDataMangaItemAllOfTwo;
+export type UserUpdatesDataMangaItem = UserUpdatesDataMangaItemAllOf &
+  UserUpdatesDataMangaItemAllOfTwo
 
 export type UserUpdatesDataAnimeItemAllOfTwo = {
   /** ISO8601 format */
-  date?: string;
+  date?: string
   /** @nullable */
-  episodes_seen?: number | null;
+  episodes_seen?: number | null
   /** @nullable */
-  episodes_total?: number | null;
+  episodes_total?: number | null
   /** @nullable */
-  score?: number | null;
-  status?: string;
-};
+  score?: number | null
+  status?: string
+}
 
 export type UserUpdatesDataAnimeItemAllOf = {
-  entry?: AnimeMeta;
-};
+  entry?: AnimeMeta
+}
 
-export type UserUpdatesDataAnimeItem = UserUpdatesDataAnimeItemAllOf & UserUpdatesDataAnimeItemAllOfTwo;
+export type UserUpdatesDataAnimeItem = UserUpdatesDataAnimeItemAllOf &
+  UserUpdatesDataAnimeItemAllOfTwo
 
 export type UserUpdatesData = {
   /** Last updated Anime */
-  anime?: UserUpdatesDataAnimeItem[];
+  anime?: UserUpdatesDataAnimeItem[]
   /** Last updated Manga */
-  manga?: UserUpdatesDataMangaItem[];
-};
+  manga?: UserUpdatesDataMangaItem[]
+}
 
 /**
  * Transform the resource into an array.
  */
 export interface History {
   /** Date ISO8601 */
-  date?: string;
-  entry?: MalUrl;
+  date?: string
+  entry?: MalUrl
   /** Number of episodes/chapters watched/read */
-  increment?: number;
+  increment?: number
 }
 
 export interface UserHistory {
-  data?: History[];
+  data?: History[]
 }
 
 /**
@@ -1378,66 +1398,66 @@ export interface UserHistory {
  */
 export type UserProfileFullStatisticsManga = {
   /** Number of Manga Chapters Read */
-  chapters_read?: number;
+  chapters_read?: number
   /** Manga Completed */
-  completed?: number;
+  completed?: number
   /** Number of days spent reading Manga */
-  days_read?: number;
+  days_read?: number
   /** Manga Dropped */
-  dropped?: number;
+  dropped?: number
   /** Mean Score */
-  mean_score?: number;
+  mean_score?: number
   /** Manga On-Hold */
-  on_hold?: number;
+  on_hold?: number
   /** Manga Planned to Read */
-  plan_to_read?: number;
+  plan_to_read?: number
   /** Manga Reading */
-  reading?: number;
+  reading?: number
   /** Manga re-read */
-  reread?: number;
+  reread?: number
   /** Total Manga entries on User list */
-  total_entries?: number;
+  total_entries?: number
   /** Number of Manga Volumes Read */
-  volumes_read?: number;
-};
+  volumes_read?: number
+}
 
 /**
  * Anime Statistics
  */
 export type UserProfileFullStatisticsAnime = {
   /** Anime Completed */
-  completed?: number;
+  completed?: number
   /** Number of days spent watching Anime */
-  days_watched?: number;
+  days_watched?: number
   /** Anime Dropped */
-  dropped?: number;
+  dropped?: number
   /** Number of Anime Episodes Watched */
-  episodes_watched?: number;
+  episodes_watched?: number
   /** Mean Score */
-  mean_score?: number;
+  mean_score?: number
   /** Anime On-Hold */
-  on_hold?: number;
+  on_hold?: number
   /** Anime Planned to Watch */
-  plan_to_watch?: number;
+  plan_to_watch?: number
   /** Anime re-watched */
-  rewatched?: number;
+  rewatched?: number
   /** Total Anime entries on User list */
-  total_entries?: number;
+  total_entries?: number
   /** Anime Watching */
-  watching?: number;
-};
+  watching?: number
+}
 
 export type UserProfileFullStatistics = {
   /** Anime Statistics */
-  anime?: UserProfileFullStatisticsAnime;
+  anime?: UserProfileFullStatisticsAnime
   /** Manga Statistics */
-  manga?: UserProfileFullStatisticsManga;
-};
+  manga?: UserProfileFullStatisticsManga
+}
 
 export type UserProfileFullExternalItem = {
-  name?: string;
-  url?: string;
-};
+  name?: string
+  url?: string
+}
 
 /**
  * Transform the resource into an array.
@@ -1447,66 +1467,66 @@ export interface UserProfileFull {
    * Birthday Date ISO8601
    * @nullable
    */
-  birthday?: string | null;
-  external?: UserProfileFullExternalItem[];
+  birthday?: string | null
+  external?: UserProfileFullExternalItem[]
   /**
    * User Gender
    * @nullable
    */
-  gender?: string | null;
-  images?: UserImages;
+  gender?: string | null
+  images?: UserImages
   /**
    * Joined Date ISO8601
    * @nullable
    */
-  joined?: string | null;
+  joined?: string | null
   /**
    * Last Online Date ISO8601
    * @nullable
    */
-  last_online?: string | null;
+  last_online?: string | null
   /**
    * Location
    * @nullable
    */
-  location?: string | null;
+  location?: string | null
   /**
    * MyAnimeList ID
    * @nullable
    */
-  mal_id?: number | null;
-  statistics?: UserProfileFullStatistics;
+  mal_id?: number | null
+  statistics?: UserProfileFullStatistics
   /** MyAnimeList URL */
-  url?: string;
+  url?: string
   /** MyAnimeList Username */
-  username?: string;
+  username?: string
 }
 
 export type UserFavoritesMangaItemAllOf = {
-  start_year?: number;
-  type?: string;
-};
+  start_year?: number
+  type?: string
+}
 
-export type UserFavoritesMangaItem = UserFavoritesMangaItemAllOf & MangaMeta;
+export type UserFavoritesMangaItem = UserFavoritesMangaItemAllOf & MangaMeta
 
-export type UserFavoritesCharactersItem = CharacterMeta & MalUrl2;
+export type UserFavoritesCharactersItem = CharacterMeta & MalUrl2
 
 export type UserFavoritesAnimeItemAllOf = {
-  start_year?: number;
-  type?: string;
-};
+  start_year?: number
+  type?: string
+}
 
-export type UserFavoritesAnimeItem = UserFavoritesAnimeItemAllOf & AnimeMeta;
+export type UserFavoritesAnimeItem = UserFavoritesAnimeItemAllOf & AnimeMeta
 
 export interface UserFavorites {
   /** Favorite Anime */
-  anime?: UserFavoritesAnimeItem[];
+  anime?: UserFavoritesAnimeItem[]
   /** Favorite Characters */
-  characters?: UserFavoritesCharactersItem[];
+  characters?: UserFavoritesCharactersItem[]
   /** Favorite Manga */
-  manga?: UserFavoritesMangaItem[];
+  manga?: UserFavoritesMangaItem[]
   /** Favorite People */
-  people?: CharacterMeta[];
+  people?: CharacterMeta[]
 }
 
 export type UserAboutDataItem = {
@@ -1514,11 +1534,11 @@ export type UserAboutDataItem = {
    * User About. NOTE: About information is customizable by users through BBCode on MyAnimeList. This means users can add multimedia content, different text sizes, etc. Due to this freeform, Jikan returns parsed HTML. Validate on your end!
    * @nullable
    */
-  about?: string | null;
-};
+  about?: string | null
+}
 
 export interface UserAbout {
-  data?: UserAboutDataItem[];
+  data?: UserAboutDataItem[]
 }
 
 /**
@@ -1529,29 +1549,29 @@ export interface Producer {
    * About the Producer
    * @nullable
    */
-  about?: string | null;
+  about?: string | null
   /** Producers's anime count */
-  count?: number;
+  count?: number
   /**
    * Established Date ISO8601
    * @nullable
    */
-  established?: string | null;
+  established?: string | null
   /** Producers's member favorites count */
-  favorites?: number;
-  images?: CommonImages;
+  favorites?: number
+  images?: CommonImages
   /** MyAnimeList ID */
-  mal_id?: number;
+  mal_id?: number
   /** All titles */
-  titles?: Title[];
+  titles?: Title[]
   /** MyAnimeList URL */
-  url?: string;
+  url?: string
 }
 
 export type ProducerFullExternalItem = {
-  name?: string;
-  url?: string;
-};
+  name?: string
+  url?: string
+}
 
 /**
  * Producers Resource
@@ -1561,69 +1581,69 @@ export interface ProducerFull {
    * About the Producer
    * @nullable
    */
-  about?: string | null;
+  about?: string | null
   /** Producers's anime count */
-  count?: number;
+  count?: number
   /**
    * Established Date ISO8601
    * @nullable
    */
-  established?: string | null;
-  external?: ProducerFullExternalItem[];
+  established?: string | null
+  external?: ProducerFullExternalItem[]
   /** Producers's member favorites count */
-  favorites?: number;
-  images?: CommonImages;
+  favorites?: number
+  images?: CommonImages
   /** MyAnimeList ID */
-  mal_id?: number;
+  mal_id?: number
   /** All titles */
-  titles?: Title[];
+  titles?: Title[]
   /** MyAnimeList URL */
-  url?: string;
+  url?: string
 }
 
 export type ProducersAllOf = {
-  data?: Producer[];
-};
+  data?: Producer[]
+}
 
 /**
  * Producers Collection Resource
  */
-export type Producers = ProducersAllOf & Pagination;
+export type Producers = ProducersAllOf & Pagination
 
 export type PicturesVariantsDataItem = {
-  images?: CommonImages;
-};
+  images?: CommonImages
+}
 
 /**
  * Pictures Resource
  */
 export interface PicturesVariants {
-  data?: PicturesVariantsDataItem[];
+  data?: PicturesVariantsDataItem[]
 }
 
 export type PicturesDataItem = {
-  images?: AnimeImages;
-};
+  images?: AnimeImages
+}
 
 /**
  * Pictures Resource
  */
 export interface Pictures {
-  data?: PicturesDataItem[];
+  data?: PicturesDataItem[]
 }
 
 export type PersonVoiceActingRolesDataItem = {
-  anime?: AnimeMeta;
-  character?: CharacterMeta;
+  anime?: AnimeMeta
+  character?: CharacterMeta
   /** Person's Character's role in the anime */
-  role?: string;
-};
+  role?: string
+}
 
 /**
  * Person's voice acting roles
  */
 export interface PersonVoiceActingRoles {
-  data?: PersonVoiceActingRolesDataItem[];
+  data?: PersonVoiceActingRolesDataItem[]
 }
 
 /**
@@ -1634,71 +1654,71 @@ export interface Person {
    * Biography
    * @nullable
    */
-  about?: string | null;
+  about?: string | null
   /** Other Names */
-  alternate_names?: string[];
+  alternate_names?: string[]
   /**
    * Birthday Date ISO8601
    * @nullable
    */
-  birthday?: string | null;
+  birthday?: string | null
   /**
    * Family Name
    * @nullable
    */
-  family_name?: string | null;
+  family_name?: string | null
   /** Number of users who have favorited this entry */
-  favorites?: number;
+  favorites?: number
   /**
    * Given Name
    * @nullable
    */
-  given_name?: string | null;
-  images?: PeopleImages;
+  given_name?: string | null
+  images?: PeopleImages
   /** MyAnimeList ID */
-  mal_id?: number;
+  mal_id?: number
   /** Name */
-  name?: string;
+  name?: string
   /** MyAnimeList URL */
-  url?: string;
+  url?: string
   /**
    * Person's website URL
    * @nullable
    */
-  website_url?: string | null;
+  website_url?: string | null
 }
 
 export type PersonMangaDataItem = {
-  manga?: MangaMeta;
+  manga?: MangaMeta
   /** Person's position */
-  position?: string;
-};
+  position?: string
+}
 
 /**
  * Person's mangaography
  */
 export interface PersonManga {
-  data?: PersonMangaDataItem[];
+  data?: PersonMangaDataItem[]
 }
 
 export type PersonFullVoicesItem = {
-  anime?: AnimeMeta;
-  character?: CharacterMeta;
+  anime?: AnimeMeta
+  character?: CharacterMeta
   /** Person's Character's role in the anime */
-  role?: string;
-};
+  role?: string
+}
 
 export type PersonFullMangaItem = {
-  manga?: MangaMeta;
+  manga?: MangaMeta
   /** Person's position */
-  position?: string;
-};
+  position?: string
+}
 
 export type PersonFullAnimeItem = {
-  anime?: AnimeMeta;
+  anime?: AnimeMeta
   /** Person's position */
-  position?: string;
-};
+  position?: string
+}
 
 /**
  * Person Resource
@@ -1708,89 +1728,89 @@ export interface PersonFull {
    * Biography
    * @nullable
    */
-  about?: string | null;
+  about?: string | null
   /** Other Names */
-  alternate_names?: string[];
-  anime?: PersonFullAnimeItem[];
+  alternate_names?: string[]
+  anime?: PersonFullAnimeItem[]
   /**
    * Birthday Date ISO8601
    * @nullable
    */
-  birthday?: string | null;
+  birthday?: string | null
   /**
    * Family Name
    * @nullable
    */
-  family_name?: string | null;
+  family_name?: string | null
   /** Number of users who have favorited this entry */
-  favorites?: number;
+  favorites?: number
   /**
    * Given Name
    * @nullable
    */
-  given_name?: string | null;
-  images?: PeopleImages;
+  given_name?: string | null
+  images?: PeopleImages
   /** MyAnimeList ID */
-  mal_id?: number;
-  manga?: PersonFullMangaItem[];
+  mal_id?: number
+  manga?: PersonFullMangaItem[]
   /** Name */
-  name?: string;
+  name?: string
   /** MyAnimeList URL */
-  url?: string;
-  voices?: PersonFullVoicesItem[];
+  url?: string
+  voices?: PersonFullVoicesItem[]
   /**
    * Person's website URL
    * @nullable
    */
-  website_url?: string | null;
+  website_url?: string | null
 }
 
 export type PeopleSearchAllOf = {
-  data?: Person[];
-};
+  data?: Person[]
+}
 
 /**
  * People Search
  */
-export type PeopleSearch = PeopleSearchAllOf & PaginationPlus;
+export type PeopleSearch = PeopleSearchAllOf & PaginationPlus
 
 export type PersonAnimeDataItem = {
-  anime?: AnimeMeta;
+  anime?: AnimeMeta
   /** Person's position */
-  position?: string;
-};
+  position?: string
+}
 
 /**
  * Person anime staff positions
  */
 export interface PersonAnime {
-  data?: PersonAnimeDataItem[];
+  data?: PersonAnimeDataItem[]
 }
 
 export type NewsDataItem = {
   /** Author Profile URL */
-  author_url?: string;
+  author_url?: string
   /** Author MyAnimeList Username */
-  author_username?: string;
+  author_username?: string
   /** Comment count */
-  comments?: number;
+  comments?: number
   /** Post Date ISO8601 */
-  date?: string;
+  date?: string
   /** Excerpt */
-  excerpt?: string;
+  excerpt?: string
   /** Forum topic URL */
-  forum_url?: string;
-  images?: CommonImages;
+  forum_url?: string
+  images?: CommonImages
   /** MyAnimeList ID */
-  mal_id?: number;
+  mal_id?: number
   /** Title */
-  title?: string;
+  title?: string
   /** MyAnimeList URL */
-  url?: string;
-};
+  url?: string
+}
 
 export interface News {
-  data?: NewsDataItem[];
+  data?: NewsDataItem[]
 }
 
 export type MoreinfoData = {
@@ -1798,54 +1818,53 @@ export type MoreinfoData = {
    * Additional information on the entry
    * @nullable
    */
-  moreinfo?: string | null;
-};
+  moreinfo?: string | null
+}
 
 /**
  * More Info Resource
  */
 export interface Moreinfo {
-  data?: MoreinfoData;
+  data?: MoreinfoData
 }
 
 export type MangaStatisticsDataScoresItem = {
   /** Percentage of votes for this score */
-  percentage?: number;
+  percentage?: number
   /** Scoring value */
-  score?: number;
+  score?: number
   /** Number of votes for this score */
-  votes?: number;
-};
+  votes?: number
+}
 
 export type MangaStatisticsData = {
   /** Number of users who have completed the resource */
-  completed?: number;
+  completed?: number
   /** Number of users who have dropped the resource */
-  dropped?: number;
+  dropped?: number
   /** Number of users who have put the resource on hold */
-  on_hold?: number;
+  on_hold?: number
   /** Number of users who have planned to read the resource */
-  plan_to_read?: number;
+  plan_to_read?: number
   /** Number of users reading the resource */
-  reading?: number;
-  scores?: MangaStatisticsDataScoresItem[];
+  reading?: number
+  scores?: MangaStatisticsDataScoresItem[]
   /** Total number of users who have the resource added to their lists */
-  total?: number;
-};
+  total?: number
+}
 
 /**
  * Manga Statistics Resource
  */
 export interface MangaStatistics {
-  data?: MangaStatisticsData;
+  data?: MangaStatisticsData
 }
 
 /**
  * Manga Type
  * @nullable
  */
-export type MangaType = typeof MangaType[keyof typeof MangaType] | null;
-
+export type MangaType = (typeof MangaType)[keyof typeof MangaType] | null
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const MangaType = {
@@ -1857,13 +1876,12 @@ export const MangaType = {
   Manhua: 'Manhua',
   Manhwa: 'Manhwa',
   OEL: 'OEL',
-} as const;
+} as const
 
 /**
  * Publishing status
  */
-export type MangaStatus = typeof MangaStatus[keyof typeof MangaStatus];
-
+export type MangaStatus = (typeof MangaStatus)[keyof typeof MangaStatus]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const MangaStatus = {
@@ -1872,14 +1890,15 @@ export const MangaStatus = {
   On_Hiatus: 'On Hiatus',
   Discontinued: 'Discontinued',
   Not_yet_published: 'Not yet published',
-} as const;
+} as const
 
 /**
  * Manga Type
  * @nullable
  */
-export type MangaFullType = typeof MangaFullType[keyof typeof MangaFullType] | null;
-
+export type MangaFullType =
+  | (typeof MangaFullType)[keyof typeof MangaFullType]
+  | null
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const MangaFullType = {
@@ -1891,13 +1910,13 @@ export const MangaFullType = {
   Manhua: 'Manhua',
   Manhwa: 'Manhwa',
   OEL: 'OEL',
-} as const;
+} as const
 
 /**
  * Publishing status
  */
-export type MangaFullStatus = typeof MangaFullStatus[keyof typeof MangaFullStatus];
-
+export type MangaFullStatus =
+  (typeof MangaFullStatus)[keyof typeof MangaFullStatus]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const MangaFullStatus = {
@@ -1906,144 +1925,144 @@ export const MangaFullStatus = {
   On_Hiatus: 'On Hiatus',
   Discontinued: 'Discontinued',
   Not_yet_published: 'Not yet published',
-} as const;
+} as const
 
 export type MangaFullRelationsItem = {
-  entry?: MalUrl[];
+  entry?: MalUrl[]
   /** Relation type */
-  relation?: string;
-};
+  relation?: string
+}
 
 export type MangaFullExternalItem = {
-  name?: string;
-  url?: string;
-};
+  name?: string
+  url?: string
+}
 
 /**
  * Manga Resource
  */
 export interface MangaFull {
   /** Whether the entry is pending approval on MAL or not */
-  approved?: boolean;
-  authors?: MalUrl[];
+  approved?: boolean
+  authors?: MalUrl[]
   /**
    * Background
    * @nullable
    */
-  background?: string | null;
+  background?: string | null
   /**
    * Chapter count
    * @nullable
    */
-  chapters?: number | null;
-  demographics?: MalUrl[];
-  explicit_genres?: MalUrl[];
-  external?: MangaFullExternalItem[];
+  chapters?: number | null
+  demographics?: MalUrl[]
+  explicit_genres?: MalUrl[]
+  external?: MangaFullExternalItem[]
   /**
    * Number of users who have favorited this entry
    * @nullable
    */
-  favorites?: number | null;
-  genres?: MalUrl[];
-  images?: MangaImages;
+  favorites?: number | null
+  genres?: MalUrl[]
+  images?: MangaImages
   /** MyAnimeList ID */
-  mal_id?: number;
+  mal_id?: number
   /**
    * Number of users who have added this entry to their list
    * @nullable
    */
-  members?: number | null;
+  members?: number | null
   /**
    * Popularity
    * @nullable
    */
-  popularity?: number | null;
-  published?: Daterange;
+  popularity?: number | null
+  published?: Daterange
   /** Publishing boolean */
-  publishing?: boolean;
+  publishing?: boolean
   /**
    * Ranking
    * @nullable
    */
-  rank?: number | null;
-  relations?: MangaFullRelationsItem[];
+  rank?: number | null
+  relations?: MangaFullRelationsItem[]
   /**
    * Score
    * @nullable
    */
-  score?: number | null;
+  score?: number | null
   /**
    * Number of users
    * @nullable
    */
-  scored_by?: number | null;
-  serializations?: MalUrl[];
+  scored_by?: number | null
+  serializations?: MalUrl[]
   /** Publishing status */
-  status?: MangaFullStatus;
+  status?: MangaFullStatus
   /**
    * Synopsis
    * @nullable
    */
-  synopsis?: string | null;
-  themes?: MalUrl[];
+  synopsis?: string | null
+  themes?: MalUrl[]
   /**
    * Title
    * @deprecated
    */
-  title?: string;
+  title?: string
   /**
    * English Title
    * @deprecated
    * @nullable
    */
-  title_english?: string | null;
+  title_english?: string | null
   /**
    * Japanese Title
    * @deprecated
    * @nullable
    */
-  title_japanese?: string | null;
+  title_japanese?: string | null
   /**
    * Other Titles
    * @deprecated
    */
-  title_synonyms?: string[];
+  title_synonyms?: string[]
   /** All Titles */
-  titles?: Title[];
+  titles?: Title[]
   /**
    * Manga Type
    * @nullable
    */
-  type?: MangaFullType;
+  type?: MangaFullType
   /** MyAnimeList URL */
-  url?: string;
+  url?: string
   /**
    * Volume count
    * @nullable
    */
-  volumes?: number | null;
+  volumes?: number | null
 }
 
 export type MangaSearchAllOf = {
-  data?: Manga[];
-};
+  data?: Manga[]
+}
 
 /**
  * Manga Search Resource
  */
-export type MangaSearch = MangaSearchAllOf & PaginationPlus;
+export type MangaSearch = MangaSearchAllOf & PaginationPlus
 
 export type MangaCharactersDataItem = {
-  character?: CharacterMeta;
+  character?: CharacterMeta
   /** Character's Role */
-  role?: string;
-};
+  role?: string
+}
 
 /**
  * Manga Characters Resource
  */
 export interface MangaCharacters {
-  data?: MangaCharactersDataItem[];
+  data?: MangaCharactersDataItem[]
 }
 
 /**
@@ -2051,43 +2070,43 @@ export interface MangaCharacters {
  */
 export interface Magazine {
   /** Magazine's manga count */
-  count?: number;
+  count?: number
   /** MyAnimeList ID */
-  mal_id?: number;
+  mal_id?: number
   /** Magazine Name */
-  name?: string;
+  name?: string
   /** MyAnimeList URL */
-  url?: string;
+  url?: string
 }
 
 export type MagazinesAllOf = {
-  data?: Magazine[];
-};
+  data?: Magazine[]
+}
 
 /**
  * Magazine Collection Resource
  */
-export type Magazines = MagazinesAllOf & Pagination;
+export type Magazines = MagazinesAllOf & Pagination
 
 /**
  * Genre Resource
  */
 export interface Genre {
   /** Genre's entry count */
-  count?: number;
+  count?: number
   /** MyAnimeList ID */
-  mal_id?: number;
+  mal_id?: number
   /** Genre Name */
-  name?: string;
+  name?: string
   /** MyAnimeList URL */
-  url?: string;
+  url?: string
 }
 
 /**
  * Genres Collection Resource
  */
 export interface Genres {
-  data?: Genre[];
+  data?: Genre[]
 }
 
 /**
@@ -2095,61 +2114,61 @@ export interface Genres {
  */
 export type ForumDataItemLastComment = {
   /** Author Profile URL */
-  author_url?: string;
+  author_url?: string
   /** Author MyAnimeList Username */
-  author_username?: string;
+  author_username?: string
   /**
    * Last comment date posted ISO8601
    * @nullable
    */
-  date?: string | null;
+  date?: string | null
   /** Last comment URL */
-  url?: string;
-};
+  url?: string
+}
 
 export type ForumDataItem = {
   /** Author Profile URL */
-  author_url?: string;
+  author_url?: string
   /** Author MyAnimeList Username */
-  author_username?: string;
+  author_username?: string
   /** Comment count */
-  comments?: number;
+  comments?: number
   /** Post Date ISO8601 */
-  date?: string;
+  date?: string
   /** Last comment details */
-  last_comment?: ForumDataItemLastComment;
+  last_comment?: ForumDataItemLastComment
   /** MyAnimeList ID */
-  mal_id?: number;
+  mal_id?: number
   /** Title */
-  title?: string;
+  title?: string
   /** MyAnimeList URL */
-  url?: string;
-};
+  url?: string
+}
 
 /**
  * Forum Resource
  */
 export interface Forum {
-  data?: ForumDataItem[];
+  data?: ForumDataItem[]
 }
 
 export type ExternalLinksDataItem = {
-  name?: string;
-  url?: string;
-};
+  name?: string
+  url?: string
+}
 
 /**
  * External links
  */
 export interface ExternalLinks {
-  data?: ExternalLinksDataItem[];
+  data?: ExternalLinksDataItem[]
 }
 
 export interface Title {
   /** Title value */
-  title?: string;
+  title?: string
   /** Title type */
-  type?: string;
+  type?: string
 }
 
 /**
@@ -2157,97 +2176,97 @@ export interface Title {
  */
 export interface Manga {
   /** Whether the entry is pending approval on MAL or not */
-  approved?: boolean;
-  authors?: MalUrl[];
+  approved?: boolean
+  authors?: MalUrl[]
   /**
    * Background
    * @nullable
    */
-  background?: string | null;
+  background?: string | null
   /**
    * Chapter count
    * @nullable
    */
-  chapters?: number | null;
-  demographics?: MalUrl[];
-  explicit_genres?: MalUrl[];
+  chapters?: number | null
+  demographics?: MalUrl[]
+  explicit_genres?: MalUrl[]
   /**
    * Number of users who have favorited this entry
    * @nullable
    */
-  favorites?: number | null;
-  genres?: MalUrl[];
-  images?: MangaImages;
+  favorites?: number | null
+  genres?: MalUrl[]
+  images?: MangaImages
   /** MyAnimeList ID */
-  mal_id?: number;
+  mal_id?: number
   /**
    * Number of users who have added this entry to their list
    * @nullable
    */
-  members?: number | null;
+  members?: number | null
   /**
    * Popularity
    * @nullable
    */
-  popularity?: number | null;
-  published?: Daterange;
+  popularity?: number | null
+  published?: Daterange
   /** Publishing boolean */
-  publishing?: boolean;
+  publishing?: boolean
   /**
    * Ranking
    * @nullable
    */
-  rank?: number | null;
+  rank?: number | null
   /**
    * Score
    * @nullable
    */
-  score?: number | null;
+  score?: number | null
   /**
    * Number of users
    * @nullable
    */
-  scored_by?: number | null;
-  serializations?: MalUrl[];
+  scored_by?: number | null
+  serializations?: MalUrl[]
   /** Publishing status */
-  status?: MangaStatus;
+  status?: MangaStatus
   /**
    * Synopsis
    * @nullable
    */
-  synopsis?: string | null;
-  themes?: MalUrl[];
+  synopsis?: string | null
+  themes?: MalUrl[]
   /**
    * Title
    * @deprecated
    */
-  title?: string;
+  title?: string
   /**
    * English Title
    * @deprecated
    * @nullable
    */
-  title_english?: string | null;
+  title_english?: string | null
   /**
    * Japanese Title
    * @deprecated
    * @nullable
    */
-  title_japanese?: string | null;
+  title_japanese?: string | null
   /** All Titles */
-  titles?: Title[];
+  titles?: Title[]
   /**
    * Manga Type
    * @nullable
    */
-  type?: MangaType;
+  type?: MangaType
   /** MyAnimeList URL */
-  url?: string;
+  url?: string
   /**
    * Volume count
    * @nullable
    */
-  volumes?: number | null;
+  volumes?: number | null
 }
 
 /**
@@ -2258,12 +2277,12 @@ export type CommonImagesJpg = {
    * Image URL JPG
    * @nullable
    */
-  image_url?: string | null;
-};
+  image_url?: string | null
+}
 
 export interface CommonImages {
   /** Available images in JPG */
-  jpg?: CommonImagesJpg;
+  jpg?: CommonImagesJpg
 }
 
 /**
@@ -2274,12 +2293,12 @@ export type PeopleImagesJpg = {
    * Image URL JPG
    * @nullable
    */
-  image_url?: string | null;
-};
+  image_url?: string | null
+}
 
 export interface PeopleImages {
   /** Available images in JPG */
-  jpg?: PeopleImagesJpg;
+  jpg?: PeopleImagesJpg
 }
 
 /**
@@ -2290,13 +2309,13 @@ export type CharacterImagesWebp = {
    * Image URL WEBP
    * @nullable
    */
-  image_url?: string | null;
+  image_url?: string | null
   /**
    * Small Image URL WEBP
    * @nullable
    */
-  small_image_url?: string | null;
-};
+  small_image_url?: string | null
+}
 
 /**
  * Available images in JPG
@@ -2306,19 +2325,19 @@ export type CharacterImagesJpg = {
    * Image URL JPG
    * @nullable
    */
-  image_url?: string | null;
+  image_url?: string | null
   /**
    * Small Image URL JPG
    * @nullable
    */
-  small_image_url?: string | null;
-};
+  small_image_url?: string | null
+}
 
 export interface CharacterImages {
   /** Available images in JPG */
-  jpg?: CharacterImagesJpg;
+  jpg?: CharacterImagesJpg
   /** Available images in WEBP */
-  webp?: CharacterImagesWebp;
+  webp?: CharacterImagesWebp
 }
 
 /**
@@ -2329,18 +2348,18 @@ export type MangaImagesWebp = {
    * Image URL WEBP
    * @nullable
    */
-  image_url?: string | null;
+  image_url?: string | null
   /**
    * Image URL WEBP
    * @nullable
    */
-  large_image_url?: string | null;
+  large_image_url?: string | null
   /**
    * Small Image URL WEBP
    * @nullable
    */
-  small_image_url?: string | null;
-};
+  small_image_url?: string | null
+}
 
 /**
  * Available images in JPG
@@ -2350,24 +2369,24 @@ export type MangaImagesJpg = {
    * Image URL JPG
    * @nullable
    */
-  image_url?: string | null;
+  image_url?: string | null
   /**
    * Image URL JPG
    * @nullable
    */
-  large_image_url?: string | null;
+  large_image_url?: string | null
   /**
    * Small Image URL JPG
    * @nullable
    */
-  small_image_url?: string | null;
-};
+  small_image_url?: string | null
+}
 
 export interface MangaImages {
   /** Available images in JPG */
-  jpg?: MangaImagesJpg;
+  jpg?: MangaImagesJpg
   /** Available images in WEBP */
-  webp?: MangaImagesWebp;
+  webp?: MangaImagesWebp
 }
 
 /**
@@ -2378,18 +2397,18 @@ export type AnimeImagesWebp = {
    * Image URL WEBP
    * @nullable
    */
-  image_url?: string | null;
+  image_url?: string | null
   /**
    * Image URL WEBP
    * @nullable
    */
-  large_image_url?: string | null;
+  large_image_url?: string | null
   /**
    * Small Image URL WEBP
    * @nullable
    */
-  small_image_url?: string | null;
-};
+  small_image_url?: string | null
+}
 
 /**
  * Available images in JPG
@@ -2399,64 +2418,64 @@ export type AnimeImagesJpg = {
    * Image URL JPG
    * @nullable
    */
-  image_url?: string | null;
+  image_url?: string | null
   /**
    * Image URL JPG
    * @nullable
    */
-  large_image_url?: string | null;
+  large_image_url?: string | null
   /**
    * Small Image URL JPG
    * @nullable
    */
-  small_image_url?: string | null;
-};
+  small_image_url?: string | null
+}
 
 export interface AnimeImages {
   /** Available images in JPG */
-  jpg?: AnimeImagesJpg;
+  jpg?: AnimeImagesJpg
   /** Available images in WEBP */
-  webp?: AnimeImagesWebp;
+  webp?: AnimeImagesWebp
 }
 
 export interface PersonMeta {
-  images?: PeopleImages;
+  images?: PeopleImages
   /** MyAnimeList ID */
-  mal_id?: number;
+  mal_id?: number
   /** Entry name */
-  name?: string;
+  name?: string
   /** MyAnimeList URL */
-  url?: string;
+  url?: string
 }
 
 export interface CharacterMeta {
-  images?: CharacterImages;
+  images?: CharacterImages
   /** MyAnimeList ID */
-  mal_id?: number;
+  mal_id?: number
   /** Entry name */
-  name?: string;
+  name?: string
   /** MyAnimeList URL */
-  url?: string;
+  url?: string
 }
 
 export interface MangaMeta {
-  images?: MangaImages;
+  images?: MangaImages
   /** MyAnimeList ID */
-  mal_id?: number;
+  mal_id?: number
   /** Entry title */
-  title?: string;
+  title?: string
   /** MyAnimeList URL */
-  url?: string;
+  url?: string
 }
 
 export interface AnimeMeta {
-  images?: AnimeImages;
+  images?: AnimeImages
   /** MyAnimeList ID */
-  mal_id?: number;
+  mal_id?: number
   /** Entry title */
-  title?: string;
+  title?: string
   /** MyAnimeList URL */
-  url?: string;
+  url?: string
 }
 
 /**
@@ -2467,8 +2486,8 @@ export type UserImagesWebp = {
    * Image URL WEBP
    * @nullable
    */
-  image_url?: string | null;
-};
+  image_url?: string | null
+}
 
 /**
  * Available images in JPG
@@ -2478,14 +2497,14 @@ export type UserImagesJpg = {
    * Image URL JPG
    * @nullable
    */
-  image_url?: string | null;
-};
+  image_url?: string | null
+}
 
 export interface UserImages {
   /** Available images in JPG */
-  jpg?: UserImagesJpg;
+  jpg?: UserImagesJpg
   /** Available images in WEBP */
-  webp?: UserImagesWebp;
+  webp?: UserImagesWebp
 }
 
 /**
@@ -2493,42 +2512,42 @@ export interface UserImages {
  */
 export interface UserById {
   /** MyAnimeList URL */
-  url?: string;
+  url?: string
   /** MyAnimeList Username */
-  username?: string;
+  username?: string
 }
 
 export interface UserMeta {
-  images?: UserImages;
+  images?: UserImages
   /** MyAnimeList Profile URL */
-  url?: string;
+  url?: string
   /** MyAnimeList Username */
-  username?: string;
+  username?: string
 }
 
 export type PaginationPlusPaginationItems = {
-  count?: number;
-  per_page?: number;
-  total?: number;
-};
+  count?: number
+  per_page?: number
+  total?: number
+}
 
 export type PaginationPlusPagination = {
-  has_next_page?: boolean;
-  items?: PaginationPlusPaginationItems;
-  last_visible_page?: number;
-};
+  has_next_page?: boolean
+  items?: PaginationPlusPaginationItems
+  last_visible_page?: number
+}
 
 export interface PaginationPlus {
-  pagination?: PaginationPlusPagination;
+  pagination?: PaginationPlusPagination
 }
 
 export type PaginationPagination = {
-  has_next_page?: boolean;
-  last_visible_page?: number;
-};
+  has_next_page?: boolean
+  last_visible_page?: number
+}
 
 export interface Pagination {
-  pagination?: PaginationPagination;
+  pagination?: PaginationPagination
 }
 
 /**
@@ -2536,13 +2555,13 @@ export interface Pagination {
  */
 export interface EntryMeta {
   /** Image URL */
-  image_url?: string;
+  image_url?: string
   /** MyAnimeList ID */
-  mal_id?: number;
+  mal_id?: number
   /** Entry Name/Title */
-  name?: string;
+  name?: string
   /** MyAnimeList URL */
-  url?: string;
+  url?: string
 }
 
 /**
@@ -2550,13 +2569,13 @@ export interface EntryMeta {
  */
 export interface MalUrl2 {
   /** MyAnimeList ID */
-  mal_id?: number;
+  mal_id?: number
   /** Resource Name/Title */
-  title?: string;
+  title?: string
   /** Type of resource */
-  type?: string;
+  type?: string
   /** MyAnimeList URL */
-  url?: string;
+  url?: string
 }
 
 /**
@@ -2564,13 +2583,13 @@ export interface MalUrl2 {
  */
 export interface MalUrl {
   /** MyAnimeList ID */
-  mal_id?: number;
+  mal_id?: number
   /** Resource Name/Title */
-  name?: string;
+  name?: string
   /** Type of resource */
-  type?: string;
+  type?: string
   /** MyAnimeList URL */
-  url?: string;
+  url?: string
 }
 
 /**
@@ -2578,9 +2597,9 @@ export interface MalUrl {
  */
 export interface Relation {
   /** Related entries */
-  entry?: MalUrl[];
+  entry?: MalUrl[]
   /** Relation type */
-  relation?: string;
+  relation?: string
 }
 
 /**
@@ -2591,22 +2610,22 @@ export interface Broadcast {
    * Day of the week
    * @nullable
    */
-  day?: string | null;
+  day?: string | null
   /**
    * Raw parsed broadcast string
    * @nullable
    */
-  string?: string | null;
+  string?: string | null
   /**
    * Time in 24 hour format
    * @nullable
    */
-  time?: string | null;
+  time?: string | null
   /**
    * Timezone (Tz Database format https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)
    * @nullable
    */
-  timezone?: string | null;
+  timezone?: string | null
 }
 
 /**
@@ -2617,18 +2636,18 @@ export type DaterangePropTo = {
    * Day
    * @nullable
    */
-  day?: number | null;
+  day?: number | null
   /**
    * Month
    * @nullable
    */
-  month?: number | null;
+  month?: number | null
   /**
    * Year
    * @nullable
    */
-  year?: number | null;
-};
+  year?: number | null
+}
 
 /**
  * Date Prop From
@@ -2638,33 +2657,33 @@ export type DaterangePropFrom = {
    * Day
    * @nullable
    */
-  day?: number | null;
+  day?: number | null
   /**
    * Month
    * @nullable
    */
-  month?: number | null;
+  month?: number | null
   /**
    * Year
    * @nullable
    */
-  year?: number | null;
-};
+  year?: number | null
+}
 
 /**
  * Date Prop
  */
 export type DaterangeProp = {
   /** Date Prop From */
-  from?: DaterangePropFrom;
+  from?: DaterangePropFrom
   /**
    * Raw parsed string
    * @nullable
    */
-  string?: string | null;
+  string?: string | null
   /** Date Prop To */
-  to?: DaterangePropTo;
-};
+  to?: DaterangePropTo
+}
 
 /**
  * Date range
@@ -2674,14 +2693,14 @@ export interface Daterange {
    * Date ISO8601
    * @nullable
    */
-  from?: string | null;
+  from?: string | null
   /** Date Prop */
-  prop?: DaterangeProp;
+  prop?: DaterangeProp
   /**
    * Date ISO8601
    * @nullable
    */
-  to?: string | null;
+  to?: string | null
 }
 
 export type TrailerImagesImages = {
@@ -2689,34 +2708,34 @@ export type TrailerImagesImages = {
    * Default Image Size URL (120x90)
    * @nullable
    */
-  image_url?: string | null;
+  image_url?: string | null
   /**
    * Large Image Size URL (480x360)
    * @nullable
    */
-  large_image_url?: string | null;
+  large_image_url?: string | null
   /**
    * Maximum Image Size URL (1280x720)
    * @nullable
    */
-  maximum_image_url?: string | null;
+  maximum_image_url?: string | null
   /**
    * Medium Image Size URL (320x180)
    * @nullable
    */
-  medium_image_url?: string | null;
+  medium_image_url?: string | null
   /**
    * Small Image Size URL (640x480)
    * @nullable
    */
-  small_image_url?: string | null;
-};
+  small_image_url?: string | null
+}
 
 /**
  * Youtube Images
  */
 export interface TrailerImages {
-  images?: TrailerImagesImages;
+  images?: TrailerImagesImages
 }
 
 /**
@@ -2727,43 +2746,42 @@ export interface TrailerBase {
    * Parsed Embed URL
    * @nullable
    */
-  embed_url?: string | null;
+  embed_url?: string | null
   /**
    * YouTube URL
    * @nullable
    */
-  url?: string | null;
+  url?: string | null
   /**
    * YouTube ID
    * @nullable
    */
-  youtube_id?: string | null;
+  youtube_id?: string | null
 }
 
 /**
  * Youtube Details
  */
-export type Trailer = TrailerBase & TrailerImages;
+export type Trailer = TrailerBase & TrailerImages
 
 export type ClubStaffDataItem = {
   /** User URL */
-  url?: string;
+  url?: string
   /** User's username */
-  username?: string;
-};
+  username?: string
+}
 
 /**
  * Club Staff Resource
  */
 export interface ClubStaff {
-  data?: ClubStaffDataItem[];
+  data?: ClubStaffDataItem[]
 }
 
 /**
  * Club Category
  */
-export type ClubCategory = typeof ClubCategory[keyof typeof ClubCategory];
-
+export type ClubCategory = (typeof ClubCategory)[keyof typeof ClubCategory]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const ClubCategory = {
@@ -2779,75 +2797,74 @@ export const ClubCategory = {
   music: 'music',
   others: 'others',
   schools: 'schools',
-} as const;
+} as const
 
 /**
  * Club access
  */
-export type ClubAccess = typeof ClubAccess[keyof typeof ClubAccess];
-
+export type ClubAccess = (typeof ClubAccess)[keyof typeof ClubAccess]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const ClubAccess = {
   public: 'public',
   private: 'private',
   secret: 'secret',
-} as const;
+} as const
 
 /**
  * Club Resource
  */
 export interface Club {
   /** Club access */
-  access?: ClubAccess;
+  access?: ClubAccess
   /** Club Category */
-  category?: ClubCategory;
+  category?: ClubCategory
   /** Date Created ISO8601 */
-  created?: string;
-  images?: CommonImages;
+  created?: string
+  images?: CommonImages
   /** MyAnimeList ID */
-  mal_id?: number;
+  mal_id?: number
   /** Number of club members */
-  members?: number;
+  members?: number
   /** Club name */
-  name?: string;
+  name?: string
   /** Club URL */
-  url?: string;
+  url?: string
 }
 
 export type ClubRelationsData = {
-  anime?: MalUrl[];
-  characters?: MalUrl[];
-  manga?: MalUrl[];
-};
+  anime?: MalUrl[]
+  characters?: MalUrl[]
+  manga?: MalUrl[]
+}
 
 /**
  * Club Relations
  */
 export interface ClubRelations {
-  data?: ClubRelationsData;
+  data?: ClubRelationsData
 }
 
 export type ClubsSearchAllOf = {
-  data?: Club[];
-};
+  data?: Club[]
+}
 
 /**
  * Clubs Search Resource
  */
-export type ClubsSearch = ClubsSearchAllOf & Pagination;
+export type ClubsSearch = ClubsSearchAllOf & Pagination
 
 export type CharacterVoiceActorsDataItem = {
   /** Character's Role */
-  language?: string;
-  person?: PersonMeta;
-};
+  language?: string
+  person?: PersonMeta
+}
 
 /**
  * Character voice actors
  */
 export interface CharacterVoiceActors {
-  data?: CharacterVoiceActorsDataItem[];
+  data?: CharacterVoiceActorsDataItem[]
 }
 
 /**
@@ -2858,55 +2875,55 @@ export interface Character {
    * Biography
    * @nullable
    */
-  about?: string | null;
+  about?: string | null
   /** Number of users who have favorited this entry */
-  favorites?: number;
-  images?: CharacterImages;
+  favorites?: number
+  images?: CharacterImages
   /** MyAnimeList ID */
-  mal_id?: number;
+  mal_id?: number
   /** Name */
-  name?: string;
+  name?: string
   /**
    * Name
    * @nullable
    */
-  name_kanji?: string | null;
+  name_kanji?: string | null
   /** Other Names */
-  nicknames?: string[];
+  nicknames?: string[]
   /** MyAnimeList URL */
-  url?: string;
+  url?: string
 }
 
 export type CharacterMangaDataItem = {
-  manga?: MangaMeta;
+  manga?: MangaMeta
   /** Character's Role */
-  role?: string;
-};
+  role?: string
+}
 
 /**
  * Character casted in manga
  */
 export interface CharacterManga {
-  data?: CharacterMangaDataItem[];
+  data?: CharacterMangaDataItem[]
 }
 
 export type CharacterFullVoicesItem = {
   /** Character's Role */
-  language?: string;
-  person?: PersonMeta;
-};
+  language?: string
+  person?: PersonMeta
+}
 
 export type CharacterFullMangaItem = {
-  manga?: MangaMeta;
+  manga?: MangaMeta
   /** Character's Role */
-  role?: string;
-};
+  role?: string
+}
 
 export type CharacterFullAnimeItem = {
-  anime?: AnimeMeta;
+  anime?: AnimeMeta
   /** Character's Role */
-  role?: string;
-};
+  role?: string
+}
 
 /**
  * Character Resource
@@ -2916,172 +2933,171 @@ export interface CharacterFull {
    * Biography
    * @nullable
    */
-  about?: string | null;
-  anime?: CharacterFullAnimeItem[];
+  about?: string | null
+  anime?: CharacterFullAnimeItem[]
   /** Number of users who have favorited this entry */
-  favorites?: number;
-  images?: CharacterImages;
+  favorites?: number
+  images?: CharacterImages
   /** MyAnimeList ID */
-  mal_id?: number;
-  manga?: CharacterFullMangaItem[];
+  mal_id?: number
+  manga?: CharacterFullMangaItem[]
   /** Name */
-  name?: string;
+  name?: string
   /**
    * Name
    * @nullable
    */
-  name_kanji?: string | null;
+  name_kanji?: string | null
   /** Other Names */
-  nicknames?: string[];
+  nicknames?: string[]
   /** MyAnimeList URL */
-  url?: string;
-  voices?: CharacterFullVoicesItem[];
+  url?: string
+  voices?: CharacterFullVoicesItem[]
 }
 
 export type CharactersSearchAllOf = {
-  data?: Character[];
-};
+  data?: Character[]
+}
 
 /**
  * Characters Search Resource
  */
-export type CharactersSearch = CharactersSearchAllOf & PaginationPlus;
+export type CharactersSearch = CharactersSearchAllOf & PaginationPlus
 
 export type CharacterAnimeDataItem = {
-  anime?: AnimeMeta;
+  anime?: AnimeMeta
   /** Character's Role */
-  role?: string;
-};
+  role?: string
+}
 
 /**
  * Character casted in anime
  */
 export interface CharacterAnime {
-  data?: CharacterAnimeDataItem[];
+  data?: CharacterAnimeDataItem[]
 }
 
 /**
  * Anime Videos Resource
  */
 export interface AnimeVideos {
-  data?: AnimeVideosData;
+  data?: AnimeVideosData
 }
 
 export type AnimeVideosDataPromoItem = {
   /** Title */
-  title?: string;
-  trailer?: Trailer;
-};
+  title?: string
+  trailer?: Trailer
+}
 
 export type AnimeVideosDataMusicVideosItemMeta = {
   /** @nullable */
-  author?: string | null;
+  author?: string | null
   /** @nullable */
-  title?: string | null;
-};
+  title?: string | null
+}
 
 export type AnimeVideosDataMusicVideosItem = {
-  meta?: AnimeVideosDataMusicVideosItemMeta;
+  meta?: AnimeVideosDataMusicVideosItemMeta
   /** Title */
-  title?: string;
-  video?: Trailer;
-};
+  title?: string
+  video?: Trailer
+}
 
 export type AnimeVideosDataEpisodesItem = {
   /** Episode */
-  episode?: string;
-  images?: CommonImages;
+  episode?: string
+  images?: CommonImages
   /** MyAnimeList ID */
-  mal_id?: number;
+  mal_id?: number
   /** Title */
-  title?: string;
+  title?: string
   /** MyAnimeList URL */
-  url?: string;
-};
+  url?: string
+}
 
 export type AnimeVideosData = {
-  episodes?: AnimeVideosDataEpisodesItem[];
-  music_videos?: AnimeVideosDataMusicVideosItem[];
-  promo?: AnimeVideosDataPromoItem[];
-};
+  episodes?: AnimeVideosDataEpisodesItem[]
+  music_videos?: AnimeVideosDataMusicVideosItem[]
+  promo?: AnimeVideosDataPromoItem[]
+}
 
 export type AnimeThemesData = {
-  endings?: string[];
-  openings?: string[];
-};
+  endings?: string[]
+  openings?: string[]
+}
 
 /**
  * Anime Opening and Ending Themes
  */
 export interface AnimeThemes {
-  data?: AnimeThemesData;
+  data?: AnimeThemesData
 }
 
 export type AnimeStatisticsDataScoresItem = {
   /** Percentage of votes for this score */
-  percentage?: number;
+  percentage?: number
   /** Scoring value */
-  score?: number;
+  score?: number
   /** Number of votes for this score */
-  votes?: number;
-};
+  votes?: number
+}
 
 export type AnimeStatisticsData = {
   /** Number of users who have completed the resource */
-  completed?: number;
+  completed?: number
   /** Number of users who have dropped the resource */
-  dropped?: number;
+  dropped?: number
   /** Number of users who have put the resource on hold */
-  on_hold?: number;
+  on_hold?: number
   /** Number of users who have planned to watch the resource */
-  plan_to_watch?: number;
-  scores?: AnimeStatisticsDataScoresItem[];
+  plan_to_watch?: number
+  scores?: AnimeStatisticsDataScoresItem[]
   /** Total number of users who have the resource added to their lists */
-  total?: number;
+  total?: number
   /** Number of users watching the resource */
-  watching?: number;
-};
+  watching?: number
+}
 
 /**
  * Anime Statistics Resource
  */
 export interface AnimeStatistics {
-  data?: AnimeStatisticsData;
+  data?: AnimeStatisticsData
 }
 
 /**
  * Person details
  */
 export type AnimeStaffDataItemPerson = {
-  images?: PeopleImages;
+  images?: PeopleImages
   /** MyAnimeList ID */
-  mal_id?: number;
+  mal_id?: number
   /** Name */
-  name?: string;
+  name?: string
   /** MyAnimeList URL */
-  url?: string;
-};
+  url?: string
+}
 
 export type AnimeStaffDataItem = {
   /** Person details */
-  person?: AnimeStaffDataItemPerson;
+  person?: AnimeStaffDataItemPerson
   /** Staff Positions */
-  positions?: string[];
-};
+  positions?: string[]
+}
 
 /**
  * Anime Staff Resource
  */
 export interface AnimeStaff {
-  data?: AnimeStaffDataItem[];
+  data?: AnimeStaffDataItem[]
 }
 
 /**
  * Anime Type
  * @nullable
  */
-export type AnimeType = typeof AnimeType[keyof typeof AnimeType] | null;
-
+export type AnimeType = (typeof AnimeType)[keyof typeof AnimeType] | null
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const AnimeType = {
@@ -3091,28 +3107,26 @@ export const AnimeType = {
   Special: 'Special',
   ONA: 'ONA',
   Music: 'Music',
-} as const;
+} as const
 
 /**
  * Airing status
  * @nullable
  */
-export type AnimeStatus = typeof AnimeStatus[keyof typeof AnimeStatus] | null;
-
+export type AnimeStatus = (typeof AnimeStatus)[keyof typeof AnimeStatus] | null
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const AnimeStatus = {
   Finished_Airing: 'Finished Airing',
   Currently_Airing: 'Currently Airing',
   Not_yet_aired: 'Not yet aired',
-} as const;
+} as const
 
 /**
  * Season
  * @nullable
  */
-export type AnimeSeason = typeof AnimeSeason[keyof typeof AnimeSeason] | null;
-
+export type AnimeSeason = (typeof AnimeSeason)[keyof typeof AnimeSeason] | null
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const AnimeSeason = {
@@ -3120,14 +3134,13 @@ export const AnimeSeason = {
   winter: 'winter',
   spring: 'spring',
   fall: 'fall',
-} as const;
+} as const
 
 /**
  * Anime audience rating
  * @nullable
  */
-export type AnimeRating = typeof AnimeRating[keyof typeof AnimeRating] | null;
-
+export type AnimeRating = (typeof AnimeRating)[keyof typeof AnimeRating] | null
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const AnimeRating = {
@@ -3137,156 +3150,157 @@ export const AnimeRating = {
   'R_-_17+_(violence_&_profanity)': 'R - 17+ (violence & profanity)',
   'R+_-_Mild_Nudity': 'R+ - Mild Nudity',
   'Rx_-_Hentai': 'Rx - Hentai',
-} as const;
+} as const
 
 /**
  * Anime Resource
  */
 export interface Anime {
-  aired?: Daterange;
+  aired?: Daterange
   /** Airing boolean */
-  airing?: boolean;
+  airing?: boolean
   /** Whether the entry is pending approval on MAL or not */
-  approved?: boolean;
+  approved?: boolean
   /**
    * Background
    * @nullable
    */
-  background?: string | null;
-  broadcast?: Broadcast;
-  demographics?: MalUrl[];
+  background?: string | null
+  broadcast?: Broadcast
+  demographics?: MalUrl[]
   /**
    * Parsed raw duration
    * @nullable
    */
-  duration?: string | null;
+  duration?: string | null
   /**
    * Episode count
    * @nullable
    */
-  episodes?: number | null;
-  explicit_genres?: MalUrl[];
+  episodes?: number | null
+  explicit_genres?: MalUrl[]
   /**
    * Number of users who have favorited this entry
    * @nullable
    */
-  favorites?: number | null;
-  genres?: MalUrl[];
-  images?: AnimeImages;
-  licensors?: MalUrl[];
+  favorites?: number | null
+  genres?: MalUrl[]
+  images?: AnimeImages
+  licensors?: MalUrl[]
   /** MyAnimeList ID */
-  mal_id?: number;
+  mal_id?: number
   /**
    * Number of users who have added this entry to their list
    * @nullable
    */
-  members?: number | null;
+  members?: number | null
   /**
    * Popularity
    * @nullable
    */
-  popularity?: number | null;
-  producers?: MalUrl[];
+  popularity?: number | null
+  producers?: MalUrl[]
   /**
    * Ranking
    * @nullable
    */
-  rank?: number | null;
+  rank?: number | null
   /**
    * Anime audience rating
    * @nullable
    */
-  rating?: AnimeRating;
+  rating?: AnimeRating
   /**
    * Score
    * @nullable
    */
-  score?: number | null;
+  score?: number | null
   /**
    * Number of users
    * @nullable
    */
-  scored_by?: number | null;
+  scored_by?: number | null
   /**
    * Season
    * @nullable
    */
-  season?: AnimeSeason;
+  season?: AnimeSeason
   /**
    * Original Material/Source adapted from
    * @nullable
    */
-  source?: string | null;
+  source?: string | null
   /**
    * Airing status
    * @nullable
    */
-  status?: AnimeStatus;
-  studios?: MalUrl[];
+  status?: AnimeStatus
+  studios?: MalUrl[]
   /**
    * Synopsis
    * @nullable
    */
-  synopsis?: string | null;
-  themes?: MalUrl[];
+  synopsis?: string | null
+  themes?: MalUrl[]
   /**
    * Title
    * @deprecated
    */
-  title?: string;
+  title?: string
   /**
    * English Title
    * @deprecated
    * @nullable
    */
-  title_english?: string | null;
+  title_english?: string | null
   /**
    * Japanese Title
    * @deprecated
    * @nullable
    */
-  title_japanese?: string | null;
+  title_japanese?: string | null
   /**
    * Other Titles
    * @deprecated
    */
-  title_synonyms?: string[];
+  title_synonyms?: string[]
   /** All titles */
-  titles?: Title[];
-  trailer?: TrailerBase;
+  titles?: Title[]
+  trailer?: TrailerBase
   /**
    * Anime Type
    * @nullable
    */
-  type?: AnimeType;
+  type?: AnimeType
   /** MyAnimeList URL */
-  url?: string;
+  url?: string
   /**
    * Year
    * @nullable
    */
-  year?: number | null;
+  year?: number | null
 }
 
 export type AnimeRelationsDataItem = {
-  entry?: MalUrl[];
+  entry?: MalUrl[]
   /** Relation type */
-  relation?: string;
-};
+  relation?: string
+}
 
 /**
  * Anime Relations
  */
 export interface AnimeRelations {
-  data?: AnimeRelationsDataItem[];
+  data?: AnimeRelationsDataItem[]
 }
 
 /**
  * Anime Type
  * @nullable
  */
-export type AnimeFullType = typeof AnimeFullType[keyof typeof AnimeFullType] | null;
-
+export type AnimeFullType =
+  | (typeof AnimeFullType)[keyof typeof AnimeFullType]
+  | null
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const AnimeFullType = {
@@ -3296,38 +3310,40 @@ export const AnimeFullType = {
   Special: 'Special',
   ONA: 'ONA',
   Music: 'Music',
-} as const;
+} as const
 
 export type AnimeFullTheme = {
-  endings?: string[];
-  openings?: string[];
-};
+  endings?: string[]
+  openings?: string[]
+}
 
 export type AnimeFullStreamingItem = {
-  name?: string;
-  url?: string;
-};
+  name?: string
+  url?: string
+}
 
 /**
  * Airing status
  * @nullable
  */
-export type AnimeFullStatus = typeof AnimeFullStatus[keyof typeof AnimeFullStatus] | null;
-
+export type AnimeFullStatus =
+  | (typeof AnimeFullStatus)[keyof typeof AnimeFullStatus]
+  | null
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const AnimeFullStatus = {
   Finished_Airing: 'Finished Airing',
   Currently_Airing: 'Currently Airing',
   Not_yet_aired: 'Not yet aired',
-} as const;
+} as const
 
 /**
  * Season
  * @nullable
  */
-export type AnimeFullSeason = typeof AnimeFullSeason[keyof typeof AnimeFullSeason] | null;
-
+export type AnimeFullSeason =
+  | (typeof AnimeFullSeason)[keyof typeof AnimeFullSeason]
+  | null
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const AnimeFullSeason = {
@@ -3335,20 +3351,21 @@ export const AnimeFullSeason = {
   winter: 'winter',
   spring: 'spring',
   fall: 'fall',
-} as const;
+} as const
 
 export type AnimeFullRelationsItem = {
-  entry?: MalUrl[];
+  entry?: MalUrl[]
   /** Relation type */
-  relation?: string;
-};
+  relation?: string
+}
 
 /**
  * Anime audience rating
  * @nullable
  */
-export type AnimeFullRating = typeof AnimeFullRating[keyof typeof AnimeFullRating] | null;
-
+export type AnimeFullRating =
+  | (typeof AnimeFullRating)[keyof typeof AnimeFullRating]
+  | null
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const AnimeFullRating = {
@@ -3358,144 +3375,144 @@ export const AnimeFullRating = {
   'R_-_17+_(violence_&_profanity)': 'R - 17+ (violence & profanity)',
   'R+_-_Mild_Nudity': 'R+ - Mild Nudity',
   'Rx_-_Hentai': 'Rx - Hentai',
-} as const;
+} as const
 
 export type AnimeFullExternalItem = {
-  name?: string;
-  url?: string;
-};
+  name?: string
+  url?: string
+}
 
 /**
  * Full anime Resource
  */
 export interface AnimeFull {
-  aired?: Daterange;
+  aired?: Daterange
   /** Airing boolean */
-  airing?: boolean;
+  airing?: boolean
   /** Whether the entry is pending approval on MAL or not */
-  approved?: boolean;
+  approved?: boolean
   /**
    * Background
    * @nullable
    */
-  background?: string | null;
-  broadcast?: Broadcast;
-  demographics?: MalUrl[];
+  background?: string | null
+  broadcast?: Broadcast
+  demographics?: MalUrl[]
   /**
    * Parsed raw duration
    * @nullable
    */
-  duration?: string | null;
+  duration?: string | null
   /**
    * Episode count
    * @nullable
    */
-  episodes?: number | null;
-  explicit_genres?: MalUrl[];
-  external?: AnimeFullExternalItem[];
+  episodes?: number | null
+  explicit_genres?: MalUrl[]
+  external?: AnimeFullExternalItem[]
   /**
    * Number of users who have favorited this entry
    * @nullable
    */
-  favorites?: number | null;
-  genres?: MalUrl[];
-  images?: AnimeImages;
-  licensors?: MalUrl[];
+  favorites?: number | null
+  genres?: MalUrl[]
+  images?: AnimeImages
+  licensors?: MalUrl[]
   /** MyAnimeList ID */
-  mal_id?: number;
+  mal_id?: number
   /**
    * Number of users who have added this entry to their list
    * @nullable
    */
-  members?: number | null;
+  members?: number | null
   /**
    * Popularity
    * @nullable
    */
-  popularity?: number | null;
-  producers?: MalUrl[];
+  popularity?: number | null
+  producers?: MalUrl[]
   /**
    * Ranking
    * @nullable
    */
-  rank?: number | null;
+  rank?: number | null
   /**
    * Anime audience rating
    * @nullable
    */
-  rating?: AnimeFullRating;
-  relations?: AnimeFullRelationsItem[];
+  rating?: AnimeFullRating
+  relations?: AnimeFullRelationsItem[]
   /**
    * Score
    * @nullable
    */
-  score?: number | null;
+  score?: number | null
   /**
    * Number of users
    * @nullable
    */
-  scored_by?: number | null;
+  scored_by?: number | null
   /**
    * Season
    * @nullable
    */
-  season?: AnimeFullSeason;
+  season?: AnimeFullSeason
   /**
    * Original Material/Source adapted from
    * @nullable
    */
-  source?: string | null;
+  source?: string | null
   /**
    * Airing status
    * @nullable
    */
-  status?: AnimeFullStatus;
-  streaming?: AnimeFullStreamingItem[];
-  studios?: MalUrl[];
+  status?: AnimeFullStatus
+  streaming?: AnimeFullStreamingItem[]
+  studios?: MalUrl[]
   /**
    * Synopsis
    * @nullable
    */
-  synopsis?: string | null;
-  theme?: AnimeFullTheme;
-  themes?: MalUrl[];
+  synopsis?: string | null
+  theme?: AnimeFullTheme
+  themes?: MalUrl[]
   /**
    * Title
    * @deprecated
    */
-  title?: string;
+  title?: string
   /**
    * English Title
    * @deprecated
    * @nullable
    */
-  title_english?: string | null;
+  title_english?: string | null
   /**
    * Japanese Title
    * @deprecated
    * @nullable
    */
-  title_japanese?: string | null;
+  title_japanese?: string | null
   /**
    * Other Titles
    * @deprecated
    */
-  title_synonyms?: string[];
+  title_synonyms?: string[]
   /** All titles */
-  titles?: Title[];
-  trailer?: TrailerBase;
+  titles?: Title[]
+  trailer?: TrailerBase
   /**
    * Anime Type
    * @nullable
    */
-  type?: AnimeFullType;
+  type?: AnimeFullType
   /** MyAnimeList URL */
-  url?: string;
+  url?: string
   /**
    * Year
    * @nullable
    */
-  year?: number | null;
+  year?: number | null
 }
 
 /**
@@ -3506,269 +3523,270 @@ export interface AnimeEpisode {
    * Aired Date ISO8601
    * @nullable
    */
-  aired?: string | null;
+  aired?: string | null
   /**
    * Episode duration in seconds
    * @nullable
    */
-  duration?: number | null;
+  duration?: number | null
   /** Filler episode */
-  filler?: boolean;
+  filler?: boolean
   /** MyAnimeList ID */
-  mal_id?: number;
+  mal_id?: number
   /** Recap episode */
-  recap?: boolean;
+  recap?: boolean
   /**
    * Episode Synopsis
    * @nullable
    */
-  synopsis?: string | null;
+  synopsis?: string | null
   /** Title */
-  title?: string;
+  title?: string
   /**
    * Title Japanese
    * @nullable
    */
-  title_japanese?: string | null;
+  title_japanese?: string | null
   /**
    * title_romanji
    * @nullable
    */
-  title_romanji?: string | null;
+  title_romanji?: string | null
   /** MyAnimeList URL */
-  url?: string;
+  url?: string
 }
 
 export type AnimeSearchAllOf = {
-  data?: Anime[];
-};
+  data?: Anime[]
+}
 
 /**
  * Anime Collection Resource
  */
-export type AnimeSearch = AnimeSearchAllOf & PaginationPlus;
+export type AnimeSearch = AnimeSearchAllOf & PaginationPlus
 
 /**
  * Anime Characters Resource
  */
 export interface AnimeCharacters {
-  data?: AnimeCharactersDataItem[];
+  data?: AnimeCharactersDataItem[]
 }
 
 export type AnimeCharactersDataItemVoiceActorsItemPerson = {
-  images?: PeopleImages;
-  mal_id?: number;
-  name?: string;
-  url?: string;
-};
+  images?: PeopleImages
+  mal_id?: number
+  name?: string
+  url?: string
+}
 
 export type AnimeCharactersDataItemVoiceActorsItem = {
-  language?: string;
-  person?: AnimeCharactersDataItemVoiceActorsItemPerson;
-};
+  language?: string
+  person?: AnimeCharactersDataItemVoiceActorsItemPerson
+}
 
 /**
  * Character details
  */
 export type AnimeCharactersDataItemCharacter = {
-  images?: CharacterImages;
+  images?: CharacterImages
   /** MyAnimeList ID */
-  mal_id?: number;
+  mal_id?: number
   /** Character Name */
-  name?: string;
+  name?: string
   /** MyAnimeList URL */
-  url?: string;
-};
+  url?: string
+}
 
 export type AnimeCharactersDataItem = {
   /** Character details */
-  character?: AnimeCharactersDataItemCharacter;
+  character?: AnimeCharactersDataItemCharacter
   /** Character's Role */
-  role?: string;
-  voice_actors?: AnimeCharactersDataItemVoiceActorsItem[];
-};
+  role?: string
+  voice_actors?: AnimeCharactersDataItemVoiceActorsItem[]
+}
 
 /**
  * Watch Promos
  */
-export type WatchPromos = Pagination & WatchPromosAllOf;
+export type WatchPromos = Pagination & WatchPromosAllOf
 
 export type WatchPromosAllOfAllOfTwoDataItem = {
-  entry?: AnimeMeta;
-  trailer?: Trailer[];
-};
+  entry?: AnimeMeta
+  trailer?: Trailer[]
+}
 
 export type WatchPromosAllOfAllOfTwo = {
-  data?: WatchPromosAllOfAllOfTwoDataItem[];
-};
+  data?: WatchPromosAllOfAllOfTwoDataItem[]
+}
 
 export type WatchPromosAllOfAllOf = {
   /** Promo Title */
-  title?: string;
-};
+  title?: string
+}
 
-export type WatchPromosAllOf = WatchPromosAllOfAllOf & WatchPromosAllOfAllOfTwo;
+export type WatchPromosAllOf = WatchPromosAllOfAllOf & WatchPromosAllOfAllOfTwo
 
 export type WatchEpisodesAllOfDataItemEpisodesItem = {
   /** MyAnimeList ID */
-  mal_id?: string;
+  mal_id?: string
   /** For MyAnimeList Premium Users */
-  premium?: boolean;
+  premium?: boolean
   /** Episode Title */
-  title?: string;
+  title?: string
   /** MyAnimeList URL */
-  url?: string;
-};
+  url?: string
+}
 
 export type WatchEpisodesAllOfDataItem = {
-  entry?: AnimeMeta;
+  entry?: AnimeMeta
   /** Recent Episodes (max 2 listed) */
-  episodes?: WatchEpisodesAllOfDataItemEpisodesItem[];
+  episodes?: WatchEpisodesAllOfDataItemEpisodesItem[]
   /** Region Locked Episode */
-  region_locked?: boolean;
-};
+  region_locked?: boolean
+}
 
 export type WatchEpisodesAllOf = {
-  data?: WatchEpisodesAllOfDataItem[];
-};
+  data?: WatchEpisodesAllOfDataItem[]
+}
 
 /**
  * Watch Episodes
  */
-export type WatchEpisodes = WatchEpisodesAllOf & Pagination;
+export type WatchEpisodes = WatchEpisodesAllOf & Pagination
 
 export type UserClubsAllOfDataItem = {
   /** MyAnimeList ID */
-  mal_id?: number;
+  mal_id?: number
   /** Club Name */
-  name?: string;
+  name?: string
   /** Club URL */
-  url?: string;
-};
+  url?: string
+}
 
 export type UserClubsAllOf = {
-  data?: UserClubsAllOfDataItem[];
-};
+  data?: UserClubsAllOfDataItem[]
+}
 
 /**
  * User Clubs
  */
-export type UserClubs = UserClubsAllOf & Pagination;
+export type UserClubs = UserClubsAllOf & Pagination
 
 export type UserFriendsAllOf = {
-  data?: UserFriendsAllOfDataItem[];
-};
+  data?: UserFriendsAllOfDataItem[]
+}
 
 /**
  * User Friends
  */
-export type UserFriends = UserFriendsAllOf & Pagination;
+export type UserFriends = UserFriendsAllOf & Pagination
 
 export type UserFriendsAllOfDataItemAllOfTwo = {
   /** Friends Since Date ISO8601 format */
-  friends_since?: string;
+  friends_since?: string
   /** Last Online Date ISO8601 format */
-  last_online?: string;
-};
+  last_online?: string
+}
 
 export type UserFriendsAllOfDataItemAllOf = {
-  user?: UserMeta;
-};
+  user?: UserMeta
+}
 
-export type UserFriendsAllOfDataItem = UserFriendsAllOfDataItemAllOf & UserFriendsAllOfDataItemAllOfTwo;
+export type UserFriendsAllOfDataItem = UserFriendsAllOfDataItemAllOf &
+  UserFriendsAllOfDataItemAllOfTwo
 
-export type ReviewsCollectionDataItem = AnimeReview | MangaReview;
+export type ReviewsCollectionDataItem = AnimeReview | MangaReview
 
 /**
  * Anime & Manga Reviews Resource
  */
 export interface ReviewsCollection {
-  data?: ReviewsCollectionDataItem[];
+  data?: ReviewsCollectionDataItem[]
 }
 
 export type SeasonsDataItem = {
   /** List of available seasons */
-  seasons?: string[];
+  seasons?: string[]
   /** Year */
-  year?: number;
-};
+  year?: number
+}
 
 /**
  * List of available seasons
  */
 export interface Seasons {
-  data?: SeasonsDataItem[];
+  data?: SeasonsDataItem[]
 }
 
 export type UsersSearchAllOfDataItem = {
-  images?: UserImages;
+  images?: UserImages
   /** Last Online Date ISO8601 */
-  last_online?: string;
+  last_online?: string
   /** MyAnimeList URL */
-  url?: string;
+  url?: string
   /** MyAnimeList Username */
-  username?: string;
-};
+  username?: string
+}
 
 export type UsersSearchAllOf = {
-  data?: UsersSearchAllOfDataItem[];
-};
+  data?: UsersSearchAllOfDataItem[]
+}
 
 /**
  * User Results
  */
-export type UsersSearch = UsersSearchAllOf & Pagination;
+export type UsersSearch = UsersSearchAllOf & Pagination
 
 export type SchedulesAllOf = {
-  data?: Anime[];
-};
+  data?: Anime[]
+}
 
 /**
  * Anime resources currently airing
  */
-export type Schedules = SchedulesAllOf & PaginationPlus;
+export type Schedules = SchedulesAllOf & PaginationPlus
 
-export type RandomDataItem = Anime | Manga | Character | Person;
+export type RandomDataItem = Anime | Manga | Character | Person
 
 /**
  * Random Resources
  */
 export interface Random {
-  data?: RandomDataItem[];
+  data?: RandomDataItem[]
 }
 
 /**
  * Character Pictures
  */
 export interface PersonPictures {
-  data?: PeopleImages[];
+  data?: PeopleImages[]
 }
 
 /**
  * Manga Pictures
  */
 export interface MangaPictures {
-  data?: MangaImages[];
+  data?: MangaImages[]
 }
 
 /**
  * Manga News Resource
  */
-export type MangaNews = Pagination & News;
+export type MangaNews = Pagination & News
 
 export type ClubMemberDataItem = {
-  images?: UserImages;
+  images?: UserImages
   /** User URL */
-  url?: string;
+  url?: string
   /** User's username */
-  username?: string;
-};
+  username?: string
+}
 
 /**
  * Club Member
  */
 export interface ClubMember {
-  data?: ClubMemberDataItem[];
+  data?: ClubMemberDataItem[]
 }
 
 export type CharacterPicturesDataItem = {
@@ -3776,51 +3794,51 @@ export type CharacterPicturesDataItem = {
    * Default JPG Image Size URL
    * @nullable
    */
-  image_url?: string | null;
+  image_url?: string | null
   /**
    * Large JPG Image Size URL
    * @nullable
    */
-  large_image_url?: string | null;
-};
+  large_image_url?: string | null
+}
 
 /**
  * Character Pictures
  */
 export interface CharacterPictures {
-  data?: CharacterPicturesDataItem[];
+  data?: CharacterPicturesDataItem[]
 }
 
 export type AnimeVideosEpisodesAllOfDataItem = {
   /** Episode Subtitle */
-  episode?: string;
-  images?: CommonImages;
+  episode?: string
+  images?: CommonImages
   /** MyAnimeList ID or Episode Number */
-  mal_id?: number;
+  mal_id?: number
   /** Episode Title */
-  title?: string;
+  title?: string
   /** Episode Page URL */
-  url?: string;
-};
+  url?: string
+}
 
 export type AnimeVideosEpisodesAllOf = {
-  data?: AnimeVideosEpisodesAllOfDataItem[];
-};
+  data?: AnimeVideosEpisodesAllOfDataItem[]
+}
 
 /**
  * Anime Videos Episodes Resource
  */
-export type AnimeVideosEpisodes = AnimeVideosEpisodesAllOf & Pagination;
+export type AnimeVideosEpisodes = AnimeVideosEpisodesAllOf & Pagination
 
 /**
  * Anime News Resource
  */
-export type AnimeNews = Pagination & News;
+export type AnimeNews = Pagination & News
 
 /**
  * Anime Episodes Resource
  */
-export type AnimeEpisodes = AnimeEpisodesAllOf & Pagination;
+export type AnimeEpisodes = AnimeEpisodesAllOf & Pagination
 
 /**
  * Aggregated episode score (1.00 - 5.00) based on MyAnimeList user voting
@@ -3828,72 +3846,72 @@ export type AnimeEpisodes = AnimeEpisodesAllOf & Pagination;
  * @maximum 5
  * @nullable
  */
-export type AnimeEpisodesAllOfDataItemScore = unknown | null;
+export type AnimeEpisodesAllOfDataItemScore = unknown | null
 
 export type AnimeEpisodesAllOfDataItem = {
   /**
    * Aired Date ISO8601
    * @nullable
    */
-  aired?: string | null;
+  aired?: string | null
   /** Filler episode */
-  filler?: boolean;
+  filler?: boolean
   /**
    * Episode discussion forum URL
    * @nullable
    */
-  forum_url?: string | null;
+  forum_url?: string | null
   /** MyAnimeList ID */
-  mal_id?: number;
+  mal_id?: number
   /** Recap episode */
-  recap?: boolean;
+  recap?: boolean
   /**
    * Aggregated episode score (1.00 - 5.00) based on MyAnimeList user voting
    * @minimum 1
    * @maximum 5
    * @nullable
    */
-  score?: AnimeEpisodesAllOfDataItemScore;
+  score?: AnimeEpisodesAllOfDataItemScore
   /** Title */
-  title?: string;
+  title?: string
   /**
    * Title Japanese
    * @nullable
    */
-  title_japanese?: string | null;
+  title_japanese?: string | null
   /**
    * title_romanji
    * @nullable
    */
-  title_romanji?: string | null;
+  title_romanji?: string | null
   /**
    * MyAnimeList URL. This is the URL of the episode's video. If there is no video url, this will be null.
    * @nullable
    */
-  url?: string | null;
-};
+  url?: string | null
+}
 
 export type AnimeEpisodesAllOf = {
-  data?: AnimeEpisodesAllOfDataItem[];
-};
+  data?: AnimeEpisodesAllOfDataItem[]
+}
 
 /**
  * The type of reviews to filter by. Defaults to anime.
  */
-export type TopReviewsTypeEnum = typeof TopReviewsTypeEnum[keyof typeof TopReviewsTypeEnum];
-
+export type TopReviewsTypeEnum =
+  (typeof TopReviewsTypeEnum)[keyof typeof TopReviewsTypeEnum]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const TopReviewsTypeEnum = {
   anime: 'anime',
   manga: 'manga',
-} as const;
+} as const
 
 /**
  * Top items filter types
  */
-export type TopMangaFilter = typeof TopMangaFilter[keyof typeof TopMangaFilter];
-
+export type TopMangaFilter =
+  (typeof TopMangaFilter)[keyof typeof TopMangaFilter]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const TopMangaFilter = {
@@ -3901,13 +3919,13 @@ export const TopMangaFilter = {
   upcoming: 'upcoming',
   bypopularity: 'bypopularity',
   favorite: 'favorite',
-} as const;
+} as const
 
 /**
  * Top items filter types
  */
-export type TopAnimeFilter = typeof TopAnimeFilter[keyof typeof TopAnimeFilter];
-
+export type TopAnimeFilter =
+  (typeof TopAnimeFilter)[keyof typeof TopAnimeFilter]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const TopAnimeFilter = {
@@ -3915,25 +3933,25 @@ export const TopAnimeFilter = {
   upcoming: 'upcoming',
   bypopularity: 'bypopularity',
   favorite: 'favorite',
-} as const;
+} as const
 
 /**
  * Search query sort direction
  */
-export type SearchQuerySort = typeof SearchQuerySort[keyof typeof SearchQuerySort];
-
+export type SearchQuerySort =
+  (typeof SearchQuerySort)[keyof typeof SearchQuerySort]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const SearchQuerySort = {
   desc: 'desc',
   asc: 'asc',
-} as const;
+} as const
 
 /**
  * Producers Search Query Order By
  */
-export type ProducersQueryOrderby = typeof ProducersQueryOrderby[keyof typeof ProducersQueryOrderby];
-
+export type ProducersQueryOrderby =
+  (typeof ProducersQueryOrderby)[keyof typeof ProducersQueryOrderby]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const ProducersQueryOrderby = {
@@ -3941,13 +3959,13 @@ export const ProducersQueryOrderby = {
   count: 'count',
   favorites: 'favorites',
   established: 'established',
-} as const;
+} as const
 
 /**
  * Available People order_by properties
  */
-export type PeopleSearchQueryOrderby = typeof PeopleSearchQueryOrderby[keyof typeof PeopleSearchQueryOrderby];
-
+export type PeopleSearchQueryOrderby =
+  (typeof PeopleSearchQueryOrderby)[keyof typeof PeopleSearchQueryOrderby]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const PeopleSearchQueryOrderby = {
@@ -3955,13 +3973,13 @@ export const PeopleSearchQueryOrderby = {
   name: 'name',
   birthday: 'birthday',
   favorites: 'favorites',
-} as const;
+} as const
 
 /**
  * Available Manga types
  */
-export type MangaSearchQueryType = typeof MangaSearchQueryType[keyof typeof MangaSearchQueryType];
-
+export type MangaSearchQueryType =
+  (typeof MangaSearchQueryType)[keyof typeof MangaSearchQueryType]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const MangaSearchQueryType = {
@@ -3972,13 +3990,13 @@ export const MangaSearchQueryType = {
   doujin: 'doujin',
   manhwa: 'manhwa',
   manhua: 'manhua',
-} as const;
+} as const
 
 /**
  * Available Manga statuses
  */
-export type MangaSearchQueryStatus = typeof MangaSearchQueryStatus[keyof typeof MangaSearchQueryStatus];
-
+export type MangaSearchQueryStatus =
+  (typeof MangaSearchQueryStatus)[keyof typeof MangaSearchQueryStatus]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const MangaSearchQueryStatus = {
@@ -3987,13 +4005,13 @@ export const MangaSearchQueryStatus = {
   hiatus: 'hiatus',
   discontinued: 'discontinued',
   upcoming: 'upcoming',
-} as const;
+} as const
 
 /**
  * Available Manga order_by properties
  */
-export type MangaSearchQueryOrderby = typeof MangaSearchQueryOrderby[keyof typeof MangaSearchQueryOrderby];
-
+export type MangaSearchQueryOrderby =
+  (typeof MangaSearchQueryOrderby)[keyof typeof MangaSearchQueryOrderby]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const MangaSearchQueryOrderby = {
@@ -4009,13 +4027,13 @@ export const MangaSearchQueryOrderby = {
   popularity: 'popularity',
   members: 'members',
   favorites: 'favorites',
-} as const;
+} as const
 
 /**
  * User's anime list status filter options
  */
-export type UserMangaListStatusFilter = typeof UserMangaListStatusFilter[keyof typeof UserMangaListStatusFilter];
-
+export type UserMangaListStatusFilter =
+  (typeof UserMangaListStatusFilter)[keyof typeof UserMangaListStatusFilter]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const UserMangaListStatusFilter = {
@@ -4025,26 +4043,26 @@ export const UserMangaListStatusFilter = {
   onhold: 'onhold',
   dropped: 'dropped',
   plantoread: 'plantoread',
-} as const;
+} as const
 
 /**
  * Order by magazine data
  */
-export type MagazinesQueryOrderby = typeof MagazinesQueryOrderby[keyof typeof MagazinesQueryOrderby];
-
+export type MagazinesQueryOrderby =
+  (typeof MagazinesQueryOrderby)[keyof typeof MagazinesQueryOrderby]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const MagazinesQueryOrderby = {
   mal_id: 'mal_id',
   name: 'name',
   count: 'count',
-} as const;
+} as const
 
 /**
  * Filter genres by type
  */
-export type GenreQueryFilter = typeof GenreQueryFilter[keyof typeof GenreQueryFilter];
-
+export type GenreQueryFilter =
+  (typeof GenreQueryFilter)[keyof typeof GenreQueryFilter]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const GenreQueryFilter = {
@@ -4052,13 +4070,13 @@ export const GenreQueryFilter = {
   explicit_genres: 'explicit_genres',
   themes: 'themes',
   demographics: 'demographics',
-} as const;
+} as const
 
 /**
  * Users Search Query Gender.
  */
-export type UsersSearchQueryGender = typeof UsersSearchQueryGender[keyof typeof UsersSearchQueryGender];
-
+export type UsersSearchQueryGender =
+  (typeof UsersSearchQueryGender)[keyof typeof UsersSearchQueryGender]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const UsersSearchQueryGender = {
@@ -4066,26 +4084,26 @@ export const UsersSearchQueryGender = {
   male: 'male',
   female: 'female',
   nonbinary: 'nonbinary',
-} as const;
+} as const
 
 /**
  * Club Search Query Type
  */
-export type ClubSearchQueryType = typeof ClubSearchQueryType[keyof typeof ClubSearchQueryType];
-
+export type ClubSearchQueryType =
+  (typeof ClubSearchQueryType)[keyof typeof ClubSearchQueryType]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const ClubSearchQueryType = {
   public: 'public',
   private: 'private',
   secret: 'secret',
-} as const;
+} as const
 
 /**
  * Club Search Query OrderBy
  */
-export type ClubSearchQueryOrderby = typeof ClubSearchQueryOrderby[keyof typeof ClubSearchQueryOrderby];
-
+export type ClubSearchQueryOrderby =
+  (typeof ClubSearchQueryOrderby)[keyof typeof ClubSearchQueryOrderby]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const ClubSearchQueryOrderby = {
@@ -4093,13 +4111,13 @@ export const ClubSearchQueryOrderby = {
   name: 'name',
   members_count: 'members_count',
   created: 'created',
-} as const;
+} as const
 
 /**
  * Club Search Query Category
  */
-export type ClubSearchQueryCategory = typeof ClubSearchQueryCategory[keyof typeof ClubSearchQueryCategory];
-
+export type ClubSearchQueryCategory =
+  (typeof ClubSearchQueryCategory)[keyof typeof ClubSearchQueryCategory]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const ClubSearchQueryCategory = {
@@ -4115,26 +4133,26 @@ export const ClubSearchQueryCategory = {
   music: 'music',
   other: 'other',
   schools: 'schools',
-} as const;
+} as const
 
 /**
  * Available Character order_by properties
  */
-export type CharactersSearchQueryOrderby = typeof CharactersSearchQueryOrderby[keyof typeof CharactersSearchQueryOrderby];
-
+export type CharactersSearchQueryOrderby =
+  (typeof CharactersSearchQueryOrderby)[keyof typeof CharactersSearchQueryOrderby]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const CharactersSearchQueryOrderby = {
   mal_id: 'mal_id',
   name: 'name',
   favorites: 'favorites',
-} as const;
+} as const
 
 /**
  * Available Anime types
  */
-export type AnimeSearchQueryType = typeof AnimeSearchQueryType[keyof typeof AnimeSearchQueryType];
-
+export type AnimeSearchQueryType =
+  (typeof AnimeSearchQueryType)[keyof typeof AnimeSearchQueryType]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const AnimeSearchQueryType = {
@@ -4147,26 +4165,26 @@ export const AnimeSearchQueryType = {
   cm: 'cm',
   pv: 'pv',
   tv_special: 'tv_special',
-} as const;
+} as const
 
 /**
  * Available Anime statuses
  */
-export type AnimeSearchQueryStatus = typeof AnimeSearchQueryStatus[keyof typeof AnimeSearchQueryStatus];
-
+export type AnimeSearchQueryStatus =
+  (typeof AnimeSearchQueryStatus)[keyof typeof AnimeSearchQueryStatus]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const AnimeSearchQueryStatus = {
   airing: 'airing',
   complete: 'complete',
   upcoming: 'upcoming',
-} as const;
+} as const
 
 /**
  * Available Anime audience ratings<br><br><b>Ratings</b><br><ul><li>G - All Ages</li><li>PG - Children</li><li>PG-13 - Teens 13 or older</li><li>R - 17+ (violence & profanity)</li><li>R+ - Mild Nudity</li><li>Rx - Hentai</li></ul>
  */
-export type AnimeSearchQueryRating = typeof AnimeSearchQueryRating[keyof typeof AnimeSearchQueryRating];
-
+export type AnimeSearchQueryRating =
+  (typeof AnimeSearchQueryRating)[keyof typeof AnimeSearchQueryRating]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const AnimeSearchQueryRating = {
@@ -4176,13 +4194,13 @@ export const AnimeSearchQueryRating = {
   r17: 'r17',
   r: 'r',
   rx: 'rx',
-} as const;
+} as const
 
 /**
  * Available Anime order_by properties
  */
-export type AnimeSearchQueryOrderby = typeof AnimeSearchQueryOrderby[keyof typeof AnimeSearchQueryOrderby];
-
+export type AnimeSearchQueryOrderby =
+  (typeof AnimeSearchQueryOrderby)[keyof typeof AnimeSearchQueryOrderby]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const AnimeSearchQueryOrderby = {
@@ -4197,13 +4215,13 @@ export const AnimeSearchQueryOrderby = {
   popularity: 'popularity',
   members: 'members',
   favorites: 'favorites',
-} as const;
+} as const
 
 /**
  * User's anime list status filter options
  */
-export type UserAnimeListStatusFilter = typeof UserAnimeListStatusFilter[keyof typeof UserAnimeListStatusFilter];
-
+export type UserAnimeListStatusFilter =
+  (typeof UserAnimeListStatusFilter)[keyof typeof UserAnimeListStatusFilter]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const UserAnimeListStatusFilter = {
@@ -4213,1082 +4231,1322 @@ export const UserAnimeListStatusFilter = {
   onhold: 'onhold',
   dropped: 'dropped',
   plantowatch: 'plantowatch',
-} as const;
+} as const
 
+type SecondParameter<T extends (...args: any) => any> = Parameters<T>[1]
 
+export const getAnimeFullById = (
+  id: number,
+  options?: SecondParameter<typeof jikanInstance>,
+) => {
+  return jikanInstance<GetAnimeFullById200>(
+    { url: `/anime/${id}/full`, method: 'GET' },
+    options,
+  )
+}
 
-
-type SecondParameter<T extends (...args: any) => any> = Parameters<T>[1];
-
-
-  export const getAnimeFullById = (
-    id: number,
- options?: SecondParameter<typeof jikanInstance>,) => {
-      return jikanInstance<GetAnimeFullById200>(
-      {url: `/anime/${id}/full`, method: 'GET'
-    },
-      options);
-    }
-  
 export const getAnimeById = (
-    id: number,
- options?: SecondParameter<typeof jikanInstance>,) => {
-      return jikanInstance<GetAnimeById200>(
-      {url: `/anime/${id}`, method: 'GET'
-    },
-      options);
-    }
-  
+  id: number,
+  options?: SecondParameter<typeof jikanInstance>,
+) => {
+  return jikanInstance<GetAnimeById200>(
+    { url: `/anime/${id}`, method: 'GET' },
+    options,
+  )
+}
+
 export const getAnimeCharacters = (
-    id: number,
- options?: SecondParameter<typeof jikanInstance>,) => {
-      return jikanInstance<AnimeCharacters>(
-      {url: `/anime/${id}/characters`, method: 'GET'
-    },
-      options);
-    }
-  
+  id: number,
+  options?: SecondParameter<typeof jikanInstance>,
+) => {
+  return jikanInstance<AnimeCharacters>(
+    { url: `/anime/${id}/characters`, method: 'GET' },
+    options,
+  )
+}
+
 export const getAnimeStaff = (
-    id: number,
- options?: SecondParameter<typeof jikanInstance>,) => {
-      return jikanInstance<AnimeStaff>(
-      {url: `/anime/${id}/staff`, method: 'GET'
-    },
-      options);
-    }
-  
+  id: number,
+  options?: SecondParameter<typeof jikanInstance>,
+) => {
+  return jikanInstance<AnimeStaff>(
+    { url: `/anime/${id}/staff`, method: 'GET' },
+    options,
+  )
+}
+
 export const getAnimeEpisodes = (
-    id: number,
-    params?: GetAnimeEpisodesParams,
- options?: SecondParameter<typeof jikanInstance>,) => {
-      return jikanInstance<AnimeEpisodes>(
-      {url: `/anime/${id}/episodes`, method: 'GET',
-        params
-    },
-      options);
-    }
-  
+  id: number,
+  params?: GetAnimeEpisodesParams,
+  options?: SecondParameter<typeof jikanInstance>,
+) => {
+  return jikanInstance<AnimeEpisodes>(
+    { url: `/anime/${id}/episodes`, method: 'GET', params },
+    options,
+  )
+}
+
 export const getAnimeEpisodeById = (
-    id: number,
-    episode: number,
- options?: SecondParameter<typeof jikanInstance>,) => {
-      return jikanInstance<GetAnimeEpisodeById200>(
-      {url: `/anime/${id}/episodes/${episode}`, method: 'GET'
-    },
-      options);
-    }
-  
+  id: number,
+  episode: number,
+  options?: SecondParameter<typeof jikanInstance>,
+) => {
+  return jikanInstance<GetAnimeEpisodeById200>(
+    { url: `/anime/${id}/episodes/${episode}`, method: 'GET' },
+    options,
+  )
+}
+
 export const getAnimeNews = (
-    id: number,
-    params?: GetAnimeNewsParams,
- options?: SecondParameter<typeof jikanInstance>,) => {
-      return jikanInstance<AnimeNews>(
-      {url: `/anime/${id}/news`, method: 'GET',
-        params
-    },
-      options);
-    }
-  
+  id: number,
+  params?: GetAnimeNewsParams,
+  options?: SecondParameter<typeof jikanInstance>,
+) => {
+  return jikanInstance<AnimeNews>(
+    { url: `/anime/${id}/news`, method: 'GET', params },
+    options,
+  )
+}
+
 export const getAnimeForum = (
-    id: number,
-    params?: GetAnimeForumParams,
- options?: SecondParameter<typeof jikanInstance>,) => {
-      return jikanInstance<Forum>(
-      {url: `/anime/${id}/forum`, method: 'GET',
-        params
-    },
-      options);
-    }
-  
+  id: number,
+  params?: GetAnimeForumParams,
+  options?: SecondParameter<typeof jikanInstance>,
+) => {
+  return jikanInstance<Forum>(
+    { url: `/anime/${id}/forum`, method: 'GET', params },
+    options,
+  )
+}
+
 export const getAnimeVideos = (
-    id: number,
- options?: SecondParameter<typeof jikanInstance>,) => {
-      return jikanInstance<AnimeVideos>(
-      {url: `/anime/${id}/videos`, method: 'GET'
-    },
-      options);
-    }
-  
+  id: number,
+  options?: SecondParameter<typeof jikanInstance>,
+) => {
+  return jikanInstance<AnimeVideos>(
+    { url: `/anime/${id}/videos`, method: 'GET' },
+    options,
+  )
+}
+
 export const getAnimeVideosEpisodes = (
-    id: number,
-    params?: GetAnimeVideosEpisodesParams,
- options?: SecondParameter<typeof jikanInstance>,) => {
-      return jikanInstance<AnimeVideosEpisodes>(
-      {url: `/anime/${id}/videos/episodes`, method: 'GET',
-        params
-    },
-      options);
-    }
-  
+  id: number,
+  params?: GetAnimeVideosEpisodesParams,
+  options?: SecondParameter<typeof jikanInstance>,
+) => {
+  return jikanInstance<AnimeVideosEpisodes>(
+    { url: `/anime/${id}/videos/episodes`, method: 'GET', params },
+    options,
+  )
+}
+
 export const getAnimePictures = (
-    id: number,
- options?: SecondParameter<typeof jikanInstance>,) => {
-      return jikanInstance<PicturesVariants>(
-      {url: `/anime/${id}/pictures`, method: 'GET'
-    },
-      options);
-    }
-  
+  id: number,
+  options?: SecondParameter<typeof jikanInstance>,
+) => {
+  return jikanInstance<PicturesVariants>(
+    { url: `/anime/${id}/pictures`, method: 'GET' },
+    options,
+  )
+}
+
 export const getAnimeStatistics = (
-    id: number,
- options?: SecondParameter<typeof jikanInstance>,) => {
-      return jikanInstance<AnimeStatistics>(
-      {url: `/anime/${id}/statistics`, method: 'GET'
-    },
-      options);
-    }
-  
+  id: number,
+  options?: SecondParameter<typeof jikanInstance>,
+) => {
+  return jikanInstance<AnimeStatistics>(
+    { url: `/anime/${id}/statistics`, method: 'GET' },
+    options,
+  )
+}
+
 export const getAnimeMoreInfo = (
-    id: number,
- options?: SecondParameter<typeof jikanInstance>,) => {
-      return jikanInstance<Moreinfo>(
-      {url: `/anime/${id}/moreinfo`, method: 'GET'
-    },
-      options);
-    }
-  
+  id: number,
+  options?: SecondParameter<typeof jikanInstance>,
+) => {
+  return jikanInstance<Moreinfo>(
+    { url: `/anime/${id}/moreinfo`, method: 'GET' },
+    options,
+  )
+}
+
 export const getAnimeRecommendations = (
-    id: number,
- options?: SecondParameter<typeof jikanInstance>,) => {
-      return jikanInstance<EntryRecommendations>(
-      {url: `/anime/${id}/recommendations`, method: 'GET'
-    },
-      options);
-    }
-  
+  id: number,
+  options?: SecondParameter<typeof jikanInstance>,
+) => {
+  return jikanInstance<EntryRecommendations>(
+    { url: `/anime/${id}/recommendations`, method: 'GET' },
+    options,
+  )
+}
+
 export const getAnimeUserUpdates = (
-    id: number,
-    params?: GetAnimeUserUpdatesParams,
- options?: SecondParameter<typeof jikanInstance>,) => {
-      return jikanInstance<AnimeUserupdates>(
-      {url: `/anime/${id}/userupdates`, method: 'GET',
-        params
-    },
-      options);
-    }
-  
+  id: number,
+  params?: GetAnimeUserUpdatesParams,
+  options?: SecondParameter<typeof jikanInstance>,
+) => {
+  return jikanInstance<AnimeUserupdates>(
+    { url: `/anime/${id}/userupdates`, method: 'GET', params },
+    options,
+  )
+}
+
 export const getAnimeReviews = (
-    id: number,
-    params?: GetAnimeReviewsParams,
- options?: SecondParameter<typeof jikanInstance>,) => {
-      return jikanInstance<AnimeReviews>(
-      {url: `/anime/${id}/reviews`, method: 'GET',
-        params
-    },
-      options);
-    }
-  
+  id: number,
+  params?: GetAnimeReviewsParams,
+  options?: SecondParameter<typeof jikanInstance>,
+) => {
+  return jikanInstance<AnimeReviews>(
+    { url: `/anime/${id}/reviews`, method: 'GET', params },
+    options,
+  )
+}
+
 export const getAnimeRelations = (
-    id: number,
- options?: SecondParameter<typeof jikanInstance>,) => {
-      return jikanInstance<GetAnimeRelations200>(
-      {url: `/anime/${id}/relations`, method: 'GET'
-    },
-      options);
-    }
-  
+  id: number,
+  options?: SecondParameter<typeof jikanInstance>,
+) => {
+  return jikanInstance<GetAnimeRelations200>(
+    { url: `/anime/${id}/relations`, method: 'GET' },
+    options,
+  )
+}
+
 export const getAnimeThemes = (
-    id: number,
- options?: SecondParameter<typeof jikanInstance>,) => {
-      return jikanInstance<AnimeThemes>(
-      {url: `/anime/${id}/themes`, method: 'GET'
-    },
-      options);
-    }
-  
+  id: number,
+  options?: SecondParameter<typeof jikanInstance>,
+) => {
+  return jikanInstance<AnimeThemes>(
+    { url: `/anime/${id}/themes`, method: 'GET' },
+    options,
+  )
+}
+
 export const getAnimeExternal = (
-    id: number,
- options?: SecondParameter<typeof jikanInstance>,) => {
-      return jikanInstance<ExternalLinks>(
-      {url: `/anime/${id}/external`, method: 'GET'
-    },
-      options);
-    }
-  
+  id: number,
+  options?: SecondParameter<typeof jikanInstance>,
+) => {
+  return jikanInstance<ExternalLinks>(
+    { url: `/anime/${id}/external`, method: 'GET' },
+    options,
+  )
+}
+
 export const getAnimeStreaming = (
-    id: number,
- options?: SecondParameter<typeof jikanInstance>,) => {
-      return jikanInstance<ExternalLinks>(
-      {url: `/anime/${id}/streaming`, method: 'GET'
-    },
-      options);
-    }
-  
+  id: number,
+  options?: SecondParameter<typeof jikanInstance>,
+) => {
+  return jikanInstance<ExternalLinks>(
+    { url: `/anime/${id}/streaming`, method: 'GET' },
+    options,
+  )
+}
+
 export const getCharacterFullById = (
-    id: number,
- options?: SecondParameter<typeof jikanInstance>,) => {
-      return jikanInstance<GetCharacterFullById200>(
-      {url: `/characters/${id}/full`, method: 'GET'
-    },
-      options);
-    }
-  
+  id: number,
+  options?: SecondParameter<typeof jikanInstance>,
+) => {
+  return jikanInstance<GetCharacterFullById200>(
+    { url: `/characters/${id}/full`, method: 'GET' },
+    options,
+  )
+}
+
 export const getCharacterById = (
-    id: number,
- options?: SecondParameter<typeof jikanInstance>,) => {
-      return jikanInstance<GetCharacterById200>(
-      {url: `/characters/${id}`, method: 'GET'
-    },
-      options);
-    }
-  
+  id: number,
+  options?: SecondParameter<typeof jikanInstance>,
+) => {
+  return jikanInstance<GetCharacterById200>(
+    { url: `/characters/${id}`, method: 'GET' },
+    options,
+  )
+}
+
 export const getCharacterAnime = (
-    id: number,
- options?: SecondParameter<typeof jikanInstance>,) => {
-      return jikanInstance<CharacterAnime>(
-      {url: `/characters/${id}/anime`, method: 'GET'
-    },
-      options);
-    }
-  
+  id: number,
+  options?: SecondParameter<typeof jikanInstance>,
+) => {
+  return jikanInstance<CharacterAnime>(
+    { url: `/characters/${id}/anime`, method: 'GET' },
+    options,
+  )
+}
+
 export const getCharacterManga = (
-    id: number,
- options?: SecondParameter<typeof jikanInstance>,) => {
-      return jikanInstance<CharacterManga>(
-      {url: `/characters/${id}/manga`, method: 'GET'
-    },
-      options);
-    }
-  
+  id: number,
+  options?: SecondParameter<typeof jikanInstance>,
+) => {
+  return jikanInstance<CharacterManga>(
+    { url: `/characters/${id}/manga`, method: 'GET' },
+    options,
+  )
+}
+
 export const getCharacterVoiceActors = (
-    id: number,
- options?: SecondParameter<typeof jikanInstance>,) => {
-      return jikanInstance<CharacterVoiceActors>(
-      {url: `/characters/${id}/voices`, method: 'GET'
-    },
-      options);
-    }
-  
+  id: number,
+  options?: SecondParameter<typeof jikanInstance>,
+) => {
+  return jikanInstance<CharacterVoiceActors>(
+    { url: `/characters/${id}/voices`, method: 'GET' },
+    options,
+  )
+}
+
 export const getCharacterPictures = (
-    id: number,
- options?: SecondParameter<typeof jikanInstance>,) => {
-      return jikanInstance<CharacterPictures>(
-      {url: `/characters/${id}/pictures`, method: 'GET'
-    },
-      options);
-    }
-  
+  id: number,
+  options?: SecondParameter<typeof jikanInstance>,
+) => {
+  return jikanInstance<CharacterPictures>(
+    { url: `/characters/${id}/pictures`, method: 'GET' },
+    options,
+  )
+}
+
 export const getClubsById = (
-    id: number,
- options?: SecondParameter<typeof jikanInstance>,) => {
-      return jikanInstance<GetClubsById200>(
-      {url: `/clubs/${id}`, method: 'GET'
-    },
-      options);
-    }
-  
+  id: number,
+  options?: SecondParameter<typeof jikanInstance>,
+) => {
+  return jikanInstance<GetClubsById200>(
+    { url: `/clubs/${id}`, method: 'GET' },
+    options,
+  )
+}
+
 export const getClubMembers = (
-    id: number,
-    params?: GetClubMembersParams,
- options?: SecondParameter<typeof jikanInstance>,) => {
-      return jikanInstance<GetClubMembers200>(
-      {url: `/clubs/${id}/members`, method: 'GET',
-        params
-    },
-      options);
-    }
-  
+  id: number,
+  params?: GetClubMembersParams,
+  options?: SecondParameter<typeof jikanInstance>,
+) => {
+  return jikanInstance<GetClubMembers200>(
+    { url: `/clubs/${id}/members`, method: 'GET', params },
+    options,
+  )
+}
+
 export const getClubStaff = (
-    id: number,
- options?: SecondParameter<typeof jikanInstance>,) => {
-      return jikanInstance<ClubStaff>(
-      {url: `/clubs/${id}/staff`, method: 'GET'
-    },
-      options);
-    }
-  
+  id: number,
+  options?: SecondParameter<typeof jikanInstance>,
+) => {
+  return jikanInstance<ClubStaff>(
+    { url: `/clubs/${id}/staff`, method: 'GET' },
+    options,
+  )
+}
+
 export const getClubRelations = (
-    id: number,
- options?: SecondParameter<typeof jikanInstance>,) => {
-      return jikanInstance<ClubRelations>(
-      {url: `/clubs/${id}/relations`, method: 'GET'
-    },
-      options);
-    }
-  
+  id: number,
+  options?: SecondParameter<typeof jikanInstance>,
+) => {
+  return jikanInstance<ClubRelations>(
+    { url: `/clubs/${id}/relations`, method: 'GET' },
+    options,
+  )
+}
+
 export const getAnimeGenres = (
-    params?: GetAnimeGenresParams,
- options?: SecondParameter<typeof jikanInstance>,) => {
-      return jikanInstance<Genres>(
-      {url: `/genres/anime`, method: 'GET',
-        params
-    },
-      options);
-    }
-  
+  params?: GetAnimeGenresParams,
+  options?: SecondParameter<typeof jikanInstance>,
+) => {
+  return jikanInstance<Genres>(
+    { url: `/genres/anime`, method: 'GET', params },
+    options,
+  )
+}
+
 export const getMangaGenres = (
-    params?: GetMangaGenresParams,
- options?: SecondParameter<typeof jikanInstance>,) => {
-      return jikanInstance<Genres>(
-      {url: `/genres/manga`, method: 'GET',
-        params
-    },
-      options);
-    }
-  
+  params?: GetMangaGenresParams,
+  options?: SecondParameter<typeof jikanInstance>,
+) => {
+  return jikanInstance<Genres>(
+    { url: `/genres/manga`, method: 'GET', params },
+    options,
+  )
+}
+
 export const getMagazines = (
-    params?: GetMagazinesParams,
- options?: SecondParameter<typeof jikanInstance>,) => {
-      return jikanInstance<Magazines>(
-      {url: `/magazines`, method: 'GET',
-        params
-    },
-      options);
-    }
-  
+  params?: GetMagazinesParams,
+  options?: SecondParameter<typeof jikanInstance>,
+) => {
+  return jikanInstance<Magazines>(
+    { url: `/magazines`, method: 'GET', params },
+    options,
+  )
+}
+
 export const getMangaFullById = (
-    id: number,
- options?: SecondParameter<typeof jikanInstance>,) => {
-      return jikanInstance<GetMangaFullById200>(
-      {url: `/manga/${id}/full`, method: 'GET'
-    },
-      options);
-    }
-  
+  id: number,
+  options?: SecondParameter<typeof jikanInstance>,
+) => {
+  return jikanInstance<GetMangaFullById200>(
+    { url: `/manga/${id}/full`, method: 'GET' },
+    options,
+  )
+}
+
 export const getMangaById = (
-    id: number,
- options?: SecondParameter<typeof jikanInstance>,) => {
-      return jikanInstance<GetMangaById200>(
-      {url: `/manga/${id}`, method: 'GET'
-    },
-      options);
-    }
-  
+  id: number,
+  options?: SecondParameter<typeof jikanInstance>,
+) => {
+  return jikanInstance<GetMangaById200>(
+    { url: `/manga/${id}`, method: 'GET' },
+    options,
+  )
+}
+
 export const getMangaCharacters = (
-    id: number,
- options?: SecondParameter<typeof jikanInstance>,) => {
-      return jikanInstance<MangaCharacters>(
-      {url: `/manga/${id}/characters`, method: 'GET'
-    },
-      options);
-    }
-  
+  id: number,
+  options?: SecondParameter<typeof jikanInstance>,
+) => {
+  return jikanInstance<MangaCharacters>(
+    { url: `/manga/${id}/characters`, method: 'GET' },
+    options,
+  )
+}
+
 export const getMangaNews = (
-    id: number,
-    params?: GetMangaNewsParams,
- options?: SecondParameter<typeof jikanInstance>,) => {
-      return jikanInstance<MangaNews>(
-      {url: `/manga/${id}/news`, method: 'GET',
-        params
-    },
-      options);
-    }
-  
+  id: number,
+  params?: GetMangaNewsParams,
+  options?: SecondParameter<typeof jikanInstance>,
+) => {
+  return jikanInstance<MangaNews>(
+    { url: `/manga/${id}/news`, method: 'GET', params },
+    options,
+  )
+}
+
 export const getMangaTopics = (
-    id: number,
-    params?: GetMangaTopicsParams,
- options?: SecondParameter<typeof jikanInstance>,) => {
-      return jikanInstance<Forum>(
-      {url: `/manga/${id}/forum`, method: 'GET',
-        params
-    },
-      options);
-    }
-  
+  id: number,
+  params?: GetMangaTopicsParams,
+  options?: SecondParameter<typeof jikanInstance>,
+) => {
+  return jikanInstance<Forum>(
+    { url: `/manga/${id}/forum`, method: 'GET', params },
+    options,
+  )
+}
+
 export const getMangaPictures = (
-    id: number,
- options?: SecondParameter<typeof jikanInstance>,) => {
-      return jikanInstance<MangaPictures>(
-      {url: `/manga/${id}/pictures`, method: 'GET'
-    },
-      options);
-    }
-  
+  id: number,
+  options?: SecondParameter<typeof jikanInstance>,
+) => {
+  return jikanInstance<MangaPictures>(
+    { url: `/manga/${id}/pictures`, method: 'GET' },
+    options,
+  )
+}
+
 export const getMangaStatistics = (
-    id: number,
- options?: SecondParameter<typeof jikanInstance>,) => {
-      return jikanInstance<MangaStatistics>(
-      {url: `/manga/${id}/statistics`, method: 'GET'
-    },
-      options);
-    }
-  
+  id: number,
+  options?: SecondParameter<typeof jikanInstance>,
+) => {
+  return jikanInstance<MangaStatistics>(
+    { url: `/manga/${id}/statistics`, method: 'GET' },
+    options,
+  )
+}
+
 export const getMangaMoreInfo = (
-    id: number,
- options?: SecondParameter<typeof jikanInstance>,) => {
-      return jikanInstance<Moreinfo>(
-      {url: `/manga/${id}/moreinfo`, method: 'GET'
-    },
-      options);
-    }
-  
+  id: number,
+  options?: SecondParameter<typeof jikanInstance>,
+) => {
+  return jikanInstance<Moreinfo>(
+    { url: `/manga/${id}/moreinfo`, method: 'GET' },
+    options,
+  )
+}
+
 export const getMangaRecommendations = (
-    id: number,
- options?: SecondParameter<typeof jikanInstance>,) => {
-      return jikanInstance<EntryRecommendations>(
-      {url: `/manga/${id}/recommendations`, method: 'GET'
-    },
-      options);
-    }
-  
+  id: number,
+  options?: SecondParameter<typeof jikanInstance>,
+) => {
+  return jikanInstance<EntryRecommendations>(
+    { url: `/manga/${id}/recommendations`, method: 'GET' },
+    options,
+  )
+}
+
 export const getMangaUserUpdates = (
-    id: number,
-    params?: GetMangaUserUpdatesParams,
- options?: SecondParameter<typeof jikanInstance>,) => {
-      return jikanInstance<MangaUserupdates>(
-      {url: `/manga/${id}/userupdates`, method: 'GET',
-        params
-    },
-      options);
-    }
-  
+  id: number,
+  params?: GetMangaUserUpdatesParams,
+  options?: SecondParameter<typeof jikanInstance>,
+) => {
+  return jikanInstance<MangaUserupdates>(
+    { url: `/manga/${id}/userupdates`, method: 'GET', params },
+    options,
+  )
+}
+
 export const getMangaReviews = (
-    id: number,
-    params?: GetMangaReviewsParams,
- options?: SecondParameter<typeof jikanInstance>,) => {
-      return jikanInstance<MangaReviews>(
-      {url: `/manga/${id}/reviews`, method: 'GET',
-        params
-    },
-      options);
-    }
-  
+  id: number,
+  params?: GetMangaReviewsParams,
+  options?: SecondParameter<typeof jikanInstance>,
+) => {
+  return jikanInstance<MangaReviews>(
+    { url: `/manga/${id}/reviews`, method: 'GET', params },
+    options,
+  )
+}
+
 export const getMangaRelations = (
-    id: number,
- options?: SecondParameter<typeof jikanInstance>,) => {
-      return jikanInstance<GetMangaRelations200>(
-      {url: `/manga/${id}/relations`, method: 'GET'
-    },
-      options);
-    }
-  
+  id: number,
+  options?: SecondParameter<typeof jikanInstance>,
+) => {
+  return jikanInstance<GetMangaRelations200>(
+    { url: `/manga/${id}/relations`, method: 'GET' },
+    options,
+  )
+}
+
 export const getMangaExternal = (
-    id: number,
- options?: SecondParameter<typeof jikanInstance>,) => {
-      return jikanInstance<ExternalLinks>(
-      {url: `/manga/${id}/external`, method: 'GET'
-    },
-      options);
-    }
-  
+  id: number,
+  options?: SecondParameter<typeof jikanInstance>,
+) => {
+  return jikanInstance<ExternalLinks>(
+    { url: `/manga/${id}/external`, method: 'GET' },
+    options,
+  )
+}
+
 export const getPersonFullById = (
-    id: number,
- options?: SecondParameter<typeof jikanInstance>,) => {
-      return jikanInstance<GetPersonFullById200>(
-      {url: `/people/${id}/full`, method: 'GET'
-    },
-      options);
-    }
-  
+  id: number,
+  options?: SecondParameter<typeof jikanInstance>,
+) => {
+  return jikanInstance<GetPersonFullById200>(
+    { url: `/people/${id}/full`, method: 'GET' },
+    options,
+  )
+}
+
 export const getPersonById = (
-    id: number,
- options?: SecondParameter<typeof jikanInstance>,) => {
-      return jikanInstance<GetPersonById200>(
-      {url: `/people/${id}`, method: 'GET'
-    },
-      options);
-    }
-  
+  id: number,
+  options?: SecondParameter<typeof jikanInstance>,
+) => {
+  return jikanInstance<GetPersonById200>(
+    { url: `/people/${id}`, method: 'GET' },
+    options,
+  )
+}
+
 export const getPersonAnime = (
-    id: number,
- options?: SecondParameter<typeof jikanInstance>,) => {
-      return jikanInstance<PersonAnime>(
-      {url: `/people/${id}/anime`, method: 'GET'
-    },
-      options);
-    }
-  
+  id: number,
+  options?: SecondParameter<typeof jikanInstance>,
+) => {
+  return jikanInstance<PersonAnime>(
+    { url: `/people/${id}/anime`, method: 'GET' },
+    options,
+  )
+}
+
 export const getPersonVoices = (
-    id: number,
- options?: SecondParameter<typeof jikanInstance>,) => {
-      return jikanInstance<PersonVoiceActingRoles>(
-      {url: `/people/${id}/voices`, method: 'GET'
-    },
-      options);
-    }
-  
+  id: number,
+  options?: SecondParameter<typeof jikanInstance>,
+) => {
+  return jikanInstance<PersonVoiceActingRoles>(
+    { url: `/people/${id}/voices`, method: 'GET' },
+    options,
+  )
+}
+
 export const getPersonManga = (
-    id: number,
- options?: SecondParameter<typeof jikanInstance>,) => {
-      return jikanInstance<PersonManga>(
-      {url: `/people/${id}/manga`, method: 'GET'
-    },
-      options);
-    }
-  
+  id: number,
+  options?: SecondParameter<typeof jikanInstance>,
+) => {
+  return jikanInstance<PersonManga>(
+    { url: `/people/${id}/manga`, method: 'GET' },
+    options,
+  )
+}
+
 export const getPersonPictures = (
-    id: number,
- options?: SecondParameter<typeof jikanInstance>,) => {
-      return jikanInstance<PersonPictures>(
-      {url: `/people/${id}/pictures`, method: 'GET'
-    },
-      options);
-    }
-  
+  id: number,
+  options?: SecondParameter<typeof jikanInstance>,
+) => {
+  return jikanInstance<PersonPictures>(
+    { url: `/people/${id}/pictures`, method: 'GET' },
+    options,
+  )
+}
+
 export const getProducerById = (
-    id: number,
- options?: SecondParameter<typeof jikanInstance>,) => {
-      return jikanInstance<GetProducerById200>(
-      {url: `/producers/${id}`, method: 'GET'
-    },
-      options);
-    }
-  
+  id: number,
+  options?: SecondParameter<typeof jikanInstance>,
+) => {
+  return jikanInstance<GetProducerById200>(
+    { url: `/producers/${id}`, method: 'GET' },
+    options,
+  )
+}
+
 export const getProducerFullById = (
-    id: number,
- options?: SecondParameter<typeof jikanInstance>,) => {
-      return jikanInstance<GetProducerFullById200>(
-      {url: `/producers/${id}/full`, method: 'GET'
-    },
-      options);
-    }
-  
+  id: number,
+  options?: SecondParameter<typeof jikanInstance>,
+) => {
+  return jikanInstance<GetProducerFullById200>(
+    { url: `/producers/${id}/full`, method: 'GET' },
+    options,
+  )
+}
+
 export const getProducerExternal = (
-    id: number,
- options?: SecondParameter<typeof jikanInstance>,) => {
-      return jikanInstance<ExternalLinks>(
-      {url: `/producers/${id}/external`, method: 'GET'
-    },
-      options);
-    }
-  
+  id: number,
+  options?: SecondParameter<typeof jikanInstance>,
+) => {
+  return jikanInstance<ExternalLinks>(
+    { url: `/producers/${id}/external`, method: 'GET' },
+    options,
+  )
+}
+
 export const getRandomAnime = (
-    
- options?: SecondParameter<typeof jikanInstance>,) => {
-      return jikanInstance<GetRandomAnime200>(
-      {url: `/random/anime`, method: 'GET'
-    },
-      options);
-    }
-  
+  options?: SecondParameter<typeof jikanInstance>,
+) => {
+  return jikanInstance<GetRandomAnime200>(
+    { url: `/random/anime`, method: 'GET' },
+    options,
+  )
+}
+
 export const getRandomManga = (
-    
- options?: SecondParameter<typeof jikanInstance>,) => {
-      return jikanInstance<GetRandomManga200>(
-      {url: `/random/manga`, method: 'GET'
-    },
-      options);
-    }
-  
+  options?: SecondParameter<typeof jikanInstance>,
+) => {
+  return jikanInstance<GetRandomManga200>(
+    { url: `/random/manga`, method: 'GET' },
+    options,
+  )
+}
+
 export const getRandomCharacters = (
-    
- options?: SecondParameter<typeof jikanInstance>,) => {
-      return jikanInstance<GetRandomCharacters200>(
-      {url: `/random/characters`, method: 'GET'
-    },
-      options);
-    }
-  
+  options?: SecondParameter<typeof jikanInstance>,
+) => {
+  return jikanInstance<GetRandomCharacters200>(
+    { url: `/random/characters`, method: 'GET' },
+    options,
+  )
+}
+
 export const getRandomPeople = (
-    
- options?: SecondParameter<typeof jikanInstance>,) => {
-      return jikanInstance<GetRandomPeople200>(
-      {url: `/random/people`, method: 'GET'
-    },
-      options);
-    }
-  
+  options?: SecondParameter<typeof jikanInstance>,
+) => {
+  return jikanInstance<GetRandomPeople200>(
+    { url: `/random/people`, method: 'GET' },
+    options,
+  )
+}
+
 export const getRandomUsers = (
-    
- options?: SecondParameter<typeof jikanInstance>,) => {
-      return jikanInstance<GetRandomUsers200>(
-      {url: `/random/users`, method: 'GET'
-    },
-      options);
-    }
-  
+  options?: SecondParameter<typeof jikanInstance>,
+) => {
+  return jikanInstance<GetRandomUsers200>(
+    { url: `/random/users`, method: 'GET' },
+    options,
+  )
+}
+
 export const getRecentAnimeRecommendations = (
-    params?: GetRecentAnimeRecommendationsParams,
- options?: SecondParameter<typeof jikanInstance>,) => {
-      return jikanInstance<Recommendations>(
-      {url: `/recommendations/anime`, method: 'GET',
-        params
-    },
-      options);
-    }
-  
+  params?: GetRecentAnimeRecommendationsParams,
+  options?: SecondParameter<typeof jikanInstance>,
+) => {
+  return jikanInstance<Recommendations>(
+    { url: `/recommendations/anime`, method: 'GET', params },
+    options,
+  )
+}
+
 export const getRecentMangaRecommendations = (
-    params?: GetRecentMangaRecommendationsParams,
- options?: SecondParameter<typeof jikanInstance>,) => {
-      return jikanInstance<Recommendations>(
-      {url: `/recommendations/manga`, method: 'GET',
-        params
-    },
-      options);
-    }
-  
+  params?: GetRecentMangaRecommendationsParams,
+  options?: SecondParameter<typeof jikanInstance>,
+) => {
+  return jikanInstance<Recommendations>(
+    { url: `/recommendations/manga`, method: 'GET', params },
+    options,
+  )
+}
+
 export const getRecentAnimeReviews = (
-    params?: GetRecentAnimeReviewsParams,
- options?: SecondParameter<typeof jikanInstance>,) => {
-      return jikanInstance<unknown>(
-      {url: `/reviews/anime`, method: 'GET',
-        params
-    },
-      options);
-    }
-  
+  params?: GetRecentAnimeReviewsParams,
+  options?: SecondParameter<typeof jikanInstance>,
+) => {
+  return jikanInstance<unknown>(
+    { url: `/reviews/anime`, method: 'GET', params },
+    options,
+  )
+}
+
 export const getRecentMangaReviews = (
-    params?: GetRecentMangaReviewsParams,
- options?: SecondParameter<typeof jikanInstance>,) => {
-      return jikanInstance<unknown>(
-      {url: `/reviews/manga`, method: 'GET',
-        params
-    },
-      options);
-    }
-  
+  params?: GetRecentMangaReviewsParams,
+  options?: SecondParameter<typeof jikanInstance>,
+) => {
+  return jikanInstance<unknown>(
+    { url: `/reviews/manga`, method: 'GET', params },
+    options,
+  )
+}
+
 export const getSchedules = (
-    params?: GetSchedulesParams,
- options?: SecondParameter<typeof jikanInstance>,) => {
-      return jikanInstance<Schedules>(
-      {url: `/schedules`, method: 'GET',
-        params
-    },
-      options);
-    }
-  
+  params?: GetSchedulesParams,
+  options?: SecondParameter<typeof jikanInstance>,
+) => {
+  return jikanInstance<Schedules>(
+    { url: `/schedules`, method: 'GET', params },
+    options,
+  )
+}
+
 export const getAnimeSearch = (
-    params?: GetAnimeSearchParams,
- options?: SecondParameter<typeof jikanInstance>,) => {
-      return jikanInstance<AnimeSearch>(
-      {url: `/anime`, method: 'GET',
-        params
-    },
-      options);
-    }
-  
+  params?: GetAnimeSearchParams,
+  options?: SecondParameter<typeof jikanInstance>,
+) => {
+  return jikanInstance<AnimeSearch>(
+    { url: `/anime`, method: 'GET', params },
+    options,
+  )
+}
+
 export const getMangaSearch = (
-    params?: GetMangaSearchParams,
- options?: SecondParameter<typeof jikanInstance>,) => {
-      return jikanInstance<MangaSearch>(
-      {url: `/manga`, method: 'GET',
-        params
-    },
-      options);
-    }
-  
+  params?: GetMangaSearchParams,
+  options?: SecondParameter<typeof jikanInstance>,
+) => {
+  return jikanInstance<MangaSearch>(
+    { url: `/manga`, method: 'GET', params },
+    options,
+  )
+}
+
 export const getPeopleSearch = (
-    params?: GetPeopleSearchParams,
- options?: SecondParameter<typeof jikanInstance>,) => {
-      return jikanInstance<PeopleSearch>(
-      {url: `/people`, method: 'GET',
-        params
-    },
-      options);
-    }
-  
+  params?: GetPeopleSearchParams,
+  options?: SecondParameter<typeof jikanInstance>,
+) => {
+  return jikanInstance<PeopleSearch>(
+    { url: `/people`, method: 'GET', params },
+    options,
+  )
+}
+
 export const getCharactersSearch = (
-    params?: GetCharactersSearchParams,
- options?: SecondParameter<typeof jikanInstance>,) => {
-      return jikanInstance<CharactersSearch>(
-      {url: `/characters`, method: 'GET',
-        params
-    },
-      options);
-    }
-  
+  params?: GetCharactersSearchParams,
+  options?: SecondParameter<typeof jikanInstance>,
+) => {
+  return jikanInstance<CharactersSearch>(
+    { url: `/characters`, method: 'GET', params },
+    options,
+  )
+}
+
 export const getUsersSearch = (
-    params?: GetUsersSearchParams,
- options?: SecondParameter<typeof jikanInstance>,) => {
-      return jikanInstance<UsersSearch>(
-      {url: `/users`, method: 'GET',
-        params
-    },
-      options);
-    }
-  
+  params?: GetUsersSearchParams,
+  options?: SecondParameter<typeof jikanInstance>,
+) => {
+  return jikanInstance<UsersSearch>(
+    { url: `/users`, method: 'GET', params },
+    options,
+  )
+}
+
 export const getUserById = (
-    id: number,
- options?: SecondParameter<typeof jikanInstance>,) => {
-      return jikanInstance<GetUserById200>(
-      {url: `/users/userbyid/${id}`, method: 'GET'
-    },
-      options);
-    }
-  
+  id: number,
+  options?: SecondParameter<typeof jikanInstance>,
+) => {
+  return jikanInstance<GetUserById200>(
+    { url: `/users/userbyid/${id}`, method: 'GET' },
+    options,
+  )
+}
+
 export const getClubsSearch = (
-    params?: GetClubsSearchParams,
- options?: SecondParameter<typeof jikanInstance>,) => {
-      return jikanInstance<ClubsSearch>(
-      {url: `/clubs`, method: 'GET',
-        params
-    },
-      options);
-    }
-  
+  params?: GetClubsSearchParams,
+  options?: SecondParameter<typeof jikanInstance>,
+) => {
+  return jikanInstance<ClubsSearch>(
+    { url: `/clubs`, method: 'GET', params },
+    options,
+  )
+}
+
 export const getProducers = (
-    params?: GetProducersParams,
- options?: SecondParameter<typeof jikanInstance>,) => {
-      return jikanInstance<Producers>(
-      {url: `/producers`, method: 'GET',
-        params
-    },
-      options);
-    }
-  
+  params?: GetProducersParams,
+  options?: SecondParameter<typeof jikanInstance>,
+) => {
+  return jikanInstance<Producers>(
+    { url: `/producers`, method: 'GET', params },
+    options,
+  )
+}
+
 export const getSeasonNow = (
-    params?: GetSeasonNowParams,
- options?: SecondParameter<typeof jikanInstance>,) => {
-      return jikanInstance<AnimeSearch>(
-      {url: `/seasons/now`, method: 'GET',
-        params
-    },
-      options);
-    }
-  
+  params?: GetSeasonNowParams,
+  options?: SecondParameter<typeof jikanInstance>,
+) => {
+  return jikanInstance<AnimeSearch>(
+    { url: `/seasons/now`, method: 'GET', params },
+    options,
+  )
+}
+
 export const getSeason = (
-    year: number,
-    season: string,
-    params?: GetSeasonParams,
- options?: SecondParameter<typeof jikanInstance>,) => {
-      return jikanInstance<AnimeSearch>(
-      {url: `/seasons/${year}/${season}`, method: 'GET',
-        params
-    },
-      options);
-    }
-  
+  year: number,
+  season: string,
+  params?: GetSeasonParams,
+  options?: SecondParameter<typeof jikanInstance>,
+) => {
+  return jikanInstance<AnimeSearch>(
+    { url: `/seasons/${year}/${season}`, method: 'GET', params },
+    options,
+  )
+}
+
 export const getSeasonsList = (
-    
- options?: SecondParameter<typeof jikanInstance>,) => {
-      return jikanInstance<Seasons>(
-      {url: `/seasons`, method: 'GET'
-    },
-      options);
-    }
-  
+  options?: SecondParameter<typeof jikanInstance>,
+) => {
+  return jikanInstance<Seasons>({ url: `/seasons`, method: 'GET' }, options)
+}
+
 export const getSeasonUpcoming = (
-    params?: GetSeasonUpcomingParams,
- options?: SecondParameter<typeof jikanInstance>,) => {
-      return jikanInstance<AnimeSearch>(
-      {url: `/seasons/upcoming`, method: 'GET',
-        params
-    },
-      options);
-    }
-  
+  params?: GetSeasonUpcomingParams,
+  options?: SecondParameter<typeof jikanInstance>,
+) => {
+  return jikanInstance<AnimeSearch>(
+    { url: `/seasons/upcoming`, method: 'GET', params },
+    options,
+  )
+}
+
 export const getTopAnime = (
-    params?: GetTopAnimeParams,
- options?: SecondParameter<typeof jikanInstance>,) => {
-      return jikanInstance<AnimeSearch>(
-      {url: `/top/anime`, method: 'GET',
-        params
-    },
-      options);
-    }
-  
+  params?: GetTopAnimeParams,
+  options?: SecondParameter<typeof jikanInstance>,
+) => {
+  return jikanInstance<AnimeSearch>(
+    { url: `/top/anime`, method: 'GET', params },
+    options,
+  )
+}
+
 export const getTopManga = (
-    params?: GetTopMangaParams,
- options?: SecondParameter<typeof jikanInstance>,) => {
-      return jikanInstance<MangaSearch>(
-      {url: `/top/manga`, method: 'GET',
-        params
-    },
-      options);
-    }
-  
+  params?: GetTopMangaParams,
+  options?: SecondParameter<typeof jikanInstance>,
+) => {
+  return jikanInstance<MangaSearch>(
+    { url: `/top/manga`, method: 'GET', params },
+    options,
+  )
+}
+
 export const getTopPeople = (
-    params?: GetTopPeopleParams,
- options?: SecondParameter<typeof jikanInstance>,) => {
-      return jikanInstance<PeopleSearch>(
-      {url: `/top/people`, method: 'GET',
-        params
-    },
-      options);
-    }
-  
+  params?: GetTopPeopleParams,
+  options?: SecondParameter<typeof jikanInstance>,
+) => {
+  return jikanInstance<PeopleSearch>(
+    { url: `/top/people`, method: 'GET', params },
+    options,
+  )
+}
+
 export const getTopCharacters = (
-    params?: GetTopCharactersParams,
- options?: SecondParameter<typeof jikanInstance>,) => {
-      return jikanInstance<CharactersSearch>(
-      {url: `/top/characters`, method: 'GET',
-        params
-    },
-      options);
-    }
-  
+  params?: GetTopCharactersParams,
+  options?: SecondParameter<typeof jikanInstance>,
+) => {
+  return jikanInstance<CharactersSearch>(
+    { url: `/top/characters`, method: 'GET', params },
+    options,
+  )
+}
+
 export const getTopReviews = (
-    params?: GetTopReviewsParams,
- options?: SecondParameter<typeof jikanInstance>,) => {
-      return jikanInstance<GetTopReviews200>(
-      {url: `/top/reviews`, method: 'GET',
-        params
-    },
-      options);
-    }
-  
+  params?: GetTopReviewsParams,
+  options?: SecondParameter<typeof jikanInstance>,
+) => {
+  return jikanInstance<GetTopReviews200>(
+    { url: `/top/reviews`, method: 'GET', params },
+    options,
+  )
+}
+
 export const getUserFullProfile = (
-    username: string,
- options?: SecondParameter<typeof jikanInstance>,) => {
-      return jikanInstance<GetUserFullProfile200>(
-      {url: `/users/${username}/full`, method: 'GET'
-    },
-      options);
-    }
-  
+  username: string,
+  options?: SecondParameter<typeof jikanInstance>,
+) => {
+  return jikanInstance<GetUserFullProfile200>(
+    { url: `/users/${username}/full`, method: 'GET' },
+    options,
+  )
+}
+
 export const getUserProfile = (
-    username: string,
- options?: SecondParameter<typeof jikanInstance>,) => {
-      return jikanInstance<GetUserProfile200>(
-      {url: `/users/${username}`, method: 'GET'
-    },
-      options);
-    }
-  
+  username: string,
+  options?: SecondParameter<typeof jikanInstance>,
+) => {
+  return jikanInstance<GetUserProfile200>(
+    { url: `/users/${username}`, method: 'GET' },
+    options,
+  )
+}
+
 export const getUserStatistics = (
-    username: string,
- options?: SecondParameter<typeof jikanInstance>,) => {
-      return jikanInstance<UserStatistics>(
-      {url: `/users/${username}/statistics`, method: 'GET'
-    },
-      options);
-    }
-  
+  username: string,
+  options?: SecondParameter<typeof jikanInstance>,
+) => {
+  return jikanInstance<UserStatistics>(
+    { url: `/users/${username}/statistics`, method: 'GET' },
+    options,
+  )
+}
+
 export const getUserFavorites = (
-    username: string,
- options?: SecondParameter<typeof jikanInstance>,) => {
-      return jikanInstance<GetUserFavorites200>(
-      {url: `/users/${username}/favorites`, method: 'GET'
-    },
-      options);
-    }
-  
+  username: string,
+  options?: SecondParameter<typeof jikanInstance>,
+) => {
+  return jikanInstance<GetUserFavorites200>(
+    { url: `/users/${username}/favorites`, method: 'GET' },
+    options,
+  )
+}
+
 export const getUserUpdates = (
-    username: string,
- options?: SecondParameter<typeof jikanInstance>,) => {
-      return jikanInstance<UserUpdates>(
-      {url: `/users/${username}/userupdates`, method: 'GET'
-    },
-      options);
-    }
-  
+  username: string,
+  options?: SecondParameter<typeof jikanInstance>,
+) => {
+  return jikanInstance<UserUpdates>(
+    { url: `/users/${username}/userupdates`, method: 'GET' },
+    options,
+  )
+}
+
 export const getUserAbout = (
-    username: string,
- options?: SecondParameter<typeof jikanInstance>,) => {
-      return jikanInstance<UserAbout>(
-      {url: `/users/${username}/about`, method: 'GET'
-    },
-      options);
-    }
-  
+  username: string,
+  options?: SecondParameter<typeof jikanInstance>,
+) => {
+  return jikanInstance<UserAbout>(
+    { url: `/users/${username}/about`, method: 'GET' },
+    options,
+  )
+}
+
 export const getUserHistory = (
-    username: string,
-    params?: GetUserHistoryParams,
- options?: SecondParameter<typeof jikanInstance>,) => {
-      return jikanInstance<UserHistory>(
-      {url: `/users/${username}/history`, method: 'GET',
-        params
-    },
-      options);
-    }
-  
+  username: string,
+  params?: GetUserHistoryParams,
+  options?: SecondParameter<typeof jikanInstance>,
+) => {
+  return jikanInstance<UserHistory>(
+    { url: `/users/${username}/history`, method: 'GET', params },
+    options,
+  )
+}
+
 export const getUserFriends = (
-    username: string,
-    params?: GetUserFriendsParams,
- options?: SecondParameter<typeof jikanInstance>,) => {
-      return jikanInstance<UserFriends>(
-      {url: `/users/${username}/friends`, method: 'GET',
-        params
-    },
-      options);
-    }
-  
+  username: string,
+  params?: GetUserFriendsParams,
+  options?: SecondParameter<typeof jikanInstance>,
+) => {
+  return jikanInstance<UserFriends>(
+    { url: `/users/${username}/friends`, method: 'GET', params },
+    options,
+  )
+}
+
 /**
  * User Anime lists have been discontinued since May 1st, 2022. <a href='https://docs.google.com/document/d/1-6H-agSnqa8Mfmw802UYfGQrceIEnAaEh4uCXAPiX5A'>Read more</a>
  * @deprecated
  */
 export const getUserAnimelist = (
-    username: string,
-    params?: GetUserAnimelistParams,
- options?: SecondParameter<typeof jikanInstance>,) => {
-      return jikanInstance<unknown>(
-      {url: `/users/${username}/animelist`, method: 'GET',
-        params
-    },
-      options);
-    }
-  
+  username: string,
+  params?: GetUserAnimelistParams,
+  options?: SecondParameter<typeof jikanInstance>,
+) => {
+  return jikanInstance<unknown>(
+    { url: `/users/${username}/animelist`, method: 'GET', params },
+    options,
+  )
+}
+
 /**
  * User Manga lists have been discontinued since May 1st, 2022. <a href='https://docs.google.com/document/d/1-6H-agSnqa8Mfmw802UYfGQrceIEnAaEh4uCXAPiX5A'>Read more</a>
  * @deprecated
  */
 export const getUserMangaList = (
-    username: string,
-    params?: GetUserMangaListParams,
- options?: SecondParameter<typeof jikanInstance>,) => {
-      return jikanInstance<unknown>(
-      {url: `/users/${username}/mangalist`, method: 'GET',
-        params
-    },
-      options);
-    }
-  
+  username: string,
+  params?: GetUserMangaListParams,
+  options?: SecondParameter<typeof jikanInstance>,
+) => {
+  return jikanInstance<unknown>(
+    { url: `/users/${username}/mangalist`, method: 'GET', params },
+    options,
+  )
+}
+
 export const getUserReviews = (
-    username: string,
-    params?: GetUserReviewsParams,
- options?: SecondParameter<typeof jikanInstance>,) => {
-      return jikanInstance<GetUserReviews200>(
-      {url: `/users/${username}/reviews`, method: 'GET',
-        params
-    },
-      options);
-    }
-  
+  username: string,
+  params?: GetUserReviewsParams,
+  options?: SecondParameter<typeof jikanInstance>,
+) => {
+  return jikanInstance<GetUserReviews200>(
+    { url: `/users/${username}/reviews`, method: 'GET', params },
+    options,
+  )
+}
+
 export const getUserRecommendations = (
-    username: string,
-    params?: GetUserRecommendationsParams,
- options?: SecondParameter<typeof jikanInstance>,) => {
-      return jikanInstance<Recommendations>(
-      {url: `/users/${username}/recommendations`, method: 'GET',
-        params
-    },
-      options);
-    }
-  
+  username: string,
+  params?: GetUserRecommendationsParams,
+  options?: SecondParameter<typeof jikanInstance>,
+) => {
+  return jikanInstance<Recommendations>(
+    { url: `/users/${username}/recommendations`, method: 'GET', params },
+    options,
+  )
+}
+
 export const getUserClubs = (
-    username: string,
-    params?: GetUserClubsParams,
- options?: SecondParameter<typeof jikanInstance>,) => {
-      return jikanInstance<UserClubs>(
-      {url: `/users/${username}/clubs`, method: 'GET',
-        params
-    },
-      options);
-    }
-  
+  username: string,
+  params?: GetUserClubsParams,
+  options?: SecondParameter<typeof jikanInstance>,
+) => {
+  return jikanInstance<UserClubs>(
+    { url: `/users/${username}/clubs`, method: 'GET', params },
+    options,
+  )
+}
+
 export const getUserExternal = (
-    username: string,
- options?: SecondParameter<typeof jikanInstance>,) => {
-      return jikanInstance<ExternalLinks>(
-      {url: `/users/${username}/external`, method: 'GET'
-    },
-      options);
-    }
-  
+  username: string,
+  options?: SecondParameter<typeof jikanInstance>,
+) => {
+  return jikanInstance<ExternalLinks>(
+    { url: `/users/${username}/external`, method: 'GET' },
+    options,
+  )
+}
+
 export const getWatchRecentEpisodes = (
-    
- options?: SecondParameter<typeof jikanInstance>,) => {
-      return jikanInstance<WatchEpisodes>(
-      {url: `/watch/episodes`, method: 'GET'
-    },
-      options);
-    }
-  
+  options?: SecondParameter<typeof jikanInstance>,
+) => {
+  return jikanInstance<WatchEpisodes>(
+    { url: `/watch/episodes`, method: 'GET' },
+    options,
+  )
+}
+
 export const getWatchPopularEpisodes = (
-    
- options?: SecondParameter<typeof jikanInstance>,) => {
-      return jikanInstance<WatchEpisodes>(
-      {url: `/watch/episodes/popular`, method: 'GET'
-    },
-      options);
-    }
-  
+  options?: SecondParameter<typeof jikanInstance>,
+) => {
+  return jikanInstance<WatchEpisodes>(
+    { url: `/watch/episodes/popular`, method: 'GET' },
+    options,
+  )
+}
+
 export const getWatchRecentPromos = (
-    params?: GetWatchRecentPromosParams,
- options?: SecondParameter<typeof jikanInstance>,) => {
-      return jikanInstance<WatchPromos>(
-      {url: `/watch/promos`, method: 'GET',
-        params
-    },
-      options);
-    }
-  
+  params?: GetWatchRecentPromosParams,
+  options?: SecondParameter<typeof jikanInstance>,
+) => {
+  return jikanInstance<WatchPromos>(
+    { url: `/watch/promos`, method: 'GET', params },
+    options,
+  )
+}
+
 export const getWatchPopularPromos = (
-    
- options?: SecondParameter<typeof jikanInstance>,) => {
-      return jikanInstance<WatchPromos>(
-      {url: `/watch/promos/popular`, method: 'GET'
-    },
-      options);
-    }
-  
-export type GetAnimeFullByIdResult = NonNullable<Awaited<ReturnType<typeof getAnimeFullById>>>
-export type GetAnimeByIdResult = NonNullable<Awaited<ReturnType<typeof getAnimeById>>>
-export type GetAnimeCharactersResult = NonNullable<Awaited<ReturnType<typeof getAnimeCharacters>>>
-export type GetAnimeStaffResult = NonNullable<Awaited<ReturnType<typeof getAnimeStaff>>>
-export type GetAnimeEpisodesResult = NonNullable<Awaited<ReturnType<typeof getAnimeEpisodes>>>
-export type GetAnimeEpisodeByIdResult = NonNullable<Awaited<ReturnType<typeof getAnimeEpisodeById>>>
-export type GetAnimeNewsResult = NonNullable<Awaited<ReturnType<typeof getAnimeNews>>>
-export type GetAnimeForumResult = NonNullable<Awaited<ReturnType<typeof getAnimeForum>>>
-export type GetAnimeVideosResult = NonNullable<Awaited<ReturnType<typeof getAnimeVideos>>>
-export type GetAnimeVideosEpisodesResult = NonNullable<Awaited<ReturnType<typeof getAnimeVideosEpisodes>>>
-export type GetAnimePicturesResult = NonNullable<Awaited<ReturnType<typeof getAnimePictures>>>
-export type GetAnimeStatisticsResult = NonNullable<Awaited<ReturnType<typeof getAnimeStatistics>>>
-export type GetAnimeMoreInfoResult = NonNullable<Awaited<ReturnType<typeof getAnimeMoreInfo>>>
-export type GetAnimeRecommendationsResult = NonNullable<Awaited<ReturnType<typeof getAnimeRecommendations>>>
-export type GetAnimeUserUpdatesResult = NonNullable<Awaited<ReturnType<typeof getAnimeUserUpdates>>>
-export type GetAnimeReviewsResult = NonNullable<Awaited<ReturnType<typeof getAnimeReviews>>>
-export type GetAnimeRelationsResult = NonNullable<Awaited<ReturnType<typeof getAnimeRelations>>>
-export type GetAnimeThemesResult = NonNullable<Awaited<ReturnType<typeof getAnimeThemes>>>
-export type GetAnimeExternalResult = NonNullable<Awaited<ReturnType<typeof getAnimeExternal>>>
-export type GetAnimeStreamingResult = NonNullable<Awaited<ReturnType<typeof getAnimeStreaming>>>
-export type GetCharacterFullByIdResult = NonNullable<Awaited<ReturnType<typeof getCharacterFullById>>>
-export type GetCharacterByIdResult = NonNullable<Awaited<ReturnType<typeof getCharacterById>>>
-export type GetCharacterAnimeResult = NonNullable<Awaited<ReturnType<typeof getCharacterAnime>>>
-export type GetCharacterMangaResult = NonNullable<Awaited<ReturnType<typeof getCharacterManga>>>
-export type GetCharacterVoiceActorsResult = NonNullable<Awaited<ReturnType<typeof getCharacterVoiceActors>>>
-export type GetCharacterPicturesResult = NonNullable<Awaited<ReturnType<typeof getCharacterPictures>>>
-export type GetClubsByIdResult = NonNullable<Awaited<ReturnType<typeof getClubsById>>>
-export type GetClubMembersResult = NonNullable<Awaited<ReturnType<typeof getClubMembers>>>
-export type GetClubStaffResult = NonNullable<Awaited<ReturnType<typeof getClubStaff>>>
-export type GetClubRelationsResult = NonNullable<Awaited<ReturnType<typeof getClubRelations>>>
-export type GetAnimeGenresResult = NonNullable<Awaited<ReturnType<typeof getAnimeGenres>>>
-export type GetMangaGenresResult = NonNullable<Awaited<ReturnType<typeof getMangaGenres>>>
-export type GetMagazinesResult = NonNullable<Awaited<ReturnType<typeof getMagazines>>>
-export type GetMangaFullByIdResult = NonNullable<Awaited<ReturnType<typeof getMangaFullById>>>
-export type GetMangaByIdResult = NonNullable<Awaited<ReturnType<typeof getMangaById>>>
-export type GetMangaCharactersResult = NonNullable<Awaited<ReturnType<typeof getMangaCharacters>>>
-export type GetMangaNewsResult = NonNullable<Awaited<ReturnType<typeof getMangaNews>>>
-export type GetMangaTopicsResult = NonNullable<Awaited<ReturnType<typeof getMangaTopics>>>
-export type GetMangaPicturesResult = NonNullable<Awaited<ReturnType<typeof getMangaPictures>>>
-export type GetMangaStatisticsResult = NonNullable<Awaited<ReturnType<typeof getMangaStatistics>>>
-export type GetMangaMoreInfoResult = NonNullable<Awaited<ReturnType<typeof getMangaMoreInfo>>>
-export type GetMangaRecommendationsResult = NonNullable<Awaited<ReturnType<typeof getMangaRecommendations>>>
-export type GetMangaUserUpdatesResult = NonNullable<Awaited<ReturnType<typeof getMangaUserUpdates>>>
-export type GetMangaReviewsResult = NonNullable<Awaited<ReturnType<typeof getMangaReviews>>>
-export type GetMangaRelationsResult = NonNullable<Awaited<ReturnType<typeof getMangaRelations>>>
-export type GetMangaExternalResult = NonNullable<Awaited<ReturnType<typeof getMangaExternal>>>
-export type GetPersonFullByIdResult = NonNullable<Awaited<ReturnType<typeof getPersonFullById>>>
-export type GetPersonByIdResult = NonNullable<Awaited<ReturnType<typeof getPersonById>>>
-export type GetPersonAnimeResult = NonNullable<Awaited<ReturnType<typeof getPersonAnime>>>
-export type GetPersonVoicesResult = NonNullable<Awaited<ReturnType<typeof getPersonVoices>>>
-export type GetPersonMangaResult = NonNullable<Awaited<ReturnType<typeof getPersonManga>>>
-export type GetPersonPicturesResult = NonNullable<Awaited<ReturnType<typeof getPersonPictures>>>
-export type GetProducerByIdResult = NonNullable<Awaited<ReturnType<typeof getProducerById>>>
-export type GetProducerFullByIdResult = NonNullable<Awaited<ReturnType<typeof getProducerFullById>>>
-export type GetProducerExternalResult = NonNullable<Awaited<ReturnType<typeof getProducerExternal>>>
-export type GetRandomAnimeResult = NonNullable<Awaited<ReturnType<typeof getRandomAnime>>>
-export type GetRandomMangaResult = NonNullable<Awaited<ReturnType<typeof getRandomManga>>>
-export type GetRandomCharactersResult = NonNullable<Awaited<ReturnType<typeof getRandomCharacters>>>
-export type GetRandomPeopleResult = NonNullable<Awaited<ReturnType<typeof getRandomPeople>>>
-export type GetRandomUsersResult = NonNullable<Awaited<ReturnType<typeof getRandomUsers>>>
-export type GetRecentAnimeRecommendationsResult = NonNullable<Awaited<ReturnType<typeof getRecentAnimeRecommendations>>>
-export type GetRecentMangaRecommendationsResult = NonNullable<Awaited<ReturnType<typeof getRecentMangaRecommendations>>>
-export type GetRecentAnimeReviewsResult = NonNullable<Awaited<ReturnType<typeof getRecentAnimeReviews>>>
-export type GetRecentMangaReviewsResult = NonNullable<Awaited<ReturnType<typeof getRecentMangaReviews>>>
-export type GetSchedulesResult = NonNullable<Awaited<ReturnType<typeof getSchedules>>>
-export type GetAnimeSearchResult = NonNullable<Awaited<ReturnType<typeof getAnimeSearch>>>
-export type GetMangaSearchResult = NonNullable<Awaited<ReturnType<typeof getMangaSearch>>>
-export type GetPeopleSearchResult = NonNullable<Awaited<ReturnType<typeof getPeopleSearch>>>
-export type GetCharactersSearchResult = NonNullable<Awaited<ReturnType<typeof getCharactersSearch>>>
-export type GetUsersSearchResult = NonNullable<Awaited<ReturnType<typeof getUsersSearch>>>
-export type GetUserByIdResult = NonNullable<Awaited<ReturnType<typeof getUserById>>>
-export type GetClubsSearchResult = NonNullable<Awaited<ReturnType<typeof getClubsSearch>>>
-export type GetProducersResult = NonNullable<Awaited<ReturnType<typeof getProducers>>>
-export type GetSeasonNowResult = NonNullable<Awaited<ReturnType<typeof getSeasonNow>>>
+  options?: SecondParameter<typeof jikanInstance>,
+) => {
+  return jikanInstance<WatchPromos>(
+    { url: `/watch/promos/popular`, method: 'GET' },
+    options,
+  )
+}
+
+export type GetAnimeFullByIdResult = NonNullable<
+  Awaited<ReturnType<typeof getAnimeFullById>>
+>
+export type GetAnimeByIdResult = NonNullable<
+  Awaited<ReturnType<typeof getAnimeById>>
+>
+export type GetAnimeCharactersResult = NonNullable<
+  Awaited<ReturnType<typeof getAnimeCharacters>>
+>
+export type GetAnimeStaffResult = NonNullable<
+  Awaited<ReturnType<typeof getAnimeStaff>>
+>
+export type GetAnimeEpisodesResult = NonNullable<
+  Awaited<ReturnType<typeof getAnimeEpisodes>>
+>
+export type GetAnimeEpisodeByIdResult = NonNullable<
+  Awaited<ReturnType<typeof getAnimeEpisodeById>>
+>
+export type GetAnimeNewsResult = NonNullable<
+  Awaited<ReturnType<typeof getAnimeNews>>
+>
+export type GetAnimeForumResult = NonNullable<
+  Awaited<ReturnType<typeof getAnimeForum>>
+>
+export type GetAnimeVideosResult = NonNullable<
+  Awaited<ReturnType<typeof getAnimeVideos>>
+>
+export type GetAnimeVideosEpisodesResult = NonNullable<
+  Awaited<ReturnType<typeof getAnimeVideosEpisodes>>
+>
+export type GetAnimePicturesResult = NonNullable<
+  Awaited<ReturnType<typeof getAnimePictures>>
+>
+export type GetAnimeStatisticsResult = NonNullable<
+  Awaited<ReturnType<typeof getAnimeStatistics>>
+>
+export type GetAnimeMoreInfoResult = NonNullable<
+  Awaited<ReturnType<typeof getAnimeMoreInfo>>
+>
+export type GetAnimeRecommendationsResult = NonNullable<
+  Awaited<ReturnType<typeof getAnimeRecommendations>>
+>
+export type GetAnimeUserUpdatesResult = NonNullable<
+  Awaited<ReturnType<typeof getAnimeUserUpdates>>
+>
+export type GetAnimeReviewsResult = NonNullable<
+  Awaited<ReturnType<typeof getAnimeReviews>>
+>
+export type GetAnimeRelationsResult = NonNullable<
+  Awaited<ReturnType<typeof getAnimeRelations>>
+>
+export type GetAnimeThemesResult = NonNullable<
+  Awaited<ReturnType<typeof getAnimeThemes>>
+>
+export type GetAnimeExternalResult = NonNullable<
+  Awaited<ReturnType<typeof getAnimeExternal>>
+>
+export type GetAnimeStreamingResult = NonNullable<
+  Awaited<ReturnType<typeof getAnimeStreaming>>
+>
+export type GetCharacterFullByIdResult = NonNullable<
+  Awaited<ReturnType<typeof getCharacterFullById>>
+>
+export type GetCharacterByIdResult = NonNullable<
+  Awaited<ReturnType<typeof getCharacterById>>
+>
+export type GetCharacterAnimeResult = NonNullable<
+  Awaited<ReturnType<typeof getCharacterAnime>>
+>
+export type GetCharacterMangaResult = NonNullable<
+  Awaited<ReturnType<typeof getCharacterManga>>
+>
+export type GetCharacterVoiceActorsResult = NonNullable<
+  Awaited<ReturnType<typeof getCharacterVoiceActors>>
+>
+export type GetCharacterPicturesResult = NonNullable<
+  Awaited<ReturnType<typeof getCharacterPictures>>
+>
+export type GetClubsByIdResult = NonNullable<
+  Awaited<ReturnType<typeof getClubsById>>
+>
+export type GetClubMembersResult = NonNullable<
+  Awaited<ReturnType<typeof getClubMembers>>
+>
+export type GetClubStaffResult = NonNullable<
+  Awaited<ReturnType<typeof getClubStaff>>
+>
+export type GetClubRelationsResult = NonNullable<
+  Awaited<ReturnType<typeof getClubRelations>>
+>
+export type GetAnimeGenresResult = NonNullable<
+  Awaited<ReturnType<typeof getAnimeGenres>>
+>
+export type GetMangaGenresResult = NonNullable<
+  Awaited<ReturnType<typeof getMangaGenres>>
+>
+export type GetMagazinesResult = NonNullable<
+  Awaited<ReturnType<typeof getMagazines>>
+>
+export type GetMangaFullByIdResult = NonNullable<
+  Awaited<ReturnType<typeof getMangaFullById>>
+>
+export type GetMangaByIdResult = NonNullable<
+  Awaited<ReturnType<typeof getMangaById>>
+>
+export type GetMangaCharactersResult = NonNullable<
+  Awaited<ReturnType<typeof getMangaCharacters>>
+>
+export type GetMangaNewsResult = NonNullable<
+  Awaited<ReturnType<typeof getMangaNews>>
+>
+export type GetMangaTopicsResult = NonNullable<
+  Awaited<ReturnType<typeof getMangaTopics>>
+>
+export type GetMangaPicturesResult = NonNullable<
+  Awaited<ReturnType<typeof getMangaPictures>>
+>
+export type GetMangaStatisticsResult = NonNullable<
+  Awaited<ReturnType<typeof getMangaStatistics>>
+>
+export type GetMangaMoreInfoResult = NonNullable<
+  Awaited<ReturnType<typeof getMangaMoreInfo>>
+>
+export type GetMangaRecommendationsResult = NonNullable<
+  Awaited<ReturnType<typeof getMangaRecommendations>>
+>
+export type GetMangaUserUpdatesResult = NonNullable<
+  Awaited<ReturnType<typeof getMangaUserUpdates>>
+>
+export type GetMangaReviewsResult = NonNullable<
+  Awaited<ReturnType<typeof getMangaReviews>>
+>
+export type GetMangaRelationsResult = NonNullable<
+  Awaited<ReturnType<typeof getMangaRelations>>
+>
+export type GetMangaExternalResult = NonNullable<
+  Awaited<ReturnType<typeof getMangaExternal>>
+>
+export type GetPersonFullByIdResult = NonNullable<
+  Awaited<ReturnType<typeof getPersonFullById>>
+>
+export type GetPersonByIdResult = NonNullable<
+  Awaited<ReturnType<typeof getPersonById>>
+>
+export type GetPersonAnimeResult = NonNullable<
+  Awaited<ReturnType<typeof getPersonAnime>>
+>
+export type GetPersonVoicesResult = NonNullable<
+  Awaited<ReturnType<typeof getPersonVoices>>
+>
+export type GetPersonMangaResult = NonNullable<
+  Awaited<ReturnType<typeof getPersonManga>>
+>
+export type GetPersonPicturesResult = NonNullable<
+  Awaited<ReturnType<typeof getPersonPictures>>
+>
+export type GetProducerByIdResult = NonNullable<
+  Awaited<ReturnType<typeof getProducerById>>
+>
+export type GetProducerFullByIdResult = NonNullable<
+  Awaited<ReturnType<typeof getProducerFullById>>
+>
+export type GetProducerExternalResult = NonNullable<
+  Awaited<ReturnType<typeof getProducerExternal>>
+>
+export type GetRandomAnimeResult = NonNullable<
+  Awaited<ReturnType<typeof getRandomAnime>>
+>
+export type GetRandomMangaResult = NonNullable<
+  Awaited<ReturnType<typeof getRandomManga>>
+>
+export type GetRandomCharactersResult = NonNullable<
+  Awaited<ReturnType<typeof getRandomCharacters>>
+>
+export type GetRandomPeopleResult = NonNullable<
+  Awaited<ReturnType<typeof getRandomPeople>>
+>
+export type GetRandomUsersResult = NonNullable<
+  Awaited<ReturnType<typeof getRandomUsers>>
+>
+export type GetRecentAnimeRecommendationsResult = NonNullable<
+  Awaited<ReturnType<typeof getRecentAnimeRecommendations>>
+>
+export type GetRecentMangaRecommendationsResult = NonNullable<
+  Awaited<ReturnType<typeof getRecentMangaRecommendations>>
+>
+export type GetRecentAnimeReviewsResult = NonNullable<
+  Awaited<ReturnType<typeof getRecentAnimeReviews>>
+>
+export type GetRecentMangaReviewsResult = NonNullable<
+  Awaited<ReturnType<typeof getRecentMangaReviews>>
+>
+export type GetSchedulesResult = NonNullable<
+  Awaited<ReturnType<typeof getSchedules>>
+>
+export type GetAnimeSearchResult = NonNullable<
+  Awaited<ReturnType<typeof getAnimeSearch>>
+>
+export type GetMangaSearchResult = NonNullable<
+  Awaited<ReturnType<typeof getMangaSearch>>
+>
+export type GetPeopleSearchResult = NonNullable<
+  Awaited<ReturnType<typeof getPeopleSearch>>
+>
+export type GetCharactersSearchResult = NonNullable<
+  Awaited<ReturnType<typeof getCharactersSearch>>
+>
+export type GetUsersSearchResult = NonNullable<
+  Awaited<ReturnType<typeof getUsersSearch>>
+>
+export type GetUserByIdResult = NonNullable<
+  Awaited<ReturnType<typeof getUserById>>
+>
+export type GetClubsSearchResult = NonNullable<
+  Awaited<ReturnType<typeof getClubsSearch>>
+>
+export type GetProducersResult = NonNullable<
+  Awaited<ReturnType<typeof getProducers>>
+>
+export type GetSeasonNowResult = NonNullable<
+  Awaited<ReturnType<typeof getSeasonNow>>
+>
 export type GetSeasonResult = NonNullable<Awaited<ReturnType<typeof getSeason>>>
-export type GetSeasonsListResult = NonNullable<Awaited<ReturnType<typeof getSeasonsList>>>
-export type GetSeasonUpcomingResult = NonNullable<Awaited<ReturnType<typeof getSeasonUpcoming>>>
-export type GetTopAnimeResult = NonNullable<Awaited<ReturnType<typeof getTopAnime>>>
-export type GetTopMangaResult = NonNullable<Awaited<ReturnType<typeof getTopManga>>>
-export type GetTopPeopleResult = NonNullable<Awaited<ReturnType<typeof getTopPeople>>>
-export type GetTopCharactersResult = NonNullable<Awaited<ReturnType<typeof getTopCharacters>>>
-export type GetTopReviewsResult = NonNullable<Awaited<ReturnType<typeof getTopReviews>>>
-export type GetUserFullProfileResult = NonNullable<Awaited<ReturnType<typeof getUserFullProfile>>>
-export type GetUserProfileResult = NonNullable<Awaited<ReturnType<typeof getUserProfile>>>
-export type GetUserStatisticsResult = NonNullable<Awaited<ReturnType<typeof getUserStatistics>>>
-export type GetUserFavoritesResult = NonNullable<Awaited<ReturnType<typeof getUserFavorites>>>
-export type GetUserUpdatesResult = NonNullable<Awaited<ReturnType<typeof getUserUpdates>>>
-export type GetUserAboutResult = NonNullable<Awaited<ReturnType<typeof getUserAbout>>>
-export type GetUserHistoryResult = NonNullable<Awaited<ReturnType<typeof getUserHistory>>>
-export type GetUserFriendsResult = NonNullable<Awaited<ReturnType<typeof getUserFriends>>>
-export type GetUserAnimelistResult = NonNullable<Awaited<ReturnType<typeof getUserAnimelist>>>
-export type GetUserMangaListResult = NonNullable<Awaited<ReturnType<typeof getUserMangaList>>>
-export type GetUserReviewsResult = NonNullable<Awaited<ReturnType<typeof getUserReviews>>>
-export type GetUserRecommendationsResult = NonNullable<Awaited<ReturnType<typeof getUserRecommendations>>>
-export type GetUserClubsResult = NonNullable<Awaited<ReturnType<typeof getUserClubs>>>
-export type GetUserExternalResult = NonNullable<Awaited<ReturnType<typeof getUserExternal>>>
-export type GetWatchRecentEpisodesResult = NonNullable<Awaited<ReturnType<typeof getWatchRecentEpisodes>>>
-export type GetWatchPopularEpisodesResult = NonNullable<Awaited<ReturnType<typeof getWatchPopularEpisodes>>>
-export type GetWatchRecentPromosResult = NonNullable<Awaited<ReturnType<typeof getWatchRecentPromos>>>
-export type GetWatchPopularPromosResult = NonNullable<Awaited<ReturnType<typeof getWatchPopularPromos>>>
+export type GetSeasonsListResult = NonNullable<
+  Awaited<ReturnType<typeof getSeasonsList>>
+>
+export type GetSeasonUpcomingResult = NonNullable<
+  Awaited<ReturnType<typeof getSeasonUpcoming>>
+>
+export type GetTopAnimeResult = NonNullable<
+  Awaited<ReturnType<typeof getTopAnime>>
+>
+export type GetTopMangaResult = NonNullable<
+  Awaited<ReturnType<typeof getTopManga>>
+>
+export type GetTopPeopleResult = NonNullable<
+  Awaited<ReturnType<typeof getTopPeople>>
+>
+export type GetTopCharactersResult = NonNullable<
+  Awaited<ReturnType<typeof getTopCharacters>>
+>
+export type GetTopReviewsResult = NonNullable<
+  Awaited<ReturnType<typeof getTopReviews>>
+>
+export type GetUserFullProfileResult = NonNullable<
+  Awaited<ReturnType<typeof getUserFullProfile>>
+>
+export type GetUserProfileResult = NonNullable<
+  Awaited<ReturnType<typeof getUserProfile>>
+>
+export type GetUserStatisticsResult = NonNullable<
+  Awaited<ReturnType<typeof getUserStatistics>>
+>
+export type GetUserFavoritesResult = NonNullable<
+  Awaited<ReturnType<typeof getUserFavorites>>
+>
+export type GetUserUpdatesResult = NonNullable<
+  Awaited<ReturnType<typeof getUserUpdates>>
+>
+export type GetUserAboutResult = NonNullable<
+  Awaited<ReturnType<typeof getUserAbout>>
+>
+export type GetUserHistoryResult = NonNullable<
+  Awaited<ReturnType<typeof getUserHistory>>
+>
+export type GetUserFriendsResult = NonNullable<
+  Awaited<ReturnType<typeof getUserFriends>>
+>
+export type GetUserAnimelistResult = NonNullable<
+  Awaited<ReturnType<typeof getUserAnimelist>>
+>
+export type GetUserMangaListResult = NonNullable<
+  Awaited<ReturnType<typeof getUserMangaList>>
+>
+export type GetUserReviewsResult = NonNullable<
+  Awaited<ReturnType<typeof getUserReviews>>
+>
+export type GetUserRecommendationsResult = NonNullable<
+  Awaited<ReturnType<typeof getUserRecommendations>>
+>
+export type GetUserClubsResult = NonNullable<
+  Awaited<ReturnType<typeof getUserClubs>>
+>
+export type GetUserExternalResult = NonNullable<
+  Awaited<ReturnType<typeof getUserExternal>>
+>
+export type GetWatchRecentEpisodesResult = NonNullable<
+  Awaited<ReturnType<typeof getWatchRecentEpisodes>>
+>
+export type GetWatchPopularEpisodesResult = NonNullable<
+  Awaited<ReturnType<typeof getWatchPopularEpisodes>>
+>
+export type GetWatchRecentPromosResult = NonNullable<
+  Awaited<ReturnType<typeof getWatchRecentPromos>>
+>
+export type GetWatchPopularPromosResult = NonNullable<
+  Awaited<ReturnType<typeof getWatchPopularPromos>>
+>

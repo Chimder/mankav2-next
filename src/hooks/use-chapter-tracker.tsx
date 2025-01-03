@@ -43,7 +43,7 @@ function usePageTrack(
 
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
-  }, [currentPage.chapterId, router.query.id, totalPages, imageRefs])
+  }, [currentPage.chapterId, imageRefs])
 
   return { currentPage, setCurrentPage }
 }

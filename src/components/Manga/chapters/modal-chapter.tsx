@@ -1,7 +1,9 @@
-import { ReactNode,  useLayoutEffect, useRef, useState } from 'react'
-import Link from 'next/link'
-import { useRouter } from 'next/router'
-import { ChapterResponse } from '@/shared/api/mangadex/generated'
+import { ReactNode, useLayoutEffect, useRef, useState } from 'react'
+import {
+  ChapterResponse,
+  LocalizedString,
+} from '@/shared/api/mangadex/generated'
+import { PATH } from '@/shared/constants/path-constants'
 import { cn } from '@/shared/lib/tailwind'
 
 import {
@@ -11,6 +13,9 @@ import {
   DialogTrigger,
 } from '../../ui/dialog'
 import { Input } from '../../ui/input'
+import { getFirstTitle } from '../cards/cards-list'
+import { useRouter } from 'next/router'
+import Link from 'next/link'
 
 type flatAggregate = {
   chapter?: string
@@ -29,8 +34,8 @@ type Props = {
 
 function ModalChapter({ chapters, children, chapterData }: Props) {
   const router = useRouter()
-  const lang = router.query?.lang as string
-  const chapterId = router.query?.id as string
+  const chapterId = router.query.id as string
+    const lang = router.query?.lang as string
   const mangaId = router.query?.manga as string
 
   const [searchPageQuery, setSearchPageQuery] = useState('')
@@ -55,17 +60,16 @@ function ModalChapter({ chapters, children, chapterData }: Props) {
     } else if (chapterData?.data?.attributes?.chapter) {
       scrollToChapter(chapterData.data.attributes.chapter)
     }
+
+    return () => {
+      setHighlightedChapter(null)
+    }
   }, [chapterData?.data?.attributes?.chapter, searchPageQuery])
-  console.log('SAEDaDad', searchPageQuery)
 
-  const title = chapterData?.data?.relationships?.find(
-    chap => chap.type === 'manga',
-  )?.attributes?.title
-
-  const mangaTitle =
-    title && typeof title === 'object' && 'en' in title
-      ? (title.en as string | undefined)
-      : undefined
+  const title = getFirstTitle(
+    chapterData?.data?.relationships?.find(chap => chap.type === 'manga')
+      ?.attributes?.title as LocalizedString,
+  )
 
   return (
     <Dialog>
@@ -75,16 +79,16 @@ function ModalChapter({ chapters, children, chapterData }: Props) {
         <div className="flex flex-col">
           <Link
             className="font-logo mr-10 cursor-pointer text-6xl text-cyan-300 decoration-cyan-300 hover:underline"
-            href={'/'}
+            href={PATH.MANGA.MAIN}
           >
             <h1 className="">MankA</h1>
           </Link>
 
           <Link
             className="mt-4 text-2xl text-white decoration-white hover:underline"
-                  href={`/title/${mangaId}?name=${mangaTitle}`}
+            href={`${PATH.MANGA.getTitlePath(mangaId)}?name=${title}`}
           >
-            {mangaTitle}
+            {title}
           </Link>
           <div className="center flex flex-col p-5 text-white">
             {chapterData?.data?.attributes?.chapter && (
@@ -98,7 +102,7 @@ function ModalChapter({ chapters, children, chapterData }: Props) {
         </div>
         <ul className="ml-4 flex w-full flex-col items-center overflow-scroll overflow-x-hidden bg-black">
           <div className="w-full">
-            {chapters.toReversed().map(({ chapter, count, id }) => (
+            {chapters?.toReversed()?.map(({ chapter, count, id }) => (
               <Link
                 className={cn(
                   'center m-2 w-[98%] rounded-sm border-[1px] border-gray-600 bg-transparent p-2.5 text-white hover:border-orange-600 hover:text-amber-300',
@@ -109,7 +113,7 @@ function ModalChapter({ chapters, children, chapterData }: Props) {
                 ref={el => {
                   if (chapter) refs.current[chapter] = el
                 }}
-                  href={`/chapter/${id}?manga=${mangaId}&lang=${lang}&name=${mangaTitle}`}
+                href={`${PATH.MANGA.getChapterPath(id)}?manga=${mangaId}&lang=${lang}&name=${title}`}
               >
                 <option value={`${count}`}>Chapter {chapter}</option>
               </Link>

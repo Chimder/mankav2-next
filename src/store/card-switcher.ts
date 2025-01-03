@@ -5,7 +5,7 @@ import { immer } from 'zustand/middleware/immer'
 import { createSelectors } from './create-Selectors'
 
 export type Card = {
-  type: 'boxes' | 'two'
+  type?: 'boxes' | 'two'
 }
 
 export type CardSwitcherAction = Card & {

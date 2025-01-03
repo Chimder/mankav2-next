@@ -1,6 +1,6 @@
-@import 'fonts';
-@import 'normalize';
-@import 'globals';
+@import "normalize.css";
+@import "fonts.css";
+@import "globals.css";
 
 @tailwind base;
 @tailwind components;
@@ -63,6 +63,7 @@
   }
 }
 
+
 @layer base {
   * {
     @apply border-border;
@@ -74,6 +75,6 @@
 
 @layer components {
   .center {
-    @apply flex justify-center items-center;
+    @apply flex items-center justify-center;
   }
 }

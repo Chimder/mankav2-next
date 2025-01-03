@@ -1,46 +1,55 @@
-import { useRouter } from 'next/router'
-import { mangaApi } from '@/hooks/api/mangadex/manga'
-import { getFirstTitle } from '../cards/cards-list'
 import Link from 'next/link'
-import { Manga } from '@/shared/api/mangadex/generated'
+import { useRouter } from 'next/router'
+import { PATH } from '@/shared/constants/path-constants'
+
+import { mangaApi } from '@/hooks/api/mangadex/manga'
+
+import { getFirstTitle } from '../cards/cards-list'
 
 const Relation = () => {
   const router = useRouter()
-  const mangaId = router?.query?.id as string
-  const { data: manga } = mangaApi.useMangaByID(mangaId)
+  const mangaId = router.query?.id as string
+  const { data: manga, isFetching, isLoading } = mangaApi.useMangaByID(mangaId)
 
   const mangasIds = manga?.data?.relationships
     ?.map(id => id.id)
     .filter((id): id is string => id !== undefined)
 
-  const { data: relations } = mangaApi.useMangaSearchMany({
-    ids: mangasIds,
-  })
+  const { data: relations, isFetching: isRelationsFetching } =
+    mangaApi.useMangaSearchMany({
+      ids: mangasIds,
+    })
 
-  function backgroundImageUrl(manga: Manga){
-   return `/api/proxy?url=https://mangadex.org/covers/${manga.id}/${manga?.relationships?.find(obj => obj.type === 'cover_art')?.attributes?.fileName}`
-  }
+  // function backgroundImageUrl(manga: Manga) {
+  //   return `/api/proxy?url=https://mangadex.org/covers/${manga.id}/${manga?.relationships?.find(obj => obj.type === 'cover_art')?.attributes?.fileName}`
+  // }
 
-  if(!relations) return null
+  if (
+    !relations?.data?.length ||
+    isFetching ||
+    isRelationsFetching ||
+    isLoading
+  )
+    return null
   return (
-    <div className='border-1 border-yellow-800 m-1 flex flex-col items-center'>
-      <h1>Relation Manga</h1>
-      <ul className='flex flex-row flex-wrap justify-center gap-3'>
+    <div className="m-2 flex flex-col items-center rounded-lg border-1 bg-primary">
+      <h1 className="text-lg text-green-200">Relation Manga</h1>
+      <ul className="flex flex-row flex-wrap justify-center gap-3">
         {relations?.data?.map(manga => (
           <Link
-            className='flex flex-col items-center w-32'
-                  href={`/title/${manga?.id}?name=${getFirstTitle(manga.attributes?.title)}`}
+            className="flex w-32 flex-col items-center"
+            href={`${PATH.MANGA.getTitlePath(manga.id)}?name=${getFirstTitle(manga.attributes?.title)}`}
             key={manga.id}
           >
-            <div className='w-32 h-40 mb-2 overflow-hidden rounded-lg'>
+            <div className="mb-2 h-40 w-32 overflow-hidden rounded-lg">
               <img
-                className="w-full h-full object-cover"
-                src={`/api/proxy?url=https://mangadex.org/covers/${manga.id}/${manga?.relationships?.find(obj => obj.type === 'cover_art')?.attributes?.fileName}`}
+                className="h-full w-full object-cover"
+                src={`${process.env.NEXT_PUBLIC_VITE_IMG_PROXY!}/img/mangadex.org/covers/${manga.id}/${manga?.relationships?.find(obj => obj.type === 'cover_art')?.attributes?.fileName}.256.jpg`}
                 loading="lazy"
                 alt={getFirstTitle(manga.attributes?.title)}
               />
             </div>
-            <div className='text-center text-sm line-clamp-2'>
+            <div className="line-clamp-2 text-center text-sm">
               {getFirstTitle(manga.attributes?.title)}
             </div>
           </Link>

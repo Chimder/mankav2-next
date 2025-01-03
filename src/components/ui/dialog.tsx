@@ -1,9 +1,8 @@
-'use client'
 
 import * as React from 'react'
-import { cn } from '@/shared/lib/tailwind'
 import * as DialogPrimitive from '@radix-ui/react-dialog'
 import { X } from 'lucide-react'
+import { cn } from '@/shared/lib/tailwind'
 
 const Dialog = DialogPrimitive.Root
 

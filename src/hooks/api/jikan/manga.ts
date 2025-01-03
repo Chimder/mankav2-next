@@ -1,37 +1,34 @@
-import { jikanInstance } from '@/shared/api/jikan/axios.instance'
-import {
-  getCharacterManga,
-  getMangaCharacters,
-  getMangaRelations,
-  MangaFull,
-} from '@/shared/api/jikan/generated'
 import { useQuery } from '@tanstack/react-query'
+import { jikanInstance } from '@/shared/api/jikan/axios.instance';
+import { getMangaCharacters, getMangaRelations, MangaFull } from '@/shared/api/jikan/generated';
 
 export const jikanMangaApi = {
   baseKey: 'jikanManga',
-  useMangaByName: ({ name }: { name: string; offset?: number }) => {
+  useMangaByName: ({ name }: { name: string | null; offset?: number }) => {
     return useQuery<MangaFull>({
       queryKey: [jikanMangaApi.baseKey, name],
-      queryFn: async ({ signal }) => {
-        const res = await jikanInstance<{ data: MangaFull[] }>(
-          {
-            url: '/manga',
-            method: 'GET',
-            params: {
-              q: name,
-              limit: 5,
-            },
+      queryFn: async () => {
+        const res = await jikanInstance<{ data: MangaFull[] }>({
+          url: '/manga',
+          method: 'GET',
+          params: {
+            q: name,
+            limit: 5,
           },
-          { signal },
-        )
+        })
 
         const foundManga = res.data.find(manga =>
           manga.titles?.some(
             title =>
               title.title &&
-              (name.toLowerCase().trim() === title.title.toLowerCase().trim() ||
-                name.toLowerCase().includes(title.title.toLowerCase().trim()) ||
-                title.title.toLowerCase().includes(name.toLowerCase().trim())),
+              (name?.toLowerCase().trim() ===
+                title.title.toLowerCase().trim() ||
+                name
+                  ?.toLowerCase()
+                  .includes(title.title.toLowerCase().trim()) ||
+                title.title
+                  .toLowerCase()
+                  .includes(name?.toLowerCase().trim()!)),
           ),
         )
 
@@ -49,11 +46,11 @@ export const jikanMangaApi = {
   useMangaCharacters: ({ id }: { id?: number }) => {
     return useQuery({
       queryKey: [jikanMangaApi.baseKey, 'chapters', id],
-      queryFn: async ({ signal }) => {
+      queryFn: async () => {
         if (!id) {
           return null
         }
-        return getMangaCharacters(id, { signal })
+        return getMangaCharacters(id)
       },
       refetchOnMount: false,
       enabled: Boolean(id),

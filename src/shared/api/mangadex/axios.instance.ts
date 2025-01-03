@@ -1,6 +1,6 @@
 import Axios, { AxiosError, AxiosRequestConfig } from 'axios'
 
-const URL = process.env.NEXT_PUBLIC_IMG_PROXY!
+const URL = process.env.NEXT_PUBLIC_VITE_IMG_PROXY!
 
 export const AXIOS_INSTANCE = Axios.create({
   // baseURL: URL,

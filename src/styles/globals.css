@@ -31,9 +31,9 @@
 
 .skeletonBoxes {
   width: 100%;
-  max-width: 280px;
-  max-height: 310px;
-  aspect-ratio: 280 / 310;
+  max-width: 260px;
+  max-height: 280px;
+  aspect-ratio: 260 / 280;
 }
 
 .skeletonTwo {
@@ -66,6 +66,23 @@
   border-radius: 10px;
 }
 
+.chapters-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.chapters-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #888888;
+  border-radius: 10px;
+}
+
+.chapters-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: #555555;
+}
+
+.chapters-scrollbar::-webkit-scrollbar-track {
+  background-color: #333333;
+  border-radius: 10px;
+}
 .title {
   margin: 14px 0;
   font-size: 13px;

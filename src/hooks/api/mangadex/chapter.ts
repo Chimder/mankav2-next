@@ -1,9 +1,5 @@
-import {
-  getAtHomeServerChapterId,
-  getChapterId,
-  getMangaAggregate,
-} from '@/shared/api/mangadex/generated'
 import { useQuery } from '@tanstack/react-query'
+import { getAtHomeServerChapterId, getChapterId, getMangaAggregate } from '@/shared/api/mangadex/generated'
 
 export const chapterApi = {
   baseKey: 'feed',

@@ -1,5 +1,5 @@
-import { getStatisticsMangaUuid } from '@/shared/api/mangadex/generated'
 import { useQuery } from '@tanstack/react-query'
+import { getStatisticsMangaUuid } from '@/shared/api/mangadex/generated'
 
 export const statisticsApi = {
   baseKey: 'statistics',

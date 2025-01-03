@@ -1,5 +1,5 @@
-import { getRating } from '@/shared/api/mangadex/generated'
 import { useQuery } from '@tanstack/react-query'
+import { getRating } from '@/shared/api/mangadex/generated'
 
 export const ratingApi = {
   baseKey: 'rating',

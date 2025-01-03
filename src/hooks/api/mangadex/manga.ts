@@ -6,8 +6,8 @@ import {
   GetSearchMangaParams,
   GetSearchMangaStatusItem,
 } from '@/shared/api/mangadex/generated'
-import { OffsetFilter } from '@/shared/constants/filters'
 import { keepPreviousData, useQuery } from '@tanstack/react-query'
+import { OffsetFilter } from '@/shared/constants/filters'
 
 export type mangaSearchOps = {
   tags?: string[]
@@ -19,12 +19,12 @@ export type mangaSearchOps = {
 
 export const mangaApi = {
   baseKey: 'manga',
-  useMangaByID: (id: string) => {
+  useMangaByID: (id?: string) => {
     return useQuery({
       queryKey: [mangaApi.baseKey, id],
       queryFn: ({ signal }) =>
         getMangaId(
-          id,
+          id!,
           { 'includes[]': ['manga', 'cover_art', 'author'] },
           { signal },
         ),
@@ -41,11 +41,11 @@ export const mangaApi = {
       queryFn: ({ signal }) =>
         getSearchManga(
           {
-            'includedTagsMode': 'AND',
+            includedTagsMode: 'AND',
             'includes[]': ['manga', 'cover_art'],
-            'title': title,
-            'limit': 5,
-            'order': {
+            title: title,
+            limit: 5,
+            order: {
               relevance: 'desc',
             },
           },
@@ -67,16 +67,16 @@ export const mangaApi = {
     sortBy,
   }: Partial<mangaSearchOps>) => {
     const queryParams: GetSearchMangaParams = {
-      'includedTagsMode': 'AND' as GetSearchMangaIncludedTagsMode,
+      includedTagsMode: 'AND' as GetSearchMangaIncludedTagsMode,
       'includedTags[]': tags,
       ...(name && { title: name }),
       'includes[]': ['cover_art'],
       ...(status && { 'status[]': [status as GetSearchMangaStatusItem] }),
       'contentRating[]': ['safe', 'suggestive'],
       'ids[]': [],
-      'limit': OffsetFilter,
-      'offset': offset,
-      'order': sortBy
+      limit: OffsetFilter,
+      offset: offset,
+      order: sortBy
         ? {
             [sortBy.type]: sortBy.order,
           }
@@ -113,7 +113,7 @@ export const mangaApi = {
         getSearchManga(
           {
             'includes[]': ['cover_art'],
-            
+
             'contentRating[]': ['safe', 'suggestive', 'erotica'],
             'ids[]': ids,
           },

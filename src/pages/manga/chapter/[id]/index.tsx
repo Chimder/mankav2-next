@@ -7,8 +7,9 @@ import useAggregateChapter from '@/hooks/use-aggregate-chapter'
 import usePageTrack from '@/hooks/use-chapter-tracker'
 import ExternalChapter from '@/components/external-chapter'
 import ModalChapter from '@/components/Manga/chapters/modal-chapter'
+import { PATH } from '@/shared/constants/path-constants'
 
-function Chapter() {
+function MangaChapter() {
   const router = useRouter()
   const lang = router.query?.lang as string
   const manga = router.query?.manga as string
@@ -16,9 +17,9 @@ function Chapter() {
   const id = router.query?.id as string
 
   const { data: chapters, isFetching } = chapterApi.useMangaChapterByID(
-    router.query?.id as string,
+    id as string,
   )
-  const { data: chapterData } = chapterApi.useMangaChapters(id)
+  const { data: chapterData } = chapterApi.useMangaChapters(id as string)
   const { flatAggregate, nextChapter } = useAggregateChapter()
 
   const imageRefs = useRef<(HTMLDivElement | null)[]>([])
@@ -51,7 +52,9 @@ function Chapter() {
                 chapters={flatAggregate}
               >
                 <img
-                  src={`/api/proxy?url=${encodeURIComponent(`${chapters.baseUrl}/data/${chapters.chapter?.hash}/${chapter}`)}`}
+                  src={`${process.env.NEXT_PUBLIC_VITE_IMG_PROXY!}/img/${encodeURIComponent(
+                    `${chapters.baseUrl}/data/${chapters.chapter?.hash}/${chapter}`,
+                  )}`}
                   width={1100}
                   height={1100}
                   loading="eager"
@@ -73,14 +76,16 @@ function Chapter() {
           {!isFetching && nextChapter ? (
             <Link
               className="center flex h-10 w-1/2 rounded-sm border-2 border-blue-950 py-[34px] text-white hover:border-blue-700"
-              href={`/chapter/${nextChapter?.id}?manga=${manga}&lang=${lang}&name=${name}`}
+              href={`${PATH.MANGA.getChapterPath(
+                nextChapter.id,
+              )}?manga=${manga}&lang=${lang}&name=${name}`}
             >
               Next
             </Link>
           ) : (
             <Link
               className="center flex h-10 w-1/2 rounded-sm border-2 border-blue-950 py-[34px] text-white hover:border-blue-700"
-              href={`title/${manga}?name=${name}`}
+              href={`${PATH.MANGA.getTitlePath(manga)}?name=${name}`}
             >
               Return to Manga
             </Link>
@@ -91,7 +96,8 @@ function Chapter() {
   )
 }
 
-Chapter.getLayout = function getLayout(page: ReactElement) {
-  return <>{page}</>
-}
-export default Chapter
+MangaChapter.getLayout = function getLayout(page: ReactElement) {
+  return <>{page}</>;
+
+};
+export default MangaChapter

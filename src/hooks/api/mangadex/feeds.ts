@@ -1,18 +1,18 @@
-import { getMangaIdFeed } from '@/shared/api/mangadex/generated'
 import { useQuery } from '@tanstack/react-query'
+import { getMangaIdFeed } from '@/shared/api/mangadex/generated';
 
 export const feedApi = {
   baseKey: 'feed',
-  useMangaFeed: ({ id, offset }: { id: string; offset: number }) => {
+  useMangaFeed: ({ id, offset }: { id?: string; offset: number }) => {
     return useQuery({
       queryKey: [feedApi.baseKey, id, offset],
       queryFn: ({ signal }) =>
         getMangaIdFeed(
-          id,
+          id!,
           {
-            'limit': 96,
-            'offset': offset,
-            'order': { chapter: 'desc', volume: 'desc' },
+            limit: 96,
+            offset: offset,
+            order: { chapter: 'desc', volume: 'desc' },
             'includes[]': ['scanlation_group', 'user'],
             'contentRating[]': ['safe', 'suggestive'],
           },
