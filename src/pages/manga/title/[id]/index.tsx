@@ -34,10 +34,10 @@ export const getServerSideProps: GetServerSideProps = async ({
         { signal },
       ),
   })
-  // res.setHeader(
-  //   'Cache-Control',
-  // 'public, max-age=900, stale-while-revalidate=59',
-  // )
+  res.setHeader(
+    'Cache-Control',
+    'public, max-age=900, stale-while-revalidate=59',
+  )
   return {
     props: {
       dehydratedState: dehydrate(queryClient),

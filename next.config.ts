@@ -19,6 +19,10 @@ const nextConfig = {
             value: '*',
           },
           {
+            key: 'Cache-Control',
+            value: 'public, max-age=900, stale-while-revalidate=59',
+          },
+          {
             key: 'Access-Control-Allow-Credentials',
             value: 'true',
           },
