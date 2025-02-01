@@ -1,4 +1,5 @@
-module.exports = {
+/** @type {import('next').NextConfig} */
+const nextConfig = {
   reactStrictMode: true,
   typescript: {
     ignoreBuildErrors: true,
@@ -41,4 +42,4 @@ module.exports = {
 //   enabled: process.env.ANALYZE === 'true',
 // })
 
-// export default nextConfig
+export default nextConfig
