@@ -1,8 +1,10 @@
 import { lazy, useState } from 'react'
 import { getCharacterImg } from '@/shared/utils/get-character-img'
 import { usePersoneStore } from '@/store/characters-people'
+import { useParams } from 'react-router-dom'
 
-import { jikanAnimeApi } from '@/hooks/api/jikan/anime'
+import { jikanMangaApi } from '@/hooks/api/jikan/manga'
+import { mangaApi } from '@/hooks/api/mangadex/manga'
 import {
   Accordion,
   AccordionContent,
@@ -10,42 +12,46 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion'
 
-// import DialogCharactersPeople from '@/components/characters-voices/dialog'
 const DialogCharactersPeople = lazy(
   () => import('@/components/characters-voices/dialog'),
 )
 
-type Props = {
-  id?: number
-}
-const Characters = ({ id }: Props) => {
+const CharactersList = () => {
+  const { id: mangaId } = useParams()
+
+  const { data: manga } = mangaApi.useMangaByID(mangaId)
   const {
     data: characters,
-    isFetching,
-    isLoading,
-  } = jikanAnimeApi.useAnimeCharactersById({ id: Number(id) })
+    isFetching: isFetchingCharacters,
+    isLoading: isLoadingCharacters,
+  } = jikanMangaApi.useMangaCharacters({
+    id: Number(manga?.data?.attributes?.links?.mal),
+  })
 
-  // console.log('ADADUWUUW')
   const setPersone = usePersoneStore().setPersone
 
   const [isOpen, setIsOpen] = useState(false)
+
   function handlePerson(id: number) {
     setPersone(id, 'character')
     setIsOpen(true)
   }
-  // console.log('IS', isOpen)
+  // async function handlePerson(id: number) {
+  //   await setPersone(id, 'character')
+  //   setIsOpen(true)
+  // }
 
   const firstSixCharacters = characters?.data?.slice(0, 6) || []
   const restCharacters = characters?.data?.slice(6) || []
 
-  // const isLoading = isLoadingManga || isLoadingCharacters
-  // const isFetching = isFetchingManga || isFetchingCharacters
+  const isLoading = isLoadingCharacters
+  const isFetching = isFetchingCharacters
   if (isFetching || isLoading || !characters?.data?.length) {
     return null
   }
 
   return (
-    <div className="center m-2 md:m-0 flex-col rounded-lg border-1 bg-primary sm:mx-0">
+    <div className="center m-2 flex-col rounded-lg border-1 bg-primary sm:mx-0">
       <h1 className="text-lg text-yellow-700">Characters</h1>
       <div className="">
         <ul className="center flex flex-wrap gap-2 lg:justify-evenly lg:gap-1">
@@ -113,4 +119,4 @@ const Characters = ({ id }: Props) => {
   )
 }
 
-export default Characters
+export default CharactersList

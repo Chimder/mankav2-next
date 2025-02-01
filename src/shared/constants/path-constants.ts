@@ -1,5 +1,6 @@
 export const PATH = {
   HOME: '/',
+  FAVORITES: '/favorites',
   MANGA: {
     MAIN: '/manga',
     SEARCH: '/manga/search',
@@ -12,7 +13,6 @@ export const PATH = {
     MAIN: '/anime',
     SEARCH: '/anime/search',
     TITLE: '/anime/title',
-    // CHAPTER: '/anime/chapter',
     getTitlePath: (id?: string | number | null) => `/anime/title/${id}`,
     getChapterPath: (id?: string | number | null) => `/anime/chapter/${id}`,
   },

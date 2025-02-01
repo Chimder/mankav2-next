@@ -1,9 +1,9 @@
-import { useRouter } from 'next/router'
 import Icons from '@/assets/svg/icons'
 import { OffsetFilter } from '@/shared/constants/filters'
 import { cn } from '@/shared/lib/tailwind'
 import { useCardSwitcherStore } from '@/store/card-switcher'
 import { useFilterStore } from '@/store/filter-slice'
+import { useSearchParams } from 'react-router-dom'
 
 import { mangaApi } from '@/hooks/api/mangadex/manga'
 
@@ -11,8 +11,8 @@ import CardsList from './cards-list'
 import { PaginationButtons } from './pagination-cards'
 
 const Cards = () => {
-  const router = useRouter()
-  const currentPage = (router.query?.page as string) || 1
+  const [searchParams] = useSearchParams()
+  const currentPage = searchParams.get('page') || 1
   const input = useFilterStore().input
   const tags = useFilterStore().tags
   const status = useFilterStore().status
@@ -38,7 +38,7 @@ const Cards = () => {
 
   console.log('MANGAINFO', mangas)
   return (
-    <section className="">
+    <section className="lg:mx-1">
       <div className="sticky right-0 top-0 z-40 flex justify-end bg-black pt-2">
         <div
           onClick={() => selectCardFormat('two')}

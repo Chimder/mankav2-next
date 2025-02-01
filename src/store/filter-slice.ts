@@ -1,8 +1,8 @@
+import { GetSearchMangaParams } from '@/shared/api/mangadex/generated'
 import { create } from 'zustand'
 import { immer } from 'zustand/middleware/immer'
 
-import { createSelectors } from './create-Selectors'
-import { GetSearchMangaParams } from '@/shared/api/mangadex/generated'
+import { createSelectors } from './create-selectors'
 
 type sortByObj = {
   order?: string

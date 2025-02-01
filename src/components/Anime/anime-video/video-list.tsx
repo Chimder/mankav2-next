@@ -1,11 +1,11 @@
-// VideoList.tsx
 import { useEffect, useRef, useState } from 'react'
-import { Input } from '@/components/ui/input'
-import { aniwatchApi } from '@/hooks/api/aniwatch/anime'
-import { AnimeVideoData } from '@/hooks/api/aniwatch/types'
 import { cn } from '@/shared/lib/tailwind'
 
+import { AnimeVideoData } from '@/hooks/api/aniwatch/types'
+import { Input } from '@/components/ui/input'
+
 import VideoDialog from './video-dialog'
+import useIsMobile from '@/hooks/use-is-mobile'
 
 type Props = {
   video?: AnimeVideoData
@@ -17,6 +17,7 @@ function VideoList({ video }: Props) {
   const [searchPageQuery, setSearchPageQuery] = useState('')
   const [highlightedChapter, setHighlightedChapter] = useState<number | null>()
   const refEpisodes = useRef<Record<number, HTMLDivElement | null>>({})
+  const isMobile = useIsMobile()
 
   function handleVideoDialog(episodeId: string) {
     setIsOpen(true)
@@ -24,6 +25,7 @@ function VideoList({ video }: Props) {
   }
 
   useEffect(() => {
+    if (isMobile) return
     function scrollTo(episode: number) {
       const ref = refEpisodes.current[episode]
       if (!ref) return
@@ -43,18 +45,18 @@ function VideoList({ video }: Props) {
         scrollTo(video.episodes[0].number)
       }
     }
-  }, [searchPageQuery, video?.episodes])
+  }, [isMobile, searchPageQuery, video?.episodes])
 
   if (!video || !video.episodes.length) return null
 
   return (
-    <div className="m-4 mt-10 flex h-full flex-col">
+    <div className="mt-10 flex h-full flex-col p-5">
       <Input
         value={searchPageQuery}
         onChange={e => setSearchPageQuery(e.target.value)}
-        className="absolute left-1/2 top-4 z-10 w-[32%] -translate-x-1/2 transform rounded-md border-2 !border-emerald-400 bg-black p-2 text-center text-lg text-white focus-visible:ring-0"
+        className="absolute left-1/2 top-4 z-10 w-[32%] -translate-x-1/2 transform rounded-md border-2 !border-emerald-400 bg-black p-2 text-center text-lg text-white focus-visible:ring-0 md:hidden"
       />
-      <div className="m-4 flex h-full flex-col">
+      <div className="flex h-full flex-col">
         {video.episodes.map(video => (
           <div
             className={cn(

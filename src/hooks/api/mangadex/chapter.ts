@@ -15,6 +15,7 @@ export const chapterApi = {
       refetchOnWindowFocus: false,
     })
   },
+
   useMangaChapterByID: (id: string) => {
     return useQuery({
       queryKey: [chapterApi.baseKey, 'atHome', id],

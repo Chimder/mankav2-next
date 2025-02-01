@@ -1,6 +1,6 @@
-import { filterConstants } from '@/shared/constants/filters'
-import { useFilterStore } from '@/store/filter-slice'
 
+
+import { filterConstants } from '@/shared/constants/filters'
 import {
   Select,
   SelectContent,
@@ -10,6 +10,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '../../ui/select'
+import { useFilterStore } from '@/store/filter-slice'
 
 type AccordionSectionProps = {
   title: string

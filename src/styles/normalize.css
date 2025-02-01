@@ -23,12 +23,12 @@ dd {
   padding: 0;
   margin: 0;
   margin-block-end: 0;
-  cursor: default;
+  /* cursor: pointer; */
 }
 
 a {
   text-decoration: none;
-  cursor: default;
+  /* cursor: default; */
 }
 
 ul[role="list"],
@@ -39,10 +39,10 @@ ol[role="list"] {
 body {
   width: 100vw;
   height: 100vh;
+  overflow-x: hidden;
   font-family: sans-serif;
   line-height: 1.5;
   background-color: black;
-  overflow-x: hidden;
   /* background-color: var(--background); */
 }
 
@@ -54,7 +54,7 @@ button,
 input,
 label {
   line-height: 1.1;
-  cursor: default;
+  /* cursor: pointer; */
 }
 
 h1,

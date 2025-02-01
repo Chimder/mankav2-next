@@ -1,16 +1,17 @@
 // import { Chapter } from '@/shared/api/mangadex/generated'
-import { useRouter } from 'next/router'
+import { lazy } from 'react'
 import { Chapter } from '@/shared/api/mangadex/generated'
 import { OffsetFilterTitle } from '@/shared/constants/filters'
-import { PATH } from '@/shared/constants/path-constants'
 import dayjs from 'dayjs'
 import relativeTime from 'dayjs/plugin/relativeTime'
+import { Link, useParams, useSearchParams } from 'react-router-dom'
 
 import { feedApi } from '@/hooks/api/mangadex/feeds'
 
 import { Skeleton } from '../../ui/skeleton'
-import { PaginationButtons } from './pagination-title'
-import Link from 'next/link'
+import { PATH } from '@/app/routers/path-constants'
+
+const PaginationButtons = lazy(() => import('./pagination-title'))
 
 dayjs.extend(relativeTime)
 
@@ -21,23 +22,22 @@ interface ExtendedChapter extends Chapter {
 }
 
 const Chapters = () => {
-  const router = useRouter()
-  const mangaId = router.query?.id as string
-  const name = router.query?.name as string
-  const currentPage = Number(router.query?.page) || 1
-
+  const [searchParams] = useSearchParams()
+  const { id: mangaId } = useParams()
+  const name = searchParams.get('name')
+  const currentPage = Number(searchParams.get('page')) || 1
   const { data: chapters, isFetching } = feedApi.useMangaFeed({
-    id: mangaId,
+    id: mangaId?.toString(),
     offset: (currentPage - 1) * OffsetFilterTitle,
   })
-  console.log('CAHPDWA>>>%$#%#', chapters)
+  // console.log('CAHPDWA>>>%$#%#', chapters)
 
   function filterChapters(chapters: Chapter[] | undefined): ExtendedChapter[] {
-    if (!chapters) return []
+    if (!chapters?.length) return []
 
     const groupedChapters = chapters.reduce(
       (acc, item) => {
-        const chapterNumber = item.attributes?.chapter
+        const chapterNumber = item.attributes?.chapter ?? '1'
         if (!chapterNumber) return acc
 
         if (!acc[chapterNumber]) {
@@ -63,12 +63,14 @@ const Chapters = () => {
     })
   }
 
+  // console.log('CHA23432243', chapters?.data)
   const filteredChapters = filterChapters(chapters?.data)
 
   return (
     <div className="flex h-full flex-col">
       <div className="chapters-scrollbar flex-grow overflow-y-auto">
-        <ul className="w-full p-5">
+        <h1 className="mt-1 text-center text-xl text-lime-200">Chapters</h1>
+        <ul className="w-full px-5">
           {isFetching ? (
             Array.from({ length: 16 }, (_, index) => (
               <div
@@ -96,7 +98,7 @@ const Chapters = () => {
                       <Link
                         key={chap.id}
                         className="ml-4 cursor-pointer text-teal-300 hover:underline"
-                        href={
+                        to={
                           chap.attributes?.externalUrl ??
                           `${PATH.MANGA.getChapterPath(chap.id)}?manga=${mangaId}&lang=${chap.attributes?.translatedLanguage}&name=${name}`
                         }

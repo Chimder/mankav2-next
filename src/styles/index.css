@@ -1,6 +1,6 @@
-@import "normalize.css";
-@import "fonts.css";
-@import "globals.css";
+@import 'normalize';
+@import 'fonts';
+@import 'globals';
 
 @tailwind base;
 @tailwind components;
@@ -42,7 +42,8 @@
     --card-foreground: 0 0% 98%;
     --popover: 0 0% 3.9%;
     --popover-foreground: 0 0% 98%;
-    --primary: 0 0% 98%;
+    /* --primary: 0 0% 98%; */
+    --primary: 0 0% 9%;
     --primary-foreground: 0 0% 9%;
     --secondary: 0 0% 14.9%;
     --secondary-foreground: 0 0% 98%;
@@ -63,7 +64,6 @@
   }
 }
 
-
 @layer base {
   * {
     @apply border-border;
@@ -76,5 +76,37 @@
 @layer components {
   .center {
     @apply flex items-center justify-center;
+  }
+  .mainHome {
+    @apply flex w-screen h-screen overflow-hidden;
+  }
+
+  .boxes {
+    @apply flex flex-wrap gap-8 justify-center w-full p-0 list-none  ;
+    /* @apply flex flex-wrap  w-full p-0 list-none ; */
+  }
+
+  .two {
+    @apply grid grid-cols-2 gap-2 px-4 md:grid-cols-1 sm:px-0;
+  }
+
+  .skeletonBoxes {
+    @apply w-full max-w-[260px] h-[280px] aspect-[260/280] lg:w-[200px] xsm:h-[200px] xsm:w-[150px] ;
+  }
+
+  .skeletonTwo {
+    @apply w-full  h-[180px] aspect-[140/180];
+  }
+
+  .title {
+    @apply my-3 text-sm leading-[1.4em];
+  }
+
+  .head {
+    @apply mr-1 mb-2 font-semibold;
+  }
+
+  .titleGenres {
+    @apply pt-2 pb-1 mb-2 text-sm leading-[1.4em];
   }
 }

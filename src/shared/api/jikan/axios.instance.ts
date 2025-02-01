@@ -7,7 +7,7 @@ export const JIKAN_INSTANCE = Axios.create({
   baseURL: JIKAN_BASE_URL,
   headers: {
     'Content-Type': 'application/json',
-    'User-Agent': 'ChimderManka',
+    // 'User-Agent': 'ChimderManka',
   },
 })
 

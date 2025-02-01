@@ -2,7 +2,7 @@ import { create } from 'zustand'
 import { createJSONStorage, persist } from 'zustand/middleware'
 import { immer } from 'zustand/middleware/immer'
 
-import { createSelectors } from './create-Selectors'
+import { createSelectors } from './create-selectors'
 
 export type Card = {
   type?: 'boxes' | 'two'

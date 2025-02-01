@@ -1,7 +1,6 @@
-// VideoDialog.tsx
+import { aniwatchApi } from '@/hooks/api/aniwatch/anime'
 import { Dialog, DialogContent, DialogTitle } from '@/components/ui/dialog'
 import { Skeleton } from '@/components/ui/skeleton'
-import { aniwatchApi } from '@/hooks/api/aniwatch/anime'
 
 import VideoPlayer from './player/video-player'
 
@@ -12,17 +11,15 @@ type Props = {
 }
 
 function VideoDialog({ isOpen, setIsOpen, episodeId }: Props) {
-  const { data: serverData, isLoading: isLoadingServer } =
-    aniwatchApi.useAnimeEpisodesServers({
-      episodeId,
-    })
+  const animeServers = aniwatchApi.useAnimeEpisodesServers({
+    episodeId,
+  })
 
-  const { data: sourceData, isLoading: isLoadingSource } =
-    aniwatchApi.useAnimeEpisodeSources({
-      animeEpisodeId: serverData?.data?.episodeId,
-      server: serverData?.data?.sub[0]?.serverName,
-      catygory: 'sub',
-    })
+  const animeSources = aniwatchApi.useAnimeEpisodeSources({
+    animeEpisodeId: animeServers.data?.data?.episodeId,
+    server: animeServers.data?.data?.sub[0]?.serverName,
+    catygory: 'sub',
+  })
 
   function handleClose() {
     setIsOpen(false)
@@ -36,12 +33,14 @@ function VideoDialog({ isOpen, setIsOpen, episodeId }: Props) {
         onEscapeKeyDown={handleClose}
       >
         <div className="w-full rounded-lg border border-primary">
-          {isLoadingServer || isLoadingSource ? (
+          {animeServers.isLoading || animeSources.isLoading ? (
             <div className="relative aspect-video w-full bg-black">
               <Skeleton className="h-full w-full"></Skeleton>
             </div>
           ) : (
-            sourceData?.data && <VideoPlayer {...sourceData.data} />
+            animeSources.data?.data && (
+              <VideoPlayer {...animeSources.data?.data} />
+            )
           )}
         </div>
         <DialogTitle></DialogTitle>

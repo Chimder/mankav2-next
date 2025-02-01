@@ -1,48 +1,4 @@
-.mainHome {
-  display: flex;
-  width: 100vw;
-  height: 100vh;
-  overflow-y: hidden;
-  /* background-color: black; */
-
-  h1 {
-    position: absolute;
-    top: 46vh;
-    left: 50%;
-  }
-}
-
-.boxes {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 30px;
-  justify-content: center;
-  width: 100%;
-  padding: 0;
-  list-style: none;
-}
-
-.two {
-  display: grid;
-  grid-template-columns: 50% 50%;
-  gap: 10px;
-  padding: 0 18px;
-}
-
-.skeletonBoxes {
-  width: 100%;
-  max-width: 260px;
-  max-height: 280px;
-  aspect-ratio: 260 / 280;
-}
-
-.skeletonTwo {
-  width: 100%;
-  max-width: 740px;
-  max-height: 180px;
-  aspect-ratio: 140 / 180;
-}
-
+/* stylelint-disable selector-class-pattern */
 .scrollbar {
   scrollbar-color: black var(--color-black);
   scrollbar-width: thin;
@@ -64,6 +20,16 @@
 .filterBar::-webkit-scrollbar-track {
   background-color: #333333;
   border-radius: 10px;
+}
+@media (max-width: 767px) {
+  .filterBar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .filterBar::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 .chapters-scrollbar::-webkit-scrollbar {

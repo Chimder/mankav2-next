@@ -1,16 +1,17 @@
+import { findBestMatches } from '@/shared/utils/find-best-matches'
 import { useQuery } from '@tanstack/react-query'
 import axios from 'axios'
 
 import type {
+  AnimeByIdData,
   AnimeByIdType,
   AnimeByNameType,
   AnimeServerType,
   AnimeSources,
   AnimeVideoType,
 } from './types'
-import { findBestMatches } from '@/shared/utils/find-best-matches'
 
-const url = process.env.NEXT_PUBLIC_VITE_ANIWATCH!
+const url = import.meta.env.VITE_ANIWATCH!
 export const instance = axios.create({
   baseURL: `${url}/api/v2/hianime`,
   headers: {
@@ -34,9 +35,9 @@ export const aniwatchApi = {
 
         const topAnimes = res.data.data.animes.slice(0, 5)
 
-        const ress = findBestMatches(name, topAnimes)
+        // const ress = findBestMatches(name, topAnimes)
 
-        return ress
+        return topAnimes
       },
       refetchOnMount: false,
       enabled: Boolean(name),
@@ -57,6 +58,40 @@ export const aniwatchApi = {
       },
       refetchOnMount: false,
       enabled: Boolean(id),
+      refetchOnWindowFocus: false,
+      staleTime: 100000,
+      retry: 0,
+    })
+  },
+  useAnimesInfoByIds: ({
+    ids,
+    type,
+  }: {
+    ids?: string[]
+    type: 'anime' | 'manga'
+  }) => {
+    return useQuery({
+      queryKey: [aniwatchApi.baseKey, 'infoIds', ids, type],
+      queryFn: async ({ signal }) => {
+        if (!ids || ids.length === 0 || type !== 'anime') return undefined
+
+        const promises = ids.map(async id => {
+          try {
+            const res = await instance.get<AnimeByIdType>(`/anime/${id}`, {
+              signal,
+            })
+            return res.data.data
+          } catch {
+            return null
+          }
+        })
+        const results = await Promise.allSettled(promises)
+        return results.flatMap(result =>
+          result.status === 'fulfilled' && result.value ? [result.value] : [],
+        )
+      },
+      refetchOnMount: false,
+      enabled: Boolean(ids?.length),
       refetchOnWindowFocus: false,
       staleTime: 100000,
       retry: 0,

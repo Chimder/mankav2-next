@@ -6,8 +6,8 @@ import {
   GetSearchMangaParams,
   GetSearchMangaStatusItem,
 } from '@/shared/api/mangadex/generated'
-import { keepPreviousData, useQuery } from '@tanstack/react-query'
 import { OffsetFilter } from '@/shared/constants/filters'
+import { keepPreviousData, queryOptions, useQuery, useSuspenseQuery } from '@tanstack/react-query'
 
 export type mangaSearchOps = {
   tags?: string[]
@@ -22,12 +22,14 @@ export const mangaApi = {
   useMangaByID: (id?: string) => {
     return useQuery({
       queryKey: [mangaApi.baseKey, id],
-      queryFn: ({ signal }) =>
-        getMangaId(
+      queryFn: ({ signal }) => {
+        if (!id) return undefined
+        return getMangaId(
           id!,
           { 'includes[]': ['manga', 'cover_art', 'author'] },
           { signal },
-        ),
+        )
+      },
       refetchOnMount: false,
       enabled: Boolean(id),
       refetchOnWindowFocus: false,
@@ -41,11 +43,11 @@ export const mangaApi = {
       queryFn: ({ signal }) =>
         getSearchManga(
           {
-            includedTagsMode: 'AND',
+            'includedTagsMode': 'AND',
             'includes[]': ['manga', 'cover_art'],
-            title: title,
-            limit: 5,
-            order: {
+            'title': title,
+            'limit': 5,
+            'order': {
               relevance: 'desc',
             },
           },
@@ -67,16 +69,16 @@ export const mangaApi = {
     sortBy,
   }: Partial<mangaSearchOps>) => {
     const queryParams: GetSearchMangaParams = {
-      includedTagsMode: 'AND' as GetSearchMangaIncludedTagsMode,
+      'includedTagsMode': 'AND' as GetSearchMangaIncludedTagsMode,
       'includedTags[]': tags,
       ...(name && { title: name }),
       'includes[]': ['cover_art'],
       ...(status && { 'status[]': [status as GetSearchMangaStatusItem] }),
       'contentRating[]': ['safe', 'suggestive'],
       'ids[]': [],
-      limit: OffsetFilter,
-      offset: offset,
-      order: sortBy
+      'limit': OffsetFilter,
+      'offset': offset,
+      'order': sortBy
         ? {
             [sortBy.type]: sortBy.order,
           }
@@ -113,9 +115,87 @@ export const mangaApi = {
         getSearchManga(
           {
             'includes[]': ['cover_art'],
-
             'contentRating[]': ['safe', 'suggestive', 'erotica'],
             'ids[]': ids,
+          },
+          { signal },
+        ),
+      staleTime: 100000,
+      retry: 0,
+      refetchOnWindowFocus: false,
+      refetchOnMount: false,
+    })
+  },
+  useMangaSearchFav: ({ ids }: { ids?: string[] }) => {
+    return useQuery({
+      queryKey: [mangaApi.baseKey, 'filterFavorites', ids?.length, ids],
+      queryFn: ({ signal }) => {
+        if (!ids?.length) return undefined
+        return getSearchManga(
+          {
+            'includes[]': ['cover_art'],
+            'contentRating[]': ['safe', 'suggestive', 'erotica'],
+            'ids[]': ids,
+          },
+          { signal },
+        )
+      },
+      staleTime: 100000,
+      retry: 0,
+      refetchOnWindowFocus: false,
+      refetchOnMount: false,
+    })
+  },
+  useMangaSearchPopular: () => {
+    return useQuery({
+      queryKey: [mangaApi.baseKey, 'Popular'],
+      queryFn: ({ signal }) =>
+        getSearchManga(
+          {
+            'includes[]': ['cover_art'],
+            'contentRating[]': ['safe', 'suggestive', 'erotica'],
+            'order': { followedCount: 'desc' },
+            'limit': 18,
+            // 'ids[]': ids,
+          },
+          { signal },
+        ),
+      staleTime: 100000,
+      retry: 0,
+      refetchOnWindowFocus: false,
+      refetchOnMount: false,
+    })
+  },
+  useMangaSearchLatest: () => {
+    return useQuery({
+      queryKey: [mangaApi.baseKey, 'Latest'],
+      queryFn: ({ signal }) =>
+        getSearchManga(
+          {
+            'includes[]': ['cover_art'],
+            'contentRating[]': ['safe', 'suggestive', 'erotica'],
+            'order': { latestUploadedChapter: 'desc' },
+            // 'ids[]': ids,
+          },
+          { signal },
+        ),
+      staleTime: 100000,
+      retry: 0,
+      refetchOnWindowFocus: false,
+      refetchOnMount: false,
+    })
+  },
+  useMangaSearchRating: () => {
+    return useQuery({
+      queryKey: [mangaApi.baseKey, 'Rating'],
+      queryFn: ({ signal }) =>
+        getSearchManga(
+          {
+            'includes[]': ['cover_art'],
+            'contentRating[]': ['safe', 'suggestive', 'erotica'],
+            'order': { rating: 'desc' },
+            'limit': 18,
+            // 'ids[]': ids,
           },
           { signal },
         ),

@@ -1,5 +1,5 @@
 import { ReactNode, useCallback, useEffect } from 'react'
-import { useRouter } from 'next/router'
+import { jikanCharacterPeopleApi } from '@/hooks/api/jikan/characters'
 import {
   CharacterFull,
   GetCharacterFullById200,
@@ -8,11 +8,10 @@ import {
 } from '@/shared/api/jikan/generated'
 import { usePersoneStore } from '@/store/characters-people'
 
-import { jikanCharacterPeopleApi } from '@/hooks/api/jikan/characters'
-
 import { Dialog, DialogContent, DialogTitle } from '../ui/dialog'
 import Characters from './character'
 import Voices from './voices'
+import { useParams } from 'react-router-dom'
 
 type Props = {
   children?: ReactNode
@@ -21,8 +20,7 @@ type Props = {
 }
 
 function DialogCharactersPeople({ isOpen = false, setIsOpen }: Props) {
-  const router = useRouter()
-  const id = router.query.id as string
+  const { id } = useParams()
   const personeId = usePersoneStore().id
   const personeType = usePersoneStore().type
 
@@ -42,9 +40,9 @@ function DialogCharactersPeople({ isOpen = false, setIsOpen }: Props) {
   }, [handleClose, id])
 
   return (
-    <Dialog open={isOpen} onOpenChange={handleClose}>
+    <Dialog  open={isOpen} onOpenChange={handleClose}>
       <DialogContent
-        className="flex h-[90vh] w-[80vw] max-w-[1200px] flex-col items-center justify-center bg-black p-2 text-white"
+        className="flex chapters-scrollbar h-[90vh] w-[80vw] max-w-[1200px] md:w-[99vw] md:h-[94vh] flex-col items-center bg-black text-white justify-center p-2"
         onPointerDownOutside={handleClose}
         onEscapeKeyDown={handleClose}
       >
