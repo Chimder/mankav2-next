@@ -1,11 +1,11 @@
+import Link from 'next/link'
 import { LocalizedString, MangaList } from '@/shared/api/mangadex/generated'
+import { PATH } from '@/shared/constants/path-constants'
 import { cn } from '@/shared/lib/tailwind'
 import { getFirstTitle } from '@/shared/utils/get-first-title'
 import { useCardSwitcherStore } from '@/store/card-switcher'
-import { Link } from 'react-router-dom'
 
 import { Skeleton } from '../../ui/skeleton'
-import { PATH } from '@/app/routers/path-constants'
 
 type Props = {
   mangas: MangaList | undefined
@@ -31,12 +31,12 @@ const CardsList = ({ mangas, isFetching }: Props) => {
             ? mangas?.data?.map(manga => (
                 <Link
                   className="flex w-[260px] flex-col overflow-hidden rounded-xl pb-1 text-white hover:outline hover:outline-1 hover:outline-red-400 lg:w-[200px] xsm:h-[200px] xsm:w-[150px]"
-                  to={`${PATH.MANGA.getTitlePath(manga?.id)}?name=${getFirstTitle(manga.attributes?.title)}`}
+                  href={`${PATH.MANGA.getTitlePath(manga?.id)}?name=${getFirstTitle(manga.attributes?.title)}`}
                   key={manga?.id}
                 >
                   <img
                     className="h-[280px] w-[260px] rounded-xl object-cover"
-                    src={`${import.meta.env.VITE_IMG_PROXY}/img/mangadex.org/covers/${manga.id}/${manga.relationships?.find(obj => obj.type === 'cover_art')?.attributes?.fileName}.256.jpg`}
+                    src={`${process.env.NEXT_PUBLIC_VITE_IMG_PROXY}/img/mangadex.org/covers/${manga.id}/${manga.relationships?.find(obj => obj.type === 'cover_art')?.attributes?.fileName}.256.jpg`}
                     width={260}
                     height={280}
                     loading="lazy"
@@ -49,20 +49,20 @@ const CardsList = ({ mangas, isFetching }: Props) => {
               ))
             : mangas?.data?.map(manga => (
                 <Link
-                  className="mt-1 flex w-full  rounded-lg border-gray-500 text-white hover:outline hover:outline-1 hover:outline-red-400"
-                  to={`${PATH.MANGA.getTitlePath(manga.id)}?name=${getFirstTitle(manga.attributes?.title)}`}
+                  className="mt-1 flex w-full rounded-lg border-gray-500 text-white hover:outline hover:outline-1 hover:outline-red-400"
+                  href={`${PATH.MANGA.getTitlePath(manga.id)}?name=${getFirstTitle(manga.attributes?.title)}`}
                   key={manga?.id}
                 >
                   <img
-                    className=" object-cover lg:pr-2 sm:w-[150px]"
-                    src={`${import.meta.env.VITE_IMG_PROXY}/img/mangadex.org/covers/${manga.id}/${manga.relationships?.find(obj => obj.type === 'cover_art')?.attributes?.fileName}.256.jpg`}
+                    className="object-cover lg:pr-2 sm:w-[150px]"
+                    src={`${process.env.NEXT_PUBLIC_VITE_IMG_PROXY}/img/mangadex.org/covers/${manga.id}/${manga.relationships?.find(obj => obj.type === 'cover_art')?.attributes?.fileName}.256.jpg`}
                     width={140}
                     height={180}
                     loading="lazy"
                     alt=""
                   />
 
-                  <div className="flex flex-col w-full">
+                  <div className="flex w-full flex-col">
                     <div className="m-1 text-lg md:text-sm">
                       {manga.attributes?.title?.en}
                     </div>

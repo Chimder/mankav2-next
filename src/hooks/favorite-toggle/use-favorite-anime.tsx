@@ -4,13 +4,13 @@ import {
   compressToEncodedURIComponent,
   decompressFromEncodedURIComponent,
 } from 'lz-string'
-import { useParams } from 'react-router-dom'
+import { useRouter } from 'next/router'
 
 const COOKIE_ANIME_KEY = 'favAnime'
 
 export function useFavoriteAnime() {
-  const { id } = useParams()
-const animeId = id as string
+  const router = useRouter()
+  const animeId = router.query.id as string
   const [favorites, setFavorites] = useState<string[]>(getFavoriteAnime)
 
   const isFavorite = useMemo(

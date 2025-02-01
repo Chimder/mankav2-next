@@ -1,9 +1,8 @@
+import { useRouter } from 'next/router'
 import { Manga } from '@/shared/api/mangadex/generated'
 import { cn } from '@/shared/lib/tailwind'
 import { getFirstTitle } from '@/shared/utils/get-first-title'
-import { useSuspenseQuery } from '@tanstack/react-query'
 import dayjs from 'dayjs'
-import { useParams } from 'react-router-dom'
 
 import { mangaApi } from '@/hooks/api/mangadex/manga'
 import { useFavoriteManga } from '@/hooks/favorite-toggle/use-favorite-manga'
@@ -14,14 +13,15 @@ import Relation from './relation'
 export const getMangaImg = (id?: string, manga?: Manga) => {
   if (!id || !manga?.relationships) return undefined
 
-  return `${import.meta.env.VITE_IMG_PROXY!}/img/mangadex.org/covers/${id}/${
+  return `${process.env.NEXT_PUBLIC_VITE_IMG_PROXY}/img/mangadex.org/covers/${id}/${
     manga.relationships.find(obj => obj.type === 'cover_art')?.attributes
       ?.fileName
   }.512.jpg`
 }
 
 const Info = () => {
-  const { id: mangaId } = useParams()
+  const router = useRouter()
+  const mangaId = router.query.id as string
   const { data: manga } = mangaApi.useMangaByID(mangaId)
 
   const { isFavorite, handleToggleFavorite } = useFavoriteManga()

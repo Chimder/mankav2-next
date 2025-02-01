@@ -1,11 +1,12 @@
+import Link from 'next/link'
+import { useRouter } from 'next/router'
+import { PATH } from '@/shared/constants/path-constants'
 import { getFirstTitle } from '@/shared/utils/get-first-title'
-import { Link, useNavigate } from 'react-router-dom'
 
 import { mangaApi } from '@/hooks/api/mangadex/manga'
 
 import { getMangaImg } from '../Manga/title-info/info'
 import { Dialog, DialogContent } from '../ui/dialog'
-import { PATH } from '@/app/routers/path-constants'
 
 type Props = {
   name: string
@@ -19,12 +20,12 @@ export default function DialogManga({
   handleClose,
   name,
 }: Props) {
-  const navigate = useNavigate()
+  const router = useRouter()
   const { data } = mangaApi.useMangaSeachInput(name)
 
   // const handleAnimeClick = (mangaId?: string) => {
   //   handleClose()
-  //   navigate(`${PATH.MANGA.getTitlePath(mangaId)}`)
+  //   router.push(`${PATH.MANGA.getTitlePath(mangaId)}`)
   // }
   if (!data) return null
   return (
@@ -32,15 +33,19 @@ export default function DialogManga({
       <DialogContent className="h-[310px] w-full max-w-[900px]">
         {/* <DialogTitle></DialogTitle> */}
         {/* <h1 className="center flex text-xl">Available Manga</h1> */}
-        <div className="flex justify-evenly center">
+        <div className="center flex justify-evenly">
           {data.data?.map(manga => (
             <Link
               className="h-40 w-32"
               key={`${manga.id}${manga.attributes?.title}`}
-              to={`${PATH.MANGA.getTitlePath(manga?.id)}?name=${getFirstTitle(manga.attributes?.title)}`}
+              href={`${PATH.MANGA.getTitlePath(manga?.id)}?name=${getFirstTitle(manga.attributes?.title)}`}
             >
               <div className="mb-2 h-40 w-32 overflow-hidden">
-                <img className="rounded-md" src={getMangaImg(manga.id, manga)} alt="" />
+                <img
+                  className="rounded-md"
+                  src={getMangaImg(manga.id, manga)}
+                  alt=""
+                />
               </div>
               <h1 className="line-clamp-2">
                 {getFirstTitle(manga.attributes?.title)}

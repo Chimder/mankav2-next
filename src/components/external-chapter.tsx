@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import Link from "next/link"
 
 type Props = {
   externalUrl: string
@@ -13,7 +13,7 @@ const ExternalChapter = ({ externalUrl }: Props) => {
         </h2>
         <Link
           className="flex w-full cursor-pointer break-all px-4 text-4xl text-blue-400"
-          to={externalUrl}
+          href={externalUrl}
         >
           <span className="w-full break-words">{externalUrl}</span>
         </Link>

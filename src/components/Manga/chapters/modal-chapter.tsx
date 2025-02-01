@@ -1,11 +1,13 @@
 import { ReactNode, useLayoutEffect, useRef, useState } from 'react'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
 import {
   ChapterResponse,
   LocalizedString,
 } from '@/shared/api/mangadex/generated'
+import { PATH } from '@/shared/constants/path-constants'
 import { cn } from '@/shared/lib/tailwind'
 import { getFirstTitle } from '@/shared/utils/get-first-title'
-import { Link, useNavigate, useParams, useSearchParams } from 'react-router-dom'
 
 import {
   Dialog,
@@ -14,7 +16,6 @@ import {
   DialogTrigger,
 } from '../../ui/dialog'
 import { Input } from '../../ui/input'
-import { PATH } from '@/app/routers/path-constants'
 
 type flatAggregate = {
   chapter?: string
@@ -40,11 +41,10 @@ function ModalChapter({
   setIsOpen,
   isOpen,
 }: Props) {
-  const navigate = useNavigate()
-  const [searchParams] = useSearchParams()
-  const { id: chapterId } = useParams()
-  const lang = searchParams.get('lang')
-  const mangaId = searchParams.get('manga')
+  const router = useRouter()
+  const chapterId = router.query.id as string
+  const lang = router.query.lang as string
+  const mangaId = router.query.manga as string
 
   const [searchPageQuery, setSearchPageQuery] = useState('')
   const [highlightedChapter, setHighlightedChapter] = useState<string | null>(
@@ -82,11 +82,12 @@ function ModalChapter({
   const handleChapterClick = (id: string) => {
     setIsOpen(false)
     setSearchPageQuery('')
-    navigate(
+    router.push(
       `${PATH.MANGA.getChapterPath(id)}?manga=${mangaId}&lang=${lang}&name=${title}`,
     )
   }
 
+  console.log('CHAP', chapterData)
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger>{children}</DialogTrigger>
@@ -95,14 +96,14 @@ function ModalChapter({
         <div className="flex flex-col">
           <Link
             className="font-logo mr-10 cursor-pointer text-6xl text-cyan-300 decoration-cyan-300 hover:underline"
-            to={PATH.HOME}
+            href={PATH.HOME}
           >
             <h1 className="">MankA</h1>
           </Link>
 
           <Link
             className="mt-4 text-2xl text-white decoration-white hover:underline"
-            to={`${PATH.MANGA.getTitlePath(mangaId)}?name=${title}`}
+            href={`${PATH.MANGA.getTitlePath(mangaId)}?name=${title}`}
           >
             {title}
           </Link>
@@ -116,7 +117,7 @@ function ModalChapter({
             )}
           </div>
         </div>
-        <ul className="ml-2 flex w-full flex-col items-center overflow-scroll md:ml-0 overflow-x-hidden bg-black">
+        <ul className="ml-2 flex w-full flex-col items-center overflow-scroll overflow-x-hidden bg-black md:ml-0">
           <div className="w-full">
             {chapters?.toReversed()?.map(({ chapter, count, id }) => (
               <div
@@ -131,7 +132,9 @@ function ModalChapter({
                 }}
                 onClick={() => handleChapterClick(id!)}
               >
-                <option value={`${count}`}>Chapter {chapter}</option>
+                <option value={`${count}`}>
+                  Chapter {chapter == 'none' ? 1 : chapter}
+                </option>
               </div>
             ))}
           </div>

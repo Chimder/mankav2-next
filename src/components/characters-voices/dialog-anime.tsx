@@ -1,7 +1,7 @@
-import { Link } from 'react-router-dom'
+import Link from 'next/link'
+import { PATH } from '@/shared/constants/path-constants'
 
 import { aniwatchApi } from '@/hooks/api/aniwatch/anime'
-import { PATH } from '@/app/routers/path-constants'
 
 import { Dialog, DialogContent } from '../ui/dialog'
 
@@ -32,7 +32,7 @@ export default function DialogAnime({
         <div className="center flex justify-evenly">
           {data?.map(anime => (
             <Link
-              to={PATH.ANIME.getTitlePath(anime.id)}
+              href={PATH.ANIME.getTitlePath(anime.id)}
               key={`${anime.id}${anime.name}new`}
               className="h-40 w-32 cursor-pointer"
             >

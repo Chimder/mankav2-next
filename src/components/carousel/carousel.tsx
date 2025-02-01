@@ -3,7 +3,6 @@ import * as React from 'react'
 import { Manga } from '@/shared/api/mangadex/generated'
 import { getFirstTitle } from '@/shared/utils/get-first-title'
 import Autoplay from 'embla-carousel-autoplay'
-import { Link } from 'react-router-dom'
 
 import {
   Carousel,
@@ -11,7 +10,8 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from '@/components/ui/carousel'
-import { PATH } from '@/app/routers/path-constants'
+import Link from 'next/link'
+import { PATH } from '@/shared/constants/path-constants'
 
 type Props = {
   manga: Manga[]
@@ -34,11 +34,11 @@ export function CarouselMain({ manga }: Props) {
             <Link
               key={mangaItem.id}
               className="flex-[0_0_33%]"
-              to={`${PATH.MANGA.getTitlePath(mangaItem.id)}?name=${getFirstTitle(mangaItem.attributes?.title)}`}
+              href={`${PATH.MANGA.getTitlePath(mangaItem.id)}?name=${getFirstTitle(mangaItem.attributes?.title)}`}
             >
               <div className="px-2">
                 <img
-                  src={`${import.meta.env.VITE_IMG_PROXY}/img/mangadex.org/covers/${mangaItem.id}/${
+                  src={`${process.env.NEXT_PUBLIC_VITE_IMG_PROXY}/img/mangadex.org/covers/${mangaItem.id}/${
                     mangaItem.relationships?.find(
                       obj => obj.type === 'cover_art',
                     )?.attributes?.fileName

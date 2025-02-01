@@ -1,16 +1,16 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
+import { useRouter } from 'next/router'
 import Cookies from 'js-cookie'
 import {
   compressToEncodedURIComponent,
   decompressFromEncodedURIComponent,
 } from 'lz-string'
-import { useParams } from 'react-router-dom'
 
 const COOKIE_MANGA_KEY = 'favManga'
 
 export function useFavoriteManga() {
-  const { id } = useParams()
-  const mangaId = id as string
+  const router = useRouter()
+  const mangaId = router.query.id as string
   const [favorites, setFavorites] = useState<string[]>(getFavoriteManga)
 
   const isFavorite = useMemo(

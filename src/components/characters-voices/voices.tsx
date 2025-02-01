@@ -47,11 +47,15 @@ function Voices({ voices, handleClose }: Props) {
           <dd>
             {voices.name} / {voices.given_name} / {voices.family_name}
           </dd>
-          <dt className="font-bold transition-colors sm:ml-1 sm:text-xs sm:font-medium">Birthday:</dt>
+          <dt className="font-bold transition-colors sm:ml-1 sm:text-xs sm:font-medium">
+            Birthday:
+          </dt>
           <dd>{dayjs(voices.birthday).format('DD.MM.YYYY')}</dd>
           {voices.about && (
             <>
-              <dt className="font-bold transition-colors sm:ml-1 sm:text-xs sm:font-medium">About:</dt>
+              <dt className="font-bold transition-colors sm:ml-1 sm:text-xs sm:font-medium">
+                About:
+              </dt>
               <dd>{voices.about}</dd>
             </>
           )}

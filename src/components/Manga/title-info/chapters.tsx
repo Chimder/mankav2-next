@@ -1,15 +1,16 @@
 // import { Chapter } from '@/shared/api/mangadex/generated'
 import { lazy } from 'react'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
 import { Chapter } from '@/shared/api/mangadex/generated'
 import { OffsetFilterTitle } from '@/shared/constants/filters'
+import { PATH } from '@/shared/constants/path-constants'
 import dayjs from 'dayjs'
 import relativeTime from 'dayjs/plugin/relativeTime'
-import { Link, useParams, useSearchParams } from 'react-router-dom'
 
 import { feedApi } from '@/hooks/api/mangadex/feeds'
+import { Skeleton } from '@/components/ui/skeleton'
 
-import { Skeleton } from '../../ui/skeleton'
-import { PATH } from '@/app/routers/path-constants'
 
 const PaginationButtons = lazy(() => import('./pagination-title'))
 
@@ -22,15 +23,14 @@ interface ExtendedChapter extends Chapter {
 }
 
 const Chapters = () => {
-  const [searchParams] = useSearchParams()
-  const { id: mangaId } = useParams()
-  const name = searchParams.get('name')
-  const currentPage = Number(searchParams.get('page')) || 1
+  const router = useRouter()
+  const mangaId = router.query.id as string
+  const name = router.query.name as string
+  const currentPage = Number(router.query.page) || 1
   const { data: chapters, isFetching } = feedApi.useMangaFeed({
     id: mangaId?.toString(),
     offset: (currentPage - 1) * OffsetFilterTitle,
   })
-  // console.log('CAHPDWA>>>%$#%#', chapters)
 
   function filterChapters(chapters: Chapter[] | undefined): ExtendedChapter[] {
     if (!chapters?.length) return []
@@ -98,7 +98,7 @@ const Chapters = () => {
                       <Link
                         key={chap.id}
                         className="ml-4 cursor-pointer text-teal-300 hover:underline"
-                        to={
+                        href={
                           chap.attributes?.externalUrl ??
                           `${PATH.MANGA.getChapterPath(chap.id)}?manga=${mangaId}&lang=${chap.attributes?.translatedLanguage}&name=${name}`
                         }

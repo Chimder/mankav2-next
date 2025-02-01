@@ -1,8 +1,5 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  experimental: {
-    reactCompiler: true,
-  },
+module.exports = {
+  reactStrictMode: true,
   typescript: {
     ignoreBuildErrors: true,
   },
@@ -40,8 +37,8 @@ const nextConfig = {
   },
 }
 
-const withBundleAnalyzer = require('@next/bundle-analyzer')({
-  enabled: process.env.ANALYZE === 'true',
-})
+// const withBundleAnalyzer = require('@next/bundle-analyzer')({
+//   enabled: process.env.ANALYZE === 'true',
+// })
 
-module.exports = withBundleAnalyzer(nextConfig)
+// export default nextConfig

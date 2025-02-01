@@ -1,12 +1,12 @@
-import { useParams, useSearchParams } from 'react-router-dom'
+import { useRouter } from 'next/router'
 
 import { chapterApi } from './api/mangadex/chapter'
 
 const useAggregateChapter = () => {
-  const [searchParams] = useSearchParams()
-  const { id } = useParams()
-  const lang = searchParams.get('lang') as string
-  const manga = searchParams.get('manga') as string
+  const router = useRouter()
+  const id = router.query.id as string
+  const lang = router.query.lang as string
+  const manga = router.query.manga as string
 
   const { data: aggregate } = chapterApi.useMangaAggregate(manga, lang)
 

@@ -10,11 +10,11 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion'
 import { Button } from '@/components/ui/button'
-import { queryClient } from '@/app/providers/tanstack-query'
 
 import { Separator } from '../../ui/separator'
 import AccordionSection from './accordion'
 import AccordionSortBy from './accordion-sort-by'
+import { queryClient } from '@/pages/_app'
 
 export const FilterMangaBar = () => {
   const reset = useFilterStore().reset

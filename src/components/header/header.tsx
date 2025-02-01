@@ -1,16 +1,14 @@
 import { useState } from 'react'
+import Link from 'next/link'
 import Icons from '@/assets/svg/icons'
-import { Link } from 'react-router-dom'
+import { PATH } from '@/shared/constants/path-constants'
 
-import useIsMobile from '@/hooks/use-is-mobile'
-import { PATH } from '@/app/routers/path-constants'
 
 import { Button } from '../ui/button'
 import SearchDialog from './search-dialog'
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false)
-  const isMobile = useIsMobile()
 
   return (
     <div className="sticky top-0 z-50 h-[64px] w-full bg-black shadow-header">
@@ -20,10 +18,12 @@ export default function Header() {
           <div className="flex w-1/5 items-center pl-20 lg:pl-8">
             <Link
               className="font-logo list-none text-6xl text-cyan-300"
-              to={PATH.HOME}
+              href={PATH.HOME}
             >
               <h1 className="text-4xl decoration-cyan-200 hover:underline">
-                {isMobile ? 'M' : 'Manka'}
+                <span className="sm:hidden">Manka</span>
+                <span className="hidden sm:inline">M</span>
+                {/* {isMobile ? 'M' : 'Manka'} */}
               </h1>
             </Link>
           </div>
@@ -32,14 +32,14 @@ export default function Header() {
           <div className="flex w-4/5 items-center justify-end">
             <Link
               className="mr-10 whitespace-nowrap text-white"
-              to={PATH.MANGA.SEARCH}
+              href={PATH.MANGA.SEARCH}
             >
-              <Button
+              <div
                 className="cursor-default text-green-400 decoration-green-400 hover:underline sm:text-sm"
-                variant={'link'}
+                // variant={'link'}
               >
                 Advanced Search
-              </Button>
+              </div>
             </Link>
 
             <div
@@ -49,10 +49,10 @@ export default function Header() {
               <Icons.Search />
             </div>
 
-            <SearchDialog isOpen={isOpen} setIsOpen={setIsOpen} />
+            {/* <SearchDialog isOpen={isOpen} setIsOpen={setIsOpen} /> */}
 
             <Link
-              to={PATH.FAVORITES}
+              href={PATH.FAVORITES}
               className="mr-10 flex justify-end text-red-500"
             >
               <div className="h-8 w-8 transition-transform duration-300 hover:scale-125 hover:text-red-600">

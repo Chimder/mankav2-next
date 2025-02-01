@@ -1,20 +1,20 @@
-import { ReactElement, useRef } from 'react'
+import { ReactElement, useRef, useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
+import { PATH } from '@/shared/constants/path-constants'
 
 import { chapterApi } from '@/hooks/api/mangadex/chapter'
 import useAggregateChapter from '@/hooks/use-aggregate-chapter'
 import usePageTrack from '@/hooks/use-chapter-tracker'
 import ExternalChapter from '@/components/external-chapter'
 import ModalChapter from '@/components/Manga/chapters/modal-chapter'
-import { PATH } from '@/shared/constants/path-constants'
 
 function MangaChapter() {
   const router = useRouter()
+  const id = router.query?.id as string
   const lang = router.query?.lang as string
   const manga = router.query?.manga as string
   const name = router.query?.name as string
-  const id = router.query?.id as string
 
   const { data: chapters, isFetching } = chapterApi.useMangaChapterByID(
     id as string,
@@ -22,17 +22,24 @@ function MangaChapter() {
   const { data: chapterData } = chapterApi.useMangaChapters(id as string)
   const { flatAggregate, nextChapter } = useAggregateChapter()
 
+  console.log('CHA{', chapterData)
   const imageRefs = useRef<(HTMLDivElement | null)[]>([])
   const externalUrl = chapterData?.data?.attributes?.externalUrl
   const totalPages = chapters?.chapter?.data?.length || 0
 
   const { currentPage, setCurrentPage } = usePageTrack(imageRefs, totalPages)
 
+  const [isOpen, setIsOpen] = useState(false)
+  const handleModalChap = () => {
+    console.log('opne')
+    setIsOpen(!isOpen)
+  }
+
   return (
     <div className="center relative w-full flex-col bg-black">
       {/* <div className={s.current}>
         {currentPage.page} / {totalPages}
-      </div> */}
+        </div> */}
       {!externalUrl ? (
         chapters?.chapter?.data?.map((chapter, index) => (
           <div key={chapter}>
@@ -45,31 +52,34 @@ function MangaChapter() {
               {/* {!imageLoaded[index] && (
                 <Skeleton className="h-[1100px] w-[1100px]" />
               )} */}
-              <ModalChapter
-                totalPages={totalPages}
-                chapterData={chapterData}
-                currentPage={currentPage.page}
-                chapters={flatAggregate}
-              >
-                <img
-                  src={`${process.env.NEXT_PUBLIC_VITE_IMG_PROXY!}/img/${encodeURIComponent(
-                    `${chapters.baseUrl}/data/${chapters.chapter?.hash}/${chapter}`,
-                  )}`}
-                  width={1100}
-                  height={1100}
-                  loading="eager"
-                  alt="Manga page"
-                  // onLoad={() => handleImageLoad(index)}
-                  // onClick={isModalOpen ? closeModal : handleOpenModal}
-                  // onClick={handleOpenModal}
-                />
-              </ModalChapter>
+              <img
+                onClick={() => handleModalChap()}
+                src={`${process.env.NEXT_PUBLIC_VITE_IMG_PROXY!}/img/${encodeURIComponent(
+                  `${chapters.baseUrl}/data/${chapters.chapter?.hash}/${chapter}`,
+                )}`}
+                width={1100}
+                height={1100}
+                loading="eager"
+                alt="Manga page"
+                // onLoad={() => handleImageLoad(index)}
+                // onClick={isModalOpen ? closeModal : handleOpenModal}
+                // onClick={handleOpenModal}
+              />
             </div>
           </div>
         ))
       ) : (
-        <ExternalChapter key={1} externalUrl={''} />
+        <ExternalChapter key={'ExternalChapter'} externalUrl={externalUrl} />
       )}
+
+      <ModalChapter
+        setIsOpen={setIsOpen}
+        isOpen={isOpen}
+        totalPages={totalPages}
+        chapterData={chapterData}
+        currentPage={currentPage.page}
+        chapters={flatAggregate}
+      />
 
       {chapters?.chapter?.data && chapters.chapter.data.length > 0 && (
         <div className="center mt-4 w-full">
@@ -97,7 +107,6 @@ function MangaChapter() {
 }
 
 MangaChapter.getLayout = function getLayout(page: ReactElement) {
-  return <>{page}</>;
-
-};
+  return <>{page}</>
+}
 export default MangaChapter

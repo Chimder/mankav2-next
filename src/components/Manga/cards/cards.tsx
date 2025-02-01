@@ -3,16 +3,16 @@ import { OffsetFilter } from '@/shared/constants/filters'
 import { cn } from '@/shared/lib/tailwind'
 import { useCardSwitcherStore } from '@/store/card-switcher'
 import { useFilterStore } from '@/store/filter-slice'
-import { useSearchParams } from 'react-router-dom'
 
 import { mangaApi } from '@/hooks/api/mangadex/manga'
 
 import CardsList from './cards-list'
 import { PaginationButtons } from './pagination-cards'
+import { useRouter } from 'next/router'
 
 const Cards = () => {
-  const [searchParams] = useSearchParams()
-  const currentPage = searchParams.get('page') || 1
+  const router = useRouter()
+  const currentPage = router.query.page || 1
   const input = useFilterStore().input
   const tags = useFilterStore().tags
   const status = useFilterStore().status

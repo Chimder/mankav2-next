@@ -5,7 +5,6 @@ import { AnimeVideoData } from '@/hooks/api/aniwatch/types'
 import { Input } from '@/components/ui/input'
 
 import VideoDialog from './video-dialog'
-import useIsMobile from '@/hooks/use-is-mobile'
 
 type Props = {
   video?: AnimeVideoData
@@ -17,7 +16,7 @@ function VideoList({ video }: Props) {
   const [searchPageQuery, setSearchPageQuery] = useState('')
   const [highlightedChapter, setHighlightedChapter] = useState<number | null>()
   const refEpisodes = useRef<Record<number, HTMLDivElement | null>>({})
-  const isMobile = useIsMobile()
+  const isMobileView = useRef(false)
 
   function handleVideoDialog(episodeId: string) {
     setIsOpen(true)
@@ -25,10 +24,16 @@ function VideoList({ video }: Props) {
   }
 
   useEffect(() => {
-    if (isMobile) return
+    if (typeof window !== 'undefined') {
+      isMobileView.current = window.innerWidth < 768
+    }
+
     function scrollTo(episode: number) {
+      if (isMobileView.current) return
+
       const ref = refEpisodes.current[episode]
       if (!ref) return
+
       requestAnimationFrame(() => {
         ref.scrollIntoView({
           behavior: 'smooth',
@@ -45,7 +50,7 @@ function VideoList({ video }: Props) {
         scrollTo(video.episodes[0].number)
       }
     }
-  }, [isMobile, searchPageQuery, video?.episodes])
+  }, [searchPageQuery, video?.episodes])
 
   if (!video || !video.episodes.length) return null
 

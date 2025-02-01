@@ -1,7 +1,7 @@
 import { lazy, useState } from 'react'
+import { useRouter } from 'next/router'
 import { getCharacterImg } from '@/shared/utils/get-character-img'
 import { usePersoneStore } from '@/store/characters-people'
-import { useParams } from 'react-router-dom'
 
 import { jikanMangaApi } from '@/hooks/api/jikan/manga'
 import { mangaApi } from '@/hooks/api/mangadex/manga'
@@ -17,7 +17,8 @@ const DialogCharactersPeople = lazy(
 )
 
 const CharactersList = () => {
-  const { id: mangaId } = useParams()
+  const router = useRouter()
+  const mangaId = router.query.id as string
 
   const { data: manga } = mangaApi.useMangaByID(mangaId)
   const {

@@ -1,6 +1,5 @@
 import { useEffect, useRef } from 'react'
-import { cn } from '@/shared/lib/tailwind'
-import { useParams } from 'react-router-dom'
+import { useRouter } from 'next/router'
 
 import { aniwatchApi } from '@/hooks/api/aniwatch/anime'
 import { useFavoriteAnime } from '@/hooks/favorite-toggle/use-favorite-anime'
@@ -8,11 +7,13 @@ import { useFavoriteAnime } from '@/hooks/favorite-toggle/use-favorite-anime'
 import Characters from './characters'
 import AnimeRelation from './relation'
 import AnimeSeasons from './seasons'
+import { cn } from '@/shared/lib/tailwind'
 
 // type Props = {}
 
 function AnimeTitleInfo() {
-  const { id } = useParams()
+  const router = useRouter()
+  const id = router.query.id as string
   const { isFavorite, handleToggleFavorite } = useFavoriteAnime()
 
   const { data } = aniwatchApi.useAnimeInfoById({ id: id as string })
@@ -31,7 +32,7 @@ function AnimeTitleInfo() {
   return (
     <section
       ref={scrollContainerRef}
-      className="filterBar order-2 flex w-2/5 flex-col gap-y-2 md:mb-2 overflow-hidden overflow-y-scroll text-white md:order-1 md:w-full "
+      className="filterBar order-2 flex w-2/5 flex-col gap-y-2 overflow-hidden overflow-y-scroll text-white md:order-1 md:mb-2 md:w-full"
     >
       <div className="flex w-full flex-col items-center justify-center rounded-lg border-1 bg-primary p-2">
         <img

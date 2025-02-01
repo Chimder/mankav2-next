@@ -1,16 +1,15 @@
 import { getFirstTitle } from '@/shared/utils/get-first-title'
-import { Link, useParams } from 'react-router-dom'
 
 import { mangaApi } from '@/hooks/api/mangadex/manga'
-import { PATH } from '@/app/routers/path-constants'
+import { useRouter } from 'next/router'
+import Link from 'next/link'
+import { PATH } from '@/shared/constants/path-constants'
 
 const Relation = () => {
-  const { id: mangaId } = useParams()
-  const {
-    data: manga,
-    isFetching,
-    isLoading,
-  } = mangaApi.useMangaByID(mangaId)
+    const router = useRouter()
+  const mangaId = router.query.id as string
+
+  const { data: manga, isFetching, isLoading } = mangaApi.useMangaByID(mangaId)
   const mangasIds = manga?.data?.relationships
     ?.map(id => id.id)
     .filter((id): id is string => id !== undefined)
@@ -38,13 +37,13 @@ const Relation = () => {
         {relations?.data?.map(manga => (
           <Link
             className="flex w-32 flex-col items-center sm:w-28"
-            to={`${PATH.MANGA.getTitlePath(manga.id)}?name=${getFirstTitle(manga.attributes?.title)}`}
+            href={`${PATH.MANGA.getTitlePath(manga.id)}?name=${getFirstTitle(manga.attributes?.title)}`}
             key={manga.id}
           >
             <div className="mb-2 h-40 w-32 overflow-hidden sm:h-32 sm:w-28">
               <img
                 className="h-full w-full rounded-md object-cover"
-                src={`${import.meta.env.VITE_IMG_PROXY!}/img/mangadex.org/covers/${manga.id}/${manga?.relationships?.find(obj => obj.type === 'cover_art')?.attributes?.fileName}.256.jpg`}
+                src={`${process.env.NEXT_PUBLIC_VITE_IMG_PROXY}/img/mangadex.org/covers/${manga.id}/${manga?.relationships?.find(obj => obj.type === 'cover_art')?.attributes?.fileName}.256.jpg`}
                 loading="lazy"
                 alt={getFirstTitle(manga.attributes?.title)}
               />

@@ -1,5 +1,5 @@
 import { RefObject, useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useRouter } from 'next/router'
 
 interface CurrentPage {
   page: number
@@ -11,7 +11,8 @@ function usePageTrack(
   totalPages: number,
 ) {
   // const router = useRouter()
-  const { id } = useParams()
+  const router = useRouter()
+  const id = router.query.id as string
   const [currentPage, setCurrentPage] = useState<CurrentPage>({
     page: 1,
     chapterId: id,
@@ -30,8 +31,10 @@ function usePageTrack(
           const imageRef = imageRefs.current[i]
           if (imageRef) {
             const rect = imageRef.getBoundingClientRect()
-            if (rect.top <= window.innerHeight / 2 &&
-              rect.bottom >= window.innerHeight / 2) {
+            if (
+              rect.top <= window.innerHeight / 2 &&
+              rect.bottom >= window.innerHeight / 2
+            ) {
               setCurrentPage(prev => ({ ...prev, page: i + 1 }))
               break
             }

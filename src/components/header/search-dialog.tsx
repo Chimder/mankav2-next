@@ -1,15 +1,15 @@
 // VideoDialog.tsx
 import { useState } from 'react'
+import { useRouter } from 'next/router'
+import { PATH } from '@/shared/constants/path-constants'
 import { cn } from '@/shared/lib/tailwind'
 import { getFirstTitle } from '@/shared/utils/get-first-title'
 import { ReloadIcon } from '@radix-ui/react-icons'
 import dayjs from 'dayjs'
-import { useNavigate } from 'react-router-dom'
 import { useDebounce } from 'use-debounce'
 
 import { mangaApi } from '@/hooks/api/mangadex/manga'
 import { Dialog, DialogContent, DialogTitle } from '@/components/ui/dialog'
-import { PATH } from '@/app/routers/path-constants'
 
 type Props = {
   episodeId?: string
@@ -18,7 +18,9 @@ type Props = {
 }
 
 function SearchDialog({ isOpen, setIsOpen }: Props) {
-  const navigate = useNavigate()
+  const router = useRouter()
+  // const navigate = useNavigate()
+
   const [searchQuery, setSearchQuery] = useState<string>('')
   const [debouncedValue] = useDebounce(searchQuery, 500)
   const { data: searchResults, isFetching } =
@@ -56,7 +58,7 @@ function SearchDialog({ isOpen, setIsOpen }: Props) {
                 <div
                   className="my-1 flex h-full w-full cursor-pointer rounded-sm border-[1px] bg-transparent hover:bg-slate-800"
                   onClick={() => {
-                    navigate(
+                    router.push(
                       `${PATH.MANGA.getTitlePath(manga.id)}?name=${getFirstTitle(manga.attributes?.title)}`,
                     )
                     handleClose()
@@ -67,7 +69,7 @@ function SearchDialog({ isOpen, setIsOpen }: Props) {
                   <div className="min-h-[80px] min-w-[64px]">
                     <img
                       className="object-cover object-center"
-                      src={`${import.meta.env.VITE_IMG_PROXY!}/img/https://mangadex.org/covers/${manga?.id}/${manga?.relationships?.find(obj => obj.type === 'cover_art')?.attributes?.fileName}.256.jpg`}
+                      src={`${process.env.NEXT_PUBLIC_VITE_IMG_PROXY}/img/mangadex.org/covers/${manga?.id}/${manga?.relationships?.find(obj => obj.type === 'cover_art')?.attributes?.fileName}.256.jpg`}
                       width={60}
                       height={80}
                       alt=""
