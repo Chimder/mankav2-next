@@ -13,7 +13,7 @@ export const getStaticPaths = async () => {
   }
 }
 
-export const getServerSideProps: GetServerSideProps = async ({ params }) => {
+export const getStaticProps: GetStaticProps = async ({ params }) => {
   const queryClient = new QueryClient()
 
   const id = params?.id as string
@@ -26,6 +26,10 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
       return res.data
     },
   })
+  //  res.setHeader(
+  //   'Cache-Control',
+  //   's-maxage=0, stale-while-revalidate=604800',
+  // )
   return {
     props: {
       dehydratedState: dehydrate(queryClient),
