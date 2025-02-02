@@ -11,13 +11,13 @@ type Props = {
 }
 
 function VideoList({ video }: Props) {
-  return
   const [isOpen, setIsOpen] = useState(false)
   const [episodeId, setEpisodeId] = useState('')
   const [searchPageQuery, setSearchPageQuery] = useState('')
-  const [highlightedChapter, setHighlightedChapter] = useState<number | null>()
+  const [highlightedChapter, setHighlightedChapter] = useState<number | null>(
+    null,
+  )
   const refEpisodes = useRef<Record<number, HTMLDivElement | null>>({})
-  const isMobileView = useRef(false)
 
   function handleVideoDialog(episodeId: string) {
     setIsOpen(true)
@@ -25,13 +25,7 @@ function VideoList({ video }: Props) {
   }
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      isMobileView.current = window.innerWidth < 768
-    }
-
     function scrollTo(episode: number) {
-      if (isMobileView.current) return
-
       const ref = refEpisodes.current[episode]
       if (!ref) return
 
@@ -45,7 +39,7 @@ function VideoList({ video }: Props) {
     }
 
     if (video?.episodes?.length) {
-      if (searchPageQuery && searchPageQuery !== '') {
+      if (searchPageQuery) {
         scrollTo(Number(searchPageQuery))
       } else if (video.episodes[0]?.number) {
         scrollTo(video.episodes[0].number)
@@ -63,25 +57,24 @@ function VideoList({ video }: Props) {
         className="absolute left-1/2 top-4 z-10 w-[32%] -translate-x-1/2 transform rounded-md border-2 !border-emerald-400 bg-black p-2 text-center text-lg text-white focus-visible:ring-0 md:hidden"
       />
       <div className="flex h-full flex-col">
-        {video.episodes.map(video => (
+        {video.episodes.map(episode => (
           <div
+            key={episode.title}
             className={cn(
               'mx-0 my-1.5 flex min-h-[52px] flex-wrap border border-gray-900 p-1 text-lg hover:border-teal-300',
-              highlightedChapter === video.number && 'border-green-400',
+              highlightedChapter === episode.number && 'border-green-400',
             )}
-            key={video.title}
-            onClick={() => handleVideoDialog(video.episodeId)}
+            onClick={() => handleVideoDialog(episode.episodeId)}
             ref={el => {
-              refEpisodes.current[video.number] = el
+              refEpisodes.current[episode.number] = el
             }}
           >
             <div className="flex items-center">
-              <div>{` ${video.number}. ${video.title}`}</div>
+              <div>{`${episode.number}. ${episode.title}`}</div>
             </div>
           </div>
         ))}
       </div>
-
       <VideoDialog
         episodeId={episodeId}
         setIsOpen={setIsOpen}

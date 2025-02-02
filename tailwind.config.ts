@@ -8,16 +8,28 @@ module.exports = {
   darkMode: ['class'],
   theme: {
     screens: {
-      '2xl': { max: '1535px' },
-      'xl': { max: '1279px' },
-      'lg': { max: '1023px' },
-      'md': { max: '767px' },
-      'sm': { max: '639px' },
-      'xsm': { max: '429px' },
+      '2xl': {
+        max: '1535px',
+      },
+      'xl': {
+        max: '1279px',
+      },
+      'lg': {
+        max: '1023px',
+      },
+      'md': {
+        max: '767px',
+      },
+      'sm': {
+        max: '639px',
+      },
+      'xsm': {
+        max: '429px',
+      },
     },
     extend: {
       borderWidth: {
-        1: '1px',
+        '1': '1px',
       },
       boxShadow: {
         header: '1px 1px 10px #0006',
@@ -63,11 +75,11 @@ module.exports = {
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
         chart: {
-          1: 'hsl(var(--chart-1))',
-          2: 'hsl(var(--chart-2))',
-          3: 'hsl(var(--chart-3))',
-          4: 'hsl(var(--chart-4))',
-          5: 'hsl(var(--chart-5))',
+          '1': 'hsl(var(--chart-1))',
+          '2': 'hsl(var(--chart-2))',
+          '3': 'hsl(var(--chart-3))',
+          '4': 'hsl(var(--chart-4))',
+          '5': 'hsl(var(--chart-5))',
         },
       },
       keyframes: {

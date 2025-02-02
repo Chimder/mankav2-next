@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import Link from 'next/link'
+import { PATH } from '@/shared/constants/path-constants'
 import { getFirstTitle } from '@/shared/utils/get-first-title'
 
 import { aniwatchApi } from '@/hooks/api/aniwatch/anime'
@@ -6,14 +8,11 @@ import { mangaApi } from '@/hooks/api/mangadex/manga'
 import { useFavoriteAnime } from '@/hooks/favorite-toggle/use-favorite-anime'
 import { useFavoriteManga } from '@/hooks/favorite-toggle/use-favorite-manga'
 import { Skeleton } from '@/components/ui/skeleton'
-import { PATH } from '@/shared/constants/path-constants'
-import Link from 'next/link'
 
-export const Favorites = () => {
+const Favorites = () => {
   const [type, setType] = useState<'anime' | 'manga'>('manga')
   const { favorites: favoritesManga } = useFavoriteManga()
   const { favorites: favoritesAnime } = useFavoriteAnime()
-  // console.log('FAVVV', data)
 
   const { data: animesData, isFetching: isFetchingAnime } =
     aniwatchApi.useAnimesInfoByIds({
@@ -109,3 +108,4 @@ export const Favorites = () => {
     </div>
   )
 }
+export default Favorites

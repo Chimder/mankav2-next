@@ -1,4 +1,3 @@
-// VideoDialog.tsx
 import { useState } from 'react'
 import { useRouter } from 'next/router'
 import { PATH } from '@/shared/constants/path-constants'
@@ -19,7 +18,6 @@ type Props = {
 
 function SearchDialog({ isOpen, setIsOpen }: Props) {
   const router = useRouter()
-  // const navigate = useNavigate()
 
   const [searchQuery, setSearchQuery] = useState<string>('')
   const [debouncedValue] = useDebounce(searchQuery, 500)

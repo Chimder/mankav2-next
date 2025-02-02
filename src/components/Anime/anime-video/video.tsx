@@ -13,10 +13,10 @@ function AnimeVideo() {
 
   return (
     <div className="filterBar h-full overflow-y-scroll bg-primary pb-6">
-      {/* <VideoList
+      <VideoList
         key={`${videoList?.data?.totalEpisodes}${id}`}
         video={videoList?.data}
-      /> */}
+      />
     </div>
   )
 }
