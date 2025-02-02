@@ -9,7 +9,6 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion'
-import { Button } from '@/components/ui/button'
 
 import { Separator } from '../../ui/separator'
 import AccordionSection from './accordion'
@@ -60,9 +59,9 @@ export const FilterMangaBar = () => {
             value="item-1"
           >
             <AccordionTrigger className="p-1">
-              <Button className="w-full" variant={'ghost'}>
+              <button className="w-full p-2" >
                 Open Advanced Filter
-              </Button>
+              </button>
             </AccordionTrigger>
             <AccordionContent>
               <div className="bg-black mt-2">

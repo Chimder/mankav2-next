@@ -15,6 +15,7 @@ type Props = {
 const CardsList = ({ mangas, isFetching }: Props) => {
   const cardView = useCardSwitcherStore().type
 
+  console.log('MANGAAAAA,', mangas)
   return (
     <div className="h-full">
       <ul className={cn(cardView)}>

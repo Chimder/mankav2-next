@@ -52,8 +52,6 @@ export const PaginationButtons = ({
   }
 
   const pages = getPageNumbers()
-  console.log('CURSSS', pages)
-  console.log('CURSS2222S', pages[0] == currentPage)
 
   return (
     <div className="center mt-4 p-2">
