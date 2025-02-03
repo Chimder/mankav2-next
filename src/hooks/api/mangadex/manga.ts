@@ -7,7 +7,12 @@ import {
   GetSearchMangaStatusItem,
 } from '@/shared/api/mangadex/generated'
 import { OffsetFilter } from '@/shared/constants/filters'
-import { keepPreviousData, queryOptions, useQuery, useSuspenseQuery } from '@tanstack/react-query'
+import {
+  keepPreviousData,
+  queryOptions,
+  useQuery,
+  useSuspenseQuery,
+} from '@tanstack/react-query'
 
 export type mangaSearchOps = {
   tags?: string[]
@@ -205,20 +210,4 @@ export const mangaApi = {
       refetchOnMount: false,
     })
   },
-
-  // getTodoListInfinityQueryOptions: () => {
-  //   return infiniteQueryOptions({
-  //     queryKey: [todoListApi.baseKey, 'list'],
-  //     queryFn: meta =>
-  //       jsonApiInstance<PaginatedResult<TodoDto>>(
-  //         `/tasks?_page=${meta.pageParam}&_per_page=10`,
-  //         {
-  //           signal: meta.signal,
-  //         },
-  //       ),
-  //     initialPageParam: 1,
-  //     getNextPageParam: result => result.next,
-  //     select: result => result.pages.flatMap(page => page.data),
-  //   })
-  // },
 }

@@ -9,11 +9,14 @@
     "postbuild": "next-sitemap",
     "lint": "next lint",
     "analyze": "ANALYZE=true next build",
+    "test": "vitest",
+    "test:ui": "vitest --ui",
     "swagger": "curl -o ./src/shared/api/mangadex/swagger.yaml https://api.mangadex.org/docs/static/api.yaml",
     "swagger2": "curl -o ./src/shared/api/jikan/swagger.yaml https://raw.githubusercontent.com/jikan-me/jikan-rest/master/storage/api-docs/api-docs.json",
     "orval": "orval"
   },
   "dependencies": {
+    "@anatine/zod-openapi": "^2.2.7",
     "@ianvs/prettier-plugin-sort-imports": "^4.4.0",
     "@next/bundle-analyzer": "^15.1.3",
     "@radix-ui/react-accordion": "^1.2.2",
@@ -46,8 +49,10 @@
     "react-dom": "19.0.0",
     "tailwind-merge": "^2.6.0",
     "tailwindcss-animate": "^1.0.7",
+    "ts-json-schema-generator": "^2.3.0",
     "use-debounce": "^10.0.4",
     "zod": "^3.24.1",
+    "zod-to-ts": "^1.2.0",
     "zustand": "^5.0.2"
   },
   "devDependencies": {
@@ -56,13 +61,19 @@
     "@eslint/js": "^9.17.0",
     "@tanstack/eslint-plugin-query": "^5.62.9",
     "@tanstack/react-query-devtools": "^5.62.7",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.2.0",
+    "@types/jsdom": "^21.1.7",
     "@types/node": "^22.10.5",
     "@types/react": "^19.0.2",
     "@types/react-dom": "^19.0.2",
     "@typescript-eslint/eslint-plugin": "^8.19.0",
     "@typescript-eslint/parser": "^8.19.0",
+    "@vitejs/plugin-react": "^4.3.4",
+    "@vitest/ui": "3.0.5",
     "autoprefixer": "^10.4.20",
     "cssnano": "^7.0.6",
+    "dotenv": "^16.4.7",
     "eslint": "8.57.1",
     "eslint-config-next": "15.1.3",
     "eslint-config-prettier": "^9.1.0",
@@ -72,6 +83,7 @@
     "eslint-plugin-react-compiler": "19.0.0-beta-37ed2a7-20241206",
     "eslint-plugin-react-hooks": "^5.1.0",
     "eslint-plugin-react-refresh": "^0.4.16",
+    "jsdom": "^26.0.0",
     "postcss": "^8.4.49",
     "postcss-custom-media": "^11.0.5",
     "postcss-import": "^16.1.0",
@@ -88,7 +100,9 @@
     "stylelint-scss": "^6.10.0",
     "stylelint-use-nesting": "^6.0.0",
     "tailwindcss": "^3.4.17",
+    "ts-to-zod": "^3.15.0",
     "typescript": "^5.7.2",
-    "typescript-eslint": "^8.19.0"
+    "typescript-eslint": "^8.19.0",
+    "vitest": "^3.0.5"
   }
 }
