@@ -2,6 +2,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { Source, Track } from '@/hooks/api/aniwatch/types'
 import Hls from 'hls.js'
+import { useEffectEvent } from '@/hooks/use-effect-event'
 
 interface VideoPlayerProps {
   sources?: Source[]
@@ -111,7 +112,7 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({
       >
         {captionTracks?.map((track, index) => (
           <track
-          className=''
+            className=''
             key={track.file}
             kind={track.kind}
             label={track.label}
