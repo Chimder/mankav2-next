@@ -11,14 +11,6 @@ module.exports = {
       },
     },
   },
-  mangadexZod: {
-    input: './src/shared/api/mangadex/swagger.yaml',
-    output: {
-      client: 'zod',
-      mode: 'single',
-      target: './src/shared/api/mangadex/zod/generated.ts',
-    },
-  },
   jikan: {
     input:
       'https://raw.githubusercontent.com/jikan-me/jikan-rest/master/storage/api-docs/api-docs.json',
