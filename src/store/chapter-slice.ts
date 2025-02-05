@@ -12,7 +12,7 @@ export type chapterAction = Chapter & {
 }
 
 export const chapterStore = create<chapterAction>()(
-  immer((set, get) => ({
+  immer((set) => ({
     chaptersLanguage: undefined,
     setChapterLanguage: text => {
       set(state => {

@@ -7,7 +7,7 @@ import {
   GetSearchMangaStatusItem,
 } from '@/shared/api/mangadex/generated'
 import { OffsetFilter } from '@/shared/constants/filters'
-import { keepPreviousData, QueryKey, useQuery } from '@tanstack/react-query'
+import { keepPreviousData, useQuery } from '@tanstack/react-query'
 
 export type mangaSearchOps = {
   tags?: string[]

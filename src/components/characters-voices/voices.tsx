@@ -6,8 +6,7 @@ import dayjs from 'dayjs'
 
 import DialogAnime from './dialog-anime'
 
-// import DialogAnime from './dialog-anime'
-// const DialogAnime = lazy(() => import('./dialog-anime'))
+
 
 type Props = {
   voices: PersonFull

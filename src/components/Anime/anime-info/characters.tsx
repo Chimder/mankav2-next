@@ -10,10 +10,8 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion'
 
-// import DialogCharactersPeople from '@/components/characters-voices/dialog'
-const DialogCharactersPeople = lazy(
-  () => import('@/components/characters-voices/dialog'),
-)
+import DialogCharactersPeople from '@/components/characters-voices/dialog'
+
 
 type Props = {
   id?: number

@@ -2,7 +2,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { Source, Track } from '@/hooks/api/aniwatch/types'
 import Hls from 'hls.js'
-import { useEffectEvent } from '@/hooks/use-effect-event'
 
 interface VideoPlayerProps {
   sources?: Source[]
