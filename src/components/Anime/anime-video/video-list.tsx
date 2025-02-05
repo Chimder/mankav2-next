@@ -5,6 +5,7 @@ import { AnimeVideoData } from '@/hooks/api/aniwatch/types'
 import { Input } from '@/components/ui/input'
 
 import VideoDialog from './video-dialog'
+import { useMediaQuery } from '@/hooks/use-media-query'
 
 type Props = {
   video?: AnimeVideoData
@@ -19,12 +20,16 @@ function VideoList({ video }: Props) {
   )
   const refEpisodes = useRef<Record<number, HTMLDivElement | null>>({})
 
+  const isMobile = useMediaQuery('(max-width: 768px)')
+  console.log("ISS", isMobile)
   function handleVideoDialog(episodeId: string) {
     setIsOpen(true)
     setEpisodeId(episodeId)
   }
 
   useEffect(() => {
+    if (isMobile) return
+    // if (typeof window === 'undefined' || isMobile) return
     function scrollTo(episode: number) {
       const ref = refEpisodes.current[episode]
       if (!ref) return

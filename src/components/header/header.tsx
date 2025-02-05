@@ -5,6 +5,7 @@ import { PATH } from '@/shared/constants/path-constants'
 
 
 import SearchDialog from './search-dialog'
+import { Heart, Search } from 'lucide-react'
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false)
@@ -41,7 +42,7 @@ export default function Header() {
               onClick={() => setIsOpen(true)}
               className="mr-10 h-8 w-8 text-blue-400 transition-transform duration-300 hover:scale-125"
             >
-              <Icons.Search />
+              <Search />
             </div>
 
             <SearchDialog isOpen={isOpen} setIsOpen={setIsOpen} />
@@ -51,7 +52,7 @@ export default function Header() {
               className="mr-10 flex justify-end text-red-500"
             >
               <div className="h-8 w-8 transition-transform duration-300 hover:scale-125 hover:text-red-600">
-                <Icons.Heart />
+                <Heart />
               </div>
             </Link>
           </div>

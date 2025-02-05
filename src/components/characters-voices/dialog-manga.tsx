@@ -5,8 +5,8 @@ import { getFirstTitle } from '@/shared/utils/get-first-title'
 
 import { mangaApi } from '@/hooks/api/mangadex/manga'
 
-import { getMangaImg } from '../Manga/title-info/info'
 import { Dialog, DialogContent } from '../ui/dialog'
+import { getMangaImg } from '@/shared/utils/get-manga-img'
 
 type Props = {
   name: string
@@ -30,7 +30,7 @@ export default function DialogManga({
   if (!data) return null
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
-      <DialogContent className="h-[310px] w-full max-w-[900px]">
+      <DialogContent className="h-[310px] w-full max-w-[900px] border-primary bg-black text-white">
         {/* <DialogTitle></DialogTitle> */}
         {/* <h1 className="center flex text-xl">Available Manga</h1> */}
         <div className="center flex justify-evenly">

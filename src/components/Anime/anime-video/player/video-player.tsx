@@ -111,7 +111,7 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({
       >
         {captionTracks?.map((track, index) => (
           <track
-          className=''
+            className=''
             key={track.file}
             kind={track.kind}
             label={track.label}
